@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munch", "Munch\Munch.csproj", "{B5E3B443-F62A-4209-A5B2-447251F9453A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.Droid", "..\..\..\..\Documents\Visual Studio 2015\Projects\test\test\test.Droid\test.Droid.csproj", "{3BD332F0-662E-4B6B-9A3D-9CA2010328B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munch.Droid", "Munch.Droid\Munch.Droid.csproj", "{3BD332F0-662E-4B6B-9A3D-9CA2010328B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
