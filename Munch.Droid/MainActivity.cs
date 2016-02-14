@@ -7,12 +7,11 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace test.Droid
+namespace Munch.Droid
 {
-	[Activity (Label = "test.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "Munch.Droid", MainLauncher = true, Icon = "@drawable/ic_launcher")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -23,10 +22,10 @@ namespace test.Droid
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			Button ResturantLayout = FindViewById<Button> (Resource.Id.button1);
+			Button EditMenu = FindViewById<Button> (Resource.Id.button2);
 
-            ResturantLayout.Click += delegate {
-                StartActivity(typeof(restaurantlayoutActivity1));
+            EditMenu.Click += delegate {
+                StartActivity(typeof(EditMenu));
 			};
 		}
 	}

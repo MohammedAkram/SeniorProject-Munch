@@ -23,9 +23,16 @@ namespace test.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Restauantlayout1);
             // Create your application here
+<<<<<<< HEAD
+            imageButton1 = (ImageView)FindViewById(Resource.Id.imageButton1);
+             imageButton1.SetOnTouchListener(this);
+             
+
+=======
             /* imageButton1 = (ImageView)FindViewById(Resource.Id.imageButton1);
              imageButton1.SetOnTouchListener(this);
              */
+>>>>>>> parent of fd90158... Renaming stuff
             //createButtonsAndAddListener();
         }
         /*
