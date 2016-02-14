@@ -44,16 +44,19 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditMenu.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="restaurantlayoutActivity1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\simple_fragment.axml">
+    <AndroidResource Include="Resources\layout\Menu_ActionBar.axml" />
+    <AndroidResource Include="Resources\layout\Menu.axml" />
+    <AndroidResource Include="Resources\layout\Restauantlayout1.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

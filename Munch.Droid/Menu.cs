@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace test.Droid
+namespace Munch.Droid
 {
     [Activity(Label = "Menu")]
     public class Menu : Activity
@@ -24,9 +24,7 @@ namespace test.Droid
             ActionBar.SetCustomView(Resource.Layout.Menu_ActionBar);
             ActionBar.SetDisplayShowCustomEnabled(true);
             
-
         }
 
-        }
     }
-
+}

@@ -10,29 +10,23 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace test.Droid
+namespace Munch.Droid
 {
     [Activity(Label = "restaurantlayoutActivity1")]
     public class restaurantlayoutActivity1 : Activity, View.IOnTouchListener
     {
         ImageView imageButton1;
         override
-        
 
-        protected  void OnCreate(Bundle savedInstanceState) {
+
+        protected void OnCreate(Bundle savedInstanceState)
+        {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Restauantlayout1);
             // Create your application here
-<<<<<<< HEAD
-            imageButton1 = (ImageView)FindViewById(Resource.Id.imageButton1);
-             imageButton1.SetOnTouchListener(this);
-             
-
-=======
             /* imageButton1 = (ImageView)FindViewById(Resource.Id.imageButton1);
              imageButton1.SetOnTouchListener(this);
              */
->>>>>>> parent of fd90158... Renaming stuff
             //createButtonsAndAddListener();
         }
         /*
@@ -50,27 +44,22 @@ namespace test.Droid
                 imageButton.setLayoutParams(par);
                 allImageButtons[i] = imageButton;
                 allImageButtons[i].setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View arg0)
         {
-
             Toast.makeText(AllbuttonimagesForSelectionActivity.this,
                     "ImageButton is clicked!", Toast.LENGTH_SHORT)
                     .show();
-
         }
-
-
     });
     
     }
         }*/
         float x, y = 0f;
-        Boolean moving=false;
+        Boolean moving = false;
         public bool OnTouch(View v, MotionEvent e)
         {
-           
+
             switch (e.Action)
             {
                 case MotionEventActions.Down:
@@ -80,7 +69,7 @@ namespace test.Droid
                     if (moving)
                     {
                         x = e.RawX - imageButton1.Width / 2;
-                        y = e.RawY - imageButton1.Width ;
+                        y = e.RawY - imageButton1.Width;
                         imageButton1.SetX(x);
                         imageButton1.SetY(y);
                     }
