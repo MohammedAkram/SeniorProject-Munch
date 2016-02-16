@@ -2,6 +2,10 @@ test.Droid.Activity2, test.Droid;md52d092a3298bfdf816f326cc672685199.Activity2
 test.Droid.Activity2, test.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52d092a3298bfdf816f326cc672685199.Activity2
 test.Droid.Activity2;md52d092a3298bfdf816f326cc672685199.Activity2
 test.droid.Activity2;md52d092a3298bfdf816f326cc672685199.Activity2
+test.Droid.editmenuActivity1, test.Droid;md52d092a3298bfdf816f326cc672685199.editmenuActivity1
+test.Droid.editmenuActivity1, test.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52d092a3298bfdf816f326cc672685199.editmenuActivity1
+test.Droid.editmenuActivity1;md52d092a3298bfdf816f326cc672685199.editmenuActivity1
+test.droid.editmenuActivity1;md52d092a3298bfdf816f326cc672685199.editmenuActivity1
 test.Droid.restaurantlayoutActivity1, test.Droid;md52d092a3298bfdf816f326cc672685199.restaurantlayoutActivity1
 test.Droid.restaurantlayoutActivity1, test.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52d092a3298bfdf816f326cc672685199.restaurantlayoutActivity1
 test.Droid.restaurantlayoutActivity1;md52d092a3298bfdf816f326cc672685199.restaurantlayoutActivity1
