@@ -45,34 +45,7 @@ namespace Munch.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int ic_action_my_schedule = 2130837504;
-			
-			// aapt resource value: 0x7f020001
-			public const int ic_action_sessions = 2130837505;
-			
-			// aapt resource value: 0x7f020002
-			public const int ic_action_speakers = 2130837506;
-			
-			// aapt resource value: 0x7f020003
-			public const int ic_action_whats_on = 2130837507;
-			
-			// aapt resource value: 0x7f020004
-			public const int ic_launcher = 2130837508;
-			
-			// aapt resource value: 0x7f020005
-			public const int ic_tab_my_schedule = 2130837509;
-			
-			// aapt resource value: 0x7f020006
-			public const int ic_tab_sessions = 2130837510;
-			
-			// aapt resource value: 0x7f020007
-			public const int ic_tab_speakers = 2130837511;
-			
-			// aapt resource value: 0x7f020008
-			public const int ic_tab_whats_on = 2130837512;
-			
-			// aapt resource value: 0x7f020009
-			public const int Icon = 2130837513;
+			public const int Icon = 2130837504;
 			
 			static Drawable()
 			{
@@ -93,47 +66,41 @@ namespace Munch.Droid
 			// aapt resource value: 0x7f050001
 			public const int button2 = 2131034113;
 			
-			// aapt resource value: 0x7f050002
-			public const int button3 = 2131034114;
-			
-			// aapt resource value: 0x7f050004
-			public const int imageView1 = 2131034116;
-			
-			// aapt resource value: 0x7f050007
-			public const int imageView2 = 2131034119;
-			
-			// aapt resource value: 0x7f05000a
-			public const int imageView3 = 2131034122;
-			
-			// aapt resource value: 0x7f05000d
-			public const int imageView4 = 2131034125;
-			
 			// aapt resource value: 0x7f050003
-			public const int linearLayout1 = 2131034115;
+			public const int imageView1 = 2131034115;
 			
 			// aapt resource value: 0x7f050006
-			public const int linearLayout2 = 2131034118;
+			public const int imageView2 = 2131034118;
 			
 			// aapt resource value: 0x7f050009
-			public const int linearLayout3 = 2131034121;
+			public const int imageView3 = 2131034121;
 			
 			// aapt resource value: 0x7f05000c
-			public const int linearLayout4 = 2131034124;
+			public const int imageView4 = 2131034124;
 			
-			// aapt resource value: 0x7f05000f
-			public const int table = 2131034127;
+			// aapt resource value: 0x7f050002
+			public const int linearLayout1 = 2131034114;
 			
 			// aapt resource value: 0x7f050005
-			public const int textView1 = 2131034117;
+			public const int linearLayout2 = 2131034117;
 			
 			// aapt resource value: 0x7f050008
-			public const int textView2 = 2131034120;
+			public const int linearLayout3 = 2131034120;
 			
 			// aapt resource value: 0x7f05000b
-			public const int textView3 = 2131034123;
+			public const int linearLayout4 = 2131034123;
 			
-			// aapt resource value: 0x7f05000e
-			public const int textView4 = 2131034126;
+			// aapt resource value: 0x7f050004
+			public const int textView1 = 2131034116;
+			
+			// aapt resource value: 0x7f050007
+			public const int textView2 = 2131034119;
+			
+			// aapt resource value: 0x7f05000a
+			public const int textView3 = 2131034122;
+			
+			// aapt resource value: 0x7f05000d
+			public const int textView4 = 2131034125;
 			
 			static Id()
 			{
@@ -157,9 +124,6 @@ namespace Munch.Droid
 			// aapt resource value: 0x7f030002
 			public const int Menu_ActionBar = 2130903042;
 			
-			// aapt resource value: 0x7f030003
-			public const int Restauantlayout1 = 2130903043;
-			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -173,20 +137,8 @@ namespace Munch.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
-			
 			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
-			
-			// aapt resource value: 0x7f040004
-			public const int sessions_tab_label = 2130968580;
-			
-			// aapt resource value: 0x7f040003
-			public const int speakers_tab_label = 2130968579;
-			
-			// aapt resource value: 0x7f040002
-			public const int whatson_tab_label = 2130968578;
+			public const int app_name = 2130968576;
 			
 			static String()
 			{

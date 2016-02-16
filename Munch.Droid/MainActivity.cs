@@ -27,17 +27,21 @@ namespace Munch.Droid
             // and attach an event to it
 
 
-            ActionBar.SetDisplayShowTitleEnabled(false);
-            Button ResturantLayout = FindViewById<Button>(Resource.Id.button1);
+            //ActionBar.SetDisplayShowTitleEnabled(false);
+            
+            Button Menu = FindViewById<Button>(Resource.Id.button1);
 
-            ResturantLayout.Click += delegate {
-                StartActivity(typeof(restaurantlayoutActivity1));
-            };
-            Button MenuC = FindViewById<Button>(Resource.Id.button2);
-
-            MenuC.Click += delegate {
+            Menu.Click += delegate
+            {
                 StartActivity(typeof(Menu));
             };
+            Button DBconnect = FindViewById<Button>(Resource.Id.button2);
+       
+
+            Menu.Click += delegate
+            {
+                StartActivity(typeof(DBconnect));
+            }; 
         }
     }
 }
