@@ -34,14 +34,13 @@ namespace Munch
             login.Click += delegate
             {
 
-                // username check
 
-
-                //TODO Boolean symbolCheck = regex.IsMatch(userName.Text);
                 //To Prevent SQLINJECT
+                //string pattern = @"^\w+$";
+                //prevents special characters being used
                 //Example SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts =  ''or 1 =1; drop table security;--';--'&& Password = 'somepassword';
                 //This will drop the table security
-                
+
 
                 string pattern = @"^\w+$";
                 Regex regex = new Regex(pattern);
@@ -64,9 +63,7 @@ namespace Munch
                     {
                         String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + userName.Text + "'; ";
                         MySqlCommand sqlcmdLevel = new MySqlCommand(queryLevel, conn);
-                        //This will crash app if login and pass is wrong
                         String userLevelResult = sqlcmdLevel.ExecuteScalar().ToString();
-                        //Because its returning nothing
 
                         Console.WriteLine("User Level = " + userLevelResult);
 
