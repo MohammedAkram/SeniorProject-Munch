@@ -23,7 +23,7 @@ namespace Munch
 
             // Create your application here
             SetContentView(Resource.Layout.LoginScreen);
-            
+
 
             EditText userName = FindViewById<EditText>(Resource.Id.userName);
             EditText passWord = FindViewById<EditText>(Resource.Id.password);
@@ -35,8 +35,7 @@ namespace Munch
 
                 // username check
 
-               
-
+              
 
                 string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
                 MySqlConnection conn = new MySqlConnection(contString);
@@ -45,28 +44,39 @@ namespace Munch
                 MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
                 String userNameResult = sqlcmd.ExecuteScalar().ToString();
                 Console.WriteLine(userNameResult);
+                String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + userName.Text + "'; ";
+                MySqlCommand sqlcmdLevel = new MySqlCommand(queryString, conn);
+                String userLevelResult = sqlcmd.ExecuteScalar().ToString();
+                int level = Convert.ToInt32(userLevelResult);
                 Console.ReadLine();
 
                 conn.Close();
 
-                if(userNameResult.Equals("true") )
+                if (userNameResult.Equals("true"))
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                    StartActivity(typeof(Menu));
+                    if(level == 0)
+                    {
+                        StartActivity(typeof(AdminPortal));
+                    }
+                    else
+                    {
+                        StartActivity(typeof(Menu));
+                    }
                 }
 
                 else
                 {
                     Android.Widget.Toast.MakeText(this, "Login Failed", Android.Widget.ToastLength.Short).Show();
                 }
-                
+
             };
 
 
 
-            
 
-            
+
+
         }
     }
 }
