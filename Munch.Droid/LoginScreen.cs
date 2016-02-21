@@ -14,7 +14,7 @@ using MySql.Data.MySqlClient;
 
 namespace Munch
 {
-    [Activity(Label = "LoginScreen", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
+    [Activity(Label = "Munch", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
     public class LoginScreen : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -43,14 +43,14 @@ namespace Munch
                 string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts = '" + userName.Text + "' && Password = '" + passWord.Text + "';";
                 MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
                 String userNameResult = sqlcmd.ExecuteScalar().ToString();
-                Console.WriteLine(userNameResult);
+                Console.WriteLine("Login Sucess = " + userNameResult);
                 String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + userName.Text + "'; ";
-                MySqlCommand sqlcmdLevel = new MySqlCommand(queryString, conn);
-                String userLevelResult = sqlcmd.ExecuteScalar().ToString();
-                int level = Convert.ToInt32(userLevelResult);
+                MySqlCommand sqlcmdLevel = new MySqlCommand(queryLevel, conn);
+                String userLevelResult = sqlcmdLevel.ExecuteScalar().ToString();
+                Console.WriteLine("User Level = " + userLevelResult);
                 Console.ReadLine();
-
                 conn.Close();
+                int level = Convert.ToInt32(userLevelResult);
 
                 if (userNameResult.Equals("true"))
                 {
