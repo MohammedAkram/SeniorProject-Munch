@@ -11,20 +11,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/linearLayout1"
-        android:background="@android:color/holo_orange_dark"
-        android:padding="0dp">
+        android:background="@drawable/selector"
+        android:padding="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:onClick="onClick">
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView1" />
+            android:id="@+id/imageView1"
+            android:clickable="false" />
         <TextView
             android:text="Starters"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView1"
             android:textAlignment="gravity"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:clickable="false" />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -33,20 +39,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/linearLayout2"
-        android:background="@android:color/holo_red_light"
-        android:padding="0dp">
+        android:background="@drawable/selector"
+        android:padding="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onClick"
+        android:focusableInTouchMode="true">
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView2" />
+            android:id="@+id/imageView2"
+            android:clickable="false" />
         <TextView
             android:text="Main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
             android:textAlignment="center"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:clickable="false" />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -55,20 +67,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/linearLayout3"
-        android:background="@android:color/darker_gray"
-        android:padding="0dp">
+        android:background="@drawable/selector"
+        android:padding="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:onClick="onClick">
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView3" />
+            android:id="@+id/imageView3"
+            android:clickable="false" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
             android:text="Lunch"
             android:textAlignment="center"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:clickable="false" />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -77,19 +95,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/linearLayout4"
-        android:background="@android:color/holo_blue_dark"
-        android:padding="0dp">
+        android:background="@drawable/selector"
+        android:padding="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:onClick="onClick">
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView4" />
+            android:id="@+id/imageView4"
+            android:clickable="false" />
         <TextView
             android:text="Drinks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
             android:textAlignment="center"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:clickable="false" />
     </LinearLayout>
 </LinearLayout>
