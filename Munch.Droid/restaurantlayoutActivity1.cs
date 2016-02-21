@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace test.Droid
+namespace Munch
 {
     [Activity(Label = "restaurantlayoutActivity1")]
     public class restaurantlayoutActivity1 : Activity, View.IOnTouchListener
@@ -23,9 +23,10 @@ namespace test.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Restauantlayout1);
             // Create your application here
-            /* imageButton1 = (ImageView)FindViewById(Resource.Id.imageButton1);
-             imageButton1.SetOnTouchListener(this);
-             */
+            imageButton1 = (ImageView)FindViewById(Resource.Id.imageButton1);
+            imageButton1.SetOnTouchListener(this);
+             
+
             //createButtonsAndAddListener();
         }
         /*
