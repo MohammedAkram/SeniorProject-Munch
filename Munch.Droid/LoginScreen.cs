@@ -34,27 +34,22 @@ namespace Munch
             {
 
                 // username check
+
+               
+
+
                 string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
                 MySqlConnection conn = new MySqlConnection(contString);
                 conn.Open();
-                string queryString = "SELECT   IF(COUNT(*) > 0, 'true', 'false') as Status FROM  Accounts WHERE   idAccounts = '" + userName.Text + "' ;";
+                string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts = '" + userName.Text + "' && Password = '" + passWord.Text + "';";
                 MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
                 String userNameResult = sqlcmd.ExecuteScalar().ToString();
                 Console.WriteLine(userNameResult);
                 Console.ReadLine();
 
-
-                //password check
-
-                string queryPassWord = "SELECT   IF(COUNT(*) > 0, 'true', 'false') as Status FROM  Accounts WHERE   Password = '" + passWord.Text + "' ;";
-                sqlcmd = new MySqlCommand(queryString, conn);
-                String passWordResult = sqlcmd.ExecuteScalar().ToString();
-                Console.WriteLine(passWordResult);
-                Console.ReadLine();
-
                 conn.Close();
 
-                if(userNameResult.Equals("true") && passWordResult.Equals("true"))
+                if(userNameResult.Equals("true") )
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
                     StartActivity(typeof(Menu));
