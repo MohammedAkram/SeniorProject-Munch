@@ -45,50 +45,61 @@ namespace Munch
 
                 string pattern = @"^\w+$";
                 Regex regex = new Regex(pattern);
-                Boolean symbolCheck = regex.IsMatch(userName.Text);
-                Console.WriteLine("Symbol Check = " + symbolCheck);
-                string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
-                MySqlConnection conn = new MySqlConnection(contString);
-                conn.Open();
-                string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts = '" + userName.Text + "' && Password = '" + passWord.Text + "';";
-                MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
-                String userNameResult = sqlcmd.ExecuteScalar().ToString();
-                Console.WriteLine("Login Sucess = " + userNameResult);
+                Boolean IdSymbolCheck = regex.IsMatch(userName.Text);
+                Boolean PassSymbolCheck = regex.IsMatch(passWord.Text);
+                Console.WriteLine("Symbol Check for Id = " + IdSymbolCheck);
+                Console.WriteLine("Symbol Check for Password = " + PassSymbolCheck);
 
-
-                String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + userName.Text + "'; ";
-                MySqlCommand sqlcmdLevel = new MySqlCommand(queryLevel, conn);
-                //This will crash app if login and pass is wrong
-                String userLevelResult = sqlcmdLevel.ExecuteScalar().ToString();
-                //Because its returning nothing
-
-                Console.WriteLine("User Level = " + userLevelResult);
-
-                conn.Close();
-
-                int level = Convert.ToInt32(userLevelResult);
-
-                Console.ReadLine();
-                
-                
-
-                if (userNameResult.Equals("true"))
+                if(IdSymbolCheck && PassSymbolCheck == true)
                 {
-                    Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                    if(level == 0)
+                    string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
+                    MySqlConnection conn = new MySqlConnection(contString);
+                    conn.Open();
+                    string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts = '" + userName.Text + "' && Password = '" + passWord.Text + "';";
+                    MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
+                    String userNameResult = sqlcmd.ExecuteScalar().ToString();
+                    Console.WriteLine("Login Sucess = " + userNameResult);
+
+                    if (userNameResult.Equals("true"))
                     {
-                        StartActivity(typeof(AdminPortal));
+                        String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + userName.Text + "'; ";
+                        MySqlCommand sqlcmdLevel = new MySqlCommand(queryLevel, conn);
+                        //This will crash app if login and pass is wrong
+                        String userLevelResult = sqlcmdLevel.ExecuteScalar().ToString();
+                        //Because its returning nothing
+
+                        Console.WriteLine("User Level = " + userLevelResult);
+
+                        conn.Close();
+
+                        int level = Convert.ToInt32(userLevelResult);
+
+                        Console.ReadLine();
+
+                        Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
+                        if (level == 0)
+                        {
+                            StartActivity(typeof(AdminPortal));
+                        }
+                        else
+                        {
+                            StartActivity(typeof(Menu));
+                        }
+
                     }
+
+
                     else
                     {
-                        StartActivity(typeof(Menu));
+                        conn.Close();
+                        Android.Widget.Toast.MakeText(this, "Login Failed", Android.Widget.ToastLength.Short).Show();
                     }
                 }
-
                 else
                 {
-                    Android.Widget.Toast.MakeText(this, "Login Failed", Android.Widget.ToastLength.Short).Show();
+                    Android.Widget.Toast.MakeText(this, "Cannot use special characters", Android.Widget.ToastLength.Short).Show();
                 }
+                
 
             };
         }
