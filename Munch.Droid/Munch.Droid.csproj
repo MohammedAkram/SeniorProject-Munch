@@ -48,10 +48,10 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPortal.cs" />
     <Compile Include="LoginScreen.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuTabActivity1.cs" />
-    <Compile Include="restaurantlayoutActivity1.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +85,7 @@
     <AndroidResource Include="Resources\layout\LoginScreen.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\AdminPortal.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
