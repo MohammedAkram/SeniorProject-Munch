@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MySql.Data.MySqlClient;
+
 
 namespace Munch
 {
@@ -23,20 +23,7 @@ namespace Munch
 
             // Create your application here
 
-            string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
-            MySqlConnection conn = new MySqlConnection(contString);
-            conn.Open();
-
-
-
-            string queryString = "SELECT Breakfast FROM Menu";
-            MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
-            TextView tabtext1 = FindViewById<TextView>(Resource.Id.textView1);
-            String result = sqlcmd.ExecuteScalar().ToString();
-            Console.WriteLine(result);
-            Console.ReadLine();
-            //tabtext1.Text = (result);
-            conn.Close();
+            
 
 
         }

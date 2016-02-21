@@ -22,7 +22,7 @@
             android:layout_height="45dp"
             android:padding="5dp"
             android:background="@android:color/white"
-            android:text="Username" />
+            android:hint="Username" />
         <View
             android:layout_width="fill_parent"
             android:layout_height="2dp"
@@ -35,7 +35,8 @@
             android:layout_marginTop="5dp"
             android:background="@android:color/white"
             android:inputType="textPassword"
-            android:password="true" />
+            android:password="true"
+            android:hint="Password" />
         <Button
             android:id="@+id/login"
             android:layout_width="fill_parent"

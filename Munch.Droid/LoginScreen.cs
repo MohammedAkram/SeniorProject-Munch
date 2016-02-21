@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MySql.Data.MySqlClient;
 
 namespace Munch
 {
@@ -22,10 +23,55 @@ namespace Munch
 
             // Create your application here
             SetContentView(Resource.Layout.LoginScreen);
+            
+
+            EditText userName = FindViewById<EditText>(Resource.Id.userName);
+            EditText passWord = FindViewById<EditText>(Resource.Id.password);
+
             Button login = FindViewById<Button>(Resource.Id.login);
 
-            login.Click += (object sender, EventArgs e) =>
-                Android.Widget.Toast.MakeText(this, "Login Button Clicked!", Android.Widget.ToastLength.Short).Show();
+            login.Click += delegate
+            {
+
+                // username check
+                string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
+                MySqlConnection conn = new MySqlConnection(contString);
+                conn.Open();
+                string queryString = "SELECT   IF(COUNT(*) > 0, 'true', 'false') as Status FROM  Accounts WHERE   idAccounts = '" + userName.Text + "' ;";
+                MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
+                String userNameResult = sqlcmd.ExecuteScalar().ToString();
+                Console.WriteLine(userNameResult);
+                Console.ReadLine();
+
+
+                //password check
+
+                string queryPassWord = "SELECT   IF(COUNT(*) > 0, 'true', 'false') as Status FROM  Accounts WHERE   Password = '" + passWord.Text + "' ;";
+                sqlcmd = new MySqlCommand(queryString, conn);
+                String passWordResult = sqlcmd.ExecuteScalar().ToString();
+                Console.WriteLine(passWordResult);
+                Console.ReadLine();
+
+                conn.Close();
+
+                if(userNameResult.Equals("true") && passWordResult.Equals("true"))
+                {
+                    Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
+                    StartActivity(typeof(Menu));
+                }
+
+                else
+                {
+                    Android.Widget.Toast.MakeText(this, "Login Failed", Android.Widget.ToastLength.Short).Show();
+                }
+                
+            };
+
+
+
+            
+
+            
         }
     }
 }
