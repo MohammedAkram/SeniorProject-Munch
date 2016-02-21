@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace Munch
 {
@@ -35,8 +36,17 @@ namespace Munch
 
                 // username check
 
-              
 
+                //TODO Boolean symbolCheck = regex.IsMatch(userName.Text);
+                //To Prevent SQLINJECT
+                //Example SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts =  ''or 1 =1; drop table security;--';--'&& Password = 'somepassword';
+                //This will drop the table security
+                
+
+                string pattern = @"^\w+$";
+                Regex regex = new Regex(pattern);
+                Boolean symbolCheck = regex.IsMatch(userName.Text);
+                Console.WriteLine("Symbol Check = " + symbolCheck);
                 string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
                 MySqlConnection conn = new MySqlConnection(contString);
                 conn.Open();
@@ -44,13 +54,23 @@ namespace Munch
                 MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
                 String userNameResult = sqlcmd.ExecuteScalar().ToString();
                 Console.WriteLine("Login Sucess = " + userNameResult);
+
+
                 String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + userName.Text + "'; ";
                 MySqlCommand sqlcmdLevel = new MySqlCommand(queryLevel, conn);
+                //This will crash app if login and pass is wrong
                 String userLevelResult = sqlcmdLevel.ExecuteScalar().ToString();
+                //Because its returning nothing
+
                 Console.WriteLine("User Level = " + userLevelResult);
-                Console.ReadLine();
+
                 conn.Close();
+
                 int level = Convert.ToInt32(userLevelResult);
+
+                Console.ReadLine();
+                
+                
 
                 if (userNameResult.Equals("true"))
                 {
@@ -71,12 +91,6 @@ namespace Munch
                 }
 
             };
-
-
-
-
-
-
         }
     }
 }
