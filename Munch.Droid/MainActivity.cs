@@ -7,29 +7,42 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace test.Droid
+namespace Munch
 {
-	[Activity (Label = "test.Droid", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : Activity
-	{
-		int count = 1;
+    [Activity(Label = "Munch")]
+    public class MainActivity : Activity
+    {
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
 
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button ResturantLayout = FindViewById<Button> (Resource.Id.button1);
 
-            ResturantLayout.Click += delegate {
+
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.Main);
+
+            // Get our button from the layout resource,
+            // and attach an event to it
+
+
+            ActionBar.SetDisplayShowTitleEnabled(false);
+            Button ResturantLayout = FindViewById<Button>(Resource.Id.button1);
+
+            ResturantLayout.Click += delegate
+            {
                 StartActivity(typeof(restaurantlayoutActivity1));
-			};
-		}
-	}
-}
+            };
+            Button MenuC = FindViewById<Button>(Resource.Id.button2);
 
+            MenuC.Click += delegate
+            {
+                StartActivity(typeof(Menu));
+            };
+
+            
+        }
+    }
+}
 

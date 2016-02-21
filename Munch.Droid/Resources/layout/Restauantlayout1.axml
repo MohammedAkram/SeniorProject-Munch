@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="61.0dp"
         android:id="@+id/table" />
-<!--  <ImageButton
+    <ImageButton
         android:src="@drawable/icon"
         android:layout_width="133.0dp"
         android:layout_height="68.0dp"
@@ -19,5 +19,5 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginBottom="100dp"
-        android:layout_marginEnd="100dp" /> -->
+        android:layout_marginEnd="100dp" />
 </LinearLayout>
