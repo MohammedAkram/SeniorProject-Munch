@@ -26,35 +26,36 @@ namespace Munch
             // and attach an event to it
             SetContentView(Resource.Layout.AdminPortal);
             //edit menu button
-            Button edit_menu = FindViewById<Button>(Resource.Id.fuckingpat_1);
+            Button edit_menu = FindViewById<Button>(Resource.Id.EditMenuButton);
 
             edit_menu.Click += delegate
             {
-                Android.Widget.Toast.MakeText(this, "Go somewhere 1", Android.Widget.ToastLength.Short).Show();
+                SetContentView(Resource.Layout.APEditMenu);
+                StartActivity(typeof(Menu));
             };
 
             //manage inventory button
-            Button manage_inventory = FindViewById<Button>(Resource.Id.fuckingpat_2);
+            Button manage_inventory = FindViewById<Button>(Resource.Id.ManageInventoryButton);
 
             manage_inventory.Click += delegate
             {
-                Android.Widget.Toast.MakeText(this, "Go somewhere 2", Android.Widget.ToastLength.Short).Show();
+                SetContentView(Resource.Layout.APManageInventory);
             };
 
             //view reports button
-            Button view_reports = FindViewById<Button>(Resource.Id.fuckingpat_3);
+            Button view_reports = FindViewById<Button>(Resource.Id.ViewReportsButton);
 
             view_reports.Click += delegate
             {
-                Android.Widget.Toast.MakeText(this, "Go somewhere 3", Android.Widget.ToastLength.Short).Show();
+                SetContentView(Resource.Layout.APViewReports);
             };
 
             //account management button
-            Button account_management = FindViewById<Button>(Resource.Id.fuckingpat_4);
+            Button account_management = FindViewById<Button>(Resource.Id.AccountManagementButton);
 
             account_management.Click += delegate
             {
-                Android.Widget.Toast.MakeText(this, "Go somewhere 4", Android.Widget.ToastLength.Short).Show();
+                SetContentView(Resource.Layout.APAccountManagement);
             };
         }
     }

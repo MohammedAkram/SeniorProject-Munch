@@ -32,7 +32,7 @@ namespace Munch
 
             ResturantLayout.Click += delegate
             {
-                StartActivity(typeof(restaurantlayoutActivity1));
+             //   StartActivity(typeof(restaurantlayoutActivity1));
             };
             Button MenuC = FindViewById<Button>(Resource.Id.button2);
 

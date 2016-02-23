@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1189e9">
+    android:background="@drawable/overallbg">
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
@@ -29,7 +29,7 @@
     <FrameLayout
         android:layout_marginTop="55dp"
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="40dp">
         <TextView
             android:text="Welcome, please select an option below!"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -37,54 +37,55 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textStyle="normal"
-            android:textSize="19sp" />
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:paddingTop="15dp" />
     </FrameLayout>
     <FrameLayout
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="150dp"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <Button
             android:text="Edit Menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fuckingpat_1"
+            android:id="@+id/EditMenuButton"
             android:background="#1e364a"
             android:textColor="#FFFF" />
     </FrameLayout>
     <FrameLayout
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="195dp"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <Button
             android:text="Manage Inventory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fuckingpat_2"
+            android:id="@+id/ManageInventoryButton"
             android:background="#1e364a"
             android:textColor="#FFFF" />
     </FrameLayout>
     <FrameLayout
-        android:layout_marginTop="185dp"
+        android:layout_marginTop="240dp"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <Button
             android:text="View Reports"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fuckingpat_3"
+            android:id="@+id/ViewReportsButton"
             android:background="#1e364a"
             android:textColor="#FFFF" />
     </FrameLayout>
     <FrameLayout
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="285dp"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <Button
             android:text="Account Management"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fuckingpat_4"
+            android:id="@+id/AccountManagementButton"
             android:background="#1e364a"
             android:textColor="#FFFF" />
     </FrameLayout>
