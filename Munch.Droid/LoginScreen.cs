@@ -50,7 +50,7 @@ namespace Munch
                 {
                     MySqlConnection conn = new MySqlConnection(contString);
                     conn.Open();
-                    string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts = '" + user.Text + "' && Password = '" + pass.Text + "';";
+                    string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE BINARY idAccounts = '" + user.Text + "' && BINARY Password = '" + pass.Text + "';";
                     MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
                     String userNameResult = sqlcmd.ExecuteScalar().ToString();
                     Console.WriteLine("Login Sucess = " + userNameResult);
