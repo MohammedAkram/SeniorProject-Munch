@@ -61,9 +61,6 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Main.axml" />
-    <AndroidResource Include="Resources\layout\Restauantlayout1.axml">
-      <SubType>AndroidResource</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\Menu.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>

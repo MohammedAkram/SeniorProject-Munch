@@ -90,9 +90,6 @@ namespace Munch
 			// aapt resource value: 0x7f050003
 			public const int fuckingpat_4 = 2131034115;
 			
-			// aapt resource value: 0x7f050016
-			public const int imageButton1 = 2131034134;
-			
 			// aapt resource value: 0x7f05000a
 			public const int imageView1 = 2131034122;
 			
@@ -122,9 +119,6 @@ namespace Munch
 			
 			// aapt resource value: 0x7f050005
 			public const int password = 2131034117;
-			
-			// aapt resource value: 0x7f050015
-			public const int table = 2131034133;
 			
 			// aapt resource value: 0x7f05000b
 			public const int textView1 = 2131034123;
@@ -192,9 +186,6 @@ namespace Munch
 			
 			// aapt resource value: 0x7f03000c
 			public const int MenuTab4 = 2130903052;
-			
-			// aapt resource value: 0x7f03000d
-			public const int Restauantlayout1 = 2130903053;
 			
 			static Layout()
 			{
