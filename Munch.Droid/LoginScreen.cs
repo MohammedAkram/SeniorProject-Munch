@@ -81,6 +81,8 @@ namespace Munch
                             if (level == 0)
                             {
                                 StartActivity(typeof(AdminPortal));
+                                userName.Text = "";
+                                passWord.Text = "";
                             }
                             else
                             {
