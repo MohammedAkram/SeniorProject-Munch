@@ -35,6 +35,7 @@ namespace Munch
             {
 
 
+
                 //To Prevent SQLINJECT
                 //string pattern = @"^\w+$";
                 //prevents special characters being used
@@ -46,51 +47,61 @@ namespace Munch
                 Regex regex = new Regex(pattern);
                 Boolean IdSymbolCheck = regex.IsMatch(userName.Text);
                 Boolean PassSymbolCheck = regex.IsMatch(passWord.Text);
+                string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
                 Console.WriteLine("Symbol Check for Id = " + IdSymbolCheck);
                 Console.WriteLine("Symbol Check for Password = " + PassSymbolCheck);
-
-                if(IdSymbolCheck && PassSymbolCheck == true)
+                MYSQL mysql = new MYSQL();
+                if (IdSymbolCheck && PassSymbolCheck == true)
                 {
-                    string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
-                    MySqlConnection conn = new MySqlConnection(contString);
-                    conn.Open();
-                    string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts = '" + userName.Text + "' && Password = '" + passWord.Text + "';";
-                    MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
-                    String userNameResult = sqlcmd.ExecuteScalar().ToString();
-                    Console.WriteLine("Login Sucess = " + userNameResult);
-
-                    if (userNameResult.Equals("true"))
+                    Boolean source_result = mysql.check_connection(contString);
+                    if (source_result == true)
                     {
-                        String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + userName.Text + "'; ";
-                        MySqlCommand sqlcmdLevel = new MySqlCommand(queryLevel, conn);
-                        String userLevelResult = sqlcmdLevel.ExecuteScalar().ToString();
+                        MySqlConnection conn = new MySqlConnection(contString);
+                        conn.Open();
+                        string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts = '" + userName.Text + "' && Password = '" + passWord.Text + "';";
+                        MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
+                        String userNameResult = sqlcmd.ExecuteScalar().ToString();
+                        Console.WriteLine("Login Sucess = " + userNameResult);
 
-                        Console.WriteLine("User Level = " + userLevelResult);
-
-                        conn.Close();
-
-                        int level = Convert.ToInt32(userLevelResult);
-
-                        Console.ReadLine();
-
-                        Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                        if (level == 0)
+                        if (userNameResult.Equals("true"))
                         {
-                            StartActivity(typeof(AdminPortal));
+                            String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + userName.Text + "'; ";
+                            MySqlCommand sqlcmdLevel = new MySqlCommand(queryLevel, conn);
+                            String userLevelResult = sqlcmdLevel.ExecuteScalar().ToString();
+
+                            Console.WriteLine("User Level = " + userLevelResult);
+
+                            conn.Close();
+
+                            int level = Convert.ToInt32(userLevelResult);
+
+                            Console.ReadLine();
+
+                            Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
+                            if (level == 0)
+                            {
+                                StartActivity(typeof(AdminPortal));
+                            }
+                            else
+                            {
+                                StartActivity(typeof(Menu));
+                            }
+
                         }
+
+
                         else
                         {
-                            StartActivity(typeof(Menu));
+                            conn.Close();
+                            Android.Widget.Toast.MakeText(this, "Login Failed", Android.Widget.ToastLength.Short).Show();
                         }
-
                     }
-
-
                     else
                     {
-                        conn.Close();
-                        Android.Widget.Toast.MakeText(this, "Login Failed", Android.Widget.ToastLength.Short).Show();
+                        Android.Widget.Toast.MakeText(this, "Cannot connect to server", Android.Widget.ToastLength.Short).Show();
+
                     }
+
                 }
                 else
                 {
@@ -99,6 +110,11 @@ namespace Munch
                 
 
             };
+
         }
     }
+
 }
+
+
+
