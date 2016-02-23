@@ -86,6 +86,10 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AdminPortal.axml" />
+    <AndroidResource Include="Resources\layout\APAccountManagement.axml" />
+    <AndroidResource Include="Resources\layout\APEditMenu.axml" />
+    <AndroidResource Include="Resources\layout\APManageInventory.axml" />
+    <AndroidResource Include="Resources\layout\APViewReports.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -124,6 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\loginscreenbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\overallbg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
