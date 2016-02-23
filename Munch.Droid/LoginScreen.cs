@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "LoginScreen", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
+    [Activity(Label = "LoginScreen", Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
     public class LoginScreen : Activity
     {
         protected override void OnCreate(Bundle bundle)
