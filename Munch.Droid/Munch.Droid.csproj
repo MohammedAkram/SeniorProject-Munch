@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPortal.cs" />
+    <Compile Include="MYSQL.cs" />
     <Compile Include="LoginScreen.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuTabActivity1.cs" />
