@@ -19,13 +19,25 @@
         <TextView
             android:text="ADMIN PORTAL"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_gravity="right"
-            android:gravity="right"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
             android:layout_marginTop="14dp"
             android:textColor="#ffffff" />
+        <TextView
+            android:text="Log Out"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textColor="#ffffff"
+            android:id="@+id/LogOutMngInvtryButton"
+            android:layout_marginRight="20dp" />
     </FrameLayout>
     <FrameLayout
         android:layout_marginTop="70dp"
