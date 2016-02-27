@@ -12,6 +12,11 @@ using Android.Views;
 using Android.Widget;
 using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Json;
+using System.IO;
 
 namespace Munch
 {
@@ -24,83 +29,84 @@ namespace Munch
         It returns an Int that will match a case in the screenChange() method. 
         Security features have been added to prevent unauthorized SQL Injections to the database. 
         */
-        public int LoginAuth()
+
+        private bool userNameCheck(String userName, String password)
         {
-            //To Prevent SQLINJECT
-            //string pattern = @"^\w+$";
-            //prevents special characters being used
-            //Example SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts =  ''or 1 =1; drop table security;--';--'&& Password = 'somepassword';
-            //This will drop the table security
-            EditText user = FindViewById<EditText>(Resource.Id.userName);
-            EditText pass = FindViewById<EditText>(Resource.Id.password);
+            
             string pattern = @"^\w+$";
             Regex regex = new Regex(pattern);
-            Boolean IdSymbolCheck = regex.IsMatch(user.Text);
-            Boolean PassSymbolCheck = regex.IsMatch(pass.Text);
+            Boolean IdSymbolCheck = regex.IsMatch(userName);
+            Boolean PassSymbolCheck = regex.IsMatch(password);
 
-            //server connection info
-            string contString = "Server=munchsqldb02.c5n9vlpy3ylv.us-west-2.rds.amazonaws.com;Port=3306;Database=Munch;User Id=root;Password=blueblue;charset=utf8";
-            Console.WriteLine("Symbol Check for Id = " + IdSymbolCheck);
-            Console.WriteLine("Symbol Check for Password = " + PassSymbolCheck);
-            MYSQL mysql = new MYSQL();
             if (IdSymbolCheck && PassSymbolCheck == true)
             {
-                Boolean source_result = mysql.check_connection(contString);
-                if (source_result == true)
-                {
-                    MySqlConnection conn = new MySqlConnection(contString);
-                    conn.Open();
-                    string queryString = "SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE BINARY idAccounts = '" + user.Text + "' && BINARY Password = '" + pass.Text + "';";
-                    MySqlCommand sqlcmd = new MySqlCommand(queryString, conn);
-                    String userNameResult = sqlcmd.ExecuteScalar().ToString();
-                    Console.WriteLine("Login Sucess = " + userNameResult);
-
-                    if (userNameResult.Equals("true"))
-                    {
-                        String queryLevel = "SELECT Level FROM Munch.Accounts WHERE idAccounts = '" + user.Text + "'; ";
-                        MySqlCommand sqlcmdLevel = new MySqlCommand(queryLevel, conn);
-                        String userLevelResult = sqlcmdLevel.ExecuteScalar().ToString();
-
-                        Console.WriteLine("User Level = " + userLevelResult);
-
-                        conn.Close();
-
-                        int level = Convert.ToInt32(userLevelResult);
-
-                        Console.ReadLine();
-                       
-                        
-                        if (level == 0)
-                        {
-                            return 0;
-                            
-                        }
-                        else
-                        {
-                            
-                            return 1;
-                            
-                        }
-
-                    }
-
-                    else
-                    {
-                        conn.Close();
-                        return 2;                       
-                    }
-                }
-                else
-                {
-                    return 3;
-                }
-
+                return true;
             }
-            else
-{
-                return 4;                
+            else return false;
+        }
+
+
+        private async Task<JsonValue> FetchLoginAsync(string url)
+        {
+            // Create an HTTP web request using the URL:
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+            
+            
+
+            // Send the request to the server and wait for the response:
+            using (WebResponse response = await request.GetResponseAsync())
+            {
+                // Get a stream representation of the HTTP web response:
+                using (Stream stream = response.GetResponseStream())
+                {
+                    // Use this stream to build a JSON document object:
+                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
+                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
+
+                    // Return the JSON document:
+                    Console.Out.WriteLine("||||||||||||||||||||||||||||||||||||" +jsonDoc.ToString());
+                    return jsonDoc.ToString();
+                }
             }
         }
+
+        private void ParseAndDisplay(String json)
+        {
+
+            List<String> products = JsonConvert.DeserializeObject<List<String>>(json);
+            Console.Out.WriteLine(products[0]);
+        }
+
+
+
+        /*
+            if (status.Equals("true"))
+                {
+                    if (level.Equals("0"))
+                    {
+                        return 0;
+                    }
+
+                    else {
+                        return 1;
+                    }
+
+                }
+
+                else return 2;
+            }
+          */
+
+        //To Prevent SQLINJECT
+        //string pattern = @"^\w+$";
+        //prevents special characters being used
+        //Example SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts =  ''or 1 =1; drop table security;--';--'&& Password = 'somepassword';
+        //This will drop the table security
+
+
+
+
+
         /*
         Method screenChange():
         This method will change the view and launch neccessary activities related to each possible case that is determined
@@ -158,25 +164,17 @@ namespace Munch
             SetContentView(Resource.Layout.LoginScreen);
 
             Button login = FindViewById<Button>(Resource.Id.login);
-
-
+            EditText user = FindViewById<EditText>(Resource.Id.userName);
+            EditText pass = FindViewById<EditText>(Resource.Id.password);
+            String loginQueryURL = "http://54.191.139.104/login.php?id=Admin&&password=admin";
             int result;
 
-            login.Click += delegate
-            {
-                ProgressDialog progressDialog = ProgressDialog.Show(this, "", "Logging In");
-                    progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-                    new Thread(new ThreadStart(delegate
-                    {
-                        //LOAD METHOD TO GET ACCOUNT INFO
-                        result = LoginAuth();
+            login.Click += async (sender, e) => {
 
-                        RunOnUiThread(() => screenChange(result));
-
-                        //HIDE PROGRESS DIALOG
-                        RunOnUiThread(() => progressDialog.Dismiss());
-                        
-                    })).Start();
+                JsonValue json = await FetchLoginAsync(loginQueryURL);
+                ParseAndDisplay(json);
+                //screenChange(result);
+                
             };
         }
     }
