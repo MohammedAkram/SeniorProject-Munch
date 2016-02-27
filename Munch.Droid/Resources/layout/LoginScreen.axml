@@ -26,6 +26,7 @@
             android:gravity="center"
             android:textStyle="bold"
             android:typeface="sans"
+            android:singleLine="true"
             android:hint="Username" />
         <View
             android:layout_width="fill_parent"
