@@ -25,7 +25,6 @@ namespace Munch
     public class LoginScreen : Activity
 
     {
-<<<<<<< HEAD
         class Login
         {
             public string status { get; set; }
@@ -40,17 +39,6 @@ namespace Munch
 
         private bool userNameCheck(String userName, String password)
         {
-=======
-        /*
-        Method LoginAuth():
-        This method will connect to the MySQL database and check the accounts table for any matches on the entered user name and password.
-        It returns an Int that will match a case in the screenChange() method. 
-        Security features have been added to prevent unauthorized SQL Injections to the database. 
-        */
-
-        private bool userNameCheck(String userName, String password)
-        {
->>>>>>> origin/master
             
             string pattern = @"^\w+$";
             Regex regex = new Regex(pattern);
@@ -83,30 +71,15 @@ namespace Munch
                     Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
                     // Return the JSON document:
-<<<<<<< HEAD
                    
 
                     return jsonDoc.ToString();
                 }
             }
-=======
-                    Console.Out.WriteLine("||||||||||||||||||||||||||||||||||||" +jsonDoc.ToString());
-                    return jsonDoc.ToString();
-                }
-            }
-        }
-
-        private void ParseAndDisplay(String json)
-        {
-
-            List<String> products = JsonConvert.DeserializeObject<List<String>>(json);
-            Console.Out.WriteLine(products[0]);
->>>>>>> origin/master
         }
 
 
 
-<<<<<<< HEAD
         private void ParseAndDisplay(String json)
         {
 
@@ -114,8 +87,6 @@ namespace Munch
             Console.Out.WriteLine(fuckthisfile[0].status);
             Console.Out.WriteLine(fuckthisfile[0].level);
         }
-=======
->>>>>>> origin/master
         /*
             if (status.Equals("true"))
                 {
