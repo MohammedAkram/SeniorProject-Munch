@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,13 +20,23 @@
         <TextView
             android:text="ADMIN PORTAL"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_gravity="right"
-            android:gravity="right"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:layout_marginTop="14dp"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp" />
+        <Button
+            android:text="Log Out"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/LogOutViewRprtButton"
+            android:layout_marginLeft="750.0dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="#205878" />
     </FrameLayout>
     <FrameLayout
         android:layout_marginTop="70dp"
@@ -63,7 +74,8 @@
                 android:padding="3dip"
                 android:gravity="center"
                 android:layout_height="34.0dp"
-                android:layout_marginTop="184.0dp" />
+                android:layout_marginTop="184.0dp"
+                android:id="@+id/Tab" />
             <EditText
                 android:layout_column="1"
                 android:id="@+id/editTab"
@@ -79,7 +91,8 @@
                 android:layout_column="2"
                 android:layout_height="34.0dp"
                 android:layout_marginLeft="23.0dp"
-                android:layout_marginTop="184.0dp" />
+                android:layout_marginTop="184.0dp"
+                android:id="@+id/costPrice" />
             <EditText
                 android:layout_column="3"
                 android:id="@+id/editPrice"
@@ -97,7 +110,8 @@
                 android:layout_width="182.0dp"
                 android:gravity="center"
                 android:layout_column="0"
-                android:layout_height="34.0dp" />
+                android:layout_height="34.0dp"
+                android:id="@+id/itemName" />
             <EditText
                 android:layout_column="1"
                 android:id="@+id/editItemName"
@@ -113,9 +127,10 @@
                 android:padding="3dip"
                 android:layout_column="2"
                 android:layout_height="34.0dp"
-                android:layout_marginLeft="17.0dp" />
+                android:layout_marginLeft="17.0dp"
+                android:id="@+id/sellPrice" />
             <EditText
-                android:id="@+id/"
+                android:id="@+id/editSellPrice"
                 android:background="@android:color/white"
                 android:layout_width="194.5dp"
                 android:layout_height="22.0dp"
@@ -127,7 +142,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:gravity="center"
                 android:layout_column="0"
-                android:layout_height="34.0dp" />
+                android:layout_height="34.0dp"
+                android:id="@+id/nameIngredients" />
             <EditText
                 android:layout_column="1"
                 android:id="@+id/editIngredient"
@@ -144,9 +160,10 @@
                 android:layout_column="2"
                 android:layout_height="34.0dp"
                 android:layout_marginLeft="20.0dp"
-                android:layout_marginRight="4.0dp" />
+                android:layout_marginRight="4.0dp"
+                android:id="@+id/addQuantity" />
             <EditText
-                android:id="@+id/editIngredientAmount"
+                android:id="@+id/editQuantity"
                 android:background="@android:color/white"
                 android:layout_width="194.5dp"
                 android:layout_column="3" />
@@ -157,19 +174,21 @@
                 android:padding="3dip"
                 android:layout_height="34.0dp"
                 android:layout_marginLeft="15.0dp"
-                android:layout_marginRight="4.0dp" />
+                android:layout_marginRight="4.0dp"
+                android:id="@+id/addUnitType" />
             <ExpandableListView
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_column="5"
-                android:id="@+id/expandableListView" />
+                android:id="@+id/editListExpand" />
         </TableRow>
         <TableRow>
             <TextView
                 android:text="Description"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:gravity="center"
-                android:layout_height="34.0dp" />
+                android:layout_height="34.0dp"
+                android:id="@+id/addDescription" />
             <EditText
                 android:id="@+id/descriptionText"
                 android:layout_span="3"
