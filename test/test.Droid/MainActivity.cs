@@ -24,16 +24,9 @@ namespace test.Droid
 			// Get our button from the layout resource,
 			// and attach an event to it
 			Button ResturantLayout = FindViewById<Button> (Resource.Id.button1);
-            Button EditMenu = FindViewById<Button>(Resource.Id.button2);
 
-            EditMenu.Click += delegate
-            {
-                StartActivity(typeof(editmenuActivity1));
-            };
             ResturantLayout.Click += delegate {
                 StartActivity(typeof(restaurantlayoutActivity1));
-            
-            
 			};
 		}
 	}

@@ -19,7 +19,5 @@ C:\Users\Omair\documents\visual studio 2015\Projects\test\test\test.Droid\obj\De
 C:\Users\Omair\documents\visual studio 2015\Projects\test\test\test.Droid\obj\Debug\uploadflags.txt
 C:\Users\Omair\documents\visual studio 2015\Projects\test\test\test.Droid\bin\Debug\test.dll.mdb
 C:\Users\Omair\documents\visual studio 2015\Projects\test\test\test.Droid\obj\Debug\res\layout\restauantlayout1.xml
-C:\Users\Omair\Documents\Visual Studio 2015\Projects\test\test\test.Droid\obj\Debug\res\layout\editmenulayout1.xml
-C:\Users\Omair\Documents\Visual Studio 2015\Projects\test\test\test.Droid\obj\Debug\res\layout\editmenulayout2.xml
-C:\Users\Omair\Documents\Visual Studio 2015\Projects\test\test\test.Droid\obj\Debug\test.Droid.dll.mdb
-C:\Users\Omair\Documents\Visual Studio 2015\Projects\test\test\test.Droid\bin\Debug\test.Droid.dll.mdb
+C:\Users\Omair\documents\visual studio 2015\Projects\test\test\test.Droid\obj\Debug\test.Droid.dll.mdb
+C:\Users\Omair\documents\visual studio 2015\Projects\test\test\test.Droid\bin\Debug\test.Droid.dll.mdb

@@ -25,16 +25,7 @@ namespace test.Droid
             // Create your application here
             imageButton1 = (ImageView)FindViewById(Resource.Id.imageButton1);
             imageButton1.SetOnTouchListener(this);
-         //   Button Savefloorlayout = FindViewById<Button>(Resource.Id.Savefloorlayout);
-         //   Savefloorlayout.Click+= delegate
-         //   {
-         //       Savefloorlayout.sa
-         //   }
-
         }
-
-
-
         float x, y = 0f;
         Boolean moving=false;
         public bool OnTouch(View v, MotionEvent e)

@@ -6,7 +6,6 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <application android:name="mono.android.app.Application" android:allowBackup="true" android:label="test.Droid" android:debuggable="true">
     <activity android:label="layout" android:name="md52d092a3298bfdf816f326cc672685199.Activity2" />
-    <activity android:label="editmenuActivity1" android:name="md52d092a3298bfdf816f326cc672685199.editmenuActivity1" />
     <activity android:label="restaurantlayoutActivity1" android:name="md52d092a3298bfdf816f326cc672685199.restaurantlayoutActivity1" />
     <activity android:icon="@drawable/icon" android:label="test.Droid" android:name="md52d092a3298bfdf816f326cc672685199.MainActivity">
       <intent-filter>

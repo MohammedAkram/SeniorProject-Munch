@@ -4,28 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
-    android:minHeight="25px"
-    android:id="@+id/linearLayout1">
+    android:minHeight="25px">
     <ImageButton
         android:src="@drawable/icon"
         android:layout_width="133.0dp"
         android:layout_height="68.0dp"
         android:id="@+id/imageButton1"
         android:maxWidth="10dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginEnd="100dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp" />
-    <Button
-        android:text="load layout"
-        android:layout_width="83.0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1" />
-    <Button
-        android:text="Save Floor layout"
-        android:layout_width="82.0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/Savefloorlayout"
-        android:layout_alignBaseline="@id/imageButton1"
-        android:layout_alignTop="@id/button1" />
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="100dp" />
 </LinearLayout>

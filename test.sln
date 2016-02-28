@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.Droid", "test\test.Droid\test.Droid.csproj", "{3BD332F0-662E-4B6B-9A3D-9CA2010328B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.Droid", "..\..\..\Documents\Visual Studio 2015\Projects\test\test\test.Droid\test.Droid.csproj", "{3BD332F0-662E-4B6B-9A3D-9CA2010328B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.iOS", "test\test.iOS\test.iOS.csproj", "{DF169357-DEF3-43E3-828D-30BA7D2DF3DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.iOS", "..\..\..\Documents\Visual Studio 2015\Projects\test\test\test.iOS\test.iOS.csproj", "{DF169357-DEF3-43E3-828D-30BA7D2DF3DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test\test.csproj", "{88123283-82A6-41CD-80CA-FF0C87675A16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "..\..\..\Documents\Visual Studio 2015\Projects\test\test\test\test.csproj", "{88123283-82A6-41CD-80CA-FF0C87675A16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
