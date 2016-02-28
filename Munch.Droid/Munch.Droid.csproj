@@ -234,5 +234,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
