@@ -13,7 +13,10 @@ using com.refractored.fab;
 
 namespace Munch
 {
-    [Activity(Label = "APMIActivity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(Label = "APMIActivity", 
+        Theme = "@android:style/Theme.Holo.Light.NoActionBar", 
+        ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+
     public class APMIActivity : Activity
     {
         //List
@@ -31,7 +34,19 @@ namespace Munch
             {
                 SetContentView(Resource.Layout.LoginScreen);
                 Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                StartActivity(typeof(LoginScreen));
             };
+
+            //Load Up List
+            mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
+            mItems = new List<APMIInventoryList>();
+            mItems.Add(new APMIInventoryList() { Name = "Name", Description = "Description", Quantity = "Quantity", Price = "Price" });
+            mItems.Add(new APMIInventoryList() { Name = "fuck", Description = "what the fuck", Quantity = "2", Price = "43.23" });
+            mItems.Add(new APMIInventoryList() { Name = "FUCKING", Description = "FACK", Quantity = "0", Price = "14.23" });
+            mItems.Add(new APMIInventoryList() { Name = "FACK", Description = "FUCKING", Quantity = "2", Price = "43.23" });
+
+            APMIListViewAdapter adapter = new APMIListViewAdapter(this, mItems);
+            mListView.Adapter = adapter;
 
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APMIfab);
@@ -45,17 +60,6 @@ namespace Munch
 
                 Android.Widget.Toast.MakeText(this, "Dialog Opened", Android.Widget.ToastLength.Short).Show();
             };
-
-            //Load Up List
-            mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
-            mItems = new List<APMIInventoryList>();
-            mItems.Add(new APMIInventoryList() { Name = "Name", Description = "Description", Quantity = "Quantity", Price = "Price" });
-            mItems.Add(new APMIInventoryList() { Name = "fuck", Description = "what the fuck", Quantity = "2", Price = "43.23" });
-            mItems.Add(new APMIInventoryList() { Name = "FUCKING", Description = "FACK", Quantity = "0", Price = "14.23" });
-            mItems.Add(new APMIInventoryList() { Name = "FACK", Description = "FUCKING", Quantity = "2", Price = "43.23" });
-
-            APMIListViewAdapter adapter = new APMIListViewAdapter(this, mItems);
-            mListView.Adapter = adapter;
 
         }
     }

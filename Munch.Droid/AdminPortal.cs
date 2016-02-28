@@ -47,6 +47,7 @@ namespace Munch
             manage_inventory.Click += delegate
             {
                 SetContentView(Resource.Layout.APManageInventory);
+                StartActivity(typeof(APMIActivity));
             };
 
             //view reports button
@@ -64,6 +65,16 @@ namespace Munch
             account_management.Click += delegate
             {
                 SetContentView(Resource.Layout.APAccountManagement);
+                StartActivity(typeof(APMAActivity));
+            };
+
+            //Log Out Button
+            Button logout = FindViewById<Button>(Resource.Id.LogOutAdminPortalButton);
+            logout.Click += delegate
+            {
+                SetContentView(Resource.Layout.LoginScreen);
+                Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                StartActivity(typeof(LoginScreen));
             };
         }
     }

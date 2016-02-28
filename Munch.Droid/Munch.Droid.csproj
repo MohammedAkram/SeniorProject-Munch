@@ -69,9 +69,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPortal.cs" />
+    <Compile Include="APAMAccountList.cs" />
+    <Compile Include="APAMActivity.cs" />
+    <Compile Include="APAMListViewAdapter.cs" />
     <Compile Include="APMIActivity.cs" />
     <Compile Include="APMIInventoryList.cs" />
     <Compile Include="APMIListViewAdapter.cs" />
+    <Compile Include="dialog_APAccountManagement.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
     <Compile Include="MYSQL.cs" />
     <Compile Include="LoginScreen.cs" />
@@ -117,6 +121,12 @@
     <AndroidResource Include="Resources\layout\APViewReports.axml" />
     <AndroidResource Include="Resources\layout\APMIListViewRow.axml" />
     <AndroidResource Include="Resources\layout\dialog_APMIAdd.axml" />
+    <AndroidResource Include="Resources\layout\APAMListViewRow.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_APMAAdd.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
