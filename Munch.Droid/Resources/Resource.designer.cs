@@ -48,10 +48,16 @@ namespace Munch
 			public const int Icon = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int logo = 2130837505;
+			public const int loginscreenbg = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int selector = 2130837506;
+			public const int logo = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int overallbg = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int selector = 2130837508;
 			
 			static Drawable()
 			{
@@ -66,26 +72,23 @@ namespace Munch
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050003
+			public const int AccountManagementButton = 2131034115;
+			
+			// aapt resource value: 0x7f050000
+			public const int EditMenuButton = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int ManageInventoryButton = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int ViewReportsButton = 2131034114;
+			
 			// aapt resource value: 0x7f050007
 			public const int button1 = 2131034119;
 			
 			// aapt resource value: 0x7f050008
 			public const int button2 = 2131034120;
-			
-			// aapt resource value: 0x7f050000
-			public const int fuckingpat_1 = 2131034112;
-			
-			// aapt resource value: 0x7f050001
-			public const int fuckingpat_2 = 2131034113;
-			
-			// aapt resource value: 0x7f050002
-			public const int fuckingpat_3 = 2131034114;
-			
-			// aapt resource value: 0x7f050003
-			public const int fuckingpat_4 = 2131034115;
-			
-			// aapt resource value: 0x7f050016
-			public const int imageButton1 = 2131034134;
 			
 			// aapt resource value: 0x7f05000a
 			public const int imageView1 = 2131034122;
@@ -116,9 +119,6 @@ namespace Munch
 			
 			// aapt resource value: 0x7f050005
 			public const int password = 2131034117;
-			
-			// aapt resource value: 0x7f050015
-			public const int table = 2131034133;
 			
 			// aapt resource value: 0x7f05000b
 			public const int textView1 = 2131034123;
@@ -152,31 +152,40 @@ namespace Munch
 			public const int AdminPortal = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int LoginScreen = 2130903041;
+			public const int APAccountManagement = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Main = 2130903042;
+			public const int APEditMenu = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Menu = 2130903043;
+			public const int APManageInventory = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Menu_ActionBar = 2130903044;
+			public const int APViewReports = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int MenuTab1 = 2130903045;
+			public const int LoginScreen = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int MenuTab2 = 2130903046;
+			public const int Main = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int MenuTab3 = 2130903047;
+			public const int Menu = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int MenuTab4 = 2130903048;
+			public const int Menu_ActionBar = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int Restauantlayout1 = 2130903049;
+			public const int MenuTab1 = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int MenuTab2 = 2130903050;
+			
+			// aapt resource value: 0x7f03000b
+			public const int MenuTab3 = 2130903051;
+			
+			// aapt resource value: 0x7f03000c
+			public const int MenuTab4 = 2130903052;
 			
 			static Layout()
 			{
