@@ -20,7 +20,11 @@ using System.IO;
 
 namespace Munch
 {
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> refs/remotes/origin/Mir'sCode
     [Activity(Label = "Munch", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
     public class LoginScreen : Activity
 
@@ -39,7 +43,11 @@ namespace Munch
 
         private bool userNameCheck(String userName, String password)
         {
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> refs/remotes/origin/Mir'sCode
             string pattern = @"^\w+$";
             Regex regex = new Regex(pattern);
             Boolean IdSymbolCheck = regex.IsMatch(userName);
@@ -57,8 +65,13 @@ namespace Munch
         {
             // Create an HTTP web request using the URL:
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+<<<<<<< HEAD
             
             
+=======
+
+
+>>>>>>> refs/remotes/origin/Mir'sCode
 
             // Send the request to the server and wait for the response:
             using (WebResponse response = await request.GetResponseAsync())
@@ -71,7 +84,11 @@ namespace Munch
                     Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
                     // Return the JSON document:
+<<<<<<< HEAD
                    
+=======
+
+>>>>>>> refs/remotes/origin/Mir'sCode
 
                     return jsonDoc.ToString();
                 }
@@ -102,9 +119,15 @@ namespace Munch
 
             else return 2;
         }
+<<<<<<< HEAD
             /*
             
           */
+=======
+        /*
+
+      */
+>>>>>>> refs/remotes/origin/Mir'sCode
 
         //To Prevent SQLINJECT
         //string pattern = @"^\w+$";
@@ -179,7 +202,11 @@ namespace Munch
             int result;
 
             login.Click += async (sender, e) => {
+<<<<<<< HEAD
                 if (userNameCheck(user.Text,pass.Text)== true)
+=======
+                if (userNameCheck(user.Text, pass.Text) == true)
+>>>>>>> refs/remotes/origin/Mir'sCode
                 {
                     try
                     {
@@ -198,8 +225,13 @@ namespace Munch
                 {
                     Android.Widget.Toast.MakeText(this, "Cannot use special characters", Android.Widget.ToastLength.Short).Show();
                 }
+<<<<<<< HEAD
                 
                 
+=======
+
+
+>>>>>>> refs/remotes/origin/Mir'sCode
             };
         }
     }
