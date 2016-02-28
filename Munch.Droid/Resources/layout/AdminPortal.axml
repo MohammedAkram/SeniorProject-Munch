@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/overallbg">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
+        <ImageView
+            android:layout_width="171.0dp"
+            android:layout_height="52.0dp"
+            android:layout_gravity="left"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/logo" />
+        <TextView
+            android:text="ADMIN PORTAL"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp" />
+        <Button
+            android:text="Log Out"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/LogOutAdminPortalButton"
+            android:layout_marginLeft="750.0dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="#205878" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="Welcome, please select an option below!"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:paddingTop="15dp" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <Button
+            android:text="Edit Menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/EditMenuButton"
+            android:background="#1e364a"
+            android:textColor="#FFFF" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="195dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <Button
+            android:text="Manage Inventory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ManageInventoryButton"
+            android:background="#1e364a"
+            android:textColor="#FFFF" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="240dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <Button
+            android:text="View Reports"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ViewReportsButton"
+            android:background="#1e364a"
+            android:textColor="#FFFF" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="285dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <Button
+            android:text="Account Management"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/AccountManagementButton"
+            android:background="#1e364a"
+            android:textColor="#FFFF" />
+    </FrameLayout>
+</RelativeLayout>

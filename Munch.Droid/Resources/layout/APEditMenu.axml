@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/overallbg">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
+        <ImageView
+            android:layout_width="171.0dp"
+            android:layout_height="52.0dp"
+            android:layout_gravity="left"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/logo" />
+        <TextView
+            android:text="ADMIN PORTAL"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:layout_marginTop="14dp"
+            android:textColor="#ffffff" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#750a0a">
+        <TextView
+            android:text="EDIT MENU"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="23sp"
+            android:paddingBottom="21dp" />
+        <TextView
+            android:text="Get creative."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:paddingTop="23dp" />
+    </FrameLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="7">
+        <TableRow>
+            <TextView
+                android:text="TITTY MILK"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:padding="3dip"
+                android:gravity="center"
+                android:layout_height="34.0dp"
+                android:layout_marginTop="184.0dp" />
+            <EditText
+                android:layout_column="1"
+                android:id="@+id/editTab"
+                android:background="@android:color/white"
+                android:layout_width="194.5dp"
+                android:layout_height="22.0dp"
+                android:layout_marginTop="184.0dp" />
+            <TextView
+                android:text="Cost Price"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"
+                android:padding="3dip"
+                android:layout_column="2"
+                android:layout_height="34.0dp"
+                android:layout_marginLeft="23.0dp"
+                android:layout_marginTop="184.0dp" />
+            <EditText
+                android:layout_column="3"
+                android:id="@+id/editPrice"
+                android:background="@android:color/white"
+                android:layout_width="194.5dp"
+                android:layout_height="22.0dp"
+                android:layout_marginTop="184.0dp" />
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Item Name"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:padding="3dip"
+                android:layout_width="182.0dp"
+                android:gravity="center"
+                android:layout_column="0"
+                android:layout_height="34.0dp" />
+            <EditText
+                android:layout_column="1"
+                android:id="@+id/editItemName"
+                android:background="@android:color/white"
+                android:layout_width="194.5dp"
+                android:layout_height="22dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center" />
+            <TextView
+                android:text="Sell Price"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"
+                android:padding="3dip"
+                android:layout_column="2"
+                android:layout_height="34.0dp"
+                android:layout_marginLeft="17.0dp" />
+            <EditText
+                android:id="@+id/"
+                android:background="@android:color/white"
+                android:layout_width="194.5dp"
+                android:layout_height="22.0dp"
+                android:layout_column="3" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Ingredients"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"
+                android:layout_column="0"
+                android:layout_height="34.0dp" />
+            <EditText
+                android:layout_column="1"
+                android:id="@+id/editIngredient"
+                android:background="@android:color/white"
+                android:layout_width="194.5dp"
+                android:layout_height="22dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center" />
+            <TextView
+                android:text="Quantity"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"
+                android:padding="3dip"
+                android:layout_column="2"
+                android:layout_height="34.0dp"
+                android:layout_marginLeft="20.0dp"
+                android:layout_marginRight="4.0dp" />
+            <EditText
+                android:id="@+id/editIngredientAmount"
+                android:background="@android:color/white"
+                android:layout_width="194.5dp"
+                android:layout_column="3" />
+            <TextView
+                android:text="Unit Type"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"
+                android:padding="3dip"
+                android:layout_height="34.0dp"
+                android:layout_marginLeft="15.0dp"
+                android:layout_marginRight="4.0dp" />
+            <ExpandableListView
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_column="5"
+                android:id="@+id/expandableListView" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Description"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center"
+                android:layout_height="34.0dp" />
+            <EditText
+                android:id="@+id/descriptionText"
+                android:layout_span="3"
+                android:background="@android:color/white"
+                android:layout_height="70dp" />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>
