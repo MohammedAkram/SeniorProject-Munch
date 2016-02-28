@@ -15,16 +15,28 @@ namespace Munch
     [Activity(Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class AdminPortal : Activity
     {
+
+        public override void OnBackPressed()
+        {
+
+            Android.Widget.Toast.MakeText(this, "You must logout to do that!", Android.Widget.ToastLength.Short).Show();
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
+           
+
+
+            
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.AdminPortal);
 
             // Get our button from the layout resource,
             // and attach an event to it
-            SetContentView(Resource.Layout.AdminPortal);
+            
             //edit menu button
             Button edit_menu = FindViewById<Button>(Resource.Id.EditMenuButton);
 
@@ -48,6 +60,7 @@ namespace Munch
             view_reports.Click += delegate
             {
                 SetContentView(Resource.Layout.APViewReports);
+
             };
 
             //account management button
