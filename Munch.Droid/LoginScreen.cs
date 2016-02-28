@@ -20,7 +20,7 @@ using System.IO;
 
 namespace Munch
 {
-    
+
     [Activity(Label = "Munch", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
     public class LoginScreen : Activity
 
@@ -39,7 +39,7 @@ namespace Munch
 
         private bool userNameCheck(String userName, String password)
         {
-            
+
             string pattern = @"^\w+$";
             Regex regex = new Regex(pattern);
             Boolean IdSymbolCheck = regex.IsMatch(userName);
@@ -57,8 +57,8 @@ namespace Munch
         {
             // Create an HTTP web request using the URL:
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-            
-            
+
+
 
             // Send the request to the server and wait for the response:
             using (WebResponse response = await request.GetResponseAsync())
@@ -71,7 +71,7 @@ namespace Munch
                     Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
                     // Return the JSON document:
-                   
+
 
                     return jsonDoc.ToString();
                 }
@@ -102,9 +102,9 @@ namespace Munch
 
             else return 2;
         }
-            /*
-            
-          */
+        /*
+
+      */
 
         //To Prevent SQLINJECT
         //string pattern = @"^\w+$";
@@ -179,7 +179,7 @@ namespace Munch
             int result;
 
             login.Click += async (sender, e) => {
-                if (userNameCheck(user.Text,pass.Text)== true)
+                if (userNameCheck(user.Text, pass.Text) == true)
                 {
                     try
                     {
@@ -198,8 +198,8 @@ namespace Munch
                 {
                     Android.Widget.Toast.MakeText(this, "Cannot use special characters", Android.Widget.ToastLength.Short).Show();
                 }
-                
-                
+
+
             };
         }
     }
