@@ -150,7 +150,7 @@ namespace Munch
             {
                 Android.Widget.Toast.MakeText(this, "Login Failed", Android.Widget.ToastLength.Short).Show();
             }
-
+            /*
             //if the result is 3, there is an error establishing a connection to the server
             else if (result == 3)
             {
@@ -162,6 +162,7 @@ namespace Munch
             {
                 Android.Widget.Toast.MakeText(this, "Cannot use special characters", Android.Widget.ToastLength.Short).Show();
             }
+            */
 
         }
 
@@ -175,14 +176,29 @@ namespace Munch
             Button login = FindViewById<Button>(Resource.Id.login);
             EditText user = FindViewById<EditText>(Resource.Id.userName);
             EditText pass = FindViewById<EditText>(Resource.Id.password);
-            String loginQueryURL = "http://54.191.139.104/login.php?id=Admin&&password=admin";
             int result;
 
             login.Click += async (sender, e) => {
+                if (userNameCheck(user.Text,pass.Text)== true)
+                {
+                    try
+                    {
+                        String loginQueryURL = "http://54.191.139.104/login.php?id=" + user.Text + "&&password=" + pass.Text;
 
-                JsonValue json = await FetchLoginAsync(loginQueryURL);
-                result = ParseAndDisplay(json);
-                screenChange(result);
+                        JsonValue json = await FetchLoginAsync(loginQueryURL);
+                        result = ParseAndDisplay(json);
+                        screenChange(result);
+                    }
+                    catch
+                    {
+                        Android.Widget.Toast.MakeText(this, "Cannot connect to server", Android.Widget.ToastLength.Short).Show();
+                    }
+                }
+                else
+                {
+                    Android.Widget.Toast.MakeText(this, "Cannot use special characters", Android.Widget.ToastLength.Short).Show();
+                }
+                
                 
             };
         }
