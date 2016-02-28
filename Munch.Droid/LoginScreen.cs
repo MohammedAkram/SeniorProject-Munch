@@ -80,29 +80,30 @@ namespace Munch
 
 
 
-        private void ParseAndDisplay(String json)
+        private int ParseAndDisplay(String json)
         {
 
             List<Login> fuckthisfile = JsonConvert.DeserializeObject<List<Login>>(json);
             Console.Out.WriteLine(fuckthisfile[0].status);
             Console.Out.WriteLine(fuckthisfile[0].level);
-        }
-        /*
-            if (status.Equals("true"))
+
+            if (fuckthisfile[0].status.Equals("true"))
+            {
+                if (fuckthisfile[0].level.Equals("0"))
                 {
-                    if (level.Equals("0"))
-                    {
-                        return 0;
-                    }
-
-                    else {
-                        return 1;
-                    }
-
+                    return 0;
                 }
 
-                else return 2;
+                else {
+                    return 1;
+                }
+
             }
+
+            else return 2;
+        }
+            /*
+            
           */
 
         //To Prevent SQLINJECT
@@ -180,8 +181,8 @@ namespace Munch
             login.Click += async (sender, e) => {
 
                 JsonValue json = await FetchLoginAsync(loginQueryURL);
-                ParseAndDisplay(json);
-                //screenChange(result);
+                result = ParseAndDisplay(json);
+                screenChange(result);
                 
             };
         }
