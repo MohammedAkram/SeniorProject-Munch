@@ -80,6 +80,7 @@
     <Compile Include="APMIActivity.cs" />
     <Compile Include="APMIInventoryList.cs" />
     <Compile Include="APMIListViewAdapter.cs" />
+    <Compile Include="AP_Edit_Menu_Activity.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
     <Compile Include="LoginScreen.cs" />
