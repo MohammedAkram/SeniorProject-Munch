@@ -10,6 +10,10 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
+using System.Net;
+using System.Threading.Tasks;
+using System.Json;
+using System.Threading;
 
 namespace Munch
 {
@@ -19,6 +23,7 @@ namespace Munch
 
     public class APMIActivity : Activity
     {
+
         //List
         private List<APMIInventoryList> mItems;
         public ListView mListView;
@@ -27,7 +32,10 @@ namespace Munch
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.APManageInventory);
-
+            EditText name = FindViewById<EditText>(Resource.Id.txtName1);
+            EditText unit = FindViewById<EditText>(Resource.Id.txtUnit1);
+            EditText quant = FindViewById<EditText>(Resource.Id.txtQuantity1);
+           
             //Log Out Button
             Button logout = FindViewById<Button>(Resource.Id.LogOutMngInvtryButton);
             logout.Click += delegate
@@ -49,6 +57,9 @@ namespace Munch
             mListView.Adapter = adapter;
 
             //FAB
+            
+
+
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APMIfab);
             fab.AttachToListView(mListView);
             fab.Click += (object sender, EventArgs args) =>
@@ -58,9 +69,26 @@ namespace Munch
                 dialog_APManageInventory manageinventoryDialog = new dialog_APManageInventory();
                 manageinventoryDialog.Show(transaction, "dialog fragment");
 
-                Android.Widget.Toast.MakeText(this, "Dialog Opened", Android.Widget.ToastLength.Short).Show();
+                manageinventoryDialog.addItemComplete += manageinventoryDialog_addItemComplete;
             };
-
         }
+
+        void manageinventoryDialog_addItemComplete(object sender, OnSignEventArgs e)
+        {
+            Thread thread = new Thread(ActLikeRequest);
+            thread.Start();
+        }
+
+
+
+        private void ActLikeRequest()
+        {
+
+            Thread.Sleep(200);
+            String url = "http://54.191.139.104/addinventory.php?name=beef&&unit=lb&&quantity=10";
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Dialog Opened", Android.Widget.ToastLength.Short).Show());
+        }
+
     }
 }
