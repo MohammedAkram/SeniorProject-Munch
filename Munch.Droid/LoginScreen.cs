@@ -10,7 +10,6 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.Threading.Tasks;
