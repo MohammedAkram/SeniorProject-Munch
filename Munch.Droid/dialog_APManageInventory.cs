@@ -76,17 +76,10 @@ namespace Munch
             var webClient = new WebClient();
             webClient.DownloadString("http://54.191.98.63/addinventory.php?name=" + name.Text+"&&unit="+unit.Text+"&&quantity="+quant.Text+"");
 
-            // String url = "http://54.191.139.104/addinventory.php?name=beef&&unit=lb&&quantity=10";
-            // WebRequest re = WebRequest.Create(url);
-            /*  string URI = "http://54.191.139.104/addinventory.php?";
-              string myParameters = "name=beef&&unit=lb&&quantity=10";
-              using (WebClient wc = new WebClient())
-              {
-                  wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                  string HtmlResult = wc.UploadString(URI, myParameters);
-              }*/
+            
             this.Dismiss();
             
+
 
 
         }

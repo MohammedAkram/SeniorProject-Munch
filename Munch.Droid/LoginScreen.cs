@@ -20,7 +20,7 @@ using System.IO;
 namespace Munch
 {
 
-    [Activity(Label = "Munch", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
+    [Activity(Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
     public class LoginScreen : Activity
 
     {
@@ -82,13 +82,13 @@ namespace Munch
         private int ParseAndDisplay(String json)
         {
 
-            List<Login> fuckthisfile = JsonConvert.DeserializeObject<List<Login>>(json);
-            Console.Out.WriteLine(fuckthisfile[0].status);
-            Console.Out.WriteLine(fuckthisfile[0].level);
+            List<Login> loginList = JsonConvert.DeserializeObject<List<Login>>(json);
+            Console.Out.WriteLine(loginList[0].status);
+            Console.Out.WriteLine(loginList[0].level);
 
-            if (fuckthisfile[0].status.Equals("true"))
+            if (loginList[0].status.Equals("true"))
             {
-                if (fuckthisfile[0].level.Equals("0"))
+                if (loginList[0].level.Equals("0"))
                 {
                     return 0;
                 }

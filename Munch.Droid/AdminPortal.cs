@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(Label = "AdminPortal", MainLauncher = true, Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class AdminPortal : Activity
     {
 

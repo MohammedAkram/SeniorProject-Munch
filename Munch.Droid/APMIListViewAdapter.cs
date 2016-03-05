@@ -47,17 +47,15 @@ namespace Munch
                 row = LayoutInflater.From(mContext).Inflate(Resource.Layout.APMIListViewRow, null, false);
             }
 
-            TextView txtName = row.FindViewById<TextView>(Resource.Id.txtName);
-            txtName.Text = mItems[position].Name;
+            TextView txtName = row.FindViewById<TextView>(Resource.Id.Manage_Inventory_Txt_Name);
+            txtName.Text = mItems[position].Ingredients;
 
-            TextView txtDescription = row.FindViewById<TextView>(Resource.Id.txtDescription);
-            txtDescription.Text = mItems[position].Description;
-
-            TextView txtQuantity = row.FindViewById<TextView>(Resource.Id.txtQuantity);
+            TextView txtQuantity = row.FindViewById<TextView>(Resource.Id.Manage_Inventory_Txt_Quantity);
             txtQuantity.Text = mItems[position].Quantity;
 
-            TextView txtPrice = row.FindViewById<TextView>(Resource.Id.txtPrice);
-            txtPrice.Text = mItems[position].Price;
+            TextView txtUnits = row.FindViewById<TextView>(Resource.Id.Manage_Inventory_Txt_Units);
+            txtUnits.Text = mItems[position].MeasureUnit;
+            
 
             return row;
         }
