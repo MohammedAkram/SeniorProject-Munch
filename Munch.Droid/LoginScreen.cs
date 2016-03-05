@@ -182,7 +182,7 @@ namespace Munch
                 {
                     try
                     {
-                        String loginQueryURL = "http://54.191.139.104/login.php?id=" + user.Text + "&&password=" + pass.Text;
+                        String loginQueryURL = "http://54.191.98.63/login.php?id=" + user.Text + "&&password=" + pass.Text;
 
                         JsonValue json = await FetchLoginAsync(loginQueryURL);
                         result = ParseAndDisplay(json);

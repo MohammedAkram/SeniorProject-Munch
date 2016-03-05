@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Org.Apache.Http;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -17,8 +17,8 @@ using System.Threading;
 
 namespace Munch
 {
-    [Activity(Label = "APMIActivity", 
-        Theme = "@android:style/Theme.Holo.Light.NoActionBar", 
+    [Activity(Label = "APMIActivity",
+        Theme = "@android:style/Theme.Holo.Light.NoActionBar",
         ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
 
     public class APMIActivity : Activity
@@ -35,7 +35,7 @@ namespace Munch
             EditText name = FindViewById<EditText>(Resource.Id.txtName1);
             EditText unit = FindViewById<EditText>(Resource.Id.txtUnit1);
             EditText quant = FindViewById<EditText>(Resource.Id.txtQuantity1);
-           
+
             //Log Out Button
             Button logout = FindViewById<Button>(Resource.Id.LogOutMngInvtryButton);
             logout.Click += delegate
@@ -52,12 +52,12 @@ namespace Munch
             mItems.Add(new APMIInventoryList() { Name = "fuck", Description = "what the fuck", Quantity = "2", Price = "43.23" });
             mItems.Add(new APMIInventoryList() { Name = "FUCKING", Description = "FACK", Quantity = "0", Price = "14.23" });
             mItems.Add(new APMIInventoryList() { Name = "FACK", Description = "FUCKING", Quantity = "2", Price = "43.23" });
-
+            
             APMIListViewAdapter adapter = new APMIListViewAdapter(this, mItems);
             mListView.Adapter = adapter;
 
             //FAB
-            
+
 
 
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APMIfab);
@@ -85,10 +85,19 @@ namespace Munch
         {
 
             Thread.Sleep(200);
-            String url = "http://54.191.139.104/addinventory.php?name=beef&&unit=lb&&quantity=10";
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+           // String url = "http://54.191.139.104/addinventory.php?name=beef&&unit=lb&&quantity=10";
+            //var webClient = new WebClient();
+            //webClient.DownloadString("http://54.191.139.104/addinventory.php?name=beef&&unit=lb&&quantity=10");
+            //HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+            /* string URI = "http://54.191.139.104/addinventory.php?";
+             string myParameters = "name=beef&&unit=lb&&quantity=10";
+             using (WebClient wc = new WebClient())
+             {
+                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                 string HtmlResult = wc.UploadString(URI, myParameters);
+             }*/
             RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Dialog Opened", Android.Widget.ToastLength.Short).Show());
-        }
+            }
 
+        }
     }
-}
