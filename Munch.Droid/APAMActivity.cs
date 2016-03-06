@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using System.Json;
 using System.IO;
 using Newtonsoft.Json;
+using Android.Support.V4.Widget;
+
 
 
 namespace Munch
@@ -48,7 +50,6 @@ namespace Munch
         }
 
 
-
         private List<APAMAccountList> ParseAndDisplay(String json)
         {
 
@@ -64,6 +65,9 @@ namespace Munch
         //List
         private List<APAMAccountList> mItems;
         public ListView mListView;
+
+        //Swipe to Refresh
+        public SwipeRefreshLayout refresher;
 
         protected override async void OnCreate(Bundle bundle)
         {
@@ -83,7 +87,6 @@ namespace Munch
             String accountsURL = "http://54.191.98.63/accounts.php";
             JsonValue json = await FetchAccountsAsync(accountsURL);
             List<APAMAccountList> parsedData = ParseAndDisplay(json);
-            //To pull data from
             mItems = parsedData;
 
             mListView = FindViewById<ListView>(Resource.Id.accntMgmtListView);
@@ -93,6 +96,11 @@ namespace Munch
             mListView.Adapter = adapter;
             //Long click item click
             mListView.ItemLongClick += mListView_ItemLongClick;
+
+            //Swipe to refresh
+            var refresher = FindViewById<SwipeRefreshLayout>(Resource.Id.swipecontainerAPAM);
+            refresher.SetColorScheme(Resource.Color.primary, Resource.Color.accent_pressed, Resource.Color.ripple, Resource.Color.primary_pressed);
+            refresher.Refresh += HandleRefresh;
 
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APAMfab);
@@ -107,6 +115,12 @@ namespace Munch
                 manageAccount.addItemComplete += manageAccountDialog_addItemComplete; 
             };
 
+        }
+
+        //Swipe to Refresh Activity
+        void HandleRefresh (object sender, EventArgs e)
+        {
+            StartActivity(typeof(APMAActivity));
         }
 
         //Long Click item in ListView
@@ -149,7 +163,7 @@ namespace Munch
             StartActivity(typeof(APMAActivity));
         }
 
-        //Delete Button
+        <!-----Delete Button--->
         //Action to run for edit item button in dialog
         void manageAccountDialog_deleteItemComplete(object send, OnSignEventArgs_AccountManagement e)
         {
