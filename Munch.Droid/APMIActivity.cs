@@ -27,8 +27,13 @@ namespace Munch
     public class APMIActivity : Activity
     {
 
-    // create the dataTable objects to store the json table data.
-   
+        public override void OnBackPressed()
+        {
+            StartActivity(typeof(AdminPortal));
+        }
+
+        // create the dataTable objects to store the json table data.
+
 
         private async Task<JsonValue> FetchInventoryAsync(string url)
         {

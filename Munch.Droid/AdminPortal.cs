@@ -18,7 +18,7 @@ namespace Munch
 
         public override void OnBackPressed()
         {
-
+            StartActivity(typeof(AdminPortal));
             Android.Widget.Toast.MakeText(this, "You must logout to do that!", Android.Widget.ToastLength.Short).Show();
         }
 

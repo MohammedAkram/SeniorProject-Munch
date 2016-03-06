@@ -27,8 +27,12 @@ namespace Munch
 
     public class APMAActivity : Activity
     {
+        public override void OnBackPressed()
+        {
+            StartActivity(typeof(AdminPortal));
+    }
 
-        private async Task<JsonValue> FetchAccountsAsync(string url)
+    private async Task<JsonValue> FetchAccountsAsync(string url)
         {
             // Create an HTTP web request using the URL:
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
@@ -163,7 +167,7 @@ namespace Munch
             StartActivity(typeof(APMAActivity));
         }
 
-        <!-----Delete Button--->
+        
         //Action to run for edit item button in dialog
         void manageAccountDialog_deleteItemComplete(object send, OnSignEventArgs_AccountManagement e)
         {
