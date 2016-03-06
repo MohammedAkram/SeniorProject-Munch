@@ -62,7 +62,6 @@ namespace Munch
 
 
         //List
-        private List<APAMAccountList> mItems;
         public ListView mListView;
 
         protected override async void OnCreate(Bundle bundle)
@@ -85,7 +84,7 @@ namespace Munch
             List<APAMAccountList> parsedData = ParseAndDisplay(json);
 
             mListView = FindViewById<ListView>(Resource.Id.accntMgmtListView);
-            parsedData.Insert(0, (new APAMAccountList() { idAccounts = "Account Type", Level = "Username"}));
+            parsedData.Insert(0, (new APAMAccountList() { idAccounts = "Username", Level = "Level"}));
 
             APAMListViewAdapter adapter = new APAMListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
