@@ -62,6 +62,7 @@ namespace Munch
 
 
         //List
+        private List<APAMAccountList> mItems;
         public ListView mListView;
 
         protected override async void OnCreate(Bundle bundle)
@@ -82,12 +83,16 @@ namespace Munch
             String accountsURL = "http://54.191.98.63/accounts.php";
             JsonValue json = await FetchAccountsAsync(accountsURL);
             List<APAMAccountList> parsedData = ParseAndDisplay(json);
+            //To pull data from
+            mItems = parsedData;
 
             mListView = FindViewById<ListView>(Resource.Id.accntMgmtListView);
-            parsedData.Insert(0, (new APAMAccountList() { idAccounts = "Username", Level = "Level"}));
+            parsedData.Insert(0, (new APAMAccountList() { idAccounts = "Account Type", Level = "Username"}));
 
             APAMListViewAdapter adapter = new APAMListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
+            //Long click item click
+            mListView.ItemLongClick += mListView_ItemLongClick;
 
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APAMfab);
@@ -98,19 +103,63 @@ namespace Munch
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
                 dialog_APAccountManagement manageAccount = new dialog_APAccountManagement();
                 manageAccount.Show(transaction, "dialog fragment");
-
+                //Add button starts action
                 manageAccount.addItemComplete += manageAccountDialog_addItemComplete; 
             };
 
         }
+
+        //Long Click item in ListView
+        void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            dialog_APAccountManagementEdit manageAccount = new dialog_APAccountManagementEdit();
+            manageAccount.Show(transaction, "dialog fragment");
+            //Edit button starts action
+            manageAccount.editItemComplete += manageAccountDialog_editItemComplete;
+            //Delete button starts action
+            manageAccount.deleteItemComplete += manageAccountDialog_deleteItemComplete;
+        }
+
+        //Add Button
+        //Action to run for add item button in dialog
         void manageAccountDialog_addItemComplete(object sender, OnSignEventArgs_AccountManagement e)
         {
             Thread thread = new Thread(ActLikeRequest);
             thread.Start();
         }
+        //Thread to run for add item
         private void ActLikeRequest()
         {
             RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Account Added", Android.Widget.ToastLength.Short).Show());
+            StartActivity(typeof(APMAActivity));
+        }
+        
+        //Edit Button
+        //Action to run for edit item button in dialog
+        void manageAccountDialog_editItemComplete(object send, OnSignEventArgs_AccountManagement e)
+        {
+            Thread thread = new Thread(EditRequest);
+            thread.Start();
+        }
+        //Thread to run for edit item
+        private void EditRequest()
+        {
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Edited", Android.Widget.ToastLength.Short));
+            StartActivity(typeof(APMAActivity));
+        }
+
+        //Delete Button
+        //Action to run for edit item button in dialog
+        void manageAccountDialog_deleteItemComplete(object send, OnSignEventArgs_AccountManagement e)
+        {
+            Thread thread = new Thread(deleteRequest);
+            thread.Start();
+        }
+        //Thread to run for edit item
+        private void deleteRequest()
+        {
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Deleted", Android.Widget.ToastLength.Long));
             StartActivity(typeof(APMAActivity));
         }
     }

@@ -75,12 +75,7 @@ namespace Munch
             addItemComplete.Invoke(this, new OnSignEventArgs(name.Text, unit.Text, quant.Text));
             var webClient = new WebClient();
             webClient.DownloadString("http://54.191.98.63/addinventory.php?name=" + name.Text+"&&unit="+unit.Text+"&&quantity="+quant.Text+"");
-
-            
             this.Dismiss();
-            
-
-
 
         }
 
