@@ -24,7 +24,7 @@ namespace Munch
         ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
 
 
-    public class APMIActivity : Activity
+    public class AP_MI_Activity : Activity
     {
 
         public override void OnBackPressed()
@@ -58,10 +58,10 @@ namespace Munch
 
 
 
-        private List<APMIInventoryList> ParseAndDisplay(String json)
+        private List<AP_MI_InventoryList> ParseAndDisplay(String json)
         {
 
-            List<APMIInventoryList> dataTableList = JsonConvert.DeserializeObject<List<APMIInventoryList>>(json);
+            List<AP_MI_InventoryList> dataTableList = JsonConvert.DeserializeObject<List<AP_MI_InventoryList>>(json);
             Console.Out.WriteLine(dataTableList[0].Ingredients);
             Console.Out.WriteLine(dataTableList[0].Quantity);
             Console.Out.WriteLine(dataTableList[0].MeasureUnit);
@@ -70,7 +70,6 @@ namespace Munch
         }
 
         //List
-        private List<APMIInventoryList> mItems;
         public ListView mListView;
 
         protected override async void OnCreate(Bundle bundle)
@@ -95,11 +94,11 @@ namespace Munch
             //Load Up List
             //pull the data from the DB and parse it into APMIInventoryList objects 
             JsonValue json = await FetchInventoryAsync(inventoryURL);
-            List<APMIInventoryList> parsedData = ParseAndDisplay(json);
+            List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
             mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
-            parsedData.Insert(0, (new APMIInventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units",}));    
+            parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units",}));    
 
-            APMIListViewAdapter adapter = new APMIListViewAdapter(this, parsedData);
+            AP_MI_ListViewAdapter adapter = new AP_MI_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
 
             //FAB
@@ -130,7 +129,7 @@ namespace Munch
             RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Dialog Opened", Android.Widget.ToastLength.Short).Show());
             //refersh the activity so that the last added item appears
             // this needs to be fixed so the screen doesnt flash 
-            StartActivity(typeof(APMIActivity));
+            StartActivity(typeof(AP_MI_Activity));
         }
 
         }

@@ -12,12 +12,12 @@ using Android.Widget;
 
 namespace Munch
 {
-    class APMIListViewAdapter : BaseAdapter<APMIInventoryList>
+    class AP_MI_ListViewAdapter : BaseAdapter<AP_MI_InventoryList>
     {
-        private List<APMIInventoryList> mItems;
+        private List<AP_MI_InventoryList> mItems;
         private Context mContext;
 
-        public APMIListViewAdapter(Context context, List<APMIInventoryList> items)
+        public AP_MI_ListViewAdapter(Context context, List<AP_MI_InventoryList> items)
         {
             mItems = items;
             mContext = context;
@@ -33,7 +33,7 @@ namespace Munch
             return position;
         }
 
-        public override APMIInventoryList this[int position]
+        public override AP_MI_InventoryList this[int position]
         {
             get { return mItems[position]; }
         }

@@ -25,7 +25,7 @@ namespace Munch
         Theme = "@android:style/Theme.Holo.Light.NoActionBar",
         ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
 
-    public class APMAActivity : Activity
+    public class AP_MA_Activity : Activity
     {
         public override void OnBackPressed()
         {
@@ -54,10 +54,10 @@ namespace Munch
         }
 
 
-        private List<APAMAccountList> ParseAndDisplay(String json)
+        private List<AP_AM_AccountList> ParseAndDisplay(String json)
         {
 
-            List<APAMAccountList> dataTableList = JsonConvert.DeserializeObject<List<APAMAccountList>>(json);
+            List<AP_AM_AccountList> dataTableList = JsonConvert.DeserializeObject<List<AP_AM_AccountList>>(json);
             Console.Out.WriteLine(dataTableList[0].idAccounts);
             Console.Out.WriteLine(dataTableList[0].Level);
            
@@ -67,7 +67,7 @@ namespace Munch
 
 
         //List
-        private List<APAMAccountList> mItems;
+        private List<AP_AM_AccountList> mItems;
         public ListView mListView;
 
         //Swipe to Refresh
@@ -90,13 +90,13 @@ namespace Munch
             //Load Up List
             String accountsURL = "http://54.191.98.63/accounts.php";
             JsonValue json = await FetchAccountsAsync(accountsURL);
-            List<APAMAccountList> parsedData = ParseAndDisplay(json);
+            List<AP_AM_AccountList> parsedData = ParseAndDisplay(json);
             mItems = parsedData;
 
             mListView = FindViewById<ListView>(Resource.Id.accntMgmtListView);
-            parsedData.Insert(0, (new APAMAccountList() { idAccounts = "Account Type", Level = "Username"}));
+            parsedData.Insert(0, (new AP_AM_AccountList() { idAccounts = "Account Type", Level = "Username"}));
 
-            APAMListViewAdapter adapter = new APAMListViewAdapter(this, parsedData);
+            AP_AM_ListViewAdapter adapter = new AP_AM_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
             //Long click item click
             mListView.ItemLongClick += mListView_ItemLongClick;
@@ -124,7 +124,7 @@ namespace Munch
         //Swipe to Refresh Activity
         void HandleRefresh (object sender, EventArgs e)
         {
-            StartActivity(typeof(APMAActivity));
+            StartActivity(typeof(AP_MA_Activity));
         }
 
         //Long Click item in ListView
@@ -150,7 +150,7 @@ namespace Munch
         private void ActLikeRequest()
         {
             RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Account Added", Android.Widget.ToastLength.Short).Show());
-            StartActivity(typeof(APMAActivity));
+            StartActivity(typeof(AP_MA_Activity));
         }
         
         //Edit Button
@@ -164,7 +164,7 @@ namespace Munch
         private void EditRequest()
         {
             RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Edited", Android.Widget.ToastLength.Short));
-            StartActivity(typeof(APMAActivity));
+            StartActivity(typeof(AP_MA_Activity));
         }
 
         
@@ -178,7 +178,7 @@ namespace Munch
         private void deleteRequest()
         {
             RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Deleted", Android.Widget.ToastLength.Long));
-            StartActivity(typeof(APMAActivity));
+            StartActivity(typeof(AP_MA_Activity));
         }
     }
 }

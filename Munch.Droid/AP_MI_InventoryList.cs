@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    class APMIInventoryList
+    class AP_MI_InventoryList
     {
         public string Ingredients { get; set; }
         public string Quantity { get; set; }

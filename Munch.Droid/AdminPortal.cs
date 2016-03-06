@@ -47,7 +47,7 @@ namespace Munch
             manage_inventory.Click += delegate
             {
                 SetContentView(Resource.Layout.APManageInventory);
-                StartActivity(typeof(APMIActivity));
+                StartActivity(typeof(AP_MI_Activity));
             };
 
             //view reports button
@@ -65,7 +65,7 @@ namespace Munch
             account_management.Click += delegate
             {
                 SetContentView(Resource.Layout.APAccountManagement);
-                StartActivity(typeof(APMAActivity));
+                StartActivity(typeof(AP_MA_Activity));
             };
 
             //Log Out Button

@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    class APAMAccountList
+    class AP_AM_AccountList
     {
         public string idAccounts { get; set; }
         public string Level { get; set; }

@@ -12,12 +12,12 @@ using Android.Widget;
 
 namespace Munch
 {
-    class APAMListViewAdapter : BaseAdapter<APAMAccountList>
+    class AP_AM_ListViewAdapter : BaseAdapter<AP_AM_AccountList>
     {
-        private List<APAMAccountList> mItems;
+        private List<AP_AM_AccountList> mItems;
         private Context mContext;
 
-        public APAMListViewAdapter(Context context, List<APAMAccountList> items)
+        public AP_AM_ListViewAdapter(Context context, List<AP_AM_AccountList> items)
         {
             mItems = items;
             mContext = context;
@@ -33,7 +33,7 @@ namespace Munch
             return position;
         }
 
-        public override APAMAccountList this[int position]
+        public override AP_AM_AccountList this[int position]
         {
             get { return mItems[position]; }
         }

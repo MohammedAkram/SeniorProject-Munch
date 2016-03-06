@@ -72,12 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPortal.cs" />
-    <Compile Include="APAMAccountList.cs" />
-    <Compile Include="APAMActivity.cs" />
-    <Compile Include="APAMListViewAdapter.cs" />
-    <Compile Include="APMIActivity.cs" />
-    <Compile Include="APMIInventoryList.cs" />
-    <Compile Include="APMIListViewAdapter.cs" />
+    <Compile Include="AP_AM_AccountList.cs" />
+    <Compile Include="AP_AM_Activity.cs" />
+    <Compile Include="AP_AM_ListViewAdapter.cs" />
+    <Compile Include="AP_MI_Activity.cs" />
+    <Compile Include="AP_MI_InventoryList.cs" />
+    <Compile Include="AP_MI_ListViewAdapter.cs" />
     <Compile Include="AP_Edit_Menu_Activity.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
     <Compile Include="dialog_APAccountManagementEdit.cs" />
