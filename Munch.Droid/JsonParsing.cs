@@ -12,10 +12,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    class APAMAccountList
+    class JsonParsing
     {
-        public string idAccounts { get; set; }
-        public string Level { get; set; }
-        
     }
 }

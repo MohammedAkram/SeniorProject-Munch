@@ -47,14 +47,11 @@ namespace Munch
                 row = LayoutInflater.From(mContext).Inflate(Resource.Layout.APAMListViewRow, null, false);
             }
 
-            TextView txtName = row.FindViewById<TextView>(Resource.Id.txtName);
-            txtName.Text = mItems[position].Name;
+            TextView txtName = row.FindViewById<TextView>(Resource.Id.Account_Management_txtLevel);
+            txtName.Text = mItems[position].idAccounts;
 
-            TextView txtUsername = row.FindViewById<TextView>(Resource.Id.txtUsername);
-            txtUsername.Text = mItems[position].Username;
-
-            TextView txtPassword = row.FindViewById<TextView>(Resource.Id.txtPassword);
-            txtPassword.Text = mItems[position].Password;
+            TextView txtUsername = row.FindViewById<TextView>(Resource.Id.Account_Management_txtUsername);
+            txtUsername.Text = mItems[position].Level;
 
             return row;
         }

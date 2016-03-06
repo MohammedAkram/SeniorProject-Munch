@@ -12,17 +12,14 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "MenuTabActivity1")]
-    public class MenuTabActivity1 : Activity
+    [Activity(Label = "AP_Edit_Menu_Activity")]
+    public class AP_Edit_Menu_Activity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
             base.OnCreate(savedInstanceState);
-
+            SetContentView(Resource.Layout.APEditMenu);
             // Create your application here
-
-
         }
     }
 }

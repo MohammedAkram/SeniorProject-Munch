@@ -6,34 +6,27 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:layout_marginTop="15dp"
-    android:weightSum="100"
+    android:weightSum="90"
     android:layout_marginLeft="5dp">
     <TextView
         android:text="Name"
         android:layout_width="match_parent"
-        android:layout_weight="25"
+        android:layout_weight="30"
         android:layout_height="wrap_content"
-        android:id="@+id/txtName"
-        android:layout_marginLeft="5dp" />
-    <TextView
-        android:text="Description"
-        android:layout_width="match_parent"
-        android:layout_weight="25"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtDescription"
+        android:id="@+id/Manage_Inventory_Txt_Name"
         android:layout_marginLeft="5dp" />
     <TextView
         android:text="Quantity"
         android:layout_width="match_parent"
-        android:layout_weight="25"
+        android:layout_weight="30"
         android:layout_height="wrap_content"
-        android:id="@+id/txtQuantity"
+        android:id="@+id/Manage_Inventory_Txt_Quantity"
         android:layout_marginLeft="5dp" />
     <TextView
-        android:text="Price"
+        android:text="Units"
         android:layout_width="match_parent"
-        android:layout_weight="25"
+        android:layout_weight="30"
         android:layout_height="wrap_content"
-        android:id="@+id/txtPrice"
+        android:id="@+id/Manage_Inventory_Txt_Units"
         android:layout_marginLeft="5dp" />
 </LinearLayout>

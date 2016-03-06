@@ -17,50 +17,42 @@
             android:layout_margin="10dp"
             android:layout_centerInParent="true">
             <EditText
-                android:id="@+id/txtName1"
+                android:id="@+id/Add_Account_Level"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="Name of Item"
+                android:hint="Role"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/txtUnit1"
+                android:id="@+id/Add_Account_Username"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="Unit"
+                android:hint="Username"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/txtQuantity1"
+                android:id="@+id/Add_Account_Password"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="Quantity"
-                android:paddingLeft="10dp"
-                android:textColor="#000" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/txtPrice1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:hint="Price"
+                android:hint="Password"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <Button
-                    android:text="Add Item"
-                    android:id="@+id/btnAPMIAddItem1"
+                    android:text="Edit Account"
+                    android:layout_marginTop="50dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/btn_Edit_Account"
                     android:textSize="20dp"
                     android:textColor="#fff"
                     android:textStyle="bold"
@@ -68,6 +60,27 @@
                     android:paddingBottom="5dp"
                     android:paddingRight="5dp"
                     android:height="70dp"
+                    android:paddingTop="2dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:text="Delete Account"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_Delete_Account"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    android:height="70dp"
+                    android:background="#d80c0c"
                     android:paddingTop="2dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="30dp" />

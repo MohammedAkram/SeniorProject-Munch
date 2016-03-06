@@ -38,9 +38,6 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data.CF">
-      <HintPath>..\MySQL-Plugin-1.0\lib\android\MySql.Data.CF.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -52,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Json" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -80,8 +78,11 @@
     <Compile Include="APMIActivity.cs" />
     <Compile Include="APMIInventoryList.cs" />
     <Compile Include="APMIListViewAdapter.cs" />
+    <Compile Include="AP_Edit_Menu_Activity.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
+    <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
+    <Compile Include="JsonParsing.cs" />
     <Compile Include="LoginScreen.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuTabActivity1.cs" />
@@ -129,6 +130,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_APMAAdd.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_APMAEdit.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

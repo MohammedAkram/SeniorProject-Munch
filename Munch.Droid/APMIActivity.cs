@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Org.Apache.Http;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -10,23 +10,73 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
+using System.Net;
+using System.Threading.Tasks;
+using System.Json;
+using System.Threading;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Munch
 {
-    [Activity(Label = "APMIActivity", 
-        Theme = "@android:style/Theme.Holo.Light.NoActionBar", 
+    [Activity(Label = "APMIActivity",
+        Theme = "@android:style/Theme.Holo.Light.NoActionBar",
         ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+
 
     public class APMIActivity : Activity
     {
+
+    // create the dataTable objects to store the json table data.
+   
+
+        private async Task<JsonValue> FetchInventoryAsync(string url)
+        {
+            // Create an HTTP web request using the URL:
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+
+            // Send the request to the server and wait for the response:
+            using (WebResponse response = await request.GetResponseAsync())
+            {
+                // Get a stream representation of the HTTP web response:
+                using (Stream stream = response.GetResponseStream())
+                {
+                    // Use this stream to build a JSON document object:
+                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
+                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
+
+                   // Return the JSON String:
+                    return jsonDoc.ToString();
+                }
+            }
+        }
+
+
+
+        private List<APMIInventoryList> ParseAndDisplay(String json)
+        {
+
+            List<APMIInventoryList> dataTableList = JsonConvert.DeserializeObject<List<APMIInventoryList>>(json);
+            Console.Out.WriteLine(dataTableList[0].Ingredients);
+            Console.Out.WriteLine(dataTableList[0].Quantity);
+            Console.Out.WriteLine(dataTableList[0].MeasureUnit);
+            Console.Out.WriteLine(dataTableList.Count());
+            return dataTableList;
+        }
+
         //List
         private List<APMIInventoryList> mItems;
         public ListView mListView;
 
-        protected override void OnCreate(Bundle bundle)
+        protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.APManageInventory);
+            EditText name = FindViewById<EditText>(Resource.Id.txtName1);
+            EditText unit = FindViewById<EditText>(Resource.Id.txtUnit1);
+            EditText quant = FindViewById<EditText>(Resource.Id.txtQuantity1);
+
+            String inventoryURL = "http://54.191.98.63/inventory.php";
 
             //Log Out Button
             Button logout = FindViewById<Button>(Resource.Id.LogOutMngInvtryButton);
@@ -38,14 +88,13 @@ namespace Munch
             };
 
             //Load Up List
+            //pull the data from the DB and parse it into APMIInventoryList objects 
+            JsonValue json = await FetchInventoryAsync(inventoryURL);
+            List<APMIInventoryList> parsedData = ParseAndDisplay(json);
             mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
-            mItems = new List<APMIInventoryList>();
-            mItems.Add(new APMIInventoryList() { Name = "Name", Description = "Description", Quantity = "Quantity", Price = "Price" });
-            mItems.Add(new APMIInventoryList() { Name = "fuck", Description = "what the fuck", Quantity = "2", Price = "43.23" });
-            mItems.Add(new APMIInventoryList() { Name = "FUCKING", Description = "FACK", Quantity = "0", Price = "14.23" });
-            mItems.Add(new APMIInventoryList() { Name = "FACK", Description = "FUCKING", Quantity = "2", Price = "43.23" });
+            parsedData.Insert(0, (new APMIInventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units",}));    
 
-            APMIListViewAdapter adapter = new APMIListViewAdapter(this, mItems);
+            APMIListViewAdapter adapter = new APMIListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
 
             //FAB
@@ -58,9 +107,26 @@ namespace Munch
                 dialog_APManageInventory manageinventoryDialog = new dialog_APManageInventory();
                 manageinventoryDialog.Show(transaction, "dialog fragment");
 
-                Android.Widget.Toast.MakeText(this, "Dialog Opened", Android.Widget.ToastLength.Short).Show();
+                manageinventoryDialog.addItemComplete += manageinventoryDialog_addItemComplete;
+                
             };
+        }
+
+        void manageinventoryDialog_addItemComplete(object sender, OnSignEventArgs e)
+        {
+            Thread thread = new Thread(ActLikeRequest);
+            thread.Start();
+        }
+
+
+
+        private void ActLikeRequest()
+        {
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Dialog Opened", Android.Widget.ToastLength.Short).Show());
+            //refersh the activity so that the last added item appears
+            // this needs to be fixed so the screen doesnt flash 
+            StartActivity(typeof(APMIActivity));
+        }
 
         }
     }
-}

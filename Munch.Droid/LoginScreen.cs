@@ -10,7 +10,6 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.Threading.Tasks;
@@ -21,7 +20,7 @@ using System.IO;
 namespace Munch
 {
 
-    [Activity(Label = "Munch", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
+    [Activity(MainLauncher = true, Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class LoginScreen : Activity
 
     {
@@ -83,13 +82,13 @@ namespace Munch
         private int ParseAndDisplay(String json)
         {
 
-            List<Login> fuckthisfile = JsonConvert.DeserializeObject<List<Login>>(json);
-            Console.Out.WriteLine(fuckthisfile[0].status);
-            Console.Out.WriteLine(fuckthisfile[0].level);
+            List<Login> loginList = JsonConvert.DeserializeObject<List<Login>>(json);
+            Console.Out.WriteLine(loginList[0].status);
+            Console.Out.WriteLine(loginList[0].level);
 
-            if (fuckthisfile[0].status.Equals("true"))
+            if (loginList[0].status.Equals("true"))
             {
-                if (fuckthisfile[0].level.Equals("0"))
+                if (loginList[0].level.Equals("0"))
                 {
                     return 0;
                 }
@@ -183,7 +182,7 @@ namespace Munch
                 {
                     try
                     {
-                        String loginQueryURL = "http://54.191.139.104/login.php?id=" + user.Text + "&&password=" + pass.Text;
+                        String loginQueryURL = "http://54.191.98.63/login.php?id=" + user.Text + "&&password=" + pass.Text;
 
                         JsonValue json = await FetchLoginAsync(loginQueryURL);
                         result = ParseAndDisplay(json);
