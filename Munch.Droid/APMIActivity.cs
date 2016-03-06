@@ -122,10 +122,6 @@ namespace Munch
 
         private void ActLikeRequest()
         {
-            EditText name = FindViewById<EditText>(Resource.Id.txtName1);
-            EditText unit = FindViewById<EditText>(Resource.Id.txtUnit1);
-            EditText quant = FindViewById<EditText>(Resource.Id.txtQuantity1);
-
             RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Dialog Opened", Android.Widget.ToastLength.Short).Show());
             //refersh the activity so that the last added item appears
             // this needs to be fixed so the screen doesnt flash 
