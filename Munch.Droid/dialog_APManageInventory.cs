@@ -13,7 +13,7 @@ using System.Net;
 
 namespace Munch
 {
-    public class OnSignEventArgs : EventArgs
+    public class OnSignEventArgs_InventoryManagement : EventArgs
     {
         private string mName;
         private string mUnit;
@@ -37,7 +37,7 @@ namespace Munch
             set { mQuant = value; }
         }
 
-        public OnSignEventArgs(string name, string unit, string quant) : base()
+        public OnSignEventArgs_InventoryManagement(string name, string unit, string quant) : base()
         {
             Name = name;
             Unit = unit;
@@ -53,7 +53,8 @@ namespace Munch
         private EditText quant;
         private Button dAddItem;
 
-        public event EventHandler<OnSignEventArgs> addItemComplete;
+        public event EventHandler<OnSignEventArgs_InventoryManagement> addItemComplete;
+        public event EventHandler<OnSignEventArgs_InventoryManagement> deleteItemComplete;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -72,9 +73,18 @@ namespace Munch
 
         void dAddItem_Click(object sender, EventArgs args)
         {
-            addItemComplete.Invoke(this, new OnSignEventArgs(name.Text, unit.Text, quant.Text));
+            addItemComplete.Invoke(this, new OnSignEventArgs_InventoryManagement(name.Text, unit.Text, quant.Text));
             var webClient = new WebClient();
             webClient.DownloadString("http://54.191.98.63/addinventory.php?name=" + name.Text+"&&unit="+unit.Text+"&&quantity="+quant.Text+"");
+            this.Dismiss();
+
+        }
+
+        void dDeleteItem_Click(object sender, EventArgs args)
+        {
+            deleteItemComplete.Invoke(this, new OnSignEventArgs_InventoryManagement(name.Text, unit.Text, quant.Text));
+            var webClient = new WebClient();
+            webClient.DownloadString("http://54.191.98.63/addinventory.php?name=" + name.Text + "&&unit=" + unit.Text + "&&quantity=" + quant.Text + "");
             this.Dismiss();
 
         }

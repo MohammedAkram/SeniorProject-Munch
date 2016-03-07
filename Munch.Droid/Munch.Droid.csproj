@@ -80,6 +80,7 @@
     <Compile Include="AP_MI_ListViewAdapter.cs" />
     <Compile Include="AP_Edit_Menu_Activity.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
+    <Compile Include="dialog_AP_Manage_InventoryEdit.cs" />
     <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
     <Compile Include="JsonParsing.cs" />
@@ -135,6 +136,7 @@
     <AndroidResource Include="Resources\layout\dialog_APMAEdit.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_APMIEdit_.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
