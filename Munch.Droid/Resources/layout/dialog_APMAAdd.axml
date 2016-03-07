@@ -17,19 +17,19 @@
             android:layout_margin="10dp"
             android:layout_centerInParent="true">
             <EditText
-                android:id="@+id/txtName"
+                android:id="@+id/Add_Account_Level"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="Name of Person"
+                android:hint="Role"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/txtDescription"
+                android:id="@+id/Add_Account_Username"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:hint="Username"
@@ -38,7 +38,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/txtQuantity"
+                android:id="@+id/Add_Account_Password"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:hint="Password"
@@ -52,7 +52,7 @@
                     android:layout_marginTop="50dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btnAPMIAddItem"
+                    android:id="@+id/btn_Add_Account"
                     android:textSize="20dp"
                     android:textColor="#fff"
                     android:textStyle="bold"

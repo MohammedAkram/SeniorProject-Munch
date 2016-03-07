@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:background="#FAFAFA"
+    android:weightSum="100">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="88"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp">
+        <TextView
+            android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtName"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:textSize="18sp" />
+        <TextView
+            android:text="Categlory"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCateglory"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:textSize="16sp" />
+        <TextView
+            android:text="Price"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPrice"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:textSize="14sp"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="12"
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:paddingRight="5dp">
+        <TextView
+            android:text="15m"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSell_Price"
+            android:gravity="center_horizontal"
+            android:paddingTop="5dp" />
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/cbxStart"
+            android:button="@android:drawable/btn_star" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>

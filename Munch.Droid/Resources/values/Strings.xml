@@ -2,11 +2,4 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">test.Droid</string>
-  <string-array name="Unit_Type">
-    <item>Lbs</item>
-    <item>Oz</item>
-    <item>Liters</item>
-    <item>Gallons</item>
-    <item>Tons</item>
-  </string-array>
 </resources>
