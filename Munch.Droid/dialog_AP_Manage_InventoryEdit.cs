@@ -74,7 +74,7 @@ namespace Munch
             dDeleteInventory.Click += dDeleteInventory_Click;
             return view;
         }
-        //Edit Account Action
+        //Edit Inventory Action
         private void dEditInventory_Click(object sender, EventArgs e)
         {
             editItemComplete.Invoke(this, new OnSignEventArgs_InventoryManagement(ingredients.Text, quantity.Text, measureUnit.Text));
@@ -82,7 +82,7 @@ namespace Munch
             webClient.DownloadString("http://54.191.98.63/register.php?id=" + quantity.Text + "&&password=" + measureUnit.Text + "&&level=" + ingredients.Text + "");
             this.Dismiss();
         }
-        //Delete Account Action
+        //Delete Inventory Action
         private void dDeleteInventory_Click(object sender, EventArgs e)
         {
             deleteItemComplete.Invoke(this, new OnSignEventArgs_InventoryManagement(ingredients.Text, quantity.Text, measureUnit.Text));

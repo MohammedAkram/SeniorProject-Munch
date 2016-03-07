@@ -103,6 +103,7 @@ namespace Munch
             mListView.Adapter = adapter;
 
             mListView.ItemLongClick += mListView_ItemLongClick;
+
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APMIfab);
             fab.AttachToListView(mListView);
