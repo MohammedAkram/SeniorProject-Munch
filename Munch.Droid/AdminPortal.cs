@@ -18,7 +18,7 @@ namespace Munch
 
         public override void OnBackPressed()
         {
-
+            StartActivity(typeof(AdminPortal));
             Android.Widget.Toast.MakeText(this, "You must logout to do that!", Android.Widget.ToastLength.Short).Show();
         }
 
@@ -37,8 +37,8 @@ namespace Munch
 
             edit_menu.Click += delegate
             {
-                SetContentView(Resource.Layout.APEditMenu);
-                StartActivity(typeof(Menu));
+                SetContentView(Resource.Layout.APManageInventory);
+                StartActivity(typeof(AP_Edit_Menu_Activity));
             };
 
             //manage inventory button
@@ -47,7 +47,7 @@ namespace Munch
             manage_inventory.Click += delegate
             {
                 SetContentView(Resource.Layout.APManageInventory);
-                StartActivity(typeof(APMIActivity));
+                StartActivity(typeof(AP_MI_Activity));
             };
 
             //view reports button
@@ -65,7 +65,7 @@ namespace Munch
             account_management.Click += delegate
             {
                 SetContentView(Resource.Layout.APAccountManagement);
-                StartActivity(typeof(APMAActivity));
+                StartActivity(typeof(AP_MA_Activity));
             };
 
             //Log Out Button

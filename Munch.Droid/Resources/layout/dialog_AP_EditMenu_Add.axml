@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="#DEDEDC"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_centerInParent="true">
+            <EditText
+                android:id="@+id/txtTabName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Tab"
+                android:paddingLeft="10dp"
+                android:textColor="#000" />
+            <EditText
+                android:id="@+id/txtItemName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Name of Item"
+                android:paddingLeft="10dp"
+                android:textColor="#000" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/txtIngredients"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Ingredients"
+                android:paddingLeft="10dp"
+                android:textColor="#000" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/txtCostPrice1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Cost Price"
+                android:paddingLeft="10dp"
+                android:textColor="#000" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/txtSellPrice1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Sell Price"
+                android:paddingLeft="10dp"
+                android:textColor="#000" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:text="Add Item"
+                    android:id="@+id/btnAPMIAddItem1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    android:height="70dp"
+                    android:paddingTop="2dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

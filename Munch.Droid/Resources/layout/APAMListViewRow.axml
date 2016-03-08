@@ -6,27 +6,21 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:layout_marginTop="15dp"
-    android:weightSum="75"
+    android:weightSum="100"
     android:layout_marginLeft="5dp">
     <TextView
-        android:text="Name"
+        android:text="Level"
         android:layout_width="match_parent"
-        android:layout_weight="25"
+        android:layout_weight="50"
         android:layout_height="wrap_content"
-        android:id="@+id/txtName"
+        android:id="@+id/Account_Management_txtLevel"
         android:layout_marginLeft="5dp" />
     <TextView
         android:text="Username"
         android:layout_width="match_parent"
-        android:layout_weight="25"
+        android:layout_weight="50"
         android:layout_height="wrap_content"
-        android:id="@+id/txtUsername"
+        android:id="@+id/Account_Management_txtUsername"
         android:layout_marginLeft="5dp" />
-    <TextView
-        android:text="Password"
-        android:layout_width="match_parent"
-        android:layout_weight="25"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtPassword"
-        android:layout_marginLeft="5dp" />
+    
 </LinearLayout>
