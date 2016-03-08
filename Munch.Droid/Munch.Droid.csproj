@@ -202,11 +202,14 @@
       <Visible>False</Visible>
       <Version>7.0.1</Version>
     </XamarinComponentReference>
+<<<<<<< HEAD
     <XamarinComponentReference Include="xamandroidsupportv7cardview">
       <Visible>False</Visible>
       <Version>23.1.1.1</Version>
       <InstallationInProgress>True</InstallationInProgress>
     </XamarinComponentReference>
+=======
+>>>>>>> origin/Anthony'sCode
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_add_white_24dp.png" />
@@ -252,11 +255,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt" />
+<<<<<<< HEAD
     <AndroidResource Include="Resources\anim\flip.xml" />
     <AndroidResource Include="Resources\anim\slide_left_to_right.xml" />
     <AndroidResource Include="Resources\anim\slide_right_to_left.xml" />
     <AndroidResource Include="Resources\anim\slide_up.xml" />
     <AndroidResource Include="Resources\values\actionbar..xml" />
+=======
+>>>>>>> origin/Anthony'sCode
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

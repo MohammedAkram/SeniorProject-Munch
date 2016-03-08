@@ -10,14 +10,25 @@ using System.Collections.Generic;
 using Android.Views.Animations;
 using Android.Animation;
 
+<<<<<<< HEAD
 namespace Munch
 {
     public class MainEditMenuMaterialDesign : Activity
+=======
+namespace RecyclerViewTutorial
+{
+    [Activity(Label = "Munch", Icon = "@drawable/icon")]
+    public class MainActivity : Activity
+>>>>>>> origin/Anthony'sCode
     {
         private RecyclerView mRecyclerView;
         private RecyclerView.LayoutManager mLayoutManager;
         private RecyclerView.Adapter mAdapter;
+<<<<<<< HEAD
         private List<EditMenu> mMenu;
+=======
+        private List<Menu> mMenu;
+>>>>>>> origin/Anthony'sCode
 
 
         protected override void OnCreate(Bundle bundle)
@@ -25,10 +36,17 @@ namespace Munch
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
+<<<<<<< HEAD
             SetContentView(Resource.Layout.EditMenuMaterialDesign);
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mMenu = new List<EditMenu>();
             mMenu.Add(new EditMenu() { Name = "Pizza", Categlory = "Lunch", Price = "$8" });
+=======
+            SetContentView(Resource.Layout.Main);
+            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            mMenu = new List<Menu>();
+            mMenu.Add(new Menu() { Name = "Pizza", Categlory = "Lunch", Price = "$8" });
+>>>>>>> origin/Anthony'sCode
 
             //Create our layout manager
             mLayoutManager = new LinearLayoutManager(this);
@@ -39,7 +57,11 @@ namespace Munch
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
+<<<<<<< HEAD
             MenuInflater.Inflate(Resource.values.actionbar, menu);
+=======
+            MenuInflater.Inflate(Resource.Menu.actionbar, menu);
+>>>>>>> origin/Anthony'sCode
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -49,7 +71,11 @@ namespace Munch
             {
                 case Resource.Id.add:
                     //Add button clicked
+<<<<<<< HEAD
                     mMenu.Add(new EditMenu() { Name = "New Name", Categlory = "New Categlory", Price = "New Price" });
+=======
+                    mMenu.Add(new Menu() { Name = "New Name", Categlory = "New Categlory", Price = "New Price" });
+>>>>>>> origin/Anthony'sCode
                     mAdapter.NotifyItemInserted(mMenu.Count - 1);
                     return true;
             }
@@ -59,12 +85,20 @@ namespace Munch
 
     public class RecyclerAdapter : RecyclerView.Adapter
     {
+<<<<<<< HEAD
         private List<EditMenu> mMenu;
+=======
+        private List<Menu> mMenu;
+>>>>>>> origin/Anthony'sCode
         private RecyclerView mRecyclerView;
         private Context mContext;
         private int mCurrentPosition = -1;
 
+<<<<<<< HEAD
         public RecyclerAdapter(List<EditMenu> menu, RecyclerView recyclerView, Context context)
+=======
+        public RecyclerAdapter(List<Menu> menu, RecyclerView recyclerView, Context context)
+>>>>>>> origin/Anthony'sCode
         {
             mMenu = menu;
             mRecyclerView = recyclerView;
@@ -99,22 +133,37 @@ namespace Munch
             if ((position % 2) == 0)
             {
                 //Even number
+<<<<<<< HEAD
                 return Resource.Layout.EditMenu_Row1;
+=======
+                return Resource.Layout.row;
+>>>>>>> origin/Anthony'sCode
             }
 
             else
             {
                 //Odd number
+<<<<<<< HEAD
                 return Resource.Layout.EditMenu_Row2;
+=======
+                return Resource.Layout.row2;
+>>>>>>> origin/Anthony'sCode
             }
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
+<<<<<<< HEAD
             if (viewType == Resource.Layout.EditMenu_Row1)
             {
                 //First card view
                 View row = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.EditMenu_Row1, parent, false);
+=======
+            if (viewType == Resource.Layout.row)
+            {
+                //First card view
+                View row = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.row, parent, false);
+>>>>>>> origin/Anthony'sCode
 
                 TextView txtName = row.FindViewById<TextView>(Resource.Id.txtName);
                 TextView txtCateglory = row.FindViewById<TextView>(Resource.Id.txtCateglory);
@@ -128,7 +177,11 @@ namespace Munch
             else
             {
                 //Second card view
+<<<<<<< HEAD
                 View row = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.EditMenu_Row2, parent, false);
+=======
+                View row = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.row2, parent, false);
+>>>>>>> origin/Anthony'sCode
                 MyView2 view = new MyView2(row);
                 return view;
             }

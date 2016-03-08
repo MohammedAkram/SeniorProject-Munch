@@ -10,9 +10,15 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+<<<<<<< HEAD
 namespace Munch
 {
     public class EditMenu
+=======
+namespace RecyclerViewTutorial
+{
+    public class Menu
+>>>>>>> origin/Anthony'sCode
     {
         public string Name { get; set; }
         public string Categlory { get; set; }

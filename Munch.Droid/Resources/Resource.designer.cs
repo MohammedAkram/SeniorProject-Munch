@@ -3326,6 +3326,7 @@ namespace Munch
 			// aapt resource value: 0x7f080137
 			public const int Base_Widget_Design_TabLayout = 2131231031;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f080000
 			public const int CardView = 2131230720;
 			
@@ -3340,6 +3341,13 @@ namespace Munch
 			
 			// aapt resource value: 0x7f080013
 			public const int Platform_AppCompat = 2131230739;
+=======
+			// aapt resource value: 0x7f090144
+			public const int Mono_Android_Theme_Splash = 2131296580;
+			
+			// aapt resource value: 0x7f090010
+			public const int Platform_AppCompat = 2131296272;
+>>>>>>> origin/Anthony'sCode
 			
 			// aapt resource value: 0x7f080014
 			public const int Platform_AppCompat_Light = 2131230740;
