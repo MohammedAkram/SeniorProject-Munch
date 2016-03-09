@@ -35,7 +35,7 @@ namespace Munch
 
         // create the dataTable objects to store the json table data.
 
-
+        private List<AP_MI_InventoryList> mItems;
         private async Task<JsonValue> FetchInventoryAsync(string url)
         {
             // Create an HTTP web request using the URL:
@@ -96,12 +96,13 @@ namespace Munch
             //pull the data from the DB and parse it into APMIInventoryList objects 
             JsonValue json = await FetchInventoryAsync(inventoryURL);
             List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
+            mItems = parsedData;
             mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
             parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units", }));
 
             AP_MI_ListViewAdapter adapter = new AP_MI_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
-
+            
             mListView.ItemLongClick += mListView_ItemLongClick;
 
             //FAB
@@ -122,9 +123,10 @@ namespace Munch
         {
             StartActivity(typeof(AP_MI_Activity));
         }
-
+        public static String xxc;
         void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
+            xxc = mItems[e.Position].Ingredients;
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             dialog__AP_Manage_InventoryEdit manageInventory = new dialog__AP_Manage_InventoryEdit();
             manageInventory.Show(transaction, "dialog fragment");

@@ -126,10 +126,11 @@ namespace Munch
         {
             StartActivity(typeof(AP_MA_Activity));
         }
-
+        public static String xxc;
         //Long Click item in ListView
         void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
+            xxc = mItems[e.Position].idAccounts;
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             dialog_APAccountManagementEdit manageAccount = new dialog_APAccountManagementEdit();
             manageAccount.Show(transaction, "dialog fragment");
