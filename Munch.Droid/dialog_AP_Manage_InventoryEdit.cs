@@ -46,7 +46,7 @@ namespace Munch
 
     }
 
-    class dialog__AP_Manage_InventoryEdit : DialogFragment
+    class dialog_AP_Manage_InventoryEdit : DialogFragment
     {
         private EditText ingredients;
         private EditText quantity;
@@ -56,7 +56,7 @@ namespace Munch
 
         public event EventHandler<OnSignEventArgs_InventoryManagement> editItemComplete;
         public event EventHandler<OnSignEventArgs_InventoryManagement> deleteItemComplete;
-
+        string select = (AP_MI_Activity.xcc);
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
@@ -68,6 +68,7 @@ namespace Munch
             measureUnit = view.FindViewById<EditText>(Resource.Id.txt_Edit_Unit1);
             dEditInventory = view.FindViewById<Button>(Resource.Id.btn_Edit_Inventory);
             dDeleteInventory = view.FindViewById<Button>(Resource.Id.btn_Delete_Inventory);
+            ingredients.Text = select;
             //Click Event for Edit Account
             dEditInventory.Click += dEditInventory_Click;
             //Click Event for Delete Account
@@ -79,7 +80,7 @@ namespace Munch
         {
             editItemComplete.Invoke(this, new OnSignEventArgs_InventoryManagement(ingredients.Text, quantity.Text, measureUnit.Text));
             var webClient = new WebClient();
-            webClient.DownloadString("http://54.191.98.63/register.php?id=" + quantity.Text + "&&password=" + measureUnit.Text + "&&level=" + ingredients.Text + "");
+            webClient.DownloadString("http://54.191.98.63/manageinventory.php?name=" + select + "&&unit=" + measureUnit.Text + "&&quantity=" + quantity.Text + "");
             this.Dismiss();
         }
         //Delete Inventory Action
@@ -87,7 +88,7 @@ namespace Munch
         {
             deleteItemComplete.Invoke(this, new OnSignEventArgs_InventoryManagement(ingredients.Text, quantity.Text, measureUnit.Text));
             var webClient = new WebClient();
-            webClient.DownloadString("http://54.191.98.63/register.php?id=" + quantity.Text + "&&password=" + measureUnit.Text + "&&level=" + ingredients.Text + "");
+            webClient.DownloadString("http://54.191.98.63/manageinventory.php?name=" + select + "&&delete=1");
             this.Dismiss();
         }
 

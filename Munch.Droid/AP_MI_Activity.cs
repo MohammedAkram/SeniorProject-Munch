@@ -123,12 +123,12 @@ namespace Munch
         {
             StartActivity(typeof(AP_MI_Activity));
         }
-        public static String xxc;
+        public static String xcc;
         void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            xxc = mItems[e.Position].Ingredients;
+            xcc = mItems[e.Position].Ingredients;
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
-            dialog__AP_Manage_InventoryEdit manageInventory = new dialog__AP_Manage_InventoryEdit();
+            dialog_AP_Manage_InventoryEdit manageInventory = new dialog_AP_Manage_InventoryEdit();
             manageInventory.Show(transaction, "dialog fragment");
             //Edit button starts action
             manageInventory.editItemComplete += manageinventoryDialog_addItemComplete;
@@ -177,7 +177,7 @@ namespace Munch
 
 
         //Action to run for edit item button in dialog
-        void manageAccountDialog_deleteItemComplete(object send, dialog__AP_Manage_InventoryEdit e)
+        void manageAccountDialog_deleteItemComplete(object send, dialog_AP_Manage_InventoryEdit e)
         {
             Thread thread = new Thread(deleteRequest);
             thread.Start();

@@ -55,7 +55,7 @@ namespace Munch
 
         public event EventHandler<OnSignEventArgs_InventoryManagement> addItemComplete;
         public event EventHandler<OnSignEventArgs_InventoryManagement> deleteItemComplete;
-        string select = (AP_MA_Activity.xxc);
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
