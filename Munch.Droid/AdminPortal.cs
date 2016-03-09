@@ -38,7 +38,7 @@ namespace Munch
             edit_menu.Click += delegate
             {
                 SetContentView(Resource.Layout.APManageInventory);
-                StartActivity(typeof(AP_Edit_Menu_Activity));
+                StartActivity(typeof(AP_EM_Activity));
             };
 
             //manage inventory button

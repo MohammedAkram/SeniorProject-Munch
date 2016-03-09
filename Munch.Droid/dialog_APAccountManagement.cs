@@ -55,7 +55,7 @@ namespace Munch
 
         public event EventHandler<OnSignEventArgs_AccountManagement> addItemComplete;
         public event EventHandler<OnSignEventArgs_AccountManagement> deleteItemComplete;
-
+        
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);

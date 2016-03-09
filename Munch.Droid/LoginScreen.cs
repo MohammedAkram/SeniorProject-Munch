@@ -126,42 +126,36 @@ namespace Munch
 
             EditText user = FindViewById<EditText>(Resource.Id.userName);
             EditText pass = FindViewById<EditText>(Resource.Id.password);
-            //if the result is 0, launch the admin portal and reset the text views for username and password to ""
-            if (result == 0)
+            try
             {
-                Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                StartActivity(typeof(AdminPortal));
-                user.Text = "";
-                pass.Text = "";
-            }
+                //if the result is 0, launch the admin portal and reset the text views for username and password to ""
+                if (result == 0)
+                {
+                    Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
+                    StartActivity(typeof(AdminPortal));
+                    user.Text = "";
+                    pass.Text = "";
+                }
 
-            //if the result is 1, launch the menu and reset the text views for username and password to ""
-            else if (result == 1)
-            {
-                Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                StartActivity(typeof(Menu));
-                user.Text = "";
-                pass.Text = "";
-            }
+                //if the result is 1, launch the menu and reset the text views for username and password to ""
+                else if (result == 1)
+                {
+                    Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
+                    StartActivity(typeof(Menu));
+                    user.Text = "";
+                    pass.Text = "";
+                }
 
-            //if the result is 2, the user input a combination of username and password that did not match any in the database
-            else if (result == 2)
-            {
-                Android.Widget.Toast.MakeText(this, "Login Failed", Android.Widget.ToastLength.Short).Show();
+                //if the result is 2, the user input a combination of username and password that did not match any in the database
+                else if (result == 2)
+                {
+                    Android.Widget.Toast.MakeText(this, "Incorrect Username or Password", Android.Widget.ToastLength.Short).Show();
+                }
             }
-            /*
-            //if the result is 3, there is an error establishing a connection to the server
-            else if (result == 3)
+            catch
             {
-                Android.Widget.Toast.MakeText(this, "Cannot connect to server", Android.Widget.ToastLength.Short).Show();
+                Android.Widget.Toast.MakeText(this, "Something went wrong", Android.Widget.ToastLength.Short).Show();
             }
-
-            //if the result is 4, the user is attempting to use illegal characters
-            else if (result == 4)
-            {
-                Android.Widget.Toast.MakeText(this, "Cannot use special characters", Android.Widget.ToastLength.Short).Show();
-            }
-            */
 
         }
 
@@ -178,27 +172,29 @@ namespace Munch
             int result;
 
             login.Click += async (sender, e) => {
-                if (userNameCheck(user.Text, pass.Text) == true)
-                {
+                var progressDialog = ProgressDialog.Show(this, "Logging in...", "Checking account info...", true);
+                if (userNameCheck(user.Text, pass.Text))
+                {                   
                     try
                     {
+                        
                         String loginQueryURL = "http://54.191.98.63/login.php?id=" + user.Text + "&&password=" + pass.Text;
-
                         JsonValue json = await FetchLoginAsync(loginQueryURL);
                         result = ParseAndDisplay(json);
+                        progressDialog.Hide();
                         screenChange(result);
                     }
                     catch
                     {
                         Android.Widget.Toast.MakeText(this, "Cannot connect to server", Android.Widget.ToastLength.Short).Show();
+                        progressDialog.Hide();
                     }
                 }
                 else
                 {
                     Android.Widget.Toast.MakeText(this, "Cannot use special characters", Android.Widget.ToastLength.Short).Show();
+                    progressDialog.Hide();
                 }
-
-
             };
         }
     }

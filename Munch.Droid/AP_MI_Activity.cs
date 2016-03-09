@@ -35,7 +35,7 @@ namespace Munch
 
         // create the dataTable objects to store the json table data.
 
-
+        private List<AP_MI_InventoryList> mItems;
         private async Task<JsonValue> FetchInventoryAsync(string url)
         {
             // Create an HTTP web request using the URL:
@@ -96,12 +96,13 @@ namespace Munch
             //pull the data from the DB and parse it into APMIInventoryList objects 
             JsonValue json = await FetchInventoryAsync(inventoryURL);
             List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
+            mItems = parsedData;
             mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
             parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units", }));
 
             AP_MI_ListViewAdapter adapter = new AP_MI_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
-
+            
             mListView.ItemLongClick += mListView_ItemLongClick;
 
             //FAB
@@ -122,11 +123,12 @@ namespace Munch
         {
             StartActivity(typeof(AP_MI_Activity));
         }
-
+        public static String xcc;
         void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
+            xcc = mItems[e.Position].Ingredients;
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
-            dialog__AP_Manage_InventoryEdit manageInventory = new dialog__AP_Manage_InventoryEdit();
+            dialog_AP_Manage_InventoryEdit manageInventory = new dialog_AP_Manage_InventoryEdit();
             manageInventory.Show(transaction, "dialog fragment");
             //Edit button starts action
             manageInventory.editItemComplete += manageinventoryDialog_addItemComplete;
@@ -175,7 +177,7 @@ namespace Munch
 
 
         //Action to run for edit item button in dialog
-        void manageAccountDialog_deleteItemComplete(object send, dialog__AP_Manage_InventoryEdit e)
+        void manageAccountDialog_deleteItemComplete(object send, dialog_AP_Manage_InventoryEdit e)
         {
             Thread thread = new Thread(deleteRequest);
             thread.Start();
