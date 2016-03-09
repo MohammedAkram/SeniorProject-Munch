@@ -9,6 +9,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using com.refractored.fab;
+using System.Threading;
+using System.Net;
+using System.Threading.Tasks;
+using System.Json;
+using System.IO;
+using Newtonsoft.Json;
+using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 
 namespace Munch
@@ -44,7 +52,20 @@ namespace Munch
             mAdapter.ItemClick += OnItemClick;
             //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
+
+            var fab = FindViewById<FloatingActionButton>(Resource.Id.APEMfab);
+            fab.AttachToRecyclerView(mRecyclerView);
+            fab.Click += (object sender, EventArgs args) =>
+            {
+                //Pull up dialog box
+                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                dialog_AP_Edit_Menu manageMenu = new dialog_AP_Edit_Menu();
+                manageMenu = new dialog_AP_Edit_Menu();
+                manageMenu.Show(transaction, "dialog fragment");
+            };
+
         }
+        
 
         void OnItemClick (object sender, int position)
         {

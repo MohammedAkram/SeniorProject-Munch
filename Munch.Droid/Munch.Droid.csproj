@@ -85,6 +85,7 @@
     <Compile Include="AP_MI_InventoryList.cs" />
     <Compile Include="AP_MI_ListViewAdapter.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
+    <Compile Include="dialog_AP_Edit_Menu.cs" />
     <Compile Include="dialog_AP_Manage_InventoryEdit.cs" />
     <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
@@ -143,6 +144,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_APMIEdit_.axml" />
     <AndroidResource Include="Resources\layout\APEMCardView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_APEMAdd.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
