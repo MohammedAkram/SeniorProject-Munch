@@ -16,6 +16,7 @@ using System.Json;
 using System.Threading;
 using System.IO;
 using Newtonsoft.Json;
+using Android.Support.V4.Widget;
 
 namespace Munch
 {
@@ -50,7 +51,7 @@ namespace Munch
                     JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
                     Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
-                   // Return the JSON String:
+                    // Return the JSON String:
                     return jsonDoc.ToString();
                 }
             }
@@ -96,10 +97,12 @@ namespace Munch
             JsonValue json = await FetchInventoryAsync(inventoryURL);
             List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
             mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
-            parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units",}));    
+            parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units", }));
 
             AP_MI_ListViewAdapter adapter = new AP_MI_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
+
+            mListView.ItemLongClick += mListView_ItemLongClick;
 
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APMIfab);
@@ -110,19 +113,40 @@ namespace Munch
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
                 dialog_APManageInventory manageinventoryDialog = new dialog_APManageInventory();
                 manageinventoryDialog.Show(transaction, "dialog fragment");
-
                 manageinventoryDialog.addItemComplete += manageinventoryDialog_addItemComplete;
-                
+
             };
         }
+        //Swipe to Refresh Activity
+        void HandleRefresh(object sender, EventArgs e)
+        {
+            StartActivity(typeof(AP_MI_Activity));
+        }
 
-        void manageinventoryDialog_addItemComplete(object sender, OnSignEventArgs e)
+        void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            dialog__AP_Manage_InventoryEdit manageInventory = new dialog__AP_Manage_InventoryEdit();
+            manageInventory.Show(transaction, "dialog fragment");
+            //Edit button starts action
+            manageInventory.editItemComplete += manageinventoryDialog_addItemComplete;
+            //Delete button starts action
+            manageInventory.deleteItemComplete += manageinventoryDialog_deleteItemComplete;
+        }
+
+        
+
+        void manageinventoryDialog_addItemComplete(object sender, OnSignEventArgs_InventoryManagement e)
         {
             Thread thread = new Thread(ActLikeRequest);
             thread.Start();
         }
 
-
+        void manageinventoryDialog_deleteItemComplete(object sender, OnSignEventArgs_InventoryManagement e)
+        {
+            Thread thread = new Thread(ActLikeRequest);
+            thread.Start();
+        }
 
         private void ActLikeRequest()
         {
@@ -132,5 +156,35 @@ namespace Munch
             StartActivity(typeof(AP_MI_Activity));
         }
 
+
+
+        //Edit Button
+        //Action to run for edit item button in dialog
+        void manageAccountDialog_editItemComplete(object send, OnSignEventArgs_InventoryManagementEdit e)
+        {
+            Thread thread = new Thread(EditRequest);
+            thread.Start();
+        }
+        //Thread to run for edit item
+
+        private void EditRequest()
+        {
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Edited", Android.Widget.ToastLength.Short));
+            StartActivity(typeof(AP_MI_Activity));
+        }
+
+
+        //Action to run for edit item button in dialog
+        void manageAccountDialog_deleteItemComplete(object send, dialog__AP_Manage_InventoryEdit e)
+        {
+            Thread thread = new Thread(deleteRequest);
+            thread.Start();
+        }
+        //Thread to run for edit item
+        private void deleteRequest()
+        {
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Deleted", Android.Widget.ToastLength.Long));
+            StartActivity(typeof(AP_MI_Activity));
         }
     }
+}

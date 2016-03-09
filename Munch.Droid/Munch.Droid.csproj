@@ -65,16 +65,14 @@
       <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.1.1.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xamarin.Android.Support.v7.CardView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.22.2.0.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.1.1.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AP_EditMenuListViewAdapater.cs" />
+    <Compile Include="AP_EditMenu_DishList.cs" />
     <Compile Include="AdminPortal.cs" />
     <Compile Include="AP_AM_AccountList.cs" />
     <Compile Include="AP_AM_Activity.cs" />
@@ -84,10 +82,9 @@
     <Compile Include="AP_MI_ListViewAdapter.cs" />
     <Compile Include="AP_Edit_Menu_Activity.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
+    <Compile Include="dialog_AP_Manage_InventoryEdit.cs" />
     <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
-    <Compile Include="EditMenuMaterialDesign.cs" />
-    <Compile Include="EditMenu_Activity.cs" />
     <Compile Include="JsonParsing.cs" />
     <Compile Include="LoginScreen.cs" />
     <Compile Include="Menu.cs" />
@@ -141,9 +138,16 @@
     <AndroidResource Include="Resources\layout\dialog_APMAEdit.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\EditMenu_Row1.axml" />
-    <AndroidResource Include="Resources\layout\EditMenu_Row2.axml" />
-    <AndroidResource Include="Resources\layout\EditMenuMaterialDesign.axml" />
+    <AndroidResource Include="Resources\layout\dialog_APMIEdit_.axml" />
+    <AndroidResource Include="Resources\layout\EditMenuListViewRow.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_EditMenuAdd.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_EditMenuEdit.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -192,7 +196,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\RoundedButton.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\anim\" />
+  </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="fab">
       <Visible>False</Visible>
@@ -202,14 +208,6 @@
       <Visible>False</Visible>
       <Version>7.0.1</Version>
     </XamarinComponentReference>
-<<<<<<< HEAD
-    <XamarinComponentReference Include="xamandroidsupportv7cardview">
-      <Visible>False</Visible>
-      <Version>23.1.1.1</Version>
-      <InstallationInProgress>True</InstallationInProgress>
-    </XamarinComponentReference>
-=======
->>>>>>> origin/Anthony'sCode
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_add_white_24dp.png" />
@@ -255,14 +253,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt" />
-<<<<<<< HEAD
-    <AndroidResource Include="Resources\anim\flip.xml" />
-    <AndroidResource Include="Resources\anim\slide_left_to_right.xml" />
-    <AndroidResource Include="Resources\anim\slide_right_to_left.xml" />
-    <AndroidResource Include="Resources\anim\slide_up.xml" />
-    <AndroidResource Include="Resources\values\actionbar..xml" />
-=======
->>>>>>> origin/Anthony'sCode
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

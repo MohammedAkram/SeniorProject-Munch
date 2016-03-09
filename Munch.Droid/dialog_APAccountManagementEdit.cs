@@ -79,7 +79,7 @@ namespace Munch
         {
             editItemComplete.Invoke(this, new OnSignEventArgs_AccountManagement(level.Text, Username.Text, Password.Text));
             var webClient = new WebClient();
-            webClient.DownloadString("http://54.191.98.63/register.php?id=" + Username.Text + "&&password=" + Password.Text + "&&level=" + level.Text + "");
+            webClient.DownloadString("http://54.191.98.63/editaccount.php?id=" + Username.Text + " &&  = " + " && password=" + Password.Text + "&&level=" + level.Text + "");
             this.Dismiss();
         }
         //Delete Account Action

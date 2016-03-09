@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_marginTop="15dp"
+    android:weightSum="60"
+    android:layout_marginLeft="5dp">
+    <TextView
+        android:text="Tab"
+        android:layout_width="match_parent"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:id="@+id/Edit_Menu_txt_Tab"
+        android:layout_marginLeft="5dp" />
+    <TextView
+        android:text="Dish"
+        android:layout_width="match_parent"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:id="@+id/Edit_Menu_txt_Dish"
+        android:layout_marginLeft="5dp" />
+    <TextView
+        android:text="Ingredient"
+        android:layout_width="match_parent"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:id="@+id/Edit_Menu_txt_Ingredient"
+        android:layout_marginLeft="5dp" />
+    <TextView
+        android:text="Quantity"
+        android:layout_width="match_parent"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:id="@+id/Edit_Menu_txt_Quantity"
+        android:layout_marginLeft="5dp" />
+    <TextView
+        android:text="Cost Price"
+        android:layout_width="match_parent"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:id="@+id/Edit_Menu_txt_CostPrice"
+        android:layout_marginLeft="5dp" />
+    <TextView
+        android:text="Sell Price"
+        android:layout_width="match_parent"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:id="@+id/Edit_Menu_txt_SellPrice"
+        android:layout_marginLeft="5dp" />
+</LinearLayout>
