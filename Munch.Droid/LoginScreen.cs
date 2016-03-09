@@ -183,10 +183,18 @@ namespace Munch
                     try
                     {
                         String loginQueryURL = "http://54.191.98.63/login.php?id=" + user.Text + "&&password=" + pass.Text;
-
                         JsonValue json = await FetchLoginAsync(loginQueryURL);
                         result = ParseAndDisplay(json);
-                        screenChange(result);
+                        result = ParseAndDisplay(json);
+                        var progressDialog = ProgressDialog.Show(this, "Logging in...", "Checking account info...", true);
+                        new Thread(new ThreadStart(delegate
+                        {
+                            RunOnUiThread(() => Toast.MakeText(this, "Loading...", ToastLength.Long));
+                            Looper.Prepare();
+                            screenChange(result);
+                            Looper.Loop();
+                            RunOnUiThread(() => progressDialog.Hide());
+                        })).Start();
                     }
                     catch
                     {
