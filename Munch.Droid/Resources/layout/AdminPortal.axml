@@ -3,101 +3,170 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/overallbg">
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp">
-        <ImageView
-            android:layout_width="171.0dp"
-            android:layout_height="52.0dp"
-            android:layout_gravity="left"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/logo" />
-        <TextView
-            android:text="ADMIN PORTAL"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:textColor="#ffffff"
-            android:layout_marginTop="5dp" />
-        <Button
-            android:text="Log Out"
+    android:background="@drawable/adminportalbg">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:weightSum="30"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp">
+            <ImageView
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo" />
+            <TextView
+                android:text="ADMIN PORTAL"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:textStyle="italic"
+                android:textColor="#ffffff"
+                android:layout_marginTop="5dp" />
+            <Button
+                android:text="LOG OUT"
+                android:textStyle="bold"
+                android:layout_width="95dp"
+                android:layout_weight="10"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:id="@+id/LogOutAdminPortalButton"
+                android:layout_marginTop="10dp"
+                android:background="#205878" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="40dp">
+            <TextView
+                android:text="Welcome, please select an option below!"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#FFFF"
+                android:textStyle="bold"
+                android:textSize="22sp" />
+        </FrameLayout>
+    <!--Start Button Grid-->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/LogOutAdminPortalButton"
-            android:layout_marginLeft="750.0dp"
-            android:layout_marginTop="10dp"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:background="#205878" />
-    </FrameLayout>
-    <FrameLayout
-        android:layout_marginTop="55dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:text="Welcome, please select an option below!"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="19sp"
-            android:paddingTop="15dp" />
-    </FrameLayout>
-    <FrameLayout
-        android:layout_marginTop="150dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <Button
-            android:text="Edit Menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/EditMenuButton"
-            android:background="#1e364a"
-            android:textColor="#FFFF" />
-    </FrameLayout>
-    <FrameLayout
-        android:layout_marginTop="195dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <Button
-            android:text="Manage Inventory"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/ManageInventoryButton"
-            android:background="#1e364a"
-            android:textColor="#FFFF" />
-    </FrameLayout>
-    <FrameLayout
-        android:layout_marginTop="240dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <Button
-            android:text="View Reports"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/ViewReportsButton"
-            android:background="#1e364a"
-            android:textColor="#FFFF" />
-    </FrameLayout>
-    <FrameLayout
-        android:layout_marginTop="285dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <Button
-            android:text="Account Management"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/AccountManagementButton"
-            android:background="#1e364a"
-            android:textColor="#FFFF" />
-    </FrameLayout>
+            android:orientation="horizontal"
+            android:paddingLeft="120dp"
+            android:paddingTop="50dp">
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="240dp"
+                android:background="#CCFFFFFF">
+                <TextView
+                    android:text="Get Creative."
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+                <Button
+                    android:text="EDIT MENU"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/EditMenuButton"
+                    android:layout_centerHorizontal="true"
+                    android:paddingLeft="5dp"
+                    android:background="#00FFFFFF"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="#000000" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_marginLeft="5dp"
+                android:layout_width="180dp"
+                android:layout_height="240dp"
+                android:background="#CCFFFFFF">
+                <TextView
+                    android:text="See what you got."
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="35dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+                <Button
+                    android:text="MANAGE INVENTORY"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ManageInventoryButton"
+                    android:background="#00FFFFFF"
+                    android:textColor="#000000" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_marginLeft="5dp"
+                android:layout_width="180dp"
+                android:layout_height="240dp"
+                android:background="#CCFFFFFF">
+                <TextView
+                    android:text="See what's up."
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+                <Button
+                    android:text="VIEW REPORTS"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ViewReportsButton"
+                    android:background="#00FFFFFF"
+                    android:textColor="#000000" />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_marginLeft="5dp"
+                android:layout_width="180dp"
+                android:layout_height="240dp"
+                android:background="#CCFFFFFF">
+                <TextView
+                    android:text="See who's in."
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="35dp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+                <Button
+                    android:text="ACCOUNT MANAGEMENT"
+                    android:layout_width="match_parent"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/AccountManagementButton"
+                    android:background="#00FFFFFF"
+                    android:textColor="#000000" />
+            </FrameLayout>
+        </LinearLayout>
+    <!--End Button Grid-->
+    </LinearLayout>
 </RelativeLayout>

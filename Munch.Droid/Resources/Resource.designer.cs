@@ -1891,46 +1891,52 @@ namespace Munch
 			public const int abc_textfield_search_material = 2130837572;
 			
 			// aapt resource value: 0x7f020045
-			public const int design_fab_background = 2130837573;
+			public const int adminport = 2130837573;
 			
 			// aapt resource value: 0x7f020046
-			public const int design_snackbar_background = 2130837574;
+			public const int adminportalbg = 2130837574;
 			
 			// aapt resource value: 0x7f020047
-			public const int fab_shadow = 2130837575;
+			public const int design_fab_background = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int fab_shadow_mini = 2130837576;
+			public const int design_snackbar_background = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int grassbg = 2130837577;
+			public const int fab_shadow = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int ic_add_white_24dp = 2130837578;
+			public const int fab_shadow_mini = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int ic_launcher = 2130837579;
+			public const int grassbg = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int Icon = 2130837580;
+			public const int ic_add_white_24dp = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int loginbg = 2130837581;
+			public const int ic_launcher = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int logo = 2130837582;
-			
-			// aapt resource value: 0x7f020052
-			public const int notification_template_icon_bg = 2130837586;
+			public const int Icon = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int overallbg = 2130837583;
+			public const int loginbg = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int RoundedButton = 2130837584;
+			public const int logo = 2130837584;
+			
+			// aapt resource value: 0x7f020054
+			public const int notification_template_icon_bg = 2130837588;
 			
 			// aapt resource value: 0x7f020051
-			public const int selector = 2130837585;
+			public const int overallbg = 2130837585;
+			
+			// aapt resource value: 0x7f020052
+			public const int RoundedButton = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int selector = 2130837587;
 			
 			static Drawable()
 			{
