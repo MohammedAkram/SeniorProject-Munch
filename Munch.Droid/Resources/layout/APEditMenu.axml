@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/overallbg">
+    android:background="@drawable/adminportalbg">
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
@@ -67,7 +67,7 @@
         android:layout_marginTop="130dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000"
+        android:background="#d3d3d3"
         android:minWidth="25px"
         android:minHeight="25px">
         <android.support.v7.widget.RecyclerView
