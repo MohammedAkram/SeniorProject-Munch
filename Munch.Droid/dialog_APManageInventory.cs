@@ -88,7 +88,5 @@ namespace Munch
             this.Dismiss();
 
         }
-
-
     }
 }

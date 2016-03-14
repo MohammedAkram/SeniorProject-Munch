@@ -42,10 +42,18 @@ namespace Munch
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
             //Create Menu List
             mItemList = new AP_EM_ItemList();
+
             //Set View
             SetContentView(Resource.Layout.APEditMenu);
+            Button logout = FindViewById<Button>(Resource.Id.LogOut_Edit_Menu_Button);
+            logout.Click += delegate {
+                Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                StartActivity(typeof(LoginScreen));
+            };
+
             //Set up layout manager to view all cards on recycler view
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
