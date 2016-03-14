@@ -24,6 +24,11 @@ namespace Munch
     [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class AP_EM_Activity : Activity
     {
+
+        public override void OnBackPressed()
+        {
+            StartActivity(typeof(AdminPortal));
+        }
         // Loads the Cards
         RecyclerView mRecyclerView;
         // Layout manager that shows the cards in RecyclerView

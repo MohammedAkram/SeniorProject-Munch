@@ -94,7 +94,7 @@ namespace Munch
             mItems = parsedData;
 
             mListView = FindViewById<ListView>(Resource.Id.accntMgmtListView);
-            parsedData.Insert(0, (new AP_AM_AccountList() { idAccounts = "Account Type", Level = "Username"}));
+            parsedData.Insert(0, (new AP_AM_AccountList() { idAccounts = "Username", Level = "Account Type"}));
 
             AP_AM_ListViewAdapter adapter = new AP_AM_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;

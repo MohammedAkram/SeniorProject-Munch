@@ -12,13 +12,13 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(MainLauncher = true, Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class AdminPortal : Activity
     {
 
         public override void OnBackPressed()
         {
-            StartActivity(typeof(AdminPortal));
+            
             Android.Widget.Toast.MakeText(this, "You must logout to do that!", Android.Widget.ToastLength.Short).Show();
         }
 
@@ -37,7 +37,7 @@ namespace Munch
 
             edit_menu.Click += delegate
             {
-                SetContentView(Resource.Layout.APManageInventory);
+          
                 StartActivity(typeof(AP_EM_Activity));
             };
 
@@ -46,7 +46,7 @@ namespace Munch
 
             manage_inventory.Click += delegate
             {
-                SetContentView(Resource.Layout.APManageInventory);
+                
                 StartActivity(typeof(AP_MI_Activity));
             };
 
@@ -64,7 +64,7 @@ namespace Munch
 
             account_management.Click += delegate
             {
-                SetContentView(Resource.Layout.APAccountManagement);
+                
                 StartActivity(typeof(AP_MA_Activity));
             };
 
