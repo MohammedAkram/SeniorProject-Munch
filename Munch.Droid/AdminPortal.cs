@@ -50,6 +50,12 @@ namespace Munch
             Console.WriteLine(pubnubError.StatusCode);
         }
 
+        void DisplayReturnMessage(string result)
+        {
+            Console.WriteLine("PUBLISH STATUS CALLBACK");
+            Console.WriteLine(result);
+        }
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
 
@@ -73,7 +79,8 @@ namespace Munch
 
             edit_menu.Click += delegate
             {
-          
+
+                pubnub.Publish<string>("my_channel", "~~~~~~~~~ CAN I SEE THE TEST MESSAGE PLEASE WORK ~~~~~~~~~~~", DisplayReturnMessage, DisplayErrorMessage);
                 StartActivity(typeof(AP_EM_Activity));
             };
 
@@ -84,6 +91,7 @@ namespace Munch
             {
                 
                 StartActivity(typeof(AP_MI_Activity));
+
             };
 
             //view reports button
