@@ -16,7 +16,7 @@ namespace Munch
     [Activity(MainLauncher = true, Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class AdminPortal : Activity
     {
-        Pubnub pubnub = new Pubnub("sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe", "pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46");
+        Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
 
         public override void OnBackPressed()
         {

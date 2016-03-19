@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__MonoCS__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test|AnyCPU'">
+    <OutputPath>bin\test\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -84,16 +87,23 @@
     <Compile Include="AP_MI_Activity.cs" />
     <Compile Include="AP_MI_InventoryList.cs" />
     <Compile Include="AP_MI_ListViewAdapter.cs" />
+    <Compile Include="ClientNetworkStatus.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
     <Compile Include="dialog_AP_Edit_Menu.cs" />
     <Compile Include="dialog_AP_Manage_InventoryEdit.cs" />
     <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
     <Compile Include="JsonParsing.cs" />
+    <Compile Include="LoggingMethod.cs" />
     <Compile Include="LoginScreen.cs" />
+    <Compile Include="MD5.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuTabActivity1.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Pubnub.cs" />
+    <Compile Include="PubnubCore.cs" />
+    <Compile Include="PubnubXamarinAndroid.cs" />
+    <Compile Include="ReconnectState.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
