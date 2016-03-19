@@ -70,7 +70,7 @@
                 android:layout_width="180dp"
                 android:layout_height="240dp"
                 android:layout_weight="25"
-                android:background="#CCFFFFFF">
+                android:background="?android:attr/selectableItemBackground">
                 <TextView
                     android:text="Get Creative."
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -90,7 +90,7 @@
                     android:id="@+id/EditMenuButton"
                     android:layout_centerHorizontal="true"
                     android:paddingLeft="5dp"
-                    android:background="#00FFFFFF"
+                    android:background="?android:attr/selectableItemBackground"
                     android:paddingBottom="5dp"
                     android:paddingRight="5dp"
                     android:textColor="#000000" />

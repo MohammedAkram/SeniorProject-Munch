@@ -41,7 +41,7 @@
                 android:id="@+id/Add_EditMenu_ingredients"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="ingredients"
+                android:hint="Ingredients"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText
@@ -51,7 +51,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="calories"
+                android:hint="Calories"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText
@@ -61,7 +61,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="cost"
+                android:hint="Cost"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText

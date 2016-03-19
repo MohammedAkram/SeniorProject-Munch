@@ -84,14 +84,10 @@ namespace Munch
         // Array of Items
         private EMItemList[] mItems;
 
-        //Random Recycle
-        Random mRandom;
-
         // Load into array
         public AP_EM_ItemList ()
         {
             mItems = mBuiltInCards;
-            mRandom = new Random();
         } 
 
         // Number of items
@@ -100,7 +96,7 @@ namespace Munch
             get { return mItems.Length; }
         }
 
-        // Accessing a photo
+        // Accessing a card
         public EMItemList this[int i]
         {
             get { return mItems[i]; }

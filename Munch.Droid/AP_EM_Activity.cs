@@ -24,11 +24,8 @@ namespace Munch
     [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class AP_EM_Activity : Activity
     {
+        GestureDetector mGestureDetector;
 
-        public override void OnBackPressed()
-        {
-            StartActivity(typeof(AdminPortal));
-        }
         // Loads the Cards
         RecyclerView mRecyclerView;
         // Layout manager that shows the cards in RecyclerView
@@ -66,6 +63,7 @@ namespace Munch
             //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
 
+            //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APEMfab);
             fab.AttachToRecyclerView(mRecyclerView);
             fab.Click += (object sender, EventArgs args) =>
@@ -77,13 +75,33 @@ namespace Munch
                 manageMenu.Show(transaction, "dialog fragment");
             };
 
+            //Check for double taps on cards
+            mGestureDetector = new GestureDetector(this, new mGestureListener());
+
         }
         
 
+
         void OnItemClick (object sender, int position)
         {
-            //Edit and Delete Dialogs????
+            //Edit and Delete Dialogs
             Toast.MakeText(this, "Edit and Delete Dialogs Go Here", ToastLength.Short).Show();
+
+
+        }
+
+        public override void OnBackPressed()
+        {
+            StartActivity(typeof(AdminPortal));
+        }
+    }
+
+    public class mGestureListener : GestureDetector.SimpleOnGestureListener
+    {
+        public override bool OnDoubleTap(MotionEvent e)
+        {
+            Console.WriteLine("double tap on card");
+            return base.OnDoubleTap(e);
         }
     }
 
@@ -105,7 +123,7 @@ namespace Munch
             ItemCost = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Cost);
             ItemPrice = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Price);
 
-            itemView.Click += (sender, e) => listener(base.Position);
+            itemView.Click += (sender, e) => listener(Position);
         }
     }
 
