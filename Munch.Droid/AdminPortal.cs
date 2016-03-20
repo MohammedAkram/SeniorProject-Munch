@@ -17,15 +17,16 @@ using Android.Views.Animations;
 
 namespace Munch
 {
-    [Activity(Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(MainLauncher = true, Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class AdminPortal : Activity, ViewTreeObserver.IOnGlobalLayoutListener
     {
         //Pubnub
         Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
         void DisplaySubscribeReturnMessage(string result)
         {
-            Console.WriteLine("SUBSCRIBE REGULAR CALLBACK:");
+            Console.WriteLine("SUBSCRIBE REGULAR CALLBACK: ");
             Console.WriteLine(result);
+
             if (!string.IsNullOrEmpty(result) && !string.IsNullOrEmpty(result.Trim()))
             {
                 List<object> deserializedMessage = pubnub.JsonPluggableLibrary.DeserializeToListOfObject(result);
@@ -36,6 +37,32 @@ namespace Munch
                     {
                         //IF CUSTOM OBJECT IS EXCEPTED, YOU CAN CAST THIS OBJECT TO YOUR CUSTOM CLASS TYPE
                         string resultActualMessage = pubnub.JsonPluggableLibrary.SerializeToJsonString(subscribedObject);
+                        string re = resultActualMessage.Replace('"', ' ');
+                        string s1 = re.Substring(1, re.IndexOf(',')-1);
+                        string s2 = re.Substring((re.IndexOf(',') + 1));
+                        
+                        
+
+                        Notification.Builder builder = new Notification.Builder(this)
+                        .SetContentTitle(s1)
+                        .SetContentText(s2)
+                        .SetPriority(2)
+                        .SetColor(2)
+                        .SetVibrate(new long[1])
+                        .SetSmallIcon(Resource.Drawable.Icon);
+
+                        // Build the notification:
+                        Notification notification = builder.Build();
+
+                        // Get the notification manager:
+                        NotificationManager notificationManager =
+                            GetSystemService(Context.NotificationService) as NotificationManager;
+
+                        // Publish the notification:
+                        const int notificationId = 0;
+                        notificationManager.Notify(notificationId, notification);
+
+
                     }
                 }
             }
@@ -81,9 +108,9 @@ namespace Munch
             btns[0].Click += (sender, e) =>
             {
                 StartActivity(typeof(AP_EM_Activity));
-                /**
-                pubnub.Publish<string>("my_channel", "~~~~~~~~~ CAN I SEE THE TEST MESSAGE PLEASE WORK ~~~~~~~~~~~", DisplayReturnMessage, DisplayErrorMessage);
-                **/
+
+                pubnub.Publish<string>("my_channel", "Table 2: Requires Assistance, Table 2 requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
+
             };
             btns[1].Click += (sender, e) => StartActivity(typeof(AP_MI_Activity));
             btns[2].Click += (sender, e) => SetContentView(Resource.Layout.APViewReports);
