@@ -14,7 +14,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "CustomerPortal", MainLauncher = true, Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class CustomerPortal : FragmentActivity
     {
         private ViewPager mViewPager;
@@ -117,7 +117,7 @@ namespace Munch
 
         public override string ToString() //Called on line 156 in SlidingTabScrollView
         {
-            return "Breakfast";
+            return "Your Order";
         }
     }
 }

@@ -20,7 +20,7 @@ using System.IO;
 namespace Munch
 {
 
-    [Activity( Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(MainLauncher = true, Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class LoginScreen : Activity
 
     {
@@ -93,9 +93,15 @@ namespace Munch
                     return 0;
                 }
 
-                else {
+                else if (loginList[0].level.Equals("1")){
                     return 1;
                 }
+
+                else if(loginList[0].level.Equals("2")){
+                    return 3;
+                }
+
+                return 9;
 
             }
 
@@ -137,11 +143,20 @@ namespace Munch
                     pass.Text = "";
                 }
 
-                //if the result is 1, launch the menu and reset the text views for username and password to ""
+                //if the result is 1, launch the waiter view and reset the text views for username and password to ""
                 else if (result == 1)
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                    StartActivity(typeof(Menu));
+                    StartActivity(typeof(CustomerPortal));
+                    user.Text = "";
+                    pass.Text = "";
+                }
+
+                //if the result is 3, launch the waiter view and reset the text views for username and password to ""
+                else if (result == 3)
+                {
+                    Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
+                    StartActivity(typeof(CustomerPortal));
                     user.Text = "";
                     pass.Text = "";
                 }
