@@ -177,6 +177,9 @@
     <AndroidResource Include="Resources\layout\CV_Your_Order.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_Welcome.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -274,6 +277,8 @@
     <AndroidResource Include="Resources\drawable-xhdpi\logo.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\logo.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable\customersplash.png" />
+    <AndroidResource Include="Resources\drawable\customerbreakfast.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

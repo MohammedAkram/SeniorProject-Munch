@@ -54,6 +54,7 @@ namespace Munch
             Console.Out.WriteLine(dataTableList.Count());
             return dataTableList;
         }
+        
         //the list we're using man
         public static List<String> ingredientsTransferList = new List<String>();
         // i dont know if this will work
@@ -63,7 +64,7 @@ namespace Munch
         // Layout manager that shows the cards in RecyclerView
         RecyclerView.LayoutManager mLayoutManager;
         // Adapter for access to data
-        ItemListAdapter mAdapter;
+        CVBFItemListAdapter mAdapter;
         // array list managed by adapter
         AP_EM_ItemList mItemList;
 
@@ -91,7 +92,7 @@ namespace Munch
             mRecyclerView.SetLayoutManager(mLayoutManager);
 
             //Menu List Adapter
-            mAdapter = new ItemListAdapter(mItemList);
+            mAdapter = new CVBFItemListAdapter(mItemList);
             //Item Long Click
             mAdapter.ItemClick += OnItemClick;
             //Put adapter into RecyclerView
@@ -123,8 +124,6 @@ namespace Munch
             mGestureDetector = new GestureDetector(this, new mGestureListener());
 
         }
-
-
 
         void OnItemClick(object sender, int position)
         {
@@ -169,14 +168,14 @@ namespace Munch
         }
     }
 
-    public class ItemListAdapter : RecyclerView.Adapter
+    public class CVBFItemListAdapter : RecyclerView.Adapter
     {
         //Event handler for item clicks
         public event EventHandler<int> ItemClick;
         //Data Set
         public AP_EM_ItemList mItemList;
         //start method to load adapter
-        public ItemListAdapter(AP_EM_ItemList itemitem)
+        public CVBFItemListAdapter(AP_EM_ItemList itemitem)
         {
             mItemList = itemitem;
         }

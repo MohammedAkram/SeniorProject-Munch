@@ -173,7 +173,7 @@ namespace Munch
             textView.Gravity = GravityFlags.Center;
             textView.SetTextSize(ComplexUnitType.Sp, TAB_VIEW_TEXT_SIZE_SP);
             textView.Typeface = Android.Graphics.Typeface.DefaultBold;
-            //textView.LayoutParameters = new TableLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.WrapContent, 50.0f);
+            textView.LayoutParameters = new TableLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.WrapContent, 50.0f);
 
             if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Honeycomb)
             {

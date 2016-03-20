@@ -3,5 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Dinner"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
 </LinearLayout>
