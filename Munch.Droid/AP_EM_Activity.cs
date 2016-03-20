@@ -24,8 +24,40 @@ namespace Munch
     [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
     public class AP_EM_Activity : Activity
     {
-        GestureDetector mGestureDetector;
 
+        private async Task<JsonValue> FetchInventoryAsync(string url)
+        {
+            // Create an HTTP web request using the URL:
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+
+            // Send the request to the server and wait for the response:
+            using (WebResponse response = await request.GetResponseAsync())
+            {
+                // Get a stream representation of the HTTP web response:
+                using (Stream stream = response.GetResponseStream())
+                {
+                    // Use this stream to build a JSON document object:
+                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
+                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
+
+                    // Return the JSON String:
+                    return jsonDoc.ToString();
+                }
+            }
+        }
+        private List<AP_MI_InventoryList> ParseAndDisplay(String json)
+        {
+            List<AP_MI_InventoryList> dataTableList = JsonConvert.DeserializeObject<List<AP_MI_InventoryList>>(json);
+            Console.Out.WriteLine(dataTableList[0].Ingredients);
+            Console.Out.WriteLine(dataTableList[0].Quantity);
+            Console.Out.WriteLine(dataTableList[0].MeasureUnit);
+            Console.Out.WriteLine(dataTableList.Count());
+            return dataTableList;
+        }
+        //the list we're using man
+        public static List<String> ingredientsTransferList = new List<String>();
+        // i dont know if this will work
+        GestureDetector mGestureDetector;
         // Loads the Cards
         RecyclerView mRecyclerView;
         // Layout manager that shows the cards in RecyclerView
@@ -36,7 +68,8 @@ namespace Munch
         AP_EM_ItemList mItemList;
 
 
-        protected override void OnCreate(Bundle savedInstanceState)
+
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -46,7 +79,8 @@ namespace Munch
             //Set View
             SetContentView(Resource.Layout.APEditMenu);
             Button logout = FindViewById<Button>(Resource.Id.LogOut_Edit_Menu_Button);
-            logout.Click += delegate {
+            logout.Click += delegate
+            {
                 Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
                 StartActivity(typeof(LoginScreen));
             };
@@ -62,6 +96,16 @@ namespace Munch
             mAdapter.ItemClick += OnItemClick;
             //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
+
+            //Push data to spinner
+
+            String inventoryURL = "http://54.191.98.63/inventory.php";
+            JsonValue json = await FetchInventoryAsync(inventoryURL);
+            List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
+            for (int i = 0; i < parsedData.Count(); i++)
+            {
+                ingredientsTransferList.Add(parsedData[i].Ingredients.ToString());
+            }
 
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APEMfab);
@@ -79,15 +123,13 @@ namespace Munch
             mGestureDetector = new GestureDetector(this, new mGestureListener());
 
         }
-        
 
 
-        void OnItemClick (object sender, int position)
+
+        void OnItemClick(object sender, int position)
         {
             //Edit and Delete Dialogs
             Toast.MakeText(this, "Edit and Delete Dialogs Go Here", ToastLength.Short).Show();
-
-
         }
 
         public override void OnBackPressed()
@@ -114,7 +156,7 @@ namespace Munch
         public TextView ItemCost { get; private set; }
         public TextView ItemPrice { get; private set; }
 
-        public ItemListHolder (View itemView, Action<int> listener) : base(itemView)
+        public ItemListHolder(View itemView, Action<int> listener) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Title);
             Description = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Description);
@@ -134,13 +176,13 @@ namespace Munch
         //Data Set
         public AP_EM_ItemList mItemList;
         //start method to load adapter
-        public ItemListAdapter (AP_EM_ItemList itemitem)
+        public ItemListAdapter(AP_EM_ItemList itemitem)
         {
             mItemList = itemitem;
         }
 
         //Create the Card
-        public override RecyclerView.ViewHolder OnCreateViewHolder (ViewGroup parent, int viewType)
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             //Inflate all items for the card
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.APEMCardView, parent, false);
@@ -150,7 +192,7 @@ namespace Munch
         }
 
         // Fill in the card with whatever
-        public override void OnBindViewHolder (RecyclerView.ViewHolder holder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             ItemListHolder ih = holder as ItemListHolder;
             //Set values
@@ -169,7 +211,7 @@ namespace Munch
         }
 
         // If item is clicked
-        void OnClick (int position)
+        void OnClick(int position)
         {
             if (ItemClick != null)
                 ItemClick(this, position);

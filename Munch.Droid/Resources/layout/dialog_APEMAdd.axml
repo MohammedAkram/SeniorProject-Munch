@@ -35,15 +35,40 @@
                 android:hint="Description"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
-            <EditText
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/Add_EditMenu_ingredients"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:hint="Ingredients"
-                android:paddingLeft="10dp"
-                android:textColor="#000" />
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_addingredient"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Add" />
+                <Spinner
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_toLeftOf="@id/btn_addingredient"
+                    android:paddingLeft="10dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/spnr_EMIngredients" />
+            <!--
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/Add_EditMenu_ingredients"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:hint="Ingredients"
+                    android:paddingLeft="10dp"
+                    android:textColor="#000" />
+              -->
+            </RelativeLayout>
             <EditText
                 android:id="@+id/Add_EditMenu_calories"
                 android:layout_width="match_parent"

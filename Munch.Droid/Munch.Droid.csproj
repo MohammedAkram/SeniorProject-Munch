@@ -88,6 +88,9 @@
     <Compile Include="AP_MI_InventoryList.cs" />
     <Compile Include="AP_MI_ListViewAdapter.cs" />
     <Compile Include="ClientNetworkStatus.cs" />
+    <Compile Include="CV_SlidingTabScrollView.cs" />
+    <Compile Include="CustomerPortal.cs" />
+    <Compile Include="CV_SlidingTabStrip.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
     <Compile Include="dialog_AP_Edit_Menu.cs" />
     <Compile Include="dialog_AP_Manage_InventoryEdit.cs" />
@@ -97,9 +100,6 @@
     <Compile Include="LoggingMethod.cs" />
     <Compile Include="LoginScreen.cs" />
     <Compile Include="MD5.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="MenuTabActivity1.cs" />
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Pubnub.cs" />
     <Compile Include="PubnubCore.cs" />
     <Compile Include="PubnubXamarinAndroid.cs" />
@@ -157,6 +157,24 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_APEMAdd.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_APEMEdit.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CustomerPortal.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_Breakfast.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_Lunch.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_Dinner.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_Your_Order.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

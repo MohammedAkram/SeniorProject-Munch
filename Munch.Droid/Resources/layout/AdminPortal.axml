@@ -70,7 +70,20 @@
                 android:layout_width="180dp"
                 android:layout_height="240dp"
                 android:layout_weight="25"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="#00FFFFFF">
+                <Button
+                    android:text="EDIT MENU"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/EditMenuButton"
+                    android:layout_centerHorizontal="true"
+                    android:paddingLeft="5dp"
+                    android:background="#CCFFFFFF"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="#000000" />
                 <TextView
                     android:text="Get Creative."
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -81,19 +94,6 @@
                     android:gravity="center"
                     android:textColor="#000000"
                     android:textStyle="italic" />
-                <Button
-                    android:text="EDIT MENU"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/EditMenuButton"
-                    android:layout_centerHorizontal="true"
-                    android:paddingLeft="5dp"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:paddingBottom="5dp"
-                    android:paddingRight="5dp"
-                    android:textColor="#000000" />
             </FrameLayout>
             <FrameLayout
                 android:layout_marginLeft="5dp"
@@ -107,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="30dp"
                     android:gravity="center"
                     android:textColor="#000000"
                     android:textStyle="italic" />
