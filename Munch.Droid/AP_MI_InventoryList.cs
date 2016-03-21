@@ -16,6 +16,8 @@ namespace Munch
     {
         public string Ingredients { get; set; }
         public string Quantity { get; set; }
+        public string Threshold { get; set; }
         public string MeasureUnit { get; set; }
+        
     }
 }

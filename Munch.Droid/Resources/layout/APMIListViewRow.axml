@@ -11,21 +11,28 @@
     <TextView
         android:text="Name"
         android:layout_width="match_parent"
-        android:layout_weight="30"
+        android:layout_weight="22.5"
         android:layout_height="wrap_content"
         android:id="@+id/Manage_Inventory_Txt_Name"
         android:layout_marginLeft="5dp" />
     <TextView
         android:text="Quantity"
         android:layout_width="match_parent"
-        android:layout_weight="30"
+        android:layout_weight="22.5"
         android:layout_height="wrap_content"
         android:id="@+id/Manage_Inventory_Txt_Quantity"
         android:layout_marginLeft="5dp" />
     <TextView
+        android:text="Minimum Threshold"
+        android:layout_width="match_parent"
+        android:layout_weight="22.5"
+        android:layout_height="wrap_content"
+        android:id="@+id/Manage_Inventory_Txt_Threshold"
+        android:layout_marginLeft="5dp" />
+    <TextView
         android:text="Units"
         android:layout_width="match_parent"
-        android:layout_weight="30"
+        android:layout_weight="22.5"
         android:layout_height="wrap_content"
         android:id="@+id/Manage_Inventory_Txt_Units"
         android:layout_marginLeft="5dp" />

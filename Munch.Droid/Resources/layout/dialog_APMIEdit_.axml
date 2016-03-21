@@ -40,6 +40,15 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:id="@+id/txt_Edit_MinThreshold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Minimum Threshold"
+                android:paddingLeft="10dp"
+                android:textColor="#000" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:id="@+id/txt_Edit_Unit1"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
