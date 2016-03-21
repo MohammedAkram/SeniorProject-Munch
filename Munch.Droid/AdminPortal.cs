@@ -17,7 +17,7 @@ using Android.Views.Animations;
 
 namespace Munch
 {
-    [Activity( Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar")]
+    [Activity( Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class AdminPortal : Activity, ViewTreeObserver.IOnGlobalLayoutListener
     {
         //Pubnub
@@ -85,6 +85,11 @@ namespace Munch
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+           
+
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.AdminPortal);
+
             //pubnub shit
             pubnub.Subscribe<string>(
                 "my_channel",
@@ -93,8 +98,6 @@ namespace Munch
                 DisplayErrorMessage
                 );
 
-            base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.AdminPortal);
 
             this.btns = new int[]
             {

@@ -15,7 +15,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar")]
+    [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class CustomerPortal : FragmentActivity
     {
         //For the Sliding Tabs
