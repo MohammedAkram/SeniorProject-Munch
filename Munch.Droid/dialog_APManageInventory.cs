@@ -73,7 +73,7 @@ namespace Munch
             name = view.FindViewById<EditText>(Resource.Id.txtName1);
             unit = view.FindViewById<EditText>(Resource.Id.txtUnit1);
             quant = view.FindViewById<EditText>(Resource.Id.txtQuantity1);
-            thres = view.FindViewById<EditText>(Resource.Id.txt_Edit_MinThreshold);
+            thres = view.FindViewById<EditText>(Resource.Id.txtMinThreshold);
             dAddItem = view.FindViewById<Button>(Resource.Id.btnAPMIAddItem1);
 
             dAddItem.Click += dAddItem_Click;
@@ -85,18 +85,11 @@ namespace Munch
         {
             addItemComplete.Invoke(this, new OnSignEventArgs_InventoryManagement(name.Text, unit.Text, quant.Text, thres.Text));
             var webClient = new WebClient();
-            webClient.DownloadString("http://54.191.98.63/addinventory.php?name=" + name.Text+"&&unit="+unit.Text+"&&quantity="+quant.Text+"");
+            webClient.DownloadString("http://54.191.98.63/manageinventory.php?name=" + name.Text+"&&unit="+unit.Text+"&&quantity="+quant.Text+"&&threshold=" + thres.Text);
             this.Dismiss();
 
         }
 
-        void dDeleteItem_Click(object sender, EventArgs args)
-        {
-            deleteItemComplete.Invoke(this, new OnSignEventArgs_InventoryManagement(name.Text, unit.Text, quant.Text, thres.Text));
-            var webClient = new WebClient();
-            webClient.DownloadString("http://54.191.98.63/addinventory.php?name=" + name.Text + "&&unit=" + unit.Text + "&&quantity=" + quant.Text + "");
-            this.Dismiss();
-
-        }
+       
     }
 }
