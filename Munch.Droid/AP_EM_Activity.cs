@@ -100,11 +100,11 @@ namespace Munch
             String inventoryURL = "http://54.191.98.63/inventory.php";
             JsonValue json = await FetchInventoryAsync(inventoryURL);
             List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
-
             for (int i = 0; i < parsedData.Count(); i++)
             {
                 ingredientsTransferList.Add(parsedData[i].Ingredients.ToString());
             }
+
 
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APEMfab);
@@ -123,15 +123,14 @@ namespace Munch
         void OnItemClick(object sender, int position)
         {
             Button editItem = FindViewById<Button>(Resource.Id.btn_cardModify);
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            dialog_AP_EM_Modify modifyMenu = new dialog_AP_EM_Modify();
+            modifyMenu = new dialog_AP_EM_Modify();
+            modifyMenu.editItemComplete += manageMenu_dialog_EM;
 
             editItem.Click += delegate
             {
-                FragmentTransaction transaction = FragmentManager.BeginTransaction();
-                dialog_AP_EM_Modify manageMenu = new dialog_AP_EM_Modify();
-                manageMenu = new dialog_AP_EM_Modify();
-                manageMenu.Show(transaction, "dialog fragment");
-               
-                manageMenu.editItemComplete += manageMenu_dialog_EM;
+                modifyMenu.Show(transaction, "dialog fragment");
             };
 
             Android.Widget.Toast.MakeText(this, "THE FUCK YOU PRESSING??", Android.Widget.ToastLength.Short).Show();
@@ -142,6 +141,7 @@ namespace Munch
         {
             Thread thread = new Thread(editRequest);
             thread.Start();
+            thread.Abort();
         }
         private void editRequest()
         {
@@ -152,6 +152,7 @@ namespace Munch
         {
             Thread thread = new Thread(addmenu);
             thread.Start();
+            thread.Abort();
         }
         private void addmenu()
         {

@@ -78,7 +78,9 @@ namespace Munch
         private EditText calories;
         private EditText cost;
         private EditText price;
-        private Button dAddDish;
+        private String selectedIngredient;
+        private List<String> dIngredientsList;
+        private Button dAddIngredient;
         private Button dEditDish;
         private Button dDeleteDish;
 
@@ -93,16 +95,18 @@ namespace Munch
             DishName = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_Dishname);
             Description = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_description);
             Ingredients = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_ingredients);
+            dAddIngredient = view.FindViewById<Button>(Resource.Id.btn_addingredient);
             Quantity = view.FindViewById<EditText>(Resource.Id.EMQuantity);
             calories = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_calories);
             cost = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_cost);
             price = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_price);
-            dAddDish = view.FindViewById<Button>(Resource.Id.btn_Add_dish);
+
             //Spinner Pull
             String[] spinnerFeed = AP_EM_Activity.ingredientsTransferList.ToArray();
-            var ingSpinner = view.FindViewById<Spinner>(Resource.Id.spnr_EMIngredients);
+            var ingSpinner = view.FindViewById<Spinner>(Resource.Id.spnr_EMIngredientsEdit);
             var ingAdapter = new ArrayAdapter<String>(this.Activity, Android.Resource.Layout.SimpleSpinnerItem, spinnerFeed);
             ingSpinner.Adapter = ingAdapter;
+            selectedIngredient = ingSpinner.SelectedItem.ToString();
 
             //Edit and Delete Buttons
             dEditDish = view.FindViewById<Button>(Resource.Id.btn_Edit_dish);
@@ -111,6 +115,12 @@ namespace Munch
             dDeleteDish.Click += dDelete_Click;
             return view;
           }
+
+        private void dAddIngredient_Click(object sender, EventArgs e)
+        {
+            dIngredientsList.Add((Quantity.Text.ToString() + " " + selectedIngredient.ToString()));
+            Console.WriteLine("u dun fucked up......" + Quantity.Text.ToString() + " " + selectedIngredient.ToString());
+        }
 
         private void dEditDish_Click(object sender, EventArgs e)
         {

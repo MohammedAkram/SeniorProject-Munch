@@ -67,7 +67,7 @@
                     android:layout_toLeftOf="@id/EMQuantity"
                     android:paddingLeft="10dp"
                     android:layout_height="50dp"
-                    android:id="@+id/spnr_EMIngredients" />
+                    android:id="@+id/spnr_EMIngredientsAdd" />
             <!--
                 <EditText
                     android:layout_width="match_parent"
