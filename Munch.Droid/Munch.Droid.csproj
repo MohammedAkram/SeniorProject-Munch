@@ -279,6 +279,10 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\logo.png" />
     <AndroidResource Include="Resources\drawable\customersplash.png" />
     <AndroidResource Include="Resources\drawable\customerbreakfast.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\customersplash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\grassbg.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\adminport.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\customerbreakfast.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
