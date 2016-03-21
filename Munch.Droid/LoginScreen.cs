@@ -20,7 +20,7 @@ using System.IO;
 namespace Munch
 {
 
-    [Activity(MainLauncher = true, Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(MainLauncher = true, Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class LoginScreen : Activity
 
     {
@@ -152,7 +152,7 @@ namespace Munch
                     pass.Text = "";
                 }
 
-                //if the result is 3, launch the waiter view and reset the text views for username and password to ""
+                //if the result is 3, launch the customer view and reset the text views for username and password to ""
                 else if (result == 3)
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();

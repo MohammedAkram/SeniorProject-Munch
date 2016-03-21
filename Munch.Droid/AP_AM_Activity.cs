@@ -23,7 +23,7 @@ namespace Munch
 {
     [Activity(Label = "APMAActivity",
         Theme = "@android:style/Theme.Holo.Light.NoActionBar",
-        ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+        ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
 
     public class AP_MA_Activity : Activity
     {

@@ -47,10 +47,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/txtPrice1"
+                android:id="@+id/txtMinThreshold"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="Price"
+                android:hint="Minimum Threshold"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <RelativeLayout

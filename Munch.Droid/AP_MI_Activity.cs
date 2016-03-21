@@ -22,7 +22,7 @@ namespace Munch
 {
     [Activity(Label = "APMIActivity",
         Theme = "@android:style/Theme.Holo.Light.NoActionBar",
-        ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+        ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
 
 
     public class AP_MI_Activity : Activity
@@ -80,7 +80,7 @@ namespace Munch
             EditText name = FindViewById<EditText>(Resource.Id.txtName1);
             EditText unit = FindViewById<EditText>(Resource.Id.txtUnit1);
             EditText quant = FindViewById<EditText>(Resource.Id.txtQuantity1);
-
+            EditText thres = FindViewById<EditText>(Resource.Id.txtMinThreshold);
             String inventoryURL = "http://54.191.98.63/inventory.php";
 
             //Log Out Button
@@ -98,7 +98,7 @@ namespace Munch
             List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
             mItems = parsedData;
             mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
-            parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units", }));
+            parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", Threshold = "Threshold", MeasureUnit = "Units", }));
 
             AP_MI_ListViewAdapter adapter = new AP_MI_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
@@ -171,7 +171,7 @@ namespace Munch
 
         private void EditRequest()
         {
-            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Edited", Android.Widget.ToastLength.Short));
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Edited", Android.Widget.ToastLength.Short));
             StartActivity(typeof(AP_MI_Activity));
         }
 
@@ -185,7 +185,7 @@ namespace Munch
         //Thread to run for edit item
         private void deleteRequest()
         {
-            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Deleted", Android.Widget.ToastLength.Long));
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Deleted", Android.Widget.ToastLength.Long));
             StartActivity(typeof(AP_MI_Activity));
         }
     }
