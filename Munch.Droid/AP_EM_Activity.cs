@@ -21,7 +21,7 @@ using Android.Support.V7.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar")]
     public class AP_EM_Activity : Activity
     {
 
@@ -55,10 +55,10 @@ namespace Munch
             return dataTableList;
         }
         
-        //the list we're using man
+        //Ingredients Spinner
         public static List<String> ingredientsTransferList = new List<String>();
-        // i dont know if this will work
-        GestureDetector mGestureDetector;
+        //Quantity Spinner
+        public static List<String> quantityTransferList = new List<String>();
         // Loads the Cards
         RecyclerView mRecyclerView;
         // Layout manager that shows the cards in RecyclerView
@@ -67,8 +67,6 @@ namespace Munch
         CVBFItemListAdapter mAdapter;
         // array list managed by adapter
         AP_EM_ItemList mItemList;
-
-
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -98,11 +96,11 @@ namespace Munch
             //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
 
-            //Push data to spinner
-
+            //Push data to ingredients spinner
             String inventoryURL = "http://54.191.98.63/inventory.php";
             JsonValue json = await FetchInventoryAsync(inventoryURL);
             List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
+
             for (int i = 0; i < parsedData.Count(); i++)
             {
                 ingredientsTransferList.Add(parsedData[i].Ingredients.ToString());
@@ -119,30 +117,40 @@ namespace Munch
                 manageMenu = new dialog_AP_Edit_Menu();
                 manageMenu.Show(transaction, "dialog fragment");
             };
-
-            //Check for double taps on cards
-            mGestureDetector = new GestureDetector(this, new mGestureListener());
-
         }
 
         void OnItemClick(object sender, int position)
         {
-            //Edit and Delete Dialogs
-            Toast.MakeText(this, "Edit and Delete Dialogs Go Here", ToastLength.Short).Show();
+            Button editItem = FindViewById<Button>(Resource.Id.btn_cardModify);
+
+            editItem.Click += delegate
+            {
+                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                dialog_AP_EM_Modify manageMenu = new dialog_AP_EM_Modify();
+                manageMenu = new dialog_AP_EM_Modify();
+                manageMenu.Show(transaction, "dialog fragment");
+
+                manageMenu.editItemComplete += manageMenu_dialog_EM;
+            };
+
+            Android.Widget.Toast.MakeText(this, "THE FUCK YOU PRESSING??", Android.Widget.ToastLength.Short).Show();
+        }
+
+
+        void manageMenu_dialog_EM(object sender, OnSignEventArgs_ManageMenu e)
+        {
+            Thread thread = new Thread(editRequest);
+            thread.Start();
+        }
+        private void editRequest()
+        {
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Modified", Android.Widget.ToastLength.Short).Show());
+            StartActivity(typeof(AP_EM_Activity));
         }
 
         public override void OnBackPressed()
         {
             StartActivity(typeof(AdminPortal));
-        }
-    }
-
-    public class mGestureListener : GestureDetector.SimpleOnGestureListener
-    {
-        public override bool OnDoubleTap(MotionEvent e)
-        {
-            Console.WriteLine("double tap on card");
-            return base.OnDoubleTap(e);
         }
     }
 
@@ -165,6 +173,7 @@ namespace Munch
             ItemPrice = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Price);
 
             itemView.Click += (sender, e) => listener(Position);
+
         }
     }
 
@@ -217,3 +226,4 @@ namespace Munch
         }
     }
 }
+ 

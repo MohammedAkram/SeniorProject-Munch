@@ -22,8 +22,7 @@ using Android.Support.V4.Widget;
 namespace Munch
 {
     [Activity(Label = "APMAActivity",
-        Theme = "@android:style/Theme.Holo.Light.NoActionBar",
-        ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+        Theme = "@android:style/Theme.Holo.Light.NoActionBar")]
 
     public class AP_MA_Activity : Activity
     {

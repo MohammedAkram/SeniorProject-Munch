@@ -84,6 +84,7 @@
     <Compile Include="AP_AM_ListViewAdapter.cs" />
     <Compile Include="AP_EM_Activity.cs" />
     <Compile Include="AP_EM_ItemList.cs" />
+    <Compile Include="dialog_AP_EM_Modify.cs" />
     <Compile Include="AP_MI_Activity.cs" />
     <Compile Include="AP_MI_InventoryList.cs" />
     <Compile Include="AP_MI_ListViewAdapter.cs" />

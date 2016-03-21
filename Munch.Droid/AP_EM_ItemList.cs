@@ -54,7 +54,7 @@ namespace Munch
     public class AP_EM_ItemList
     {
         //Edit Menu Cards
-        static EMItemList[] mBuiltInCards = {
+        public static EMItemList[] mBuiltInCards = {
             new EMItemList { ItemName = "McChicken Sandwich",
                          ItemDescription = "Delectable cheap sandwiches with fake chicken.",
                          ItemIngredients = "Chicken, Lettuce, Bread, Mayo",
@@ -101,7 +101,5 @@ namespace Munch
         {
             get { return mItems[i]; }
         }
-
-
     }
 }

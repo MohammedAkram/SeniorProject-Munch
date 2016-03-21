@@ -20,7 +20,7 @@ using System.IO;
 namespace Munch
 {
 
-    [Activity(MainLauncher = true, Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(MainLauncher = true, Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar")]
     public class LoginScreen : Activity
 
     {

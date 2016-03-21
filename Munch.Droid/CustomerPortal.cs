@@ -15,7 +15,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar")]
     public class CustomerPortal : FragmentActivity
     {
         //For the Sliding Tabs
@@ -91,13 +91,9 @@ namespace Munch
 
             mItemList = new AP_EM_ItemList();
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_breakfastrecyclerView);
-            Console.WriteLine("line 1");
             LayoutManager = new LinearLayoutManager(this.Activity);
-            Console.WriteLine("line 2");
             mRecyclerView.SetLayoutManager(LayoutManager);
-            Console.WriteLine("line 3");
             mAdapter = new Munch.CVBFItemListAdapter(mItemList);
-            Console.WriteLine("line 4");
             mRecyclerView.SetAdapter(mAdapter);
 
             return view;

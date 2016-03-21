@@ -50,6 +50,8 @@ namespace Munch
         private EditText cost;
         private EditText price;
         private Button dAddDish;
+
+
         /*
                 public event EventHandler<OnSignEventArgs_InventoryManagement> editItemComplete;
                 public event EventHandler<OnSignEventArgs_InventoryManagement> deleteItemComplete;
@@ -70,10 +72,12 @@ namespace Munch
             price = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_price);
             dAddDish = view.FindViewById<Button>(Resource.Id.btn_Add_dish);
 
+            //Spinner Pull
             String[] spinnerFeed = AP_EM_Activity.ingredientsTransferList.ToArray();
             var ingSpinner = view.FindViewById<Spinner>(Resource.Id.spnr_EMIngredients);
             var ingAdapter = new ArrayAdapter<String>(this.Activity, Android.Resource.Layout.SimpleSpinnerItem, spinnerFeed);
             ingSpinner.Adapter = ingAdapter;
+
 
             /*  dDeleteInventory = view.FindViewById<Button>(Resource.Id.btn_Delete_Inventory);
               ingredients.Text = select;
@@ -82,8 +86,10 @@ namespace Munch
               //Click Event for Delete Account
               dDeleteInventory.Click += dDeleteInventory_Click;
               */
-            return view;/*
+            return view;
           }
+
+        /*
           //Edit Inventory Action
           private void dEditInventory_Click(object sender, EventArgs e)
           {
@@ -99,8 +105,7 @@ namespace Munch
               var webClient = new WebClient();
               webClient.DownloadString("http://54.191.98.63/manageinventory.php?name=" + select + "&&delete=1");
               this.Dismiss();
+              }
           */
-        }
-
     }
 }

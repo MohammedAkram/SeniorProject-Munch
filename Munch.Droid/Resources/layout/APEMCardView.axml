@@ -83,25 +83,14 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DELETE ITEM"
+                    android:text="MODIFY ITEM"
                     android:textColor="#c10000"
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:background="#00FFFFFF"
-                    android:id="@+id/btn_cardDelete"
+                    android:id="@+id/btn_cardModify"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="25dp"
-                    android:layout_marginLeft="8dp" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EDIT ITEM"
-                    android:background="#00FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:layout_toLeftOf="@id/btn_cardDelete"
-                    android:id="@+id/btn_cardEdit"
-                    android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp" />
             </RelativeLayout>
         </LinearLayout>
