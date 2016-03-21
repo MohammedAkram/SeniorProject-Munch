@@ -116,6 +116,7 @@ namespace Munch
                 dialog_AP_Edit_Menu manageMenu = new dialog_AP_Edit_Menu();
                 manageMenu = new dialog_AP_Edit_Menu();
                 manageMenu.Show(transaction, "dialog fragment");
+              //  manageMenu.addItemComplete += manageMenu_dialog_EM_add;
             };
         }
 
@@ -129,7 +130,7 @@ namespace Munch
                 dialog_AP_EM_Modify manageMenu = new dialog_AP_EM_Modify();
                 manageMenu = new dialog_AP_EM_Modify();
                 manageMenu.Show(transaction, "dialog fragment");
-
+               
                 manageMenu.editItemComplete += manageMenu_dialog_EM;
             };
 
@@ -143,6 +144,16 @@ namespace Munch
             thread.Start();
         }
         private void editRequest()
+        {
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Modified", Android.Widget.ToastLength.Short).Show());
+            StartActivity(typeof(AP_EM_Activity));
+        }
+        void manageMenu_dialog_EM_add(object sender, OnSignEventArgs_ManageMenuadd e)
+        {
+            Thread thread = new Thread(addmenu);
+            thread.Start();
+        }
+        private void addmenu()
         {
             RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Modified", Android.Widget.ToastLength.Short).Show());
             StartActivity(typeof(AP_EM_Activity));
