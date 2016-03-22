@@ -83,6 +83,7 @@
     <Compile Include="AP_AM_Activity.cs" />
     <Compile Include="AP_AM_ListViewAdapter.cs" />
     <Compile Include="AP_EM_Activity.cs" />
+    <Compile Include="AP_EM_Add.cs" />
     <Compile Include="AP_EM_ItemList.cs" />
     <Compile Include="dialog_AP_EM_Modify.cs" />
     <Compile Include="AP_MI_Activity.cs" />
@@ -93,7 +94,6 @@
     <Compile Include="CustomerPortal.cs" />
     <Compile Include="CV_SlidingTabStrip.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
-    <Compile Include="dialog_AP_Edit_Menu.cs" />
     <Compile Include="dialog_AP_Manage_InventoryEdit.cs" />
     <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
@@ -157,9 +157,6 @@
     <AndroidResource Include="Resources\layout\APEMCardView.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\dialog_APEMAdd.axml">
-      <SubType>AndroidResource</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\dialog_APEMEdit.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
@@ -179,6 +176,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CV_Welcome.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\APEMAdd.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

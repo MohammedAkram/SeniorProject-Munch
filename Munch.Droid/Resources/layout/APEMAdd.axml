@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/adminportalbg">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
+        <ImageView
+            android:layout_width="171.0dp"
+            android:layout_height="52.0dp"
+            android:layout_gravity="left"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/logo" />
+        <TextView
+            android:text="ADMIN PORTAL"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp" />
+        <Button
+            android:text="Log Out"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/AddLogOut_Edit_Menu_Button"
+            android:layout_marginLeft="750.0dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="#205878" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#750a0a">
+        <TextView
+            android:text="EDIT MENU"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="23sp"
+            android:paddingBottom="21dp" />
+        <TextView
+            android:text="Get creative."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:paddingTop="23dp" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="130dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d3d3d3"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:background="#DEDEDC"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ScrollView
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView1">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_centerInParent="true">
+                    <EditText
+                        android:id="@+id/Add_EditMenu_Dishname"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:hint="Dish Name"
+                        android:textColorHint="#000000"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000000" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/Add_EditMenu_description"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textColorHint="#000000"
+                        android:hint="Description"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000000" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/btn_Addaddingredient"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:paddingLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="Add" />
+                        <EditText
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="wrap_content"
+                            android:hint="Quantity"
+                            android:textColor="#000000"
+                            android:textColorHint="#000000"
+                            android:layout_toLeftOf="@id/btn_Addaddingredient"
+                            android:paddingLeft="10dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/EMQuantity" />
+                        <Spinner
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="320dp"
+                            android:layout_toLeftOf="@id/EMQuantity"
+                            android:paddingLeft="10dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/spnr_EMIngredientsAdd" />
+                        <LinearLayout
+                            android:id="@+id/container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+                    </RelativeLayout>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/Add_EditMenu_ingredients"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textColorHint="#000000"
+                        android:hint="Ingredients"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000000" />
+                    <EditText
+                        android:id="@+id/Add_EditMenu_calories"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textColorHint="#000000"
+                        android:hint="Calories"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000000" />
+                    <EditText
+                        android:id="@+id/Add_EditMenu_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textColorHint="#000000"
+                        android:layout_marginRight="20dp"
+                        android:hint="Cost"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000000" />
+                    <EditText
+                        android:id="@+id/Add_EditMenu_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textColorHint="#000000"
+                        android:hint="Price"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000000" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:text="Add Dish"
+                            android:layout_marginTop="50dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btn_Add_dish"
+                            android:textSize="20dp"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:paddingLeft="5dp"
+                            android:paddingBottom="5dp"
+                            android:paddingRight="5dp"
+                            android:height="70dp"
+                            android:paddingTop="2dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginBottom="20dp" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </FrameLayout>
+</RelativeLayout>

@@ -21,40 +21,9 @@ using Android.Support.V7.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    [Activity(MainLauncher = true, Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class AP_EM_Activity : Activity
-    {
-
-        private async Task<JsonValue> FetchInventoryAsync(string url)
-        {
-            // Create an HTTP web request using the URL:
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-
-            // Send the request to the server and wait for the response:
-            using (WebResponse response = await request.GetResponseAsync())
-            {
-                // Get a stream representation of the HTTP web response:
-                using (Stream stream = response.GetResponseStream())
-                {
-                    // Use this stream to build a JSON document object:
-                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
-                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
-
-                    // Return the JSON String:
-                    return jsonDoc.ToString();
-                }
-            }
-        }
-        private List<AP_MI_InventoryList> ParseAndDisplay(String json)
-        {
-            List<AP_MI_InventoryList> dataTableList = JsonConvert.DeserializeObject<List<AP_MI_InventoryList>>(json);
-            Console.Out.WriteLine(dataTableList[0].Ingredients);
-            Console.Out.WriteLine(dataTableList[0].Quantity);
-            Console.Out.WriteLine(dataTableList[0].MeasureUnit);
-            Console.Out.WriteLine(dataTableList.Count());
-            return dataTableList;
-        }
-        
+    {   
         //Ingredients Spinner
         public static List<String> ingredientsTransferList = new List<String>();
         //Quantity Spinner
@@ -68,7 +37,7 @@ namespace Munch
         // array list managed by adapter
         AP_EM_ItemList mItemList;
 
-        protected override async void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -96,27 +65,13 @@ namespace Munch
             //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
 
-            //Push data to ingredients spinner
-            String inventoryURL = "http://54.191.98.63/inventory.php";
-            JsonValue json = await FetchInventoryAsync(inventoryURL);
-            List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
-            for (int i = 0; i < parsedData.Count(); i++)
-            {
-                ingredientsTransferList.Add(parsedData[i].Ingredients.ToString());
-            }
-
-
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APEMfab);
             fab.AttachToRecyclerView(mRecyclerView);
             fab.Click += (object sender, EventArgs args) =>
             {
                 //Pull up dialog box
-                FragmentTransaction transaction = FragmentManager.BeginTransaction();
-                dialog_AP_Edit_Menu manageMenu = new dialog_AP_Edit_Menu();
-                manageMenu = new dialog_AP_Edit_Menu();
-                manageMenu.Show(transaction, "dialog fragment");
-                manageMenu.addItemComplete += manageMenu_dialog_EM_add;
+                StartActivity(typeof(AP_EM_Add));
             };
         }
 
@@ -126,7 +81,6 @@ namespace Munch
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             dialog_AP_EM_Modify modifyMenu = new dialog_AP_EM_Modify();
             modifyMenu = new dialog_AP_EM_Modify();
-            modifyMenu.editItemComplete += manageMenu_dialog_EM;
 
             editItem.Click += delegate
             {
@@ -134,35 +88,6 @@ namespace Munch
             };
 
             Android.Widget.Toast.MakeText(this, "THE FUCK YOU PRESSING??", Android.Widget.ToastLength.Short).Show();
-        }
-
-
-        void manageMenu_dialog_EM(object sender, OnSignEventArgs_ManageMenu e)
-        {
-            Thread thread = new Thread(editRequest);
-            thread.Start();
-            thread.Abort();
-        }
-        private void editRequest()
-        {
-            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Modified", Android.Widget.ToastLength.Short).Show());
-            StartActivity(typeof(AP_EM_Activity));
-        }
-        void manageMenu_dialog_EM_add(object sender, OnSignEventArgs_ManageMenuadd e)
-        {
-            Thread thread = new Thread(addmenu);
-            thread.Start();
-            thread.Abort();
-        }
-        private void addmenu()
-        {
-            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Modified", Android.Widget.ToastLength.Short).Show());
-            StartActivity(typeof(AP_EM_Activity));
-        }
-
-        public override void OnBackPressed()
-        {
-            StartActivity(typeof(AdminPortal));
         }
     }
 

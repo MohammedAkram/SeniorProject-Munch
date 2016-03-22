@@ -95,7 +95,7 @@ namespace Munch
             DishName = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_Dishname);
             Description = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_description);
             Ingredients = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_ingredients);
-            dAddIngredient = view.FindViewById<Button>(Resource.Id.btn_addingredient);
+            dAddIngredient = view.FindViewById<Button>(Resource.Id.btn_addingredient_Edit);
             Quantity = view.FindViewById<EditText>(Resource.Id.EMQuantity);
             calories = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_calories);
             cost = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_cost);
