@@ -55,30 +55,7 @@ namespace Munch
     {
         //Edit Menu Cards
         public static EMItemList[] mBuiltInCards = {
-            new EMItemList { ItemName = "McChicken Sandwich",
-                         ItemDescription = "Delectable cheap sandwiches with fake chicken.",
-                         ItemIngredients = "Chicken, Lettuce, Bread, Mayo",
-                         ItemCalorie = "420 blazin",
-                         ItemCost = "$2.40" ,
-                         ItemPrice = "$3.00"   },
-            new EMItemList { ItemName = "Chipotle Burger",
-                         ItemDescription = "E.Coli Sensitive.",
-                         ItemIngredients = "Steak, Lettuce, Cheese, Avocado, Cream Cheese, Mayo",
-                         ItemCalorie = "420 blaze it",
-                         ItemCost = "$4.50" ,
-                         ItemPrice = "$9.60"   },
-            new EMItemList { ItemName = "Alan's Sandwiches",
-                         ItemDescription = "The bane of NYIT Students.",
-                         ItemIngredients = "Grilled Chicken, Lettuce, Cheese, Avocado, Cream Cheese, Mayo, Stale Bread",
-                         ItemCalorie = "420 blaze it",
-                         ItemCost = "$3.00" ,
-                         ItemPrice = "$8.50"   },
-            new EMItemList { ItemName = "Alan's Sandwiches",
-                         ItemDescription = "The bane of NYIT Students.",
-                         ItemIngredients = "Grilled Chicken, Lettuce, Cheese, Avocado, Cream Cheese, Mayo, Stale Bread",
-                         ItemCalorie = "420 blaze it",
-                         ItemCost = "$3.00" ,
-                         ItemPrice = "$8.50"   },
+           
         };
 
         // Array of Items

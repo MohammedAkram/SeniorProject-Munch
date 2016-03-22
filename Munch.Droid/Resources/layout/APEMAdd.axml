@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:textStyle="italic"
             android:textColor="#ffffff"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:singleLine="true" />
         <Button
             android:text="Log Out"
             android:layout_width="match_parent"
@@ -61,7 +62,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="#ffffff"
-            android:paddingTop="23dp" />
+            android:paddingTop="23dp"
+            android:singleLine="true" />
     </FrameLayout>
     <FrameLayout
         android:layout_marginTop="130dp"
@@ -97,7 +99,8 @@
                         android:hint="Dish Name"
                         android:textColorHint="#000000"
                         android:paddingLeft="10dp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:singleLine="true" />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -107,7 +110,8 @@
                         android:textColorHint="#000000"
                         android:hint="Description"
                         android:paddingLeft="10dp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:singleLine="true" />
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -132,7 +136,8 @@
                             android:layout_toLeftOf="@id/btn_Addaddingredient"
                             android:paddingLeft="10dp"
                             android:layout_height="50dp"
-                            android:id="@+id/EMQuantity" />
+                            android:id="@+id/EMQuantity"
+                            android:numeric="decimal" />
                         <Spinner
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="20dp"
@@ -168,7 +173,9 @@
                         android:textColorHint="#000000"
                         android:hint="Calories"
                         android:paddingLeft="10dp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:singleLine="true"
+                        android:numeric="integer" />
                     <EditText
                         android:id="@+id/Add_EditMenu_cost"
                         android:layout_width="match_parent"
@@ -179,7 +186,9 @@
                         android:layout_marginRight="20dp"
                         android:hint="Cost"
                         android:paddingLeft="10dp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:singleLine="true"
+                        android:numeric="decimal" />
                     <EditText
                         android:id="@+id/Add_EditMenu_price"
                         android:layout_width="match_parent"
@@ -190,7 +199,9 @@
                         android:textColorHint="#000000"
                         android:hint="Price"
                         android:paddingLeft="10dp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:singleLine="true"
+                        android:numeric="decimal" />
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">

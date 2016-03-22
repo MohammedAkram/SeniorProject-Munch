@@ -21,9 +21,56 @@ using Android.Support.V7.Widget;
 
 namespace Munch
 {
-    [Activity(MainLauncher = true, Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class AP_EM_Activity : Activity
-    {   
+    {
+
+
+
+        private List<AP_EM_ItemList> mItems;
+        private async Task<JsonValue> FetchMenuAsync(string url)
+        {
+            // Create an HTTP web request using the URL:
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+
+            // Send the request to the server and wait for the response:
+            using (WebResponse response = await request.GetResponseAsync())
+            {
+                // Get a stream representation of the HTTP web response:
+                using (Stream stream = response.GetResponseStream())
+                {
+                    // Use this stream to build a JSON document object:
+                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
+                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
+
+                    // Return the JSON String:
+                    return jsonDoc.ToString();
+                }
+            }
+        }
+
+
+
+        private List<EMItemList> ParseAndDisplay(String json)
+        {
+
+            List<EMItemList> dataTableList = JsonConvert.DeserializeObject<List<EMItemList>>(json);
+            Console.Out.WriteLine(dataTableList[0].ItemName);
+            Console.Out.WriteLine(dataTableList[0].ItemDescription);
+            Console.Out.WriteLine(dataTableList[0].ItemIngredients);
+            Console.Out.WriteLine(dataTableList[0].ItemCalorie);
+            Console.Out.WriteLine(dataTableList[0].ItemCost);
+            Console.Out.WriteLine(dataTableList[0].ItemPrice);
+            Console.Out.WriteLine(dataTableList.Count());
+            return dataTableList;
+        }
+
+
+
+
+
+
+
         //Ingredients Spinner
         public static List<String> ingredientsTransferList = new List<String>();
         //Quantity Spinner
@@ -37,13 +84,19 @@ namespace Munch
         // array list managed by adapter
         AP_EM_ItemList mItemList;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
+            string menuURL = "http://54.191.98.63/menu.php";
+            JsonValue json = await FetchMenuAsync(menuURL);
+            List<EMItemList> parsedData = ParseAndDisplay(json);
+            AP_EM_ItemList.mBuiltInCards = parsedData.ToArray();
+            
+
             //Create Menu List
             mItemList = new AP_EM_ItemList();
-
+            
             //Set View
             SetContentView(Resource.Layout.APEditMenu);
             Button logout = FindViewById<Button>(Resource.Id.LogOut_Edit_Menu_Button);
@@ -57,6 +110,8 @@ namespace Munch
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
+
+
 
             //Menu List Adapter
             mAdapter = new CVBFItemListAdapter(mItemList);

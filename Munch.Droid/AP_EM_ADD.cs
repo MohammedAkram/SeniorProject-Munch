@@ -138,6 +138,7 @@ namespace Munch
             var webClient = new WebClient();
 
             webClient.DownloadString("http://54.191.98.63/managemenu.php?dish=" + DishName.Text + "&&desc=" + Description.Text + "&&Ingredients=" + strToDB + "&&calories=" + calories.Text + " &&cost=" + cost.Text + "&&price=" + price.Text + "&&delete=0");
+            this.Finish();
         }
         private void dAddIngredient_Click(object sender, EventArgs e)
         {

@@ -87,7 +87,7 @@ namespace Munch
         {
             var view = inflater.Inflate(Resource.Layout.CV_Menu, container, false);
 
-            mItemList = new AP_EM_ItemList();
+            //mItemList = new AP_EM_ItemList();
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_menurecyclerView);
             LayoutManager = new LinearLayoutManager(this.Activity);
             mRecyclerView.SetLayoutManager(LayoutManager);
