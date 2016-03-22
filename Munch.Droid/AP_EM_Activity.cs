@@ -116,7 +116,7 @@ namespace Munch
                 dialog_AP_Edit_Menu manageMenu = new dialog_AP_Edit_Menu();
                 manageMenu = new dialog_AP_Edit_Menu();
                 manageMenu.Show(transaction, "dialog fragment");
-              //  manageMenu.addItemComplete += manageMenu_dialog_EM_add;
+                manageMenu.addItemComplete += manageMenu_dialog_EM_add;
             };
         }
 

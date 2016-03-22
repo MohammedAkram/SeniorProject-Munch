@@ -116,8 +116,31 @@ namespace Munch
 
         private void dAddDish_Click(object sender, EventArgs e)
         {
+
+            Ingredients.Text = "";
             addItemComplete.Invoke(this, new OnSignEventArgs_ManageMenuadd(DishName.Text, Description.Text, Ingredients.Text, Quantity.Text, calories.Text, cost.Text, price.Text));
+
+
+            string strToDB = "";
+            for (int i = 0; i < dIngredientsList.Count(); i++)
+            {
+                if (i == (dIngredientsList.Count()-1))
+                {
+                    strToDB = strToDB + dIngredientsList[i];
+                }
+                else {
+                    strToDB = strToDB + dIngredientsList[i] + ", ";
+                }
+            }
+
+            string temp = "4 lettuce, 1 burger, 1 cheese, 2 buns";
+
+            Console.WriteLine( "READ THIS~~~~~~~" +strToDB);
+
+
             var webClient = new WebClient();
+
+            webClient.DownloadString("http://54.191.98.63/managemenu.php?dish=" +DishName.Text + "&&desc=" + Description.Text + "&&Ingredients=" + temp +"&&calories=" + calories.Text +" &&cost=" + cost.Text + "&&price=" + price.Text +"&&delete=0");
             this.Dismiss();
         }
 

@@ -16,7 +16,7 @@
             android:layout_margin="10dp"
             android:layout_centerInParent="true">
             <EditText
-                android:id="@+id/Add_EditMenu_Dishname"
+                android:id="@+id/Edit_EditMenu_Dishname"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -28,7 +28,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/Add_EditMenu_description"
+                android:id="@+id/Edit_EditMenu_description"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:hint="Description"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
-                    android:id="@+id/btn_addingredient"
+                    android:id="@+id/btn_addingredient_Edit"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
@@ -54,10 +54,10 @@
                     android:layout_width="wrap_content"
                     android:hint="Quantity"
                     android:textColor="#000"
-                    android:layout_toLeftOf="@id/btn_addingredient"
+                    android:layout_toLeftOf="@id/btn_addingredient_Edit"
                     android:paddingLeft="10dp"
                     android:layout_height="50dp"
-                    android:id="@+id/EMQuantity" />
+                    android:id="@+id/EMQuantity_Edit" />
                 <Spinner
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
@@ -74,16 +74,7 @@
                     android:orientation="vertical" />
             </RelativeLayout>
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/Add_EditMenu_ingredients"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:hint="Ingredients"
-                android:paddingLeft="10dp"
-                android:textColor="#000" />
-            <EditText
-                android:id="@+id/Add_EditMenu_calories"
+                android:id="@+id/Edit_EditMenu_calories"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -93,7 +84,7 @@
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText
-                android:id="@+id/Add_EditMenu_cost"
+                android:id="@+id/Edit_EditMenu_cost"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -103,7 +94,7 @@
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText
-                android:id="@+id/Add_EditMenu_price"
+                android:id="@+id/Edit_EditMenu_price"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"

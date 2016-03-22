@@ -68,23 +68,21 @@
                     android:paddingLeft="10dp"
                     android:layout_height="50dp"
                     android:id="@+id/spnr_EMIngredientsAdd" />
-            <!--
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/Add_EditMenu_ingredients"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:hint="Ingredients"
-                    android:paddingLeft="10dp"
-                    android:textColor="#000" />
-              -->
                 <LinearLayout
                     android:id="@+id/container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" />
             </RelativeLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/Add_EditMenu_ingredients"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Ingredients"
+                android:paddingLeft="10dp"
+                android:textColor="#000" />
             <EditText
                 android:id="@+id/Add_EditMenu_calories"
                 android:layout_width="match_parent"
