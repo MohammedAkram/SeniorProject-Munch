@@ -21,6 +21,7 @@ namespace Munch
     public class AdminPortal : Activity, ViewTreeObserver.IOnGlobalLayoutListener
     {
         //Pubnub
+        /*
         Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
         void DisplaySubscribeReturnMessage(string result)
         {
@@ -80,6 +81,7 @@ namespace Munch
             Console.WriteLine("PUBLISH STATUS CALLBACK");
             Console.WriteLine(result);
         }
+        */
 
         Button[] btns;
 
@@ -91,13 +93,14 @@ namespace Munch
             SetContentView(Resource.Layout.AdminPortal);
 
             //pubnub shit
+            /*
             pubnub.Subscribe<string>(
                 "my_channel",
                 DisplaySubscribeReturnMessage,
                 DisplaySubscribeConnectStatusMessage,
                 DisplayErrorMessage
                 );
-
+                */
 
             this.btns = new int[]
             {
@@ -111,8 +114,8 @@ namespace Munch
             btns[0].Click += (sender, e) =>
             {
                 StartActivity(typeof(AP_EM_Activity));
-
-                pubnub.Publish<string>("my_channel", "Table 2: Requires Assistance, Table 2 requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
+                
+                //pubnub.Publish<string>("my_channel", "Table 2: Requires Assistance, Table 2 requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
 
             };
             btns[1].Click += (sender, e) => StartActivity(typeof(AP_MI_Activity));
