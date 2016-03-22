@@ -163,13 +163,7 @@
     <AndroidResource Include="Resources\layout\CustomerPortal.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\CV_Breakfast.axml">
-      <SubType>AndroidResource</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\CV_Lunch.axml">
-      <SubType>AndroidResource</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\CV_Dinner.axml">
+    <AndroidResource Include="Resources\layout\CV_Menu.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CV_Your_Order.axml">

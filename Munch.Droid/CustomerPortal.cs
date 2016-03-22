@@ -44,9 +44,7 @@ namespace Munch
         {
             mFragmentHolder = new List<Android.Support.V4.App.Fragment>();
             mFragmentHolder.Add(new Welcome());
-            mFragmentHolder.Add(new Breakfast());
-            mFragmentHolder.Add(new Lunch());
-            mFragmentHolder.Add(new Dinner());
+            mFragmentHolder.Add(new Menu());
             mFragmentHolder.Add(new Your_Order());
         }
 
@@ -77,37 +75,37 @@ namespace Munch
     }
 
     //Breakfast Menu
-    public class Breakfast : Android.Support.V4.App.Fragment
+    public class Menu : Android.Support.V4.App.Fragment
     {
         //For the cards
         public RecyclerView mRecyclerView;
         public RecyclerView.LayoutManager LayoutManager;
-        public Munch.CVBFItemListAdapter mAdapter;
+        public CVMItemListAdapter mAdapter;
         public AP_EM_ItemList mItemList;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.CV_Breakfast, container, false);
+            var view = inflater.Inflate(Resource.Layout.CV_Menu, container, false);
 
             mItemList = new AP_EM_ItemList();
-            mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_breakfastrecyclerView);
+            mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_menurecyclerView);
             LayoutManager = new LinearLayoutManager(this.Activity);
             mRecyclerView.SetLayoutManager(LayoutManager);
-            mAdapter = new Munch.CVBFItemListAdapter(mItemList);
+            mAdapter = new CVMItemListAdapter(mItemList);
             mRecyclerView.SetAdapter(mAdapter);
 
             return view;
         }
 
         //Create Cards
-        public class CVBFItemListAdapter : RecyclerView.Adapter
+        public class CVMItemListAdapter : RecyclerView.Adapter
         {
             //Event handler for item clicks
             public event EventHandler<int> ItemClick;
             //Data Set
             public AP_EM_ItemList mItemList;
             //start method to load adapter
-            public CVBFItemListAdapter(AP_EM_ItemList itemitem)
+            public CVMItemListAdapter(AP_EM_ItemList itemitem)
             {
                 mItemList = itemitem;
             }
@@ -150,7 +148,7 @@ namespace Munch
         }
 
         //Item Container
-        public class CVBFItemListHolder : RecyclerView.ViewHolder
+        public class CVMItemListHolder : RecyclerView.ViewHolder
         {
             public TextView Name { get; private set; }
             public TextView Description { get; private set; }
@@ -159,7 +157,7 @@ namespace Munch
             public TextView ItemCost { get; private set; }
             public TextView ItemPrice { get; private set; }
 
-            public CVBFItemListHolder(View itemView, Action<int> listener) : base(itemView)
+            public CVMItemListHolder(View itemView, Action<int> listener) : base(itemView)
             {
                 Name = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Title);
                 Description = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Description);
@@ -174,39 +172,7 @@ namespace Munch
 
         public override string ToString() //Called on line 156 in SlidingTabScrollView
         {
-            return "Breakfast";
-        }
-    }
-
-    //Lunch Menu
-    public class Lunch : Android.Support.V4.App.Fragment
-    {
-        private TextView mTextView;
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            var view = inflater.Inflate(Resource.Layout.CV_Lunch, container, false);
-            return view;
-        }
-
-        public override string ToString() //Called on line 156 in SlidingTabScrollView
-        {
-            return "Lunch";
-        }
-    }
-
-    //Dinner Menu
-    public class Dinner : Android.Support.V4.App.Fragment
-    {
-        private TextView mTextView;
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            var view = inflater.Inflate(Resource.Layout.CV_Dinner, container, false);
-            return view;
-        }
-
-        public override string ToString() //Called on line 156 in SlidingTabScrollView
-        {
-            return "Dinner";
+            return "Menu";
         }
     }
 

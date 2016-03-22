@@ -8,7 +8,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:text="Breakfast"
+        android:text="Menu"
         android:textColor="#000000"
         android:textSize="42sp"
         android:layout_marginLeft="20dp"
@@ -21,7 +21,7 @@
         android:layout_height="match_parent"
         android:background="#00d3d3d3">
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/cv_breakfastrecyclerView"
+            android:id="@+id/cv_menurecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>
