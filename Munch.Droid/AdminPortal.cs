@@ -88,12 +88,6 @@ namespace Munch
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            Window.RequestFeature(WindowFeatures.ContentTransitions);
-            Window.EnterTransition = new Explode();
-            Window.ExitTransition = new Explode();
-            Window.AllowReturnTransitionOverlap = true;
-            Window.AllowEnterTransitionOverlap = true;
-
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AdminPortal);
 
