@@ -15,6 +15,7 @@ using Android.Animation;
 using Android.Graphics;
 using Android.Util;
 using Android.Views.Animations;
+using System.Net;
 
 namespace Munch
 {
@@ -110,6 +111,9 @@ namespace Munch
                 Resource.Id.LogOutAdminPortalButton
             }.Select(FindViewById<Button>).ToArray();
 
+            string strToDBAP = Waiter_Table_Selection_Activity.TableURL + "&&unassign=1";
+
+
             btns[0].Click += (sender, e) =>
             {
                 StartActivity(typeof(AP_EM_Activity));
@@ -121,6 +125,10 @@ namespace Munch
             btns[3].Click += (sender, e) => StartActivity(typeof(AP_MA_Activity));
             btns[4].Click += (sender, e) =>
             {
+                var webClient = new WebClient();
+                Console.WriteLine(strToDBAP);
+                webClient.DownloadString(strToDBAP);
+                this.Finish();
                 SetContentView(Resource.Layout.LoginScreen);
                 Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
                 StartActivity(typeof(LoginScreen));

@@ -50,7 +50,7 @@ namespace Munch
             }
         }
 
-
+        public static string TableURL = "http://54.191.98.63/managetables.php?waiter=" + LoginScreen.loginUsername + "&&tables=";
         public ListView mListView;
         private List<Waiter_Table_Selection_List> ParseAndDisplay(String json)
         {
@@ -62,6 +62,7 @@ namespace Munch
             return dataTableList;
         }
 
+       
 
         protected override async void OnCreate(Bundle bundle)
         {
@@ -77,7 +78,7 @@ namespace Munch
             Waiter_Table_Selection_ListViewAdapter adapter = new Waiter_Table_Selection_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
 
-
+            
             var fab = FindViewById<FloatingActionButton>(Resource.Id.Waiter_Table_Selection_fab);
             fab.AttachToListView(mListView);
             fab.Click += (object sender, EventArgs args) =>
@@ -93,25 +94,24 @@ namespace Munch
                         Console.WriteLine(checkTable.Checked);
                         if (checkTable.Checked)
                         {
-                            strToDB = strToDB + txtTable.Text.ToString() + ", ";
+                            strToDB = strToDB + txtTable.Text.ToString() + ",";
                         }
                     }
                 }
                 if(strToDB.Length != 0)
-                {
-                strToDB = strToDB.TrimEnd();
+                {     
                 strToDB = strToDB.Remove(strToDB.Length - 1);
                 }
                 
                 Console.WriteLine("~~~~~~~~~~~~ " + strToDB);
 
-                //var webClient = new WebClient();
-                Console.WriteLine("~~~~~~~~~~~~ " + "http://54.191.98.63/managetables.php?waiter=" + LoginScreen.loginUsername + "&&tables=" + strToDB);
-                //webClient.DownloadString("http://54.191.98.63/managetables.php?waiter="+ LoginScreen.loginUsername +"&&tables="+ strToDB);
+                var webClient = new WebClient();
+                Console.WriteLine("~~~~~~~~~~~~ "  + strToDB);
+                TableURL = TableURL + strToDB;
+                webClient.DownloadString(TableURL);
                 this.Finish();
                 StartActivity(typeof(AdminPortal));
             };
-
 
         }
         
