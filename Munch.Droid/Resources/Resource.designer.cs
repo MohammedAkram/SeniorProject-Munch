@@ -2059,6 +2059,9 @@ namespace Munch
 			// aapt resource value: 0x7f060074
 			public const int LogOut_Edit_Menu_Button = 2131099764;
 			
+			// aapt resource value: 0x7f0600d8
+			public const int LogOut_Waiter_Table_Selection = 2131099864;
+			
 			// aapt resource value: 0x7f06006b
 			public const int ManageInventoryButton = 2131099755;
 			
@@ -2097,6 +2100,18 @@ namespace Munch
 			
 			// aapt resource value: 0x7f06006c
 			public const int ViewReportsButton = 2131099756;
+			
+			// aapt resource value: 0x7f0600d9
+			public const int Waiter_Table_Selection_ListView = 2131099865;
+			
+			// aapt resource value: 0x7f0600db
+			public const int Waiter_Table_Selection_Txt_Table = 2131099867;
+			
+			// aapt resource value: 0x7f0600dc
+			public const int Waiter_Table_Selection_checkBox = 2131099868;
+			
+			// aapt resource value: 0x7f0600da
+			public const int Waiter_Table_Selection_fab = 2131099866;
 			
 			// aapt resource value: 0x7f060070
 			public const int accntMgmtListView = 2131099760;
@@ -2882,6 +2897,12 @@ namespace Munch
 			
 			// aapt resource value: 0x7f030049
 			public const int support_simple_spinner_dropdown_item = 2130903113;
+			
+			// aapt resource value: 0x7f03004a
+			public const int Waiter_Table_Selection = 2130903114;
+			
+			// aapt resource value: 0x7f03004b
+			public const int Waiter_Table_Selection_ListView = 2130903115;
 			
 			static Layout()
 			{

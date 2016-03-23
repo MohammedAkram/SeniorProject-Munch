@@ -29,6 +29,8 @@ namespace Munch
             public string status { get; set; }
             public string level { get; set; }
         }
+
+        public static String loginUsername;
         /*
         Method LoginAuth():
         This method will connect to the MySQL database and check the accounts table for any matches on the entered user name and password.
@@ -139,6 +141,7 @@ namespace Munch
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
                     StartActivity(typeof(AdminPortal));
+                    loginUsername = user.Text;
                     user.Text = "";
                     pass.Text = "";
                 }
@@ -147,7 +150,9 @@ namespace Munch
                 else if (result == 1)
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                    StartActivity(typeof(CustomerPortal));
+                    StartActivity(typeof(Waiter_Table_Selection_Activity));
+
+                    loginUsername = user.Text;
                     user.Text = "";
                     pass.Text = "";
                 }
@@ -157,6 +162,7 @@ namespace Munch
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
                     StartActivity(typeof(CustomerPortal));
+                    loginUsername = user.Text;
                     user.Text = "";
                     pass.Text = "";
                 }
