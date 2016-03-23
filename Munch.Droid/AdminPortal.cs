@@ -8,6 +8,7 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
+using Android.Transitions;
 using Android.Widget;
 using PubNubMessaging.Core;
 using Android.Animation;
@@ -87,7 +88,11 @@ namespace Munch
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-           
+            Window.RequestFeature(WindowFeatures.ContentTransitions);
+            Window.EnterTransition = new Explode();
+            Window.ExitTransition = new Explode();
+            Window.AllowReturnTransitionOverlap = true;
+            Window.AllowEnterTransitionOverlap = true;
 
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AdminPortal);
@@ -114,9 +119,8 @@ namespace Munch
             btns[0].Click += (sender, e) =>
             {
                 StartActivity(typeof(AP_EM_Activity));
-                
+                OverridePendingTransition(Resource.Animation.right_in, Resource.Animation.right_out);
                 //pubnub.Publish<string>("my_channel", "Table 2: Requires Assistance, Table 2 requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
-
             };
             btns[1].Click += (sender, e) => StartActivity(typeof(AP_MI_Activity));
             btns[2].Click += (sender, e) => SetContentView(Resource.Layout.APViewReports);

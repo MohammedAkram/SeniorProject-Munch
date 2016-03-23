@@ -202,9 +202,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\RoundedButton.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\anim\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <XamarinComponentReference Include="fab">
       <Visible>False</Visible>
@@ -275,6 +273,9 @@
     <AndroidResource Include="Resources\drawable\customersplash.png" />
     <AndroidResource Include="Resources\drawable\customerbreakfast.png" />
     <AndroidResource Include="Resources\drawable-hdpi\RoundedButton.xml" />
+    <AndroidResource Include="Resources\anim\right_in.xml" />
+    <AndroidResource Include="Resources\anim\right_out.xml" />
+    <AndroidResource Include="Resources\anim\bounce.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

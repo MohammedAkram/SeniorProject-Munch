@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
 using System.Threading;
+using Android.Transitions;
 using System.Net;
 using System.Threading.Tasks;
 using System.Json;
@@ -24,8 +25,6 @@ namespace Munch
     [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class AP_EM_Activity : Activity
     {
-
-
 
         private List<AP_EM_ItemList> mItems;
         private async Task<JsonValue> FetchMenuAsync(string url)
@@ -48,9 +47,6 @@ namespace Munch
                 }
             }
         }
-
-
-
         private List<EMItemList> ParseAndDisplay(String json)
         {
 
@@ -65,12 +61,6 @@ namespace Munch
             return dataTableList;
         }
 
-
-
-
-
-
-
         //Ingredients Spinner
         public static List<String> ingredientsTransferList = new List<String>();
         //Quantity Spinner
@@ -83,6 +73,9 @@ namespace Munch
         CVBFItemListAdapter mAdapter;
         // array list managed by adapter
         AP_EM_ItemList mItemList;
+
+        //Set up add item as a view
+        View mView;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -110,39 +103,81 @@ namespace Munch
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
-
-
-
             //Menu List Adapter
             mAdapter = new CVBFItemListAdapter(mItemList);
-            //Item Long Click
-            mAdapter.ItemClick += OnItemClick;
             //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
+            //Item Click
+            mAdapter.ItemClick += OnItemClick;
+
+            mView = FindViewById(Resource.Id.fullAPEMAdd);
 
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APEMfab);
             fab.AttachToRecyclerView(mRecyclerView);
-            fab.Click += (object sender, EventArgs args) =>
+            FindViewById<FloatingActionButton>(Resource.Id.APEMfab).Click += (sender, e) =>
             {
-                //Pull up dialog box
                 StartActivity(typeof(AP_EM_Add));
+                OverridePendingTransition(Resource.Animation.right_in, Resource.Animation.right_out);
             };
         }
+
+        //Reveal Animation
+        private void Reveal(bool bottom = false)
+        {
+            mView.Visibility = ViewStates.Visible;
+            int cx = 0; 
+            int cy = 0;
+            if (bottom)
+            {
+                cx = mView.Right;
+                cy = (mView.Top + mView.Bottom);
+            }
+            else
+            {
+                cx = (mView.Left + mView.Right) / 2;
+                cy = (mView.Top + mView.Bottom) / 2;
+            }
+            int finalRadius = mView.Width;
+            var anim = ViewAnimationUtils.CreateCircularReveal(mView, cx, cy, 0, finalRadius);
+            anim.Start();
+        }
+        private void Hide(bool bottom = false)
+        {
+            int cx = 0; 
+            int cy = 0;
+            if (bottom)
+            {
+                cx = mView.Right;
+                cy = (mView.Top + mView.Bottom);
+            }
+            else
+            {
+                cx = (mView.Left + mView.Right) / 2;
+                cy = (mView.Top + mView.Bottom) / 2;
+            }
+            int initialRadius = mView.Width;
+            var anim = ViewAnimationUtils.CreateCircularReveal(mView, cx, cy, initialRadius, 0);
+            anim.AnimationEnd += (sender, e) => { mView.Visibility = ViewStates.Invisible; };
+            anim.Start();
+        }
+
 
         void OnItemClick(object sender, int position)
         {
             Button editItem = FindViewById<Button>(Resource.Id.btn_cardModify);
-            FragmentTransaction transaction = FragmentManager.BeginTransaction();
             dialog_AP_EM_Modify modifyMenu = new dialog_AP_EM_Modify();
             modifyMenu = new dialog_AP_EM_Modify();
 
             editItem.Click += delegate
             {
-                modifyMenu.Show(transaction, "dialog fragment");
+                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                Console.WriteLine("modify clicked.");
+                modifyMenu.Show(transaction, "something");
+                Android.Widget.Toast.MakeText(this, "Modify Item Clicked.", Android.Widget.ToastLength.Short).Show();
             };
 
-            Android.Widget.Toast.MakeText(this, "THE FUCK YOU PRESSING??", Android.Widget.ToastLength.Short).Show();
+            Android.Widget.Toast.MakeText(this, "Card Clicked.", Android.Widget.ToastLength.Short).Show();
         }
     }
 

@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Transitions;
 using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
@@ -77,6 +78,12 @@ namespace Munch
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
+            Window.RequestFeature(WindowFeatures.ContentTransitions);
+            Window.EnterTransition = new Explode();
+            Window.ExitTransition = new Explode();
+            Window.AllowReturnTransitionOverlap = true;
+            Window.AllowEnterTransitionOverlap = true;
+
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.APEMAdd);
             //LogOut Button
