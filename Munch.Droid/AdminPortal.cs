@@ -18,7 +18,7 @@ using Android.Views.Animations;
 
 namespace Munch
 {
-    [Activity(MainLauncher = true, Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    [Activity( Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class AdminPortal : Activity, ViewTreeObserver.IOnGlobalLayoutListener
     {
         //Pubnub

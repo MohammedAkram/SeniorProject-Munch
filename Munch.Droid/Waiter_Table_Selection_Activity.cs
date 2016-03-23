@@ -85,23 +85,29 @@ namespace Munch
             {
                 string strToDB = "";
                 for (int i = 0; i < mListView.Count; i++) {
+                    Console.WriteLine("list count = " + mListView.Count);
                     View rowView = mListView.GetChildAt(i);
                     if (rowView != null) {
                         TextView txtTable = rowView.FindViewById<TextView>(Resource.Id.Waiter_Table_Selection_Txt_Table);
                         CheckBox checkTable = rowView.FindViewById<CheckBox>(Resource.Id.Waiter_Table_Selection_checkBox);
-                        Console.WriteLine(checkTable.Selected);
-                        if (!checkTable.Selected)
+                        Console.WriteLine(checkTable.Checked);
+                        if (checkTable.Checked)
                         {
                             strToDB = strToDB + txtTable.Text.ToString() + ", ";
                         }
                     }
                 }
+                if(strToDB.Length != 0)
+                {
                 strToDB = strToDB.TrimEnd();
                 strToDB = strToDB.Remove(strToDB.Length - 1);
+                }
+                
                 Console.WriteLine("~~~~~~~~~~~~ " + strToDB);
 
-                var webClient = new WebClient();
-                webClient.DownloadString("http://54.191.98.63/managetables.php?waiter="+ LoginScreen.loginUsername +"&&tables="+ strToDB);
+                //var webClient = new WebClient();
+                Console.WriteLine("~~~~~~~~~~~~ " + "http://54.191.98.63/managetables.php?waiter=" + LoginScreen.loginUsername + "&&tables=" + strToDB);
+                //webClient.DownloadString("http://54.191.98.63/managetables.php?waiter="+ LoginScreen.loginUsername +"&&tables="+ strToDB);
                 this.Finish();
                 StartActivity(typeof(AdminPortal));
             };
