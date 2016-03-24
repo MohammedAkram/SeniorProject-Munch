@@ -177,7 +177,6 @@ namespace Munch
             var anim = ObjectAnimator.OfFloat(view, "translationX", "translationY", path);
             anim.SetDuration(600);
             anim.SetInterpolator(AnimationUtils.LoadInterpolator(this, Android.Resource.Interpolator.FastOutSlowIn));
-
             return anim;
         }
     }

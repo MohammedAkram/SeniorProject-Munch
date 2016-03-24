@@ -74,7 +74,7 @@ namespace Munch
         }
     }
 
-    //Breakfast Menu
+    //Menu
     public class Menu : Android.Support.V4.App.Fragment
     {
         //For the cards
@@ -87,7 +87,7 @@ namespace Munch
         {
             var view = inflater.Inflate(Resource.Layout.CV_Menu, container, false);
 
-            //mItemList = new AP_EM_ItemList();
+            mItemList = new AP_EM_ItemList();
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_menurecyclerView);
             LayoutManager = new LinearLayoutManager(this.Activity);
             mRecyclerView.SetLayoutManager(LayoutManager);
@@ -95,6 +95,28 @@ namespace Munch
             mRecyclerView.SetAdapter(mAdapter);
 
             return view;
+        }
+
+        //Item Container
+        public class CVMItemListHolder : RecyclerView.ViewHolder
+        {
+            public TextView Name { get; private set; }
+            public TextView Description { get; private set; }
+            public TextView Ingredients { get; private set; }
+            public TextView ItemCalorie { get; private set; }
+            public TextView ItemCost { get; private set; }
+            public TextView ItemPrice { get; private set; }
+
+            public CVMItemListHolder(View itemView, Action<int> listener) : base(itemView)
+            {
+                Name = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Title);
+                Description = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Description);
+                Ingredients = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Ingredients);
+                ItemCalorie = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Calorie);
+                ItemCost = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Cost);
+                ItemPrice = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Price);
+                itemView.Click += (sender, e) => listener(Position);
+            }
         }
 
         //Create Cards
@@ -144,29 +166,6 @@ namespace Munch
             {
                 if (ItemClick != null)
                     ItemClick(this, position);
-            }
-        }
-
-        //Item Container
-        public class CVMItemListHolder : RecyclerView.ViewHolder
-        {
-            public TextView Name { get; private set; }
-            public TextView Description { get; private set; }
-            public TextView Ingredients { get; private set; }
-            public TextView ItemCalorie { get; private set; }
-            public TextView ItemCost { get; private set; }
-            public TextView ItemPrice { get; private set; }
-
-            public CVMItemListHolder(View itemView, Action<int> listener) : base(itemView)
-            {
-                Name = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Title);
-                Description = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Description);
-                Ingredients = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Ingredients);
-                ItemCalorie = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Calorie);
-                ItemCost = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Cost);
-                ItemPrice = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Price);
-
-                itemView.Click += (sender, e) => listener(Position);
             }
         }
 

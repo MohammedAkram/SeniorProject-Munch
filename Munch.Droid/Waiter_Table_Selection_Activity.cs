@@ -82,7 +82,6 @@ namespace Munch
             var fab = FindViewById<FloatingActionButton>(Resource.Id.Waiter_Table_Selection_fab);
             fab.AttachToListView(mListView);
             fab.Click += (object sender, EventArgs args) =>
-            
             {
                 string strToDB = "";
                 for (int i = 0; i < mListView.Count; i++) {
