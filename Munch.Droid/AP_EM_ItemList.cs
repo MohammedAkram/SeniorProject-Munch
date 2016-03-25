@@ -54,9 +54,7 @@ namespace Munch
     public class AP_EM_ItemList
     {
         //Edit Menu Cards
-        public static EMItemList[] mBuiltInCards = {
-           
-        };
+        public static EMItemList[] mBuiltInCards;
 
         // Array of Items
         private EMItemList[] mItems;

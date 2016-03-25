@@ -12,6 +12,8 @@ using Android.Support.V4.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using System.Json;
+using System.Threading.Tasks;
 
 namespace Munch
 {
@@ -26,7 +28,12 @@ namespace Munch
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.CustomerPortal);
-            
+
+            string menuURL = "http://54.191.98.63/menu.php";
+            JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(menuURL);
+            List<EMItemList> parsedData = JsonParsing<EMItemList>.ParseAndDisplay(json);
+            AP_EM_ItemList.mBuiltInCards = parsedData.ToArray();
+
             //For Sliding Tabs
             mScrollView = FindViewById<CV_SlidingTabScrollView>(Resource.Id.CV_sliding_tab);
             mViewPager = FindViewById<ViewPager>(Resource.Id.CV_viewPager);
@@ -79,22 +86,32 @@ namespace Munch
     {
         //For the cards
         public RecyclerView mRecyclerView;
-        public RecyclerView.LayoutManager LayoutManager;
+        public RecyclerView.LayoutManager mLayoutManager;
         public CVMItemListAdapter mAdapter;
         public AP_EM_ItemList mItemList;
+        public string menuURL = "http://54.191.98.63/menu.php";
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.CV_Menu, container, false);
-
+            //Create Menu List
             mItemList = new AP_EM_ItemList();
+            //Set up layout manager to view all cards on recycler view
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_menurecyclerView);
-            LayoutManager = new LinearLayoutManager(this.Activity);
-            mRecyclerView.SetLayoutManager(LayoutManager);
+            mLayoutManager = new LinearLayoutManager(Activity);
+            mRecyclerView.SetLayoutManager(mLayoutManager);
+            //Menu List Adapter
             mAdapter = new CVMItemListAdapter(mItemList);
+            //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
-
+            //Item Click
+            mAdapter.ItemClick += OnItemClick;
             return view;
+        }
+
+        void OnItemClick(object sender, int position)
+        {
+            Android.Widget.Toast.MakeText(this.Activity, "Card Clicked.", Android.Widget.ToastLength.Short).Show();
         }
 
         //Item Container
@@ -115,6 +132,7 @@ namespace Munch
                 ItemCalorie = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Calorie);
                 ItemCost = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Cost);
                 ItemPrice = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Price);
+
                 itemView.Click += (sender, e) => listener(Position);
             }
         }
