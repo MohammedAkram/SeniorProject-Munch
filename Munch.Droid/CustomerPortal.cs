@@ -22,7 +22,7 @@ namespace Munch
         private ViewPager mViewPager;
         private CV_SlidingTabScrollView mScrollView;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.CustomerPortal);

@@ -53,16 +53,6 @@ namespace Munch
 
         public static string TableURL = "http://54.191.98.63/managetables.php?waiter=" + LoginScreen.loginUsername + "&&tables=";
         public ListView mListView;
-        private List<Waiter_Table_Selection_List> ParseAndDisplay(String json)
-        {
-
-            List<Waiter_Table_Selection_List> dataTableList = JsonConvert.DeserializeObject<List<Waiter_Table_Selection_List>>(json);
-            Console.Out.WriteLine(dataTableList[0].idAccounts);
-            Console.Out.WriteLine(dataTableList[0].isTaken);
-            Console.Out.WriteLine(dataTableList.Count());
-            return dataTableList;
-        }
-
        
 
         protected override async void OnCreate(Bundle bundle)

@@ -40,7 +40,6 @@ namespace Munch
 
         private bool userNameCheck(String userName, String password)
         {
-
             string pattern = @"^\w+$";
             Regex regex = new Regex(pattern);
             Boolean IdSymbolCheck = regex.IsMatch(userName);
@@ -53,13 +52,10 @@ namespace Munch
             else return false;
         }
 
-
         private async Task<JsonValue> FetchLoginAsync(string url)
         {
             // Create an HTTP web request using the URL:
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-
-
 
             // Send the request to the server and wait for the response:
             using (WebResponse response = await request.GetResponseAsync())
@@ -72,18 +68,13 @@ namespace Munch
                     Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
                     // Return the JSON document:
-
-
                     return jsonDoc.ToString();
                 }
             }
         }
 
-
-
         private int ParseAndDisplay(String json)
         {
-
             List<Login> loginList = JsonConvert.DeserializeObject<List<Login>>(json);
             Console.Out.WriteLine(loginList[0].status);
             Console.Out.WriteLine(loginList[0].level);
@@ -109,19 +100,6 @@ namespace Munch
 
             else return 2;
         }
-        /*
-
-      */
-
-        //To Prevent SQLINJECT
-        //string pattern = @"^\w+$";
-        //prevents special characters being used
-        //Example SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts =  ''or 1 =1; drop table security;--';--'&& Password = 'somepassword';
-        //This will drop the table security
-
-
-
-
 
         /*
         Method screenChange():
@@ -177,7 +155,6 @@ namespace Munch
             {
                 Android.Widget.Toast.MakeText(this, "Something went wrong", Android.Widget.ToastLength.Short).Show();
             }
-
         }
 
         protected override void OnCreate(Bundle bundle)

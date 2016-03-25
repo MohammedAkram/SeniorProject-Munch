@@ -31,40 +31,6 @@ namespace Munch
             StartActivity(typeof(AdminPortal));
     }
 
-    private async Task<JsonValue> FetchAccountsAsync(string url)
-        {
-            // Create an HTTP web request using the URL:
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-
-            // Send the request to the server and wait for the response:
-            using (WebResponse response = await request.GetResponseAsync())
-            {
-                // Get a stream representation of the HTTP web response:
-                using (Stream stream = response.GetResponseStream())
-                {
-                    // Use this stream to build a JSON document object:
-                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
-                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
-
-                    // Return the JSON String:
-                    return jsonDoc.ToString();
-                }
-            }
-        }
-
-
-        private List<AP_AM_AccountList> ParseAndDisplay(String json)
-        {
-
-            List<AP_AM_AccountList> dataTableList = JsonConvert.DeserializeObject<List<AP_AM_AccountList>>(json);
-            Console.Out.WriteLine(dataTableList[0].idAccounts);
-            Console.Out.WriteLine(dataTableList[0].Level);
-           
-            Console.Out.WriteLine(dataTableList.Count());
-            return dataTableList;
-        }
-
-
         //List
         private List<AP_AM_AccountList> mItems;
         public ListView mListView;
@@ -88,8 +54,8 @@ namespace Munch
 
             //Load Up List
             String accountsURL = "http://54.191.98.63/accounts.php";
-            JsonValue json = await FetchAccountsAsync(accountsURL);
-            List<AP_AM_AccountList> parsedData = ParseAndDisplay(json);
+            JsonValue json = await JsonParsing< Task < JsonValue >>.FetchDataAsync(accountsURL);
+            List<AP_AM_AccountList> parsedData = JsonParsing<AP_AM_AccountList>.ParseAndDisplay(json);
             mItems = parsedData;
 
             mListView = FindViewById<ListView>(Resource.Id.accntMgmtListView);
