@@ -18,6 +18,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Android.Support.V4.Widget;
 
+
 namespace Munch
 {
     [Activity(Label = "Waiter_Table_Selection_Activity", 
@@ -69,8 +70,10 @@ namespace Munch
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Waiter_Table_Selection);
             string tableURL = "http://54.191.98.63/tables.php";
-            JsonValue json = await FetchTablesAsync(tableURL);
-            List<Waiter_Table_Selection_List> parsedData = ParseAndDisplay(json);
+            JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(tableURL);
+            
+            List<Waiter_Table_Selection_List> parsedData = JsonParsing<Waiter_Table_Selection_List>.ParseAndDisplay(json);
+
             mItems = parsedData;
             mListView = FindViewById<ListView>(Resource.Id.Waiter_Table_Selection_ListView);
             
