@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Content;
 using Android.Support.V4.View;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
@@ -20,6 +21,8 @@ namespace Munch
     [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class CustomerPortal : FragmentActivity
     {
+
+
         //For the Sliding Tabs
         private ViewPager mViewPager;
         private CV_SlidingTabScrollView mScrollView;
@@ -98,20 +101,30 @@ namespace Munch
             mItemList = new AP_EM_ItemList();
             //Set up layout manager to view all cards on recycler view
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_menurecyclerView);
+            mRecyclerView.HasFixedSize = true;
             mLayoutManager = new LinearLayoutManager(Activity);
             mRecyclerView.SetLayoutManager(mLayoutManager);
             //Menu List Adapter
             mAdapter = new CVMItemListAdapter(mItemList);
             //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
+            mRecyclerView.SetItemAnimator(new DefaultItemAnimator());
             //Item Click
             mAdapter.ItemClick += OnItemClick;
             return view;
         }
 
+        public static string dishName_to_order = "";
         void OnItemClick(object sender, int position)
         {
-            Android.Widget.Toast.MakeText(this.Activity, "Card Clicked.", Android.Widget.ToastLength.Short).Show();
+
+            dishName_to_order = mItemList[position].ItemName;
+
+            Android.Support.V4.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            dialog_Cusomer_Add_Item_Order manageinventoryDialog = new dialog_Cusomer_Add_Item_Order();
+            manageinventoryDialog.Show(transaction, "dialog fragment");
+            
+            Android.Widget.Toast.MakeText(this.Activity, "Card Clicked. " , Android.Widget.ToastLength.Short).Show();
         }
 
         //Item Container

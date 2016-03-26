@@ -85,6 +85,7 @@
     <Compile Include="AP_EM_Activity.cs" />
     <Compile Include="AP_EM_Add.cs" />
     <Compile Include="AP_EM_ItemList.cs" />
+    <Compile Include="CustomerOrderItem.cs" />
     <Compile Include="dialog_AP_EM_Modify.cs" />
     <Compile Include="AP_MI_Activity.cs" />
     <Compile Include="AP_MI_InventoryList.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="dialog_AP_Manage_InventoryEdit.cs" />
     <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
+    <Compile Include="dialog_Cusomer_Add_Item_Order.cs" />
     <Compile Include="JsonParsing.cs" />
     <Compile Include="LoggingMethod.cs" />
     <Compile Include="LoginScreen.cs" />
@@ -182,6 +184,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Waiter_Table_Selection_ListView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_Add_Dish_to_Order.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

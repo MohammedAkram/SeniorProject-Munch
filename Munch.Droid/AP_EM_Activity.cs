@@ -130,8 +130,9 @@ namespace Munch
         }
 
 
-        void OnItemClick(object sender, int position)
+        void OnItemClick(object sender, int Position)
         {
+           
             Button editItem = FindViewById<Button>(Resource.Id.btn_cardModify);
             dialog_AP_EM_Modify modifyMenu = new dialog_AP_EM_Modify();
             modifyMenu = new dialog_AP_EM_Modify();
@@ -215,6 +216,7 @@ namespace Munch
         // If item is clicked
         void OnClick(int position)
         {
+
             if (ItemClick != null)
                 ItemClick(this, position);
         }
