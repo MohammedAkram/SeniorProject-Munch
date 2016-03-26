@@ -21,7 +21,7 @@ namespace Munch
     [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class CustomerPortal : FragmentActivity
     {
-
+        public static List<CustomerOrderItem> CustomerOrderList = new List<CustomerOrderItem>();
 
         //For the Sliding Tabs
         private ViewPager mViewPager;
@@ -114,11 +114,11 @@ namespace Munch
             return view;
         }
 
-        public static string dishName_to_order = "";
+        public static EMItemList dishName_to_order;
         void OnItemClick(object sender, int position)
         {
 
-            dishName_to_order = mItemList[position].ItemName;
+            dishName_to_order = mItemList[position];
 
             Android.Support.V4.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
             dialog_Cusomer_Add_Item_Order manageinventoryDialog = new dialog_Cusomer_Add_Item_Order();

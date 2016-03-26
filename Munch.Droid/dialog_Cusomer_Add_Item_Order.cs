@@ -28,7 +28,7 @@ namespace Munch
 
                 var view = inflater.Inflate(Resource.Layout.dialog_Add_Dish_to_Order, container, false);
                 DishName = view.FindViewById<EditText>(Resource.Id.Add_Dish_to_Order_DishName);
-                DishName.Text = Menu.dishName_to_order;
+                DishName.Text = Menu.dishName_to_order.iName;
                 Quant = view.FindViewById<EditText>(Resource.Id.Add_Dish_to_Order_Quantity);
                 Notes = view.FindViewById<EditText>(Resource.Id.Add_Dish_to_Order_Note);
                 addDishToOrder = view.FindViewById<Button>(Resource.Id.btn_Add_Dish_to_Order);
@@ -37,9 +37,18 @@ namespace Munch
                 return view;
             }
 
+            /*
+            ****************
+            ****************
+            ****************
+            *DON'T FORGET TO CHANGE ORDERNUMBER*
+            ****************
+            ****************
+            */
+
             private void AddtoOrder_Click(object sender, EventArgs e)
             {
-                
+            CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = Menu.dishName_to_order, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = "" });
             }
         }
     }
