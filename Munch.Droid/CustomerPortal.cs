@@ -93,6 +93,7 @@ namespace Munch
         public CVMItemListAdapter mAdapter;
         public AP_EM_ItemList mItemList;
         public string menuURL = "http://54.191.98.63/menu.php";
+        public static EMItemList dishName_to_order;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -114,17 +115,13 @@ namespace Munch
             return view;
         }
 
-        public static EMItemList dishName_to_order;
         void OnItemClick(object sender, int position)
         {
 
             dishName_to_order = mItemList[position];
-
             Android.Support.V4.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
             dialog_Cusomer_Add_Item_Order manageinventoryDialog = new dialog_Cusomer_Add_Item_Order();
             manageinventoryDialog.Show(transaction, "dialog fragment");
-            
-            Android.Widget.Toast.MakeText(this.Activity, "Card Clicked. " , Android.Widget.ToastLength.Short).Show();
         }
 
         //Item Container
@@ -132,18 +129,14 @@ namespace Munch
         {
             public TextView Name { get; private set; }
             public TextView Description { get; private set; }
-            public TextView Ingredients { get; private set; }
             public TextView ItemCalorie { get; private set; }
-            public TextView ItemCost { get; private set; }
             public TextView ItemPrice { get; private set; }
 
             public CVMItemListHolder(View itemView, Action<int> listener) : base(itemView)
             {
                 Name = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Title);
                 Description = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Description);
-                Ingredients = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Ingredients);
                 ItemCalorie = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Calorie);
-                ItemCost = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Cost);
                 ItemPrice = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Price);
 
                 itemView.Click += (sender, e) => listener(Position);
@@ -167,7 +160,7 @@ namespace Munch
             public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
             {
                 //Inflate all items for the card
-                View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.APEMCardView, parent, false);
+                View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.CVCardView, parent, false);
                 // Viewholder that holds references to the card
                 ItemListHolder ih = new ItemListHolder(itemView, OnClick);
                 return ih;
@@ -180,9 +173,7 @@ namespace Munch
                 //Set values
                 ih.Name.Text = mItemList[position].iName;
                 ih.Description.Text = mItemList[position].iDescription;
-                ih.Ingredients.Text = mItemList[position].iIngredients;
                 ih.ItemCalorie.Text = mItemList[position].iCalorie;
-                ih.ItemCost.Text = mItemList[position].iCost;
                 ih.ItemPrice.Text = mItemList[position].iPrice;
             }
 
