@@ -103,7 +103,7 @@ namespace Munch
             //Set up layout manager to view all cards on recycler view
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_menurecyclerView);
             mRecyclerView.HasFixedSize = true;
-            mLayoutManager = new LinearLayoutManager(Activity);
+            mLayoutManager = new StaggeredGridLayoutManager(2, 1);
             mRecyclerView.SetLayoutManager(mLayoutManager);
             //Menu List Adapter
             mAdapter = new CVMItemListAdapter(mItemList);
