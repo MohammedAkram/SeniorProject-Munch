@@ -16,6 +16,7 @@ namespace Munch
     public class CustomerOrderItem
     {
         public EMItemList Dish { get; set; }
+       // public string Dish { get; set; }
         public string Quantity { get; set; }
         public string OrderNumber { get; set; }
         public string Notes { get; set; }       

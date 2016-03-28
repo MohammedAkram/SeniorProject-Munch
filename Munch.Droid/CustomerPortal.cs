@@ -7,7 +7,6 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Content;
 using Android.Support.V4.View;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
@@ -21,7 +20,9 @@ namespace Munch
     [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class CustomerPortal : FragmentActivity
     {
-
+        public static List<CustomerOrderItem> CustomerOrderList = new List<CustomerOrderItem>();
+       
+        public  ListView mListView;
 
         //For the Sliding Tabs
         private ViewPager mViewPager;
@@ -36,7 +37,9 @@ namespace Munch
             JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(menuURL);
             List<EMItemList> parsedData = JsonParsing<EMItemList>.ParseAndDisplay(json);
             AP_EM_ItemList.mBuiltInCards = parsedData.ToArray();
-
+            
+            //mListView = FindViewById<ListView>(Resource.Id.mngYour_Order_ListView);
+           
             //For Sliding Tabs
             mScrollView = FindViewById<CV_SlidingTabScrollView>(Resource.Id.CV_sliding_tab);
             mViewPager = FindViewById<ViewPager>(Resource.Id.CV_viewPager);
@@ -114,17 +117,17 @@ namespace Munch
             return view;
         }
 
-        public static string dishName_to_order = "";
+        public static EMItemList dishName_to_order;
         void OnItemClick(object sender, int position)
         {
 
-            dishName_to_order = mItemList[position].ItemName;
+            dishName_to_order = mItemList[position];
 
             Android.Support.V4.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
             dialog_Cusomer_Add_Item_Order manageinventoryDialog = new dialog_Cusomer_Add_Item_Order();
             manageinventoryDialog.Show(transaction, "dialog fragment");
-            
-            Android.Widget.Toast.MakeText(this.Activity, "Card Clicked. " , Android.Widget.ToastLength.Short).Show();
+
+            Android.Widget.Toast.MakeText(this.Activity, "Card Clicked. ", Android.Widget.ToastLength.Short).Show();
         }
 
         //Item Container
@@ -209,11 +212,29 @@ namespace Munch
     //Your Order
     public class Your_Order : Android.Support.V4.App.Fragment
     {
-        private TextView mTextView;
+        public ListView mListView;
+        private List<CustomerOrderItem> mItems;
+        
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.CV_Your_Order, container, false);
+           
+            mListView = view.FindViewById<ListView>(Resource.Id.mngYour_Order_ListView);
+
+             //CustomerPortal.CustomerOrderList.Insert(0, (new CustomerOrderItem() { Dish = "dishname", Quantity = "test quant", Notes = "test note", OrderNumber = "" }));
+            //  CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = Menu.dishName_to_order, Quantity = "testq", Notes = "testn", OrderNumber = "" });
+            // CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = "huhui", Quantity = "testq", Notes = "testn", OrderNumber = "" });
+           // CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = "food", Quantity = "testq", Notes = "testn", OrderNumber = "" });
+
+
+            CV_your_Order_ListViewAdapter adapter = new CV_your_Order_ListViewAdapter(this.Activity, (CustomerPortal.CustomerOrderList) );
+            Console.Out.WriteLine(CustomerPortal.CustomerOrderList + "******************************");
+            mListView.Adapter = adapter;
+           // adapter.NotifyDataSetChanged();
+            
             return view;
+            
+            
         }
 
         public override string ToString() //Called on line 156 in SlidingTabScrollView

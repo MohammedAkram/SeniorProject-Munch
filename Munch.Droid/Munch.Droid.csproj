@@ -86,6 +86,8 @@
     <Compile Include="AP_EM_Add.cs" />
     <Compile Include="AP_EM_ItemList.cs" />
     <Compile Include="CustomerOrderItem.cs" />
+    <Compile Include="CV_your_Order_Activities.cs" />
+    <Compile Include="CV_your_Order_ListViewAdapter.cs" />
     <Compile Include="dialog_AP_EM_Modify.cs" />
     <Compile Include="AP_MI_Activity.cs" />
     <Compile Include="AP_MI_InventoryList.cs" />
@@ -189,6 +191,9 @@
     <AndroidResource Include="Resources\layout\dialog_Add_Dish_to_Order.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_your_Order_listViewRow.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -290,6 +295,10 @@
     <AndroidResource Include="Resources\anim\right_in.xml" />
     <AndroidResource Include="Resources\anim\right_out.xml" />
     <AndroidResource Include="Resources\anim\bounce.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\customerbreakfast.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\customersplash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\grassbg.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\adminport.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
