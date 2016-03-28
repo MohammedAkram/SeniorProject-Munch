@@ -53,6 +53,9 @@ namespace Munch
             TextView txtQuantity = row.FindViewById<TextView>(Resource.Id.Manage_Inventory_Txt_Quantity);
             txtQuantity.Text = mItems[position].Quantity;
 
+            TextView txtThreshold = row.FindViewById<TextView>(Resource.Id.Manage_Inventory_Txt_Threshold);
+            txtThreshold.Text = mItems[position].Threshold;
+
             TextView txtUnits = row.FindViewById<TextView>(Resource.Id.Manage_Inventory_Txt_Units);
             txtUnits.Text = mItems[position].MeasureUnit;
             

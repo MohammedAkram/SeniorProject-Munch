@@ -56,7 +56,7 @@ namespace Munch
 
         public event EventHandler<OnSignEventArgs_AccountManagement> editItemComplete;
         public event EventHandler<OnSignEventArgs_AccountManagement> deleteItemComplete;
-
+        string select = (AP_MA_Activity.xxc);
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
@@ -79,7 +79,7 @@ namespace Munch
         {
             editItemComplete.Invoke(this, new OnSignEventArgs_AccountManagement(level.Text, Username.Text, Password.Text));
             var webClient = new WebClient();
-            webClient.DownloadString("http://54.191.98.63/editaccount.php?id=" + Username.Text + " &&  = " + " && password=" + Password.Text + "&&level=" + level.Text + "");
+            webClient.DownloadString("http://54.191.98.63/editaccount.php?id=" + select + "&&newid=" + Username.Text + "&&level=" + level.Text + "&&delete=0&&password=" + Password.Text + "");
             this.Dismiss();
         }
         //Delete Account Action
@@ -87,7 +87,7 @@ namespace Munch
         {
             deleteItemComplete.Invoke(this, new OnSignEventArgs_AccountManagement(level.Text, Username.Text, Password.Text));
             var webClient = new WebClient();
-            webClient.DownloadString("http://54.191.98.63/register.php?id=" + Username.Text + "&&password=" + Password.Text + "&&level=" + level.Text + "");
+            webClient.DownloadString("http://54.191.98.63/editaccount.php?id=" + select + "&&delete=1");
             this.Dismiss();
         }
 

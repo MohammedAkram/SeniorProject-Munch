@@ -25,7 +25,8 @@
                 android:layout_marginRight="20dp"
                 android:hint="Ingredient Name"
                 android:paddingLeft="10dp"
-                android:textColor="#000" />
+                android:textColor="#000"
+                android:editable="false" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -33,6 +34,16 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:hint="Quantity"
+                android:paddingLeft="10dp"
+                android:textColor="#000"
+                android:numeric="decimal" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/txt_Edit_MinThreshold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Minimum Threshold"
                 android:paddingLeft="10dp"
                 android:textColor="#000" />
             <EditText
@@ -57,7 +68,7 @@
                     android:textColor="#fff"
                     android:textStyle="bold"
                     android:paddingLeft="5dp"
-                    android:paddingBottom="5dp"
+                    android:paddingBottom="10dp"
                     android:paddingRight="5dp"
                     android:height="70dp"
                     android:paddingTop="2dp"
@@ -83,7 +94,8 @@
                     android:background="#d80c0c"
                     android:paddingTop="2dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="30dp" />
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="22.5dp" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

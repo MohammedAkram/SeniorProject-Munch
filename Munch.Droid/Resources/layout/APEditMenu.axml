@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/overallbg">
+    android:background="@drawable/adminportalbg">
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
@@ -31,7 +31,7 @@
             android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/LogOutEditMenuButton"
+            android:id="@+id/LogOut_Edit_Menu_Button"
             android:layout_marginLeft="750.0dp"
             android:layout_marginTop="10dp"
             android:textAllCaps="false"
@@ -67,17 +67,16 @@
         android:layout_marginTop="130dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="#d3d3d3"
         android:minWidth="25px"
         android:minHeight="25px">
-        <ListView
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/EditMenuListView" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:scrollbars="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
         <com.refractored.fab.FloatingActionButton
-            android:id="@+id/EditMenufab"
+            android:id="@+id/APEMfab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
