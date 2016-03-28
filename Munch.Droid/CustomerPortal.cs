@@ -127,7 +127,6 @@ namespace Munch
             dialog_Cusomer_Add_Item_Order manageinventoryDialog = new dialog_Cusomer_Add_Item_Order();
             manageinventoryDialog.Show(transaction, "dialog fragment");
 
-            Android.Widget.Toast.MakeText(this.Activity, "Card Clicked. ", Android.Widget.ToastLength.Short).Show();
         }
 
         //Item Container
