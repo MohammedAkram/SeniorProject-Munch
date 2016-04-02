@@ -46,36 +46,78 @@
                 android:id="@+id/Menu_Item_Ingredients"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="4dp" />
-            <TextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#333333"
-                android:textStyle="italic"
-                android:text="Caption"
-                android:id="@+id/Menu_Item_Calorie"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="4dp" />
-            <TextView
-                android:layout_width="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:text="CALORIES: "
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#333333"
+                    android:textStyle="italic"
+                    android:text="Caption"
+                    android:id="@+id/Menu_Item_Calorie"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="4dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#333333"
-                android:textStyle="italic"
-                android:text="Caption"
-                android:id="@+id/Menu_Item_Cost"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="4dp" />
-            <TextView
-                android:layout_width="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:text="COST: "
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#333333"
+                    android:textStyle="italic"
+                    android:text="Caption"
+                    android:id="@+id/Menu_Item_Cost"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="4dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#333333"
-                android:textStyle="italic"
-                android:text="Caption"
-                android:id="@+id/Menu_Item_Price"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="4dp" />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:text="PRICE: "
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#333333"
+                    android:textStyle="italic"
+                    android:text="Caption"
+                    android:id="@+id/Menu_Item_Price"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="4dp" />
+            </LinearLayout>
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"

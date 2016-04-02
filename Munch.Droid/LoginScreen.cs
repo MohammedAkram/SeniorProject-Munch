@@ -139,7 +139,7 @@ namespace Munch
                 else if (result == 3)
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                    StartActivity(typeof(CustomerPortal));
+                    StartActivity(typeof(CustomerPortal2));
                     loginUsername = user.Text;
                     user.Text = "";
                     pass.Text = "";

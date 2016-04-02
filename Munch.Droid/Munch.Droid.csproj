@@ -86,6 +86,9 @@
     <Compile Include="AP_EM_Add.cs" />
     <Compile Include="AP_EM_ItemList.cs" />
     <Compile Include="CustomerOrderItem.cs" />
+    <Compile Include="CustomerPortal2.cs" />
+    <Compile Include="CV2_Menu.cs" />
+    <Compile Include="CV2_YourOrder.cs" />
     <Compile Include="CV_your_Order_Activities.cs" />
     <Compile Include="CV_your_Order_ListViewAdapter.cs" />
     <Compile Include="dialog_AP_EM_Modify.cs" />
@@ -194,6 +197,10 @@
     <AndroidResource Include="Resources\layout\CV_your_Order_listViewRow.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\CustomerPortal2.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CVCardView.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -299,6 +306,12 @@
     <AndroidResource Include="Resources\drawable-hdpi\customersplash.png" />
     <AndroidResource Include="Resources\drawable-hdpi\grassbg.png" />
     <AndroidResource Include="Resources\drawable-hdpi\adminport.png" />
+    <AndroidResource Include="Resources\drawable\customerwelcome.png" />
+    <AndroidResource Include="Resources\drawable\ic_go_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_mtrl_alpha.9.png" />
+    <AndroidResource Include="Resources\drawable\btn_variant1.xml" />
+    <AndroidResource Include="Resources\drawable\btn_variant2.xml" />
+    <AndroidResource Include="Resources\drawable\chickparm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
