@@ -13,6 +13,11 @@
         android:textStyle="italic"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp" />
+    <Button
+        android:text="HAAAAALP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Welcom_Call_Waiter" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

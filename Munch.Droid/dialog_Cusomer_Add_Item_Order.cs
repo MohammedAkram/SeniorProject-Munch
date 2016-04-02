@@ -49,8 +49,8 @@ namespace Munch
         private void AddtoOrder_Click(object sender, EventArgs e)
         {
              CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = Menu.dishName_to_order, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = "" });
-             // CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = DishName.Text, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = "" });
-            Console.WriteLine(CustomerPortal.CustomerOrderList);
+            // CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = DishName.Text, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = "" });
+            Console.WriteLine(CustomerPortal.CustomerOrderList.Count());
             //CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish=DishName.Text, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = "" });
             this.Dismiss();
         }

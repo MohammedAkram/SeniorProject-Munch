@@ -23,7 +23,6 @@ namespace Munch
     public class AdminPortal : Activity, ViewTreeObserver.IOnGlobalLayoutListener
     {
         //Pubnub
-        /*
         Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
         void DisplaySubscribeReturnMessage(string result)
         {
@@ -83,7 +82,7 @@ namespace Munch
             Console.WriteLine("PUBLISH STATUS CALLBACK");
             Console.WriteLine(result);
         }
-        */
+        
 
         Button[] btns;
 
@@ -93,14 +92,14 @@ namespace Munch
             SetContentView(Resource.Layout.AdminPortal);
 
             //pubnub shit
-            /*
+            
             pubnub.Subscribe<string>(
-                "my_channel",
+                LoginScreen.loginUsername,
                 DisplaySubscribeReturnMessage,
                 DisplaySubscribeConnectStatusMessage,
                 DisplayErrorMessage
                 );
-                */
+                
 
             this.btns = new int[]
             {
