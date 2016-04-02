@@ -44,14 +44,19 @@
             android:textColor="#ffffff"
             android:textSize="23sp"
             android:paddingBottom="21dp" />
-        <TextView
+    <!--  <TextView
             android:text="How hungry are you? "
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="#ffffff"
-            android:paddingTop="23dp" />
+            android:paddingTop="23dp" />-->
+        <Button
+            android:text="ORDERUP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ORderUP" />
     </FrameLayout>
     <FrameLayout
         android:layout_marginTop="130dp"
