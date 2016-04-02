@@ -293,7 +293,7 @@ namespace Munch
             //Set up layout manager to view all cards on recycler view
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cv_menurecyclerView);
             mRecyclerView.HasFixedSize = true;
-            mLayoutManager = new LinearLayoutManager(Activity);
+            mLayoutManager = new StaggeredGridLayoutManager(2, 1);
             mRecyclerView.SetLayoutManager(mLayoutManager);
             //Menu List Adapter
             mAdapter = new CVMItemListAdapter(mItemList);
@@ -305,15 +305,16 @@ namespace Munch
             return view;
         }
 
-        public static EMItemList dishName_to_order;
+
         void OnItemClick(object sender, int position)
         {
-
+            /*
             dishName_to_order = mItemList[position];
-
-            Android.Support.V4.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
             dialog_Cusomer_Add_Item_Order manageinventoryDialog = new dialog_Cusomer_Add_Item_Order();
-            manageinventoryDialog.Show(transaction, "dialog fragment");
+            manageinventoryDialog = new dialog_Cusomer_Add_Item_Order();
+            Android.App.FragmentTransaction ttransaction = FragmentManager.BeginTransaction();
+            manageinventoryDialog.Show(ttransaction, "dialog fragment");
+            */
 
         }
 
@@ -322,18 +323,14 @@ namespace Munch
         {
             public TextView Name { get; private set; }
             public TextView Description { get; private set; }
-            public TextView Ingredients { get; private set; }
             public TextView ItemCalorie { get; private set; }
-            public TextView ItemCost { get; private set; }
             public TextView ItemPrice { get; private set; }
 
             public CVMItemListHolder(View itemView, Action<int> listener) : base(itemView)
             {
                 Name = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Title);
                 Description = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Description);
-                Ingredients = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Ingredients);
                 ItemCalorie = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Calorie);
-                ItemCost = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Cost);
                 ItemPrice = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Price);
 
                 itemView.Click += (sender, e) => listener(Position);
@@ -357,7 +354,7 @@ namespace Munch
             public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
             {
                 //Inflate all items for the card
-                View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.APEMCardView, parent, false);
+                View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.CVCardView, parent, false);
                 // Viewholder that holds references to the card
                 ItemListHolder ih = new ItemListHolder(itemView, OnClick);
                 return ih;
