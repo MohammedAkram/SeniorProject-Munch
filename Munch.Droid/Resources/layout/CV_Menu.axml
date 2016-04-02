@@ -1,22 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/customerbreakfast">
-    <TextView
+    <FrameLayout
         android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/customerspalsh">
+        <ImageView
+            android:src="@drawable/customerwelcome"
+            android:background="#c91e1e"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="centerInside" />
+        <com.refractored.fab.FloatingActionButton
+            android:id="@+id/CV2Menufab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_go_white_24dp"
+            fab:fab_colorNormal="@color/accent"
+            fab:fab_colorPressed="@color/accent_pressed"
+            fab:fab_colorRipple="@color/ripple" />
+    </FrameLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Menu"
-        android:textColor="#000000"
-        android:textSize="42sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp" />
+        android:id="@+id/cv_menuhead"
+        android:weightSum="100">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Menu"
+            android:layout_weight="80"
+            android:textColor="#000000"
+            android:textSize="42sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp" />
+        <Button
+            android:text="Your Order"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:id="@+id/menuorderBtn"
+            android:layout_weight="20"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_variant1" />
+    </LinearLayout>
     <FrameLayout
         android:layout_marginTop="5dp"
+        android:id="@+id/cv_framerv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#00d3d3d3">

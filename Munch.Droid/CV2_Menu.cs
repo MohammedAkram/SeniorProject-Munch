@@ -30,6 +30,16 @@ namespace Munch
         public CVMItemListAdapter mAdapter;
         public AP_EM_ItemList mItemList;
         public string menuURL = "http://54.191.98.63/menu.php";
+        
+        //Animation Views
+        //Set up splash screen as a view
+        View mView;
+        //Set up fab to disappear
+        View fView;
+        View headerView;
+        View frameView;
+
+
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -39,6 +49,21 @@ namespace Munch
             JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(menuURL);
             List<EMItemList> parsedData = JsonParsing<EMItemList>.ParseAndDisplay(json);
             AP_EM_ItemList.mBuiltInCards = parsedData.ToArray();
+
+            //Associations
+            mView = FindViewById(Resource.Id.customerspalsh);
+            fView = FindViewById(Resource.Id.CV2Menufab);
+            headerView = FindViewById(Resource.Id.cv_menuhead);
+            frameView = FindViewById(Resource.Id.cv_framerv);
+
+            //FAB
+            var fab = FindViewById<FloatingActionButton>(Resource.Id.CV2Menufab);
+            FindViewById<FloatingActionButton>(Resource.Id.CV2Menufab).Click += (sender, e) =>
+            {
+                Hide();
+                fab.Visibility = ViewStates.Gone;
+            };
+
             //Create Menu List
             mItemList = new AP_EM_ItemList();
             //Set up layout manager to view all cards on recycler view
@@ -53,6 +78,32 @@ namespace Munch
             mRecyclerView.SetItemAnimator(new DefaultItemAnimator());
             //Item Click
             mAdapter.ItemClick += OnItemClick;
+
+            Button orderbtn = FindViewById<Button>(Resource.Id.menuorderBtn);
+            orderbtn.Click += (s, o) => StartActivity(typeof(CV2_YourOrder));
+
+
+        }
+
+        //Reveal Animation
+        private void Hide(bool bottom = false)
+        {
+            int cx = 0;
+            int cy = 0;
+            if (bottom)
+            {
+                cx = mView.Right;
+                cy = (mView.Top + mView.Bottom);
+            }
+            else
+            {
+                cx = (mView.Left + mView.Right) / 2;
+                cy = (mView.Top + mView.Bottom) / 2;
+            }
+            int initialRadius = mView.Width;
+            var anim = ViewAnimationUtils.CreateCircularReveal(mView, cx, cy, initialRadius, 0);
+            anim.AnimationEnd += (sender, e) => { mView.Visibility = ViewStates.Gone; };
+            anim.Start();
         }
 
         public static EMItemList dishName_to_order;
