@@ -1906,70 +1906,76 @@ namespace Munch
 			public const int adminportalbg = 2130837574;
 			
 			// aapt resource value: 0x7f020047
-			public const int btn_mtrl_alpha = 2130837575;
+			public const int brgrbg = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int btn_variant1 = 2130837576;
+			public const int brgrmenu = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int btn_variant2 = 2130837577;
+			public const int btn_mtrl_alpha = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int chickparm = 2130837578;
+			public const int btn_variant1 = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int customerbreakfast = 2130837579;
+			public const int btn_variant2 = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int customersplash = 2130837580;
+			public const int chickparm = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int customerwelcome = 2130837581;
+			public const int customerbreakfast = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int design_fab_background = 2130837582;
+			public const int customersplash = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int design_snackbar_background = 2130837583;
+			public const int customerwelcome = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int fab_shadow = 2130837584;
+			public const int design_fab_background = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int fab_shadow_mini = 2130837585;
+			public const int design_snackbar_background = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int grassbg = 2130837586;
+			public const int fab_shadow = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int ic_add_white_24dp = 2130837587;
+			public const int fab_shadow_mini = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int ic_go_white_24dp = 2130837588;
+			public const int grassbg = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int ic_launcher = 2130837589;
+			public const int ic_add_white_24dp = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int Icon = 2130837590;
+			public const int ic_go_white_24dp = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int loginbg = 2130837591;
+			public const int ic_launcher = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int logo = 2130837592;
-			
-			// aapt resource value: 0x7f02005c
-			public const int notification_template_icon_bg = 2130837596;
+			public const int Icon = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int overallbg = 2130837593;
+			public const int loginbg = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int RoundedButton = 2130837594;
+			public const int logo = 2130837594;
+			
+			// aapt resource value: 0x7f02005e
+			public const int notification_template_icon_bg = 2130837598;
 			
 			// aapt resource value: 0x7f02005b
-			public const int selector = 2130837595;
+			public const int overallbg = 2130837595;
+			
+			// aapt resource value: 0x7f02005c
+			public const int RoundedButton = 2130837596;
+			
+			// aapt resource value: 0x7f02005d
+			public const int selector = 2130837597;
 			
 			static Drawable()
 			{

@@ -308,6 +308,8 @@
     <AndroidResource Include="Resources\drawable\btn_variant1.xml" />
     <AndroidResource Include="Resources\drawable\btn_variant2.xml" />
     <AndroidResource Include="Resources\drawable\chickparm.png" />
+    <AndroidResource Include="Resources\drawable\brgrmenu.png" />
+    <AndroidResource Include="Resources\drawable\brgrbg.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

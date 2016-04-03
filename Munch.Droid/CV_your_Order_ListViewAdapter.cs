@@ -61,10 +61,12 @@ namespace Munch
 
             TextView Notes = row.FindViewById<TextView>(Resource.Id.Manage_Your_Order_Txt_Note);
             Notes.Text = mItems[position].Notes;
-
+            /*
             TextView txtThresholdc = row.FindViewById<TextView>(Resource.Id.Manage_Your_Order_Txt_Units);
             txtThresholdc.Text = mItems[position].OrderNumber;
-
+            */
+            TextView txtThresholdc = row.FindViewById<TextView>(Resource.Id.Manage_Your_Order_Txt_Units);
+            txtThresholdc.Text = mItems[position].Dish.iPrice;
 
             return row;
         }

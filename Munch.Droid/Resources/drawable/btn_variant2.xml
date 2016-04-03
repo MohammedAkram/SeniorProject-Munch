@@ -18,6 +18,6 @@
     android:color="?android:attr/colorControlHighlight">
   <item>
     <nine-patch android:src="@drawable/btn_mtrl_alpha"
-        android:tint="#ffffff" />
+        android:tint="#19a519" />
   </item>
 </ripple>
