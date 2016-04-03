@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using PubNubMessaging.Core;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -41,11 +41,164 @@ namespace Munch
 
 
 
+
+
+
+        /*
+       *************************************************************************
+       *************************************************************************
+       ********************************PUBNUB***********************************
+       *************************************************************************
+       *************************************************************************
+       */
+        Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
+        void DisplaySubscribeReturnMessage(string result)
+        {
+            Console.WriteLine("SUBSCRIBE REGULAR CALLBACK: ");
+            Console.WriteLine(result);
+
+            if (!string.IsNullOrEmpty(result) && !string.IsNullOrEmpty(result.Trim()))
+            {
+                List<object> deserializedMessage = pubnub.JsonPluggableLibrary.DeserializeToListOfObject(result);
+                if (deserializedMessage != null && deserializedMessage.Count > 0)
+                {
+                    object subscribedObject = (object)deserializedMessage[0];
+                    if (subscribedObject != null)
+                    {
+                        //IF CUSTOM OBJECT IS EXCEPTED, YOU CAN CAST THIS OBJECT TO YOUR CUSTOM CLASS TYPE
+                        string resultActualMessage = pubnub.JsonPluggableLibrary.SerializeToJsonString(subscribedObject);
+                        string re = resultActualMessage.Replace('"', ' ');
+                        string s1 = re.Substring(1, re.IndexOf(',') - 1);
+                        string s2 = re.Substring((re.IndexOf(',') + 1));
+
+
+
+                        Notification.Builder builder = new Notification.Builder(this)
+                        .SetContentTitle(s1)
+                        .SetContentText(s2)
+                        .SetPriority(2)
+                        .SetColor(2)
+                        .SetVibrate(new long[1])
+                        .SetSmallIcon(Resource.Drawable.Icon);
+
+                        // Build the notification:
+                        Notification notification = builder.Build();
+
+                        // Get the notification manager:
+                        NotificationManager notificationManager =
+                            GetSystemService(Context.NotificationService) as NotificationManager;
+
+                        // Publish the notification:
+                        const int notificationId = 0;
+                        notificationManager.Notify(notificationId, notification);
+
+
+                    }
+                }
+            }
+        }
+        void DisplaySubscribeConnectStatusMessage(string result)
+        {
+            Console.WriteLine("SUBSCRIBE CONNECT CALLBACK");
+        }
+        void DisplayErrorMessage(PubnubClientError pubnubError)
+        {
+            Console.WriteLine(pubnubError.StatusCode);
+        }
+        void DisplayReturnMessage(string result)
+        {
+            Console.WriteLine("PUBLISH STATUS CALLBACK");
+            Console.WriteLine(result);
+        }
+
+
+
+     /*
+     *************************************************************************
+     *************************************************************************
+     ****************************END OF PUBNUB********************************
+     *************************************************************************
+     *************************************************************************
+     *///pubnub
+
+
+
+       
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.CV_Menu);
-            //Set up Pubnub
+
+            //logout button
+            Button logout = FindViewById<Button>(Resource.Id.menuLogOut);
+            logout.Click += (sender, e) => {
+
+                /*
+                final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                final EditText input = new EditText(this);
+                input.setHint("hint");
+                alertDialog.setTitle("title");
+                alertDialog.setMessage(message);
+                alertDialog.setView(input);
+
+                */
+                /*
+                //
+                var builder = new AlertDialog.Builder(this);
+                builder.SetTitle("Logout?");
+                builder.SetMessage("Enter the password associated with the account to log out");
+                //
+                builder.SetCancelable(true);
+                builder.SetPositiveButton("OK", delegate {
+
+                    */
+                EditText input = new EditText(this);
+                RunOnUiThread(() =>
+                    {
+                        AlertDialog.Builder builder;
+                        builder = new AlertDialog.Builder(this);
+                        builder.SetTitle("Logout?");
+                        builder.SetMessage("Enter the password associated with "+ LoginScreen.loginUsername+ " to logout");
+                        builder.SetCancelable(false);
+                        builder.SetView(input);
+                        builder.SetPositiveButton("OK", delegate {
+
+                            if (input.Text == ("lmo"))
+                            {
+                                var webClient = new WebClient();
+                                Console.WriteLine();
+                                webClient.DownloadString("http://54.191.98.63/logout.php?id=" + LoginScreen.loginUsername);
+                                this.Finish();
+                                SetContentView(Resource.Layout.LoginScreen);
+                                Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                                StartActivity(typeof(LoginScreen));
+                            }
+                            else
+                            {
+                                Android.Widget.Toast.MakeText(this, "Incorrect Password", Android.Widget.ToastLength.Short).Show();
+                            }
+
+
+                             });
+                        builder.Show();
+                    }
+                );
+
+
+
+
+                    /*
+                    var webClient = new WebClient();
+                    Console.WriteLine();
+                    webClient.DownloadString("http://54.191.98.63/logout.php?id=" + LoginScreen.loginUsername);
+                    this.Finish();
+                    SetContentView(Resource.Layout.LoginScreen);
+                    Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                    StartActivity(typeof(LoginScreen));
+                    */
+                };
+
+
             JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(menuURL);
             List<EMItemList> parsedData = JsonParsing<EMItemList>.ParseAndDisplay(json);
             AP_EM_ItemList.mBuiltInCards = parsedData.ToArray();
@@ -80,7 +233,13 @@ namespace Munch
             mAdapter.ItemClick += OnItemClick;
 
             Button orderbtn = FindViewById<Button>(Resource.Id.menuorderBtn);
+            Button callbtn = FindViewById<Button>(Resource.Id.menuCallWaiter);
             orderbtn.Click += (s, o) => StartActivity(typeof(CV2_YourOrder));
+            callbtn.Click += (s, o) => {
+                //Sends a message to the table's channel with the help message. 
+                Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you need help!", Android.Widget.ToastLength.Short).Show();
+                pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername + ": Requires Assistance, " + LoginScreen.loginUsername + " requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
+            };
 
 
         }

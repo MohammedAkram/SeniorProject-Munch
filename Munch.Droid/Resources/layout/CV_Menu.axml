@@ -56,6 +56,30 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_variant1" />
+        <Button
+            android:text="Haaaaalllp"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:id="@+id/menuCallWaiter"
+            android:layout_weight="20"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_variant1" />
+        <Button
+            android:text="Logout"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:id="@+id/menuLogOut"
+            android:layout_weight="20"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_variant1" />
     </LinearLayout>
     <FrameLayout
         android:layout_marginTop="5dp"

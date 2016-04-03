@@ -117,7 +117,7 @@ namespace Munch
             {
                 StartActivity(typeof(AP_EM_Activity));
                 OverridePendingTransition(Resource.Animation.right_in, Resource.Animation.right_out);
-                //pubnub.Publish<string>("my_channel", "Table 2: Requires Assistance, Table 2 requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
+                
             };
             btns[1].Click += (sender, e) => StartActivity(typeof(AP_MI_Activity));
             btns[2].Click += (sender, e) => SetContentView(Resource.Layout.APViewReports);
