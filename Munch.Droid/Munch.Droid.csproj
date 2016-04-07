@@ -107,6 +107,7 @@
     <Compile Include="LoggingMethod.cs" />
     <Compile Include="LoginScreen.cs" />
     <Compile Include="MD5.cs" />
+    <Compile Include="Pay_Confirmation.cs" />
     <Compile Include="Pubnub.cs" />
     <Compile Include="PubnubCore.cs" />
     <Compile Include="PubnubXamarinAndroid.cs" />
@@ -197,6 +198,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CVCardView.axml" />
+    <AndroidResource Include="Resources\layout\Pay_Confirmation.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -310,6 +314,7 @@
     <AndroidResource Include="Resources\drawable\chickparm.png" />
     <AndroidResource Include="Resources\drawable\brgrmenu.png" />
     <AndroidResource Include="Resources\drawable\brgrbg.xml" />
+    <AndroidResource Include="Resources\drawable\payConfirmation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

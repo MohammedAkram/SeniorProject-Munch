@@ -234,7 +234,16 @@ namespace Munch
 
             Button orderbtn = FindViewById<Button>(Resource.Id.menuorderBtn);
             Button callbtn = FindViewById<Button>(Resource.Id.menuCallWaiter);
-            orderbtn.Click += (s, o) => StartActivity(typeof(CV2_YourOrder));
+            Button pay = FindViewById<Button>(Resource.Id.menupayButton);
+            pay.Click += (s, o) =>
+            {
+                StartActivity(typeof(Pay_Confirmation));
+                Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you are ready to pay!", Android.Widget.ToastLength.Short).Show();
+                pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername + ": Requires Assistance, " + LoginScreen.loginUsername + " Ready To Pay", DisplayReturnMessage, DisplayErrorMessage);
+
+            };
+
+                orderbtn.Click += (s, o) => StartActivity(typeof(CV2_YourOrder));
             callbtn.Click += (s, o) => {
                 //Sends a message to the table's channel with the help message. 
                 Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you need help!", Android.Widget.ToastLength.Short).Show();
