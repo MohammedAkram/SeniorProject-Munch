@@ -192,7 +192,7 @@ namespace Munch
                 TableURL = TableURL + strToDB;
                 webClient.DownloadString(TableURL);
                 this.Finish();
-                StartActivity(typeof(AdminPortal));
+                StartActivity(typeof(WaiterPortal));
             };
 
         }

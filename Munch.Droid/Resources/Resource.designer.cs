@@ -2167,6 +2167,9 @@ namespace Munch
 			// aapt resource value: 0x7f0600ef
 			public const int Waiter_Table_Selection_fab = 2131099887;
 			
+			// aapt resource value: 0x7f0600f2
+			public const int Waiter_portal_ListView = 2131099890;
+			
 			// aapt resource value: 0x7f0600a1
 			public const int Welcom_Call_Waiter = 2131099809;
 			
@@ -3002,6 +3005,9 @@ namespace Munch
 			
 			// aapt resource value: 0x7f03004f
 			public const int Waiter_Table_Selection_ListView = 2130903119;
+			
+			// aapt resource value: 0x7f030050
+			public const int WaiterPortal = 2130903120;
 			
 			static Layout()
 			{
