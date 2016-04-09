@@ -114,6 +114,9 @@
     <Compile Include="ReconnectState.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WaiterPortal_List.cs" />
+    <Compile Include="WaiterPortal.cs" />
+    <Compile Include="WaiterPortal_ListViewAdapter.cs" />
     <Compile Include="Waiter_Table_Selection_Activity.cs" />
     <Compile Include="Waiter_Table_Selection_List.cs" />
     <Compile Include="Waiter_Table_Selection_ListViewAdapter.cs" />
@@ -199,6 +202,10 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CVCardView.axml" />
     <AndroidResource Include="Resources\layout\Pay_Confirmation.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\WaiterPortal.axml" />
+    <AndroidResource Include="Resources\layout\WaiterPortal_ListView.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

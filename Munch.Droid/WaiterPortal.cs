@@ -16,6 +16,8 @@ namespace Munch
     public class WaiterPortal : Activity
     {
         public ListView mListView;
+        
+        public static List<WaiterPortal_List>  who = new List<WaiterPortal_List>();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,7 +26,17 @@ namespace Munch
             // Create your application here
 
             mListView = FindViewById<ListView>(Resource.Id.Waiter_portal_ListView);
-            ;
+            WaiterPortal_ListViewAdapter adapter = new WaiterPortal_ListViewAdapter(this, who );
+            mListView.Adapter = adapter;
+            mListView.ItemLongClick += mListView_ItemLongClick;
         }
+
+            private void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+            {
+                            Android.Widget.Toast.MakeText(this, "fuk you", Android.Widget.ToastLength.Short).Show();
+
+            }
+
+
     }
 }

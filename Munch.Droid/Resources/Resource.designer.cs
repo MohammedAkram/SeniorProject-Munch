@@ -2116,6 +2116,9 @@ namespace Munch
 			// aapt resource value: 0x7f060092
 			public const int Manage_Inventory_Txt_Units = 2131099794;
 			
+			// aapt resource value: 0x7f0600f3
+			public const int Manage_Selecteedtable_Name = 2131099891;
+			
 			// aapt resource value: 0x7f0600a4
 			public const int Manage_Your_Order_Txt_Name = 2131099812;
 			
@@ -3008,6 +3011,9 @@ namespace Munch
 			
 			// aapt resource value: 0x7f030050
 			public const int WaiterPortal = 2130903120;
+			
+			// aapt resource value: 0x7f030051
+			public const int WaiterPortal_ListView = 2130903121;
 			
 			static Layout()
 			{
