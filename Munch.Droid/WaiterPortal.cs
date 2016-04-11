@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "WaiterPortal")]
+    [Activity(Label = "WaiterPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class WaiterPortal : Activity
     {
         public ListView mListView;
@@ -33,8 +33,7 @@ namespace Munch
 
             private void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
             {
-                            Android.Widget.Toast.MakeText(this, "fuk you", Android.Widget.ToastLength.Short).Show();
-
+            StartActivity(typeof(WP_CustomerOrder));
             }
 
 

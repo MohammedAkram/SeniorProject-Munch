@@ -3,16 +3,16 @@
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:layout_gravity="center"
     android:minWidth="25px"
     android:minHeight="25px"
     android:layout_marginTop="15dp"
-    android:weightSum="90"
     android:layout_marginLeft="5dp">
     <TextView
         android:text="Selected Table"
+        android:textSize="32sp"
         android:layout_width="match_parent"
-        android:layout_weight="22.5"
         android:layout_height="wrap_content"
         android:id="@+id/Manage_Selecteedtable_Name"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="20dp" />
 </LinearLayout>
