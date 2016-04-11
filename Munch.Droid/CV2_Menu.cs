@@ -21,7 +21,8 @@ using Android.Support.V7.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "CV2_Menu", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    [Activity(Label = "CV2_Menu", Theme = "@android:style/Theme.Holo.Light.NoActionBar", 
+        ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class CV2_Menu : Activity
     {
         //For the cards
@@ -133,25 +134,6 @@ namespace Munch
             Button logout = FindViewById<Button>(Resource.Id.menuLogOut);
             logout.Click += (sender, e) => {
 
-                /*
-                final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                final EditText input = new EditText(this);
-                input.setHint("hint");
-                alertDialog.setTitle("title");
-                alertDialog.setMessage(message);
-                alertDialog.setView(input);
-
-                */
-                /*
-                //
-                var builder = new AlertDialog.Builder(this);
-                builder.SetTitle("Logout?");
-                builder.SetMessage("Enter the password associated with the account to log out");
-                //
-                builder.SetCancelable(true);
-                builder.SetPositiveButton("OK", delegate {
-
-                    */
                 EditText input = new EditText(this);
                 RunOnUiThread(() =>
                     {
@@ -237,7 +219,7 @@ namespace Munch
             Button pay = FindViewById<Button>(Resource.Id.menupayButton);
             pay.Click += (s, o) =>
             {
-                StartActivity(typeof(Pay_Confirmation));
+                StartActivity(typeof(SplitPayment));
                 Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you are ready to pay!", Android.Widget.ToastLength.Short).Show();
                 pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername + ": Requires Assistance, " + LoginScreen.loginUsername + " Ready To Pay", DisplayReturnMessage, DisplayErrorMessage);
 

@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "WaiterPortal")]
+    [Activity(Label = "WaiterPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class WaiterPortal : Activity
     {
         public ListView mListView;

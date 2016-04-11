@@ -2098,8 +2098,8 @@ namespace Munch
 			// aapt resource value: 0x7f060074
 			public const int LogOut_Edit_Menu_Button = 2131099764;
 			
-			// aapt resource value: 0x7f0600ed
-			public const int LogOut_Waiter_Table_Selection = 2131099885;
+			// aapt resource value: 0x7f0600f2
+			public const int LogOut_Waiter_Table_Selection = 2131099890;
 			
 			// aapt resource value: 0x7f06006b
 			public const int ManageInventoryButton = 2131099755;
@@ -2155,20 +2155,20 @@ namespace Munch
 			// aapt resource value: 0x7f06006c
 			public const int ViewReportsButton = 2131099756;
 			
-			// aapt resource value: 0x7f0600ee
-			public const int Waiter_Table_Selection_ListView = 2131099886;
+			// aapt resource value: 0x7f0600f3
+			public const int Waiter_Table_Selection_ListView = 2131099891;
 			
-			// aapt resource value: 0x7f0600f0
-			public const int Waiter_Table_Selection_Txt_Table = 2131099888;
+			// aapt resource value: 0x7f0600f5
+			public const int Waiter_Table_Selection_Txt_Table = 2131099893;
 			
-			// aapt resource value: 0x7f0600f1
-			public const int Waiter_Table_Selection_checkBox = 2131099889;
+			// aapt resource value: 0x7f0600f6
+			public const int Waiter_Table_Selection_checkBox = 2131099894;
 			
-			// aapt resource value: 0x7f0600ef
-			public const int Waiter_Table_Selection_fab = 2131099887;
+			// aapt resource value: 0x7f0600f4
+			public const int Waiter_Table_Selection_fab = 2131099892;
 			
-			// aapt resource value: 0x7f0600f2
-			public const int Waiter_portal_ListView = 2131099890;
+			// aapt resource value: 0x7f0600f7
+			public const int Waiter_portal_ListView = 2131099895;
 			
 			// aapt resource value: 0x7f0600a1
 			public const int Welcom_Call_Waiter = 2131099809;
@@ -2278,11 +2278,20 @@ namespace Munch
 			// aapt resource value: 0x7f0600d2
 			public const int button1 = 2131099858;
 			
+			// aapt resource value: 0x7f0600f0
+			public const int button13 = 2131099888;
+			
 			// aapt resource value: 0x7f0600d3
 			public const int button2 = 2131099859;
 			
+			// aapt resource value: 0x7f0600f1
+			public const int button22 = 2131099889;
+			
 			// aapt resource value: 0x7f060044
 			public const int buttonPanel = 2131099716;
+			
+			// aapt resource value: 0x7f0600ef
+			public const int buttonholder = 2131099887;
 			
 			// aapt resource value: 0x7f0600e1
 			public const int cancel_action = 2131099873;
@@ -2355,6 +2364,9 @@ namespace Munch
 			
 			// aapt resource value: 0x7f06000e
 			public const int disableHome = 2131099662;
+			
+			// aapt resource value: 0x7f0600ed
+			public const int dropzone = 2131099885;
 			
 			// aapt resource value: 0x7f06005c
 			public const int edit_query = 2131099740;
@@ -2526,6 +2538,9 @@ namespace Munch
 			
 			// aapt resource value: 0x7f060075
 			public const int recyclerView = 2131099765;
+			
+			// aapt resource value: 0x7f0600ee
+			public const int result = 2131099886;
 			
 			// aapt resource value: 0x7f060030
 			public const int right = 2131099696;
@@ -2998,16 +3013,19 @@ namespace Munch
 			public const int select_dialog_singlechoice_material = 2130903116;
 			
 			// aapt resource value: 0x7f03004d
-			public const int support_simple_spinner_dropdown_item = 2130903117;
+			public const int SplitPaymentScreen = 2130903117;
 			
 			// aapt resource value: 0x7f03004e
-			public const int Waiter_Table_Selection = 2130903118;
+			public const int support_simple_spinner_dropdown_item = 2130903118;
 			
 			// aapt resource value: 0x7f03004f
-			public const int Waiter_Table_Selection_ListView = 2130903119;
+			public const int Waiter_Table_Selection = 2130903119;
 			
 			// aapt resource value: 0x7f030050
-			public const int WaiterPortal = 2130903120;
+			public const int Waiter_Table_Selection_ListView = 2130903120;
+			
+			// aapt resource value: 0x7f030051
+			public const int WaiterPortal = 2130903121;
 			
 			static Layout()
 			{

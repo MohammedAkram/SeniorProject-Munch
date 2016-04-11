@@ -200,26 +200,6 @@ namespace Munch
 
                         Console.WriteLine("!!~!!~!!~!!~!!~!!~!!" + s2);
 
-                        //Notification.Builder builder = new Notification.Builder(this)
-                        //.SetContentTitle(s1)
-                        //.SetContentText(s2)
-                        //.SetPriority(2)
-                        //.SetColor(2)
-                        //.SetVibrate(new long[1])
-                        //.SetSmallIcon(Resource.Drawable.Icon);
-
-                        // Build the notification:
-                        //Notification notification = builder.Build();
-
-                        // Get the notification manager:
-                        //NotificationManager notificationManager =
-                           // GetSystemService(Context.NotificationService) as NotificationManager;
-
-                        // Publish the notification:
-                        //const int notificationId = 0;
-                        //notificationManager.Notify(notificationId, notification);
-
-
                     }
                 }
             }
