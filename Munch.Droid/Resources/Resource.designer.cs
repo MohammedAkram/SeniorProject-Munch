@@ -2122,8 +2122,8 @@ namespace Munch
 			// aapt resource value: 0x7f060092
 			public const int Manage_Inventory_Txt_Units = 2131099794;
 			
-			// aapt resource value: 0x7f0600f3
-			public const int Manage_Selecteedtable_Name = 2131099891;
+			// aapt resource value: 0x7f0600f8
+			public const int Manage_Selecteedtable_Name = 2131099896;
 			
 			// aapt resource value: 0x7f0600a4
 			public const int Manage_Your_Order_Txt_Name = 2131099812;
@@ -2164,28 +2164,23 @@ namespace Munch
 			// aapt resource value: 0x7f06006c
 			public const int ViewReportsButton = 2131099756;
 			
-<<<<<<< HEAD
+			// aapt resource value: 0x7f0600f9
+			public const int WPCODishName = 2131099897;
+			
+			// aapt resource value: 0x7f0600fb
+			public const int WPCOPrice = 2131099899;
+			
+			// aapt resource value: 0x7f0600fa
+			public const int WPCOQuantity = 2131099898;
+			
+			// aapt resource value: 0x7f0600fe
+			public const int WPCOfab = 2131099902;
+			
+			// aapt resource value: 0x7f0600fd
+			public const int WP_customerorderListView = 2131099901;
+			
 			// aapt resource value: 0x7f0600f3
 			public const int Waiter_Table_Selection_ListView = 2131099891;
-=======
-			// aapt resource value: 0x7f0600f4
-			public const int WPCODishName = 2131099892;
-			
-			// aapt resource value: 0x7f0600f6
-			public const int WPCOPrice = 2131099894;
-			
-			// aapt resource value: 0x7f0600f5
-			public const int WPCOQuantity = 2131099893;
-			
-			// aapt resource value: 0x7f0600f9
-			public const int WPCOfab = 2131099897;
-			
-			// aapt resource value: 0x7f0600f8
-			public const int WP_customerorderListView = 2131099896;
-			
-			// aapt resource value: 0x7f0600ee
-			public const int Waiter_Table_Selection_ListView = 2131099886;
->>>>>>> origin/master
 			
 			// aapt resource value: 0x7f0600f5
 			public const int Waiter_Table_Selection_Txt_Table = 2131099893;
@@ -2685,8 +2680,8 @@ namespace Munch
 			// aapt resource value: 0x7f06006f
 			public const int swipecontainerAPAM = 2131099759;
 			
-			// aapt resource value: 0x7f0600f7
-			public const int swipecontainerWPCO = 2131099895;
+			// aapt resource value: 0x7f0600fc
+			public const int swipecontainerWPCO = 2131099900;
 			
 			// aapt resource value: 0x7f06000d
 			public const int tabMode = 2131099661;
@@ -3059,14 +3054,14 @@ namespace Munch
 			// aapt resource value: 0x7f030051
 			public const int WaiterPortal = 2130903121;
 			
-			// aapt resource value: 0x7f030051
-			public const int WaiterPortal_ListView = 2130903121;
-			
 			// aapt resource value: 0x7f030052
-			public const int WP_COListViewRow = 2130903122;
+			public const int WaiterPortal_ListView = 2130903122;
 			
 			// aapt resource value: 0x7f030053
-			public const int WP_CustomerOrder = 2130903123;
+			public const int WP_COListViewRow = 2130903123;
+			
+			// aapt resource value: 0x7f030054
+			public const int WP_CustomerOrder = 2130903124;
 			
 			static Layout()
 			{
