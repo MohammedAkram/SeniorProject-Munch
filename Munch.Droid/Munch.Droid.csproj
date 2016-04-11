@@ -114,11 +114,20 @@
     <Compile Include="ReconnectState.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="SplitPayment.cs" />
     <Compile Include="WaiterPortal.cs" />
+=======
+    <Compile Include="WaiterPortal_List.cs" />
+    <Compile Include="WaiterPortal.cs" />
+    <Compile Include="WaiterPortal_ListViewAdapter.cs" />
+>>>>>>> origin/master
     <Compile Include="Waiter_Table_Selection_Activity.cs" />
     <Compile Include="Waiter_Table_Selection_List.cs" />
     <Compile Include="Waiter_Table_Selection_ListViewAdapter.cs" />
+    <Compile Include="WP_CO_ListViewAdapter.cs" />
+    <Compile Include="WP_CO_OrderList.cs" />
+    <Compile Include="WP_CustomerOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -204,7 +213,17 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\WaiterPortal.axml" />
+<<<<<<< HEAD
     <AndroidResource Include="Resources\layout\SplitPaymentScreen.axml">
+=======
+    <AndroidResource Include="Resources\layout\WaiterPortal_ListView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\WP_CustomerOrder.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\WP_COListViewRow.axml">
+>>>>>>> origin/master
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -321,6 +340,8 @@
     <AndroidResource Include="Resources\drawable\brgrmenu.png" />
     <AndroidResource Include="Resources\drawable\brgrbg.xml" />
     <AndroidResource Include="Resources\drawable\payConfirmation.png" />
+    <AndroidResource Include="Resources\drawable\WPCustomerOrder.png" />
+    <AndroidResource Include="Resources\drawable\ic_shopping_cart_white_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

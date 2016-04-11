@@ -170,6 +170,8 @@ namespace Munch
                         
                         if (checkTable.Checked)
                         {
+                            WaiterPortal.who.Add(new WaiterPortal_List() { selectedtable = txtTable.Text });
+
                             pubnub.Subscribe<string>(
                         txtTable.Text,
                         DisplaySubscribeReturnMessage,
