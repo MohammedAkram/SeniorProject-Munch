@@ -25,9 +25,9 @@
             android:background="#33ffffff"
             android:gravity="center"
             android:textStyle="bold"
-            android:typeface="sans"
             android:singleLine="true"
-            android:hint="Username" />
+            android:hint="Username"
+            android:textColor="#FFFF" />
         <View
             android:layout_width="fill_parent"
             android:layout_height="2dp"
@@ -40,11 +40,11 @@
             android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:background="#33ffffff"
+            android:textColor="#FFFF"
             android:inputType="textPassword"
             android:password="true"
             android:gravity="center"
             android:textStyle="bold"
-            android:typeface="sans"
             android:hint="Password" />
         <Button
             android:id="@+id/login"

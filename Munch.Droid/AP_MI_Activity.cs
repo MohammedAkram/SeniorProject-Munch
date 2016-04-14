@@ -21,8 +21,7 @@ using Android.Support.V4.Widget;
 namespace Munch
 {
     [Activity(Label = "APMIActivity",
-        Theme = "@android:style/Theme.Holo.Light.NoActionBar",
-        ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+        Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
 
 
     public class AP_MI_Activity : Activity
@@ -36,40 +35,6 @@ namespace Munch
         // create the dataTable objects to store the json table data.
 
         private List<AP_MI_InventoryList> mItems;
-        private async Task<JsonValue> FetchInventoryAsync(string url)
-        {
-            // Create an HTTP web request using the URL:
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-
-            // Send the request to the server and wait for the response:
-            using (WebResponse response = await request.GetResponseAsync())
-            {
-                // Get a stream representation of the HTTP web response:
-                using (Stream stream = response.GetResponseStream())
-                {
-                    // Use this stream to build a JSON document object:
-                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
-                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
-
-                    // Return the JSON String:
-                    return jsonDoc.ToString();
-                }
-            }
-        }
-
-
-
-        private List<AP_MI_InventoryList> ParseAndDisplay(String json)
-        {
-
-            List<AP_MI_InventoryList> dataTableList = JsonConvert.DeserializeObject<List<AP_MI_InventoryList>>(json);
-            Console.Out.WriteLine(dataTableList[0].Ingredients);
-            Console.Out.WriteLine(dataTableList[0].Quantity);
-            Console.Out.WriteLine(dataTableList[0].MeasureUnit);
-            Console.Out.WriteLine(dataTableList.Count());
-            return dataTableList;
-        }
-
         //List
         public ListView mListView;
 
@@ -80,6 +45,8 @@ namespace Munch
             EditText name = FindViewById<EditText>(Resource.Id.txtName1);
             EditText unit = FindViewById<EditText>(Resource.Id.txtUnit1);
             EditText quant = FindViewById<EditText>(Resource.Id.txtQuantity1);
+            EditText thres = FindViewById<EditText>(Resource.Id.txtMinThreshold);
+
 
             String inventoryURL = "http://54.191.98.63/inventory.php";
 
@@ -94,11 +61,11 @@ namespace Munch
 
             //Load Up List
             //pull the data from the DB and parse it into APMIInventoryList objects 
-            JsonValue json = await FetchInventoryAsync(inventoryURL);
-            List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
+            JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(inventoryURL);
+            List<AP_MI_InventoryList> parsedData = JsonParsing<AP_MI_InventoryList>.ParseAndDisplay(json);
             mItems = parsedData;
             mListView = FindViewById<ListView>(Resource.Id.mngInventoryListView);
-            parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units", }));
+            parsedData.Insert(0, (new AP_MI_InventoryList() { Ingredients = "Name", Quantity = "Quantity", MeasureUnit = "Units", Threshold = "Minimum Quantity" }));
 
             AP_MI_ListViewAdapter adapter = new AP_MI_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
@@ -171,7 +138,7 @@ namespace Munch
 
         private void EditRequest()
         {
-            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Edited", Android.Widget.ToastLength.Short));
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Edited", Android.Widget.ToastLength.Short));
             StartActivity(typeof(AP_MI_Activity));
         }
 
@@ -185,7 +152,7 @@ namespace Munch
         //Thread to run for edit item
         private void deleteRequest()
         {
-            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Acccount Deleted", Android.Widget.ToastLength.Long));
+            RunOnUiThread(() => Android.Widget.Toast.MakeText(this, "Item Deleted", Android.Widget.ToastLength.Long));
             StartActivity(typeof(AP_MI_Activity));
         }
     }

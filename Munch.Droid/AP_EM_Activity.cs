@@ -9,47 +9,143 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using com.refractored.fab;
+using System.Threading;
+using Android.Transitions;
+using System.Net;
+using System.Threading.Tasks;
+using System.Json;
+using System.IO;
+using Newtonsoft.Json;
+using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(Label = "AP_EM_Activity", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class AP_EM_Activity : Activity
     {
+
+        private List<AP_EM_ItemList> mItems;
+
+        //Ingredients Spinner
+        public static List<String> ingredientsTransferList = new List<String>();
+        //Quantity Spinner
+        public static List<String> quantityTransferList = new List<String>();
         // Loads the Cards
         RecyclerView mRecyclerView;
         // Layout manager that shows the cards in RecyclerView
         RecyclerView.LayoutManager mLayoutManager;
         // Adapter for access to data
-        ItemListAdapter mAdapter;
+        CVBFItemListAdapter mAdapter;
         // array list managed by adapter
         AP_EM_ItemList mItemList;
 
+        //Set up add item as a view
+        View mView;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            string menuURL = "http://54.191.98.63/menu.php";
+            JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(menuURL);
+            List<EMItemList> parsedData = JsonParsing<EMItemList>.ParseAndDisplay(json);
+            AP_EM_ItemList.mBuiltInCards = parsedData.ToArray();
+            
+
             //Create Menu List
             mItemList = new AP_EM_ItemList();
+            
             //Set View
             SetContentView(Resource.Layout.APEditMenu);
+            Button logout = FindViewById<Button>(Resource.Id.LogOut_Edit_Menu_Button);
+            logout.Click += delegate
+            {
+                Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                StartActivity(typeof(LoginScreen));
+            };
+
             //Set up layout manager to view all cards on recycler view
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
-
             //Menu List Adapter
-            mAdapter = new ItemListAdapter(mItemList);
-            //Item Long Click
-            mAdapter.ItemClick += OnItemClick;
+            mAdapter = new CVBFItemListAdapter(mItemList);
             //Put adapter into RecyclerView
             mRecyclerView.SetAdapter(mAdapter);
+            //Item Click
+            mAdapter.ItemClick += OnItemClick;
+
+            mView = FindViewById(Resource.Id.fullAPEMAdd);
+
+            //FAB
+            var fab = FindViewById<FloatingActionButton>(Resource.Id.APEMfab);
+            fab.AttachToRecyclerView(mRecyclerView);
+            FindViewById<FloatingActionButton>(Resource.Id.APEMfab).Click += (sender, e) =>
+            {
+                StartActivity(typeof(AP_EM_Add));
+                OverridePendingTransition(Resource.Animation.right_in, Resource.Animation.right_out);
+            };
         }
 
-        void OnItemClick (object sender, int position)
+        //Reveal Animation
+        private void Reveal(bool bottom = false)
         {
-            //Edit and Delete Dialogs????
-            Toast.MakeText(this, "Edit and Delete Dialogs Go Here", ToastLength.Short).Show();
+            mView.Visibility = ViewStates.Visible;
+            int cx = 0; 
+            int cy = 0;
+            if (bottom)
+            {
+                cx = mView.Right;
+                cy = (mView.Top + mView.Bottom);
+            }
+            else
+            {
+                cx = (mView.Left + mView.Right) / 2;
+                cy = (mView.Top + mView.Bottom) / 2;
+            }
+            int finalRadius = mView.Width;
+            var anim = ViewAnimationUtils.CreateCircularReveal(mView, cx, cy, 0, finalRadius);
+            anim.Start();
+        }
+        private void Hide(bool bottom = false)
+        {
+            int cx = 0; 
+            int cy = 0;
+            if (bottom)
+            {
+                cx = mView.Right;
+                cy = (mView.Top + mView.Bottom);
+            }
+            else
+            {
+                cx = (mView.Left + mView.Right) / 2;
+                cy = (mView.Top + mView.Bottom) / 2;
+            }
+            int initialRadius = mView.Width;
+            var anim = ViewAnimationUtils.CreateCircularReveal(mView, cx, cy, initialRadius, 0);
+            anim.AnimationEnd += (sender, e) => { mView.Visibility = ViewStates.Invisible; };
+            anim.Start();
+        }
+
+
+        void OnItemClick(object sender, int Position)
+        {
+           
+            Button editItem = FindViewById<Button>(Resource.Id.btn_cardModify);
+            dialog_AP_EM_Modify modifyMenu = new dialog_AP_EM_Modify();
+            modifyMenu = new dialog_AP_EM_Modify();
+
+            editItem.Click += delegate
+            {
+                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                Console.WriteLine("modify clicked.");
+                modifyMenu.Show(transaction, "something");
+                Android.Widget.Toast.MakeText(this, "Modify Item Clicked.", Android.Widget.ToastLength.Short).Show();
+            };
+
+            Android.Widget.Toast.MakeText(this, "Card Clicked.", Android.Widget.ToastLength.Short).Show();
         }
     }
 
@@ -62,7 +158,7 @@ namespace Munch
         public TextView ItemCost { get; private set; }
         public TextView ItemPrice { get; private set; }
 
-        public ItemListHolder (View itemView, Action<int> listener) : base(itemView)
+        public ItemListHolder(View itemView, Action<int> listener) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Title);
             Description = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Description);
@@ -71,24 +167,25 @@ namespace Munch
             ItemCost = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Cost);
             ItemPrice = itemView.FindViewById<TextView>(Resource.Id.Menu_Item_Price);
 
-            itemView.Click += (sender, e) => listener(base.Position);
+            itemView.Click += (sender, e) => listener(Position);
+
         }
     }
 
-    public class ItemListAdapter : RecyclerView.Adapter
+    public class CVBFItemListAdapter : RecyclerView.Adapter
     {
         //Event handler for item clicks
         public event EventHandler<int> ItemClick;
         //Data Set
         public AP_EM_ItemList mItemList;
         //start method to load adapter
-        public ItemListAdapter (AP_EM_ItemList itemitem)
+        public CVBFItemListAdapter(AP_EM_ItemList itemitem)
         {
             mItemList = itemitem;
         }
 
         //Create the Card
-        public override RecyclerView.ViewHolder OnCreateViewHolder (ViewGroup parent, int viewType)
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             //Inflate all items for the card
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.APEMCardView, parent, false);
@@ -98,7 +195,7 @@ namespace Munch
         }
 
         // Fill in the card with whatever
-        public override void OnBindViewHolder (RecyclerView.ViewHolder holder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             ItemListHolder ih = holder as ItemListHolder;
             //Set values
@@ -117,10 +214,12 @@ namespace Munch
         }
 
         // If item is clicked
-        void OnClick (int position)
+        void OnClick(int position)
         {
+
             if (ItemClick != null)
                 ItemClick(this, position);
         }
     }
 }
+ 

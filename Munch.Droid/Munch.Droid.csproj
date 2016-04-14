@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__MonoCS__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test|AnyCPU'">
+    <OutputPath>bin\test\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -80,21 +83,47 @@
     <Compile Include="AP_AM_Activity.cs" />
     <Compile Include="AP_AM_ListViewAdapter.cs" />
     <Compile Include="AP_EM_Activity.cs" />
+    <Compile Include="AP_EM_Add.cs" />
     <Compile Include="AP_EM_ItemList.cs" />
+    <Compile Include="CustomerOrderItem.cs" />
+    <Compile Include="CV2_Menu.cs" />
+    <Compile Include="CV2_YourOrder.cs" />
+    <Compile Include="CV_your_Order_Activities.cs" />
+    <Compile Include="CV_your_Order_ListViewAdapter.cs" />
+    <Compile Include="dialog_AP_EM_Modify.cs" />
     <Compile Include="AP_MI_Activity.cs" />
     <Compile Include="AP_MI_InventoryList.cs" />
     <Compile Include="AP_MI_ListViewAdapter.cs" />
+    <Compile Include="ClientNetworkStatus.cs" />
+    <Compile Include="CV_SlidingTabScrollView.cs" />
+    <Compile Include="CustomerPortal.cs" />
+    <Compile Include="CV_SlidingTabStrip.cs" />
     <Compile Include="dialog_APAccountManagement.cs" />
     <Compile Include="dialog_AP_Manage_InventoryEdit.cs" />
     <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
+    <Compile Include="dialog_Cusomer_Add_Item_Order.cs" />
     <Compile Include="JsonParsing.cs" />
+    <Compile Include="LoggingMethod.cs" />
     <Compile Include="LoginScreen.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="MenuTabActivity1.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="MD5.cs" />
+    <Compile Include="Pay_Confirmation.cs" />
+    <Compile Include="Pubnub.cs" />
+    <Compile Include="PubnubCore.cs" />
+    <Compile Include="PubnubXamarinAndroid.cs" />
+    <Compile Include="ReconnectState.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplitPayment.cs" />
+    <Compile Include="WaiterPortal_List.cs" />
+    <Compile Include="WaiterPortal.cs" />
+    <Compile Include="WaiterPortal_ListViewAdapter.cs" />
+    <Compile Include="Waiter_Table_Selection_Activity.cs" />
+    <Compile Include="Waiter_Table_Selection_List.cs" />
+    <Compile Include="Waiter_Table_Selection_ListViewAdapter.cs" />
+    <Compile Include="WP_CO_ListViewAdapter.cs" />
+    <Compile Include="WP_CO_OrderList.cs" />
+    <Compile Include="WP_CustomerOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -145,6 +174,51 @@
     <AndroidResource Include="Resources\layout\APEMCardView.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_APEMEdit.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CustomerPortal.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_Menu.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_Your_Order.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_Welcome.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\APEMAdd.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Waiter_Table_Selection.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Waiter_Table_Selection_ListView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_Add_Dish_to_Order.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CV_your_Order_listViewRow.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CVCardView.axml" />
+    <AndroidResource Include="Resources\layout\Pay_Confirmation.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\WaiterPortal.axml" />
+    <AndroidResource Include="Resources\layout\WaiterPortal_ListView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\WP_CustomerOrder.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\WP_COListViewRow.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SplitPaymentScreen.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -170,26 +244,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\selector.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\overallbg.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\RoundedButton.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\anim\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <XamarinComponentReference Include="fab">
       <Visible>False</Visible>
@@ -247,6 +304,37 @@
     <AndroidResource Include="Resources\drawable\loginbg.xml" />
     <AndroidResource Include="Resources\drawable\grassbg.png" />
     <AndroidResource Include="Resources\drawable-hdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable\adminportalbg.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\overallbg.jpg" />
+    <AndroidResource Include="Resources\drawable\adminport.png" />
+    <AndroidResource Include="Resources\drawable\logo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable\customersplash.png" />
+    <AndroidResource Include="Resources\drawable\customerbreakfast.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\RoundedButton.xml" />
+    <AndroidResource Include="Resources\anim\right_in.xml" />
+    <AndroidResource Include="Resources\anim\right_out.xml" />
+    <AndroidResource Include="Resources\anim\bounce.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\customerbreakfast.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\customersplash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\grassbg.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\adminport.png" />
+    <AndroidResource Include="Resources\drawable\customerwelcome.png" />
+    <AndroidResource Include="Resources\drawable\ic_go_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_mtrl_alpha.9.png" />
+    <AndroidResource Include="Resources\drawable\btn_variant1.xml" />
+    <AndroidResource Include="Resources\drawable\btn_variant2.xml" />
+    <AndroidResource Include="Resources\drawable\chickparm.png" />
+    <AndroidResource Include="Resources\drawable\brgrmenu.png" />
+    <AndroidResource Include="Resources\drawable\brgrbg.xml" />
+    <AndroidResource Include="Resources\drawable\payConfirmation.png" />
+    <AndroidResource Include="Resources\drawable\WPCustomerOrder.png" />
+    <AndroidResource Include="Resources\drawable\ic_shopping_cart_white_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

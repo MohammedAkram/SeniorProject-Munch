@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:minWidth="25px"
+    android:minHeight="50px"
+    android:weightSum="90"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="8dp">
+    <TextView
+        android:text="Table"
+        android:layout_width="70dp"
+        android:layout_weight="75"
+        android:textSize="23sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Waiter_Table_Selection_Txt_Table"
+        android:layout_marginLeft="20dp" />
+    <CheckBox
+        android:layout_width="70dp"
+        android:layout_weight="15"
+        android:layout_height="wrap_content"
+        android:id="@+id/Waiter_Table_Selection_checkBox" />
+</LinearLayout>

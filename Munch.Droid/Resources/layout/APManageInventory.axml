@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/overallbg">
+    android:background="@drawable/adminportalbg">
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
