@@ -17,16 +17,13 @@
             android:layout_gravity="left"
             android:layout_marginBottom="5dp"
             android:src="@drawable/logo" />
-        <TextView
-            android:text="Menu"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:textColor="#ffffff"
-            android:layout_marginTop="5dp" />
+        <Button
+            android:text="CONFIRM ORDER"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ORderUP"
+            android:layout_marginRight="400.0dp"
+            android:layout_marginLeft="400.0dp" />
     </FrameLayout>
     <FrameLayout
         android:layout_marginTop="70dp"
@@ -44,19 +41,19 @@
             android:textColor="#ffffff"
             android:textSize="23sp"
             android:paddingBottom="21dp" />
-    <!--  <TextView
+        <TextView
             android:text="How hungry are you? "
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="#ffffff"
-            android:paddingTop="23dp" />-->
-        <Button
+            android:paddingTop="23dp" />
+    <!--  <Button
             android:text="ORDERUP"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/ORderUP" />
+            android:id="@+id/ORderUP" />-->
     </FrameLayout>
     <FrameLayout
         android:layout_marginTop="130dp"
