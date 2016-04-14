@@ -12,17 +12,14 @@ using Android.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "MenuTabActivity1")]
-    public class MenuTabActivity1 : Activity
+    [Activity(Label = "CV_your_Order_Activities")]
+    public class CV_your_Order_Activities : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-
-
         }
     }
 }

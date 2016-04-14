@@ -20,7 +20,7 @@ using System.IO;
 namespace Munch
 {
 
-    [Activity(MainLauncher = true, Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Landscape)]
+    [Activity(MainLauncher = true, Label = "Munch",  Icon = "@drawable/icon", Theme = "@style/android:Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class LoginScreen : Activity
 
     {
@@ -29,6 +29,8 @@ namespace Munch
             public string status { get; set; }
             public string level { get; set; }
         }
+
+        public static String loginUsername;
         /*
         Method LoginAuth():
         This method will connect to the MySQL database and check the accounts table for any matches on the entered user name and password.
@@ -38,7 +40,6 @@ namespace Munch
 
         private bool userNameCheck(String userName, String password)
         {
-
             string pattern = @"^\w+$";
             Regex regex = new Regex(pattern);
             Boolean IdSymbolCheck = regex.IsMatch(userName);
@@ -51,13 +52,10 @@ namespace Munch
             else return false;
         }
 
-
         private async Task<JsonValue> FetchLoginAsync(string url)
         {
             // Create an HTTP web request using the URL:
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-
-
 
             // Send the request to the server and wait for the response:
             using (WebResponse response = await request.GetResponseAsync())
@@ -70,18 +68,13 @@ namespace Munch
                     Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
                     // Return the JSON document:
-
-
                     return jsonDoc.ToString();
                 }
             }
         }
 
-
-
         private int ParseAndDisplay(String json)
         {
-
             List<Login> loginList = JsonConvert.DeserializeObject<List<Login>>(json);
             Console.Out.WriteLine(loginList[0].status);
             Console.Out.WriteLine(loginList[0].level);
@@ -93,27 +86,20 @@ namespace Munch
                     return 0;
                 }
 
-                else {
+                else if (loginList[0].level.Equals("1")){
                     return 1;
                 }
+
+                else if(loginList[0].level.Equals("2")){
+                    return 3;
+                }
+
+                return 9;
 
             }
 
             else return 2;
         }
-        /*
-
-      */
-
-        //To Prevent SQLINJECT
-        //string pattern = @"^\w+$";
-        //prevents special characters being used
-        //Example SELECT IF(COUNT(*) > 0, 'true', 'false') as Status FROM Accounts WHERE idAccounts =  ''or 1 =1; drop table security;--';--'&& Password = 'somepassword';
-        //This will drop the table security
-
-
-
-
 
         /*
         Method screenChange():
@@ -133,15 +119,28 @@ namespace Munch
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
                     StartActivity(typeof(AdminPortal));
+                    loginUsername = user.Text;
                     user.Text = "";
                     pass.Text = "";
                 }
 
-                //if the result is 1, launch the menu and reset the text views for username and password to ""
+                //if the result is 1, launch the waiter view and reset the text views for username and password to ""
                 else if (result == 1)
                 {
                     Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
-                    StartActivity(typeof(Menu));
+                    StartActivity(typeof(Waiter_Table_Selection_Activity));
+
+                    loginUsername = user.Text;
+                    user.Text = "";
+                    pass.Text = "";
+                }
+
+                //if the result is 3, launch the waiter view and reset the text views for username and password to ""
+                else if (result == 3)
+                {
+                    Android.Widget.Toast.MakeText(this, "Login Successful", Android.Widget.ToastLength.Short).Show();
+                    StartActivity(typeof(CV2_Menu));
+                    loginUsername = user.Text;
                     user.Text = "";
                     pass.Text = "";
                 }
@@ -156,7 +155,6 @@ namespace Munch
             {
                 Android.Widget.Toast.MakeText(this, "Something went wrong", Android.Widget.ToastLength.Short).Show();
             }
-
         }
 
         protected override void OnCreate(Bundle bundle)
