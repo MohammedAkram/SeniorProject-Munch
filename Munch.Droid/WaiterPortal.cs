@@ -16,8 +16,8 @@ namespace Munch
     public class WaiterPortal : Activity
     {
         public ListView mListView;
-        
-        public static List<WaiterPortal_List>  who = new List<WaiterPortal_List>();
+        public static string IDACCOUNT;
+        public static List<WaiterPortal_List>  Selecttable = new List<WaiterPortal_List>();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -26,13 +26,18 @@ namespace Munch
             // Create your application here
 
             mListView = FindViewById<ListView>(Resource.Id.Waiter_portal_ListView);
-            WaiterPortal_ListViewAdapter adapter = new WaiterPortal_ListViewAdapter(this, who );
+            WaiterPortal_ListViewAdapter adapter = new WaiterPortal_ListViewAdapter(this, Selecttable);
             mListView.Adapter = adapter;
             mListView.ItemLongClick += mListView_ItemLongClick;
         }
 
             private void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
             {
+            var v = mListView.Adapter.GetView(e.Position, null, null);
+            var idaccount = (TextView)v.FindViewById(Resource.Id.Manage_Selecteedtable_Name);
+            IDACCOUNT = idaccount.Text;
+            Console.WriteLine(IDACCOUNT + "############");
+
             StartActivity(typeof(WP_CustomerOrder));
             }
 
