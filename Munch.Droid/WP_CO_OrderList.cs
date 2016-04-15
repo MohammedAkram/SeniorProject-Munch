@@ -14,8 +14,8 @@ namespace Munch
 {
     class WP_CO_OrderList
     {
-        public string dishName { get; set; }
-        public string Quantity { get; set; }
-        public string Price { get; set; }
+        public string ItemName { get; set; }
+        public string DishQuanitity { get; set; }
+        public string ItemPrice { get; set; }
     }
 }

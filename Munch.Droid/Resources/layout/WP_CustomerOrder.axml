@@ -52,7 +52,7 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="#d3d3d3"
         android:layout_marginLeft="62dp"
         android:layout_marginRight="62dp"
         android:minWidth="25px"
