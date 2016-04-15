@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:background="#ff949494"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 <!-- Drop zone -->
@@ -8,7 +9,7 @@
         android:background="#ff505050"
         android:id="@+id/dropzone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_weight="1">
         <TextView
             android:id="@+id/result"
@@ -19,40 +20,39 @@
             android:layout_gravity="center" />
     </FrameLayout>
 <!-- Dropable elements -->
-    <RelativeLayout
-        android:background="#ff949494"
-        android:id="@+id/buttonholder"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_weight="1">
-        <Button
-            android:id="@+id/button1"
-            android:layout_marginTop="60dip"
-            android:text="Sample Element 1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true" />
-        <Button
-            android:id="@+id/button2"
-            android:text="Sample Element 2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:layout_height="250dp"
+        android:minWidth="25px"
+        android:minHeight="200dp">
+        <RelativeLayout
+            android:background="#ff949494"
+            android:id="@+id/buttonholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/button1" />
-        <Button
-            android:id="@+id/button13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="prev"
-            android:layout_alignParentLeft="true" />
-        <Button
-            android:id="@+id/button22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="next"
-            android:layout_alignParentRight="true" />
-    </RelativeLayout>
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/button1"
+                android:layout_marginTop="60dip"
+                android:text="Sample Element 1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" />
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="prev"
+                android:layout_alignParentLeft="true" />
+            <Button
+                android:id="@+id/button22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="next"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </ScrollView>
 <!-- Dropable elements 
     <RelativeLayout
         android:background="#ff949494"
