@@ -26,24 +26,24 @@ namespace Munch
         public ListView mListView;
         public SwipeRefreshLayout refresher;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.WP_CustomerOrder);
 
-            /**
+           
             //Load Up List
-            String accountsURL = "http://54.191.98.63/accounts.php";
+            String accountsURL = "http://54.191.98.63/customerorder.php?idAccounts=" + WaiterPortal.IDACCOUNT;
             JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(accountsURL);
             List<WP_CO_OrderList> parsedData = JsonParsing<WP_CO_OrderList>.ParseAndDisplay(json);
             mItems = parsedData;
-            **/
+            
             mListView = FindViewById<ListView>(Resource.Id.WP_customerorderListView);
-            /**
-            parsedData.Insert(0, (new AP_AM_AccountList() { idAccounts = "Username", Level = "Account Type"}));
+            
+            parsedData.Insert(0, (new WP_CO_OrderList() { DishQuanitity= "test2",ItemName = "test1", ItemPrice="test3"}));
             WP_CO_ListViewAdapter adapter = new WP_CO_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
-            **/
+            Console.WriteLine(parsedData+"############################################");
 
             //Swipe to Refresh
             var refresher = FindViewById<SwipeRefreshLayout>(Resource.Id.swipecontainerWPCO);

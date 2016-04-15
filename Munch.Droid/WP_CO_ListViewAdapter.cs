@@ -48,13 +48,13 @@ namespace Munch
             }
 
             TextView txtName = row.FindViewById<TextView>(Resource.Id.WPCODishName);
-            txtName.Text = mItems[position].dishName;
+            txtName.Text = mItems[position].ItemName;
 
             TextView txtQuant = row.FindViewById<TextView>(Resource.Id.WPCOQuantity);
-            txtQuant.Text = mItems[position].Quantity;
+            txtQuant.Text = mItems[position].DishQuanitity;
 
             TextView txtPrice = row.FindViewById<TextView>(Resource.Id.WPCOPrice);
-            txtPrice.Text = mItems[position].Price;
+            txtPrice.Text = mItems[position].ItemPrice;
 
             return row;
         }

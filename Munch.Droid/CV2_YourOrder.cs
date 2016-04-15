@@ -32,11 +32,23 @@ namespace Munch
 
             CV_your_Order_ListViewAdapter adapter = new CV_your_Order_ListViewAdapter(this, (CustomerPortal.CustomerOrderList));
             mListView.Adapter = adapter;
+            mListView.ItemClick += MListView_ItemClick;
             //Orderbutton click
 
             orderUP.Click += OrderUP_Click;
 
         }
+
+        private void MListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            
+          //  mListView.RemoveViewAt(e.Position);
+          //  mListView.DeferNotifyDataSetChanged();
+        }
+        
+
+
+
         //order button 
         private void OrderUP_Click(object sender, EventArgs e)
         {
@@ -59,6 +71,7 @@ namespace Munch
                 var webClient = new WebClient();
                 webClient.DownloadString("http://54.191.98.63/orders.php?idAccounts=" + loginname + "&&name=" + dishname.Text + "&&Quantity=" + quantity.Text + "&&Note=" + notes.Text + "&&count=" + count + "&&price=" + price.Text);
             }
+            
             Android.Widget.Toast.MakeText(this, "ORDER UP, FOOD WILL BE READY IN 10 MIN", Android.Widget.ToastLength.Short).Show();
         }
     }
