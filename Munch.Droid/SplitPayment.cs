@@ -34,25 +34,74 @@ namespace Munch
 
             var button1 = FindViewById<Button>(Resource.Id.button1);
             
-            Button button3 = new Button(this);
+            RelativeLayout rl = FindViewById<RelativeLayout>(Resource.Id.buttonholder);
+
+
+            List<CustomerOrderItem> orderList = CustomerPortal.CustomerOrderList;
+            List<Button> btnList = new List<Button>();
+            List<int> idList = new List<int>();
+            idList.Add(button1.Id);
+
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WrapContent, RelativeLayout.LayoutParams.WrapContent);
             lp.AddRule(LayoutRules.CenterHorizontal);
-            lp.AddRule(LayoutRules.Below);
+
+            //add all of the items ordered to the first index of splits
+            foreach (CustomerOrderItem x in CustomerPortal.CustomerOrderList)
+            {
+                int numQty = Int32.Parse(x.Quantity);
+                Console.WriteLine(numQty + "YOLRWTERTREGDFSGSDGDSFGSDGDSFGSDG");
+                while (numQty > 0)
+                {
+                    splits[0].Add(x.Dish.ToString());
+                    btnList.Add(new Button(this));
+
+                    Button lastButton = btnList.Last();
+                    lastButton.Tag = x.Dish.iName + numQty;
+                    lp.RemoveRule(LayoutRules.Below);
+
+
+                    lp.AddRule(LayoutRules.Below, idList.Last());
+                    lastButton.LayoutParameters = lp;
+                    lastButton.Text = x.Dish.iName;
+                    lastButton.LongClick += Button_LongClickEvent;
+                    idList.Add(lastButton.Id);
+                    numQty--;
+
+                }
+                
+            }
+
+
+            Console.WriteLine(btnList.Count() +  " GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+            //add all the buttons to the relativelayout
+            foreach (Button btn in btnList)
+            {
+                rl.AddView(btn);
+            }
+
+
+            /*
+            var button1 = FindViewById<Button>(Resource.Id.button1);
+            
+            Button button3 = new Button(this);
+            
             
             
             button3.LayoutParameters = lp;
-            RelativeLayout rl = FindViewById<RelativeLayout>(Resource.Id.buttonholder);
+            
             rl.AddView(button3);
             button3.Text = "woo";
             // Get UI elements out of the layout
-            result = FindViewById<TextView>(Resource.Id.result);
+            
             
             button1.LongClick += Button_LongClickEvent;
             button2 = FindViewById<Button>(Resource.Id.button2);
             button2.LongClick += Button_LongClickEvent;
             button3.LongClick += Button_LongClickEvent;
+
+            */
             var dropZone = FindViewById<FrameLayout>(Resource.Id.dropzone);
-            
+            result = FindViewById<TextView>(Resource.Id.result);
 
             // Attach event to drop zone
             dropZone.Drag += DropZone_Drag;
