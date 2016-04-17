@@ -154,7 +154,6 @@
     <AndroidResource Include="Resources\layout\LoginScreen.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\AdminPortal.axml" />
     <AndroidResource Include="Resources\layout\APAccountManagement.axml" />
     <AndroidResource Include="Resources\layout\APEditMenu.axml" />
     <AndroidResource Include="Resources\layout\APManageInventory.axml" />
@@ -219,6 +218,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SplitPaymentScreen.axml" />
+    <AndroidResource Include="Resources\layout\AdminPortal2.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -335,6 +337,8 @@
     <AndroidResource Include="Resources\drawable\payConfirmation.png" />
     <AndroidResource Include="Resources\drawable\WPCustomerOrder.png" />
     <AndroidResource Include="Resources\drawable\ic_shopping_cart_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable\adminporthome.png" />
+    <AndroidResource Include="Resources\drawable\round_button.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

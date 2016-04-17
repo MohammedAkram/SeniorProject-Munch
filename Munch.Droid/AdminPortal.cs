@@ -89,7 +89,7 @@ namespace Munch
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.AdminPortal);
+            SetContentView(Resource.Layout.AdminPortal2);
 
             //pubnub shit
             
@@ -105,7 +105,6 @@ namespace Munch
             {
                 Resource.Id.EditMenuButton,
                 Resource.Id.ManageInventoryButton,
-                Resource.Id.ViewReportsButton,
                 Resource.Id.AccountManagementButton,
                 Resource.Id.LogOutAdminPortalButton
             }.Select(FindViewById<Button>).ToArray();
@@ -120,9 +119,8 @@ namespace Munch
                 
             };
             btns[1].Click += (sender, e) => StartActivity(typeof(AP_MI_Activity));
-            btns[2].Click += (sender, e) => SetContentView(Resource.Layout.APViewReports);
-            btns[3].Click += (sender, e) => StartActivity(typeof(AP_MA_Activity));
-            btns[4].Click += (sender, e) =>
+            btns[2].Click += (sender, e) => StartActivity(typeof(AP_MA_Activity));
+            btns[3].Click += (sender, e) =>
             {
                 var webClient = new WebClient();
                 Console.WriteLine(strToDBAP);

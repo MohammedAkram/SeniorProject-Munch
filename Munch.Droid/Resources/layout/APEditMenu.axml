@@ -41,8 +41,7 @@
     <FrameLayout
         android:layout_marginTop="70dp"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#750a0a">
+        android:layout_height="60dp">
         <TextView
             android:text="EDIT MENU"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -67,7 +66,8 @@
         android:layout_marginTop="130dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d3d3d3"
+        android:layout_marginLeft="62dp"
+        android:layout_marginRight="62dp"
         android:minWidth="25px"
         android:minHeight="25px">
         <android.support.v7.widget.RecyclerView
