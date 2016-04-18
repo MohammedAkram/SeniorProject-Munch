@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/adminportalbg">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
+        <ImageView
+            android:layout_width="171.0dp"
+            android:layout_height="52.0dp"
+            android:layout_gravity="left"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/logo" />
+        <TextView
+            android:text="ADMIN PORTAL"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp" />
+        <Button
+            android:text="Log Out"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/LogOutIngredientViewRprtButton"
+            android:layout_marginLeft="750.0dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="#205878" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:text="INVENTORY REPORT"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="23sp"
+            android:paddingBottom="21dp" />
+        <TextView
+            android:text="See what's in that closet."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:paddingTop="23dp" />
+    </FrameLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="150dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:weightSum="100">
+        <Button
+            android:id="@+id/APVRIngredientDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Daily Report"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="#000" />
+        <Button
+            android:id="@+id/APVRIngredientWeekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Weekly Report"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="#000" />
+        <Button
+            android:id="@+id/APVRIngredientMonthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Monthly Report"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="#000" />
+        <Button
+            android:id="@+id/APVRIngredientYearly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Yearly Report"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="#000" />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="62dp"
+        android:layout_marginRight="62dp"
+        android:background="#ffffff"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/IngredientReportListView" />
+    </FrameLayout>
+</LinearLayout>

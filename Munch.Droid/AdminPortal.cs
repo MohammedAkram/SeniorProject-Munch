@@ -89,10 +89,9 @@ namespace Munch
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.AdminPortal);
+            SetContentView(Resource.Layout.AdminPortal2);
 
             //pubnub shit
-            
             pubnub.Subscribe<string>(
                 LoginScreen.loginUsername,
                 DisplaySubscribeReturnMessage,
@@ -100,19 +99,20 @@ namespace Munch
                 DisplayErrorMessage
                 );
                 
-
+            //Button List
             this.btns = new int[]
             {
                 Resource.Id.EditMenuButton,
                 Resource.Id.ManageInventoryButton,
-                Resource.Id.ViewReportsButton,
                 Resource.Id.AccountManagementButton,
-                Resource.Id.LogOutAdminPortalButton
+                Resource.Id.LogOutAdminPortalButton,
+                Resource.Id.netProfitButton,
+                Resource.Id.inventorystateButton
             }.Select(FindViewById<Button>).ToArray();
 
             string strToDBAP = Waiter_Table_Selection_Activity.TableURL + "&&unassign=1";
 
-
+            //Button Clicks on Page
             btns[0].Click += (sender, e) =>
             {
                 StartActivity(typeof(AP_EM_Activity));
@@ -120,9 +120,8 @@ namespace Munch
                 
             };
             btns[1].Click += (sender, e) => StartActivity(typeof(AP_MI_Activity));
-            btns[2].Click += (sender, e) => SetContentView(Resource.Layout.APViewReports);
-            btns[3].Click += (sender, e) => StartActivity(typeof(AP_MA_Activity));
-            btns[4].Click += (sender, e) =>
+            btns[2].Click += (sender, e) => StartActivity(typeof(AP_MA_Activity));
+            btns[3].Click += (sender, e) =>
             {
                 var webClient = new WebClient();
                 Console.WriteLine(strToDBAP);
@@ -132,6 +131,17 @@ namespace Munch
                 Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
                 StartActivity(typeof(LoginScreen));
             };
+            btns[4].Click += (sender, e) => StartActivity(typeof(AP_VR_ProfitActivity));
+            btns[5].Click += (sender, e) => StartActivity(typeof(AP_VR_IngredientActivity));
+
+            //Set Profit Amount on Homepage
+            TextView profitEarned = FindViewById<TextView>(Resource.Id.netProfitAmt);
+            profitEarned.Text = "$5,328.16";
+
+            //Set Popular Dish on Homepage
+            TextView popDish = FindViewById<TextView>(Resource.Id.popularItemtext);
+            popDish.Text = "McNuggets";
+
 
             ContentView.ViewTreeObserver.AddOnGlobalLayoutListener(this);
         }
