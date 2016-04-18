@@ -2104,8 +2104,8 @@ namespace Munch
 			// aapt resource value: 0x7f060074
 			public const int LogOut_Edit_Menu_Button = 2131099764;
 			
-			// aapt resource value: 0x7f0600f2
-			public const int LogOut_Waiter_Table_Selection = 2131099890;
+			// aapt resource value: 0x7f0600f3
+			public const int LogOut_Waiter_Table_Selection = 2131099891;
 			
 			// aapt resource value: 0x7f06006b
 			public const int ManageInventoryButton = 2131099755;
@@ -2122,8 +2122,8 @@ namespace Munch
 			// aapt resource value: 0x7f060092
 			public const int Manage_Inventory_Txt_Units = 2131099794;
 			
-			// aapt resource value: 0x7f0600f8
-			public const int Manage_Selecteedtable_Name = 2131099896;
+			// aapt resource value: 0x7f0600f9
+			public const int Manage_Selecteedtable_Name = 2131099897;
 			
 			// aapt resource value: 0x7f0600a4
 			public const int Manage_Your_Order_Txt_Name = 2131099812;
@@ -2164,35 +2164,35 @@ namespace Munch
 			// aapt resource value: 0x7f06006c
 			public const int ViewReportsButton = 2131099756;
 			
-			// aapt resource value: 0x7f0600f9
-			public const int WPCODishName = 2131099897;
+			// aapt resource value: 0x7f0600fa
+			public const int WPCODishName = 2131099898;
+			
+			// aapt resource value: 0x7f0600fc
+			public const int WPCOPrice = 2131099900;
 			
 			// aapt resource value: 0x7f0600fb
-			public const int WPCOPrice = 2131099899;
+			public const int WPCOQuantity = 2131099899;
 			
-			// aapt resource value: 0x7f0600fa
-			public const int WPCOQuantity = 2131099898;
+			// aapt resource value: 0x7f0600ff
+			public const int WPCOfab = 2131099903;
 			
 			// aapt resource value: 0x7f0600fe
-			public const int WPCOfab = 2131099902;
-			
-			// aapt resource value: 0x7f0600fd
-			public const int WP_customerorderListView = 2131099901;
-			
-			// aapt resource value: 0x7f0600f3
-			public const int Waiter_Table_Selection_ListView = 2131099891;
-			
-			// aapt resource value: 0x7f0600f5
-			public const int Waiter_Table_Selection_Txt_Table = 2131099893;
-			
-			// aapt resource value: 0x7f0600f6
-			public const int Waiter_Table_Selection_checkBox = 2131099894;
+			public const int WP_customerorderListView = 2131099902;
 			
 			// aapt resource value: 0x7f0600f4
-			public const int Waiter_Table_Selection_fab = 2131099892;
+			public const int Waiter_Table_Selection_ListView = 2131099892;
+			
+			// aapt resource value: 0x7f0600f6
+			public const int Waiter_Table_Selection_Txt_Table = 2131099894;
 			
 			// aapt resource value: 0x7f0600f7
-			public const int Waiter_portal_ListView = 2131099895;
+			public const int Waiter_Table_Selection_checkBox = 2131099895;
+			
+			// aapt resource value: 0x7f0600f5
+			public const int Waiter_Table_Selection_fab = 2131099893;
+			
+			// aapt resource value: 0x7f0600f8
+			public const int Waiter_portal_ListView = 2131099896;
 			
 			// aapt resource value: 0x7f0600a1
 			public const int Welcom_Call_Waiter = 2131099809;
@@ -2302,20 +2302,14 @@ namespace Munch
 			// aapt resource value: 0x7f0600d2
 			public const int button1 = 2131099858;
 			
-			// aapt resource value: 0x7f0600f0
-			public const int button13 = 2131099888;
-			
 			// aapt resource value: 0x7f0600d3
 			public const int button2 = 2131099859;
-			
-			// aapt resource value: 0x7f0600f1
-			public const int button22 = 2131099889;
 			
 			// aapt resource value: 0x7f060044
 			public const int buttonPanel = 2131099716;
 			
-			// aapt resource value: 0x7f0600ef
-			public const int buttonholder = 2131099887;
+			// aapt resource value: 0x7f0600f0
+			public const int buttonholder = 2131099888;
 			
 			// aapt resource value: 0x7f0600e1
 			public const int cancel_action = 2131099873;
@@ -2355,6 +2349,9 @@ namespace Munch
 			
 			// aapt resource value: 0x7f06004f
 			public const int customPanel = 2131099727;
+			
+			// aapt resource value: 0x7f0600ef
+			public const int customerTotal = 2131099887;
 			
 			// aapt resource value: 0x7f060098
 			public const int customerspalsh = 2131099800;
@@ -2533,6 +2530,9 @@ namespace Munch
 			// aapt resource value: 0x7f060020
 			public const int never = 2131099680;
 			
+			// aapt resource value: 0x7f0600f2
+			public const int nextButton = 2131099890;
+			
 			// aapt resource value: 0x7f060010
 			public const int none = 2131099664;
 			
@@ -2550,6 +2550,9 @@ namespace Munch
 			
 			// aapt resource value: 0x7f060029
 			public const int pin = 2131099689;
+			
+			// aapt resource value: 0x7f0600f1
+			public const int prevButton = 2131099889;
 			
 			// aapt resource value: 0x7f060006
 			public const int progress_circular = 2131099654;
@@ -2680,8 +2683,8 @@ namespace Munch
 			// aapt resource value: 0x7f06006f
 			public const int swipecontainerAPAM = 2131099759;
 			
-			// aapt resource value: 0x7f0600fc
-			public const int swipecontainerWPCO = 2131099900;
+			// aapt resource value: 0x7f0600fd
+			public const int swipecontainerWPCO = 2131099901;
 			
 			// aapt resource value: 0x7f06000d
 			public const int tabMode = 2131099661;
