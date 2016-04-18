@@ -140,21 +140,6 @@ namespace Munch
             };
 
        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //add all the buttons to the relativelayout
             foreach (Button btn in btnList)
             {
