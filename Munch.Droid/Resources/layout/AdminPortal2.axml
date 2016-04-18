@@ -82,7 +82,9 @@
                 android:textColor="#ffffff"
                 android:textSize="18dp" />
             <TextView
+                android:id="@+id/netProfitAmt"
                 android:text="$17,658.28"
+                android:editable="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
                 android:gravity="left"
@@ -93,12 +95,13 @@
                 android:layout_marginTop="30dp"
                 android:textColor="#ffffff"
                 android:textSize="42dp" />
-            <TextView
+            <Button
                 android:text="VIEW DETAILS"
+                android:id="@+id/netProfitButton"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
                 android:background="#fff"
-                android:gravity="left"
+                android:gravity="center"
                 android:layout_weight="50"
                 android:fontFamily="sans-serif"
                 android:textStyle="bold"
@@ -107,8 +110,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:textColor="#000000"
                 android:textSize="18dp" />
         </LinearLayout>
@@ -141,7 +143,9 @@
                 android:textColor="#ffffff"
                 android:textSize="18dp" />
             <TextView
+                android:id="@+id/popularItemtext"
                 android:text="Cheeseburger"
+                android:editable="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
                 android:gravity="left"
@@ -152,12 +156,13 @@
                 android:layout_marginTop="30dp"
                 android:textColor="#ffffff"
                 android:textSize="42dp" />
-            <TextView
+            <Button
                 android:text="VIEW DETAILS"
+                android:id="@+id/inventorystateButton"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
                 android:background="#fff"
-                android:gravity="left"
+                android:gravity="center"
                 android:layout_weight="50"
                 android:fontFamily="sans-serif"
                 android:textStyle="bold"
@@ -167,7 +172,7 @@
                 android:paddingRight="10dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:textColor="#000000"
                 android:textSize="18dp" />
         </LinearLayout>
@@ -177,7 +182,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="140dp"
         android:layout_marginRight="62dp"
         android:paddingLeft="10dp"

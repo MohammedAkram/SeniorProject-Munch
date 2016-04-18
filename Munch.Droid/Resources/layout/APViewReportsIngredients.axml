@@ -31,7 +31,7 @@
             android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/LogOutViewRprtButton"
+            android:id="@+id/LogOutIngredientViewRprtButton"
             android:layout_marginLeft="750.0dp"
             android:layout_marginTop="10dp"
             android:textAllCaps="false"
@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp">
         <TextView
-            android:text="VIEW REPORTS"
+            android:text="INVENTORY REPORT"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:textSize="23sp"
             android:paddingBottom="21dp" />
         <TextView
-            android:text="See what's up."
+            android:text="See what's in that closet."
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -74,7 +74,7 @@
         android:paddingRight="10dp"
         android:weightSum="100">
         <Button
-            android:id="@+id/EditMenuButton"
+            android:id="@+id/APVRIngredientDaily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFF"
@@ -86,7 +86,7 @@
             android:layout_marginRight="12dp"
             android:textColor="#000" />
         <Button
-            android:id="@+id/EditMenuButton"
+            android:id="@+id/APVRIngredientWeekly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFF"
@@ -98,7 +98,7 @@
             android:layout_marginRight="12dp"
             android:textColor="#000" />
         <Button
-            android:id="@+id/EditMenuButton"
+            android:id="@+id/APVRIngredientMonthly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFF"
@@ -110,7 +110,7 @@
             android:layout_marginRight="12dp"
             android:textColor="#000" />
         <Button
-            android:id="@+id/EditMenuButton"
+            android:id="@+id/APVRIngredientYearly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFF"
@@ -135,6 +135,6 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/ReportListView" />
+            android:id="@+id/IngredientReportListView" />
     </FrameLayout>
 </LinearLayout>

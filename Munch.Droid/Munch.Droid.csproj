@@ -85,6 +85,12 @@
     <Compile Include="AP_EM_Activity.cs" />
     <Compile Include="AP_EM_Add.cs" />
     <Compile Include="AP_EM_ItemList.cs" />
+    <Compile Include="AP_VR_IngredientActivity.cs" />
+    <Compile Include="AP_VR_IngredientList.cs" />
+    <Compile Include="AP_VR_IngredientListViewAdapter.cs" />
+    <Compile Include="AP_VR_ProfitActivity.cs" />
+    <Compile Include="AP_VR_ProfitList.cs" />
+    <Compile Include="AP_VR_ProfitListViewAdapter.cs" />
     <Compile Include="CustomerOrderItem.cs" />
     <Compile Include="CV2_Menu.cs" />
     <Compile Include="CV2_YourOrder.cs" />
@@ -112,6 +118,7 @@
     <Compile Include="PubnubCore.cs" />
     <Compile Include="PubnubXamarinAndroid.cs" />
     <Compile Include="ReconnectState.cs" />
+    <Compile Include="Resources\APVewReport.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplitPayment.cs" />
@@ -157,7 +164,7 @@
     <AndroidResource Include="Resources\layout\APAccountManagement.axml" />
     <AndroidResource Include="Resources\layout\APEditMenu.axml" />
     <AndroidResource Include="Resources\layout\APManageInventory.axml" />
-    <AndroidResource Include="Resources\layout\APViewReports.axml" />
+    <AndroidResource Include="Resources\layout\APViewReportsProfit.axml" />
     <AndroidResource Include="Resources\layout\APMIListViewRow.axml" />
     <AndroidResource Include="Resources\layout\dialog_APMIAdd.axml" />
     <AndroidResource Include="Resources\layout\APAMListViewRow.axml">
@@ -219,6 +226,15 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SplitPaymentScreen.axml" />
     <AndroidResource Include="Resources\layout\AdminPortal2.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\APVRProfitListViewRow.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\APVRIngreditentsListViewRow.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\APViewReportsIngredients.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -332,13 +348,13 @@
     <AndroidResource Include="Resources\drawable\btn_variant1.xml" />
     <AndroidResource Include="Resources\drawable\btn_variant2.xml" />
     <AndroidResource Include="Resources\drawable\chickparm.png" />
-    <AndroidResource Include="Resources\drawable\brgrmenu.png" />
     <AndroidResource Include="Resources\drawable\brgrbg.xml" />
     <AndroidResource Include="Resources\drawable\payConfirmation.png" />
     <AndroidResource Include="Resources\drawable\WPCustomerOrder.png" />
     <AndroidResource Include="Resources\drawable\ic_shopping_cart_white_24dp.png" />
     <AndroidResource Include="Resources\drawable\adminporthome.png" />
     <AndroidResource Include="Resources\drawable\round_button.xml" />
+    <AndroidResource Include="Resources\drawable\brgrmenubg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
