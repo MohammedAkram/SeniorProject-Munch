@@ -48,13 +48,13 @@ namespace Munch
             }
 
             TextView txtName = row.FindViewById<TextView>(Resource.Id.View_Report_Profit_Name);
-            txtName.Text = mItems[position].dishName;
+            txtName.Text = mItems[position].ItemName;
 
             TextView txtQuantity = row.FindViewById<TextView>(Resource.Id.View_Report_Profit_Profit);
-            txtQuantity.Text = mItems[position].profit;
+            txtQuantity.Text = mItems[position].Profit;
 
             TextView txtThreshold = row.FindViewById<TextView>(Resource.Id.View_Report_Profit_Date);
-            txtThreshold.Text = mItems[position].date;
+            txtThreshold.Text = mItems[position].Date;
 
             return row;
         }

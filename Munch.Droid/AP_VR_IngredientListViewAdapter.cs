@@ -48,16 +48,16 @@ namespace Munch
             }
 
             TextView txtName = row.FindViewById<TextView>(Resource.Id.AP_VR_Ingredient_Ingredients);
-            txtName.Text = mItems[position].ingredientName;
+            txtName.Text = mItems[position].Ingredients;
 
             TextView txtQuantity = row.FindViewById<TextView>(Resource.Id.AP_VR_Ingredient_amtMeasure);
-            txtQuantity.Text = mItems[position].unitMeasure;
+            txtQuantity.Text = mItems[position].MeasureUnit;
 
             TextView txtUsed = row.FindViewById<TextView>(Resource.Id.AP_VR_Ingredient_amtUsed);
-            txtQuantity.Text = mItems[position].amtUsed;
+            txtQuantity.Text = mItems[position].used;
 
             TextView txtThreshold = row.FindViewById<TextView>(Resource.Id.AP_VR_Ingredient_Date);
-            txtThreshold.Text = mItems[position].date;
+            txtThreshold.Text = mItems[position].DATE;
 
             return row;
         }

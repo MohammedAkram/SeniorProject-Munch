@@ -14,9 +14,9 @@ namespace Munch
 {
     class AP_VR_IngredientList
     {
-        public string ingredientName { get; set; }
-        public string unitMeasure { get; set; }
-        public string amtUsed { get; set; }
-        public string date { get; set; }
+        public string Ingredients { get; set; }
+        public string MeasureUnit { get; set; }
+        public string used { get; set; }
+        public string DATE { get; set; }
     }
 }

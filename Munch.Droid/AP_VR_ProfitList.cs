@@ -14,8 +14,8 @@ namespace Munch
 {
     class AP_VR_ProfitList
     {
-        public string dishName { get; set; }
-        public string profit { get; set; }
-        public string date { get; set; }
+        public string ItemName { get; set; }
+        public string Profit { get; set; }
+        public string Date { get; set; }
     }
 }
