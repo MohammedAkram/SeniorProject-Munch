@@ -121,20 +121,7 @@
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="MODIFY ITEM"
-                    android:textColor="#c10000"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:background="#00FFFFFF"
-                    android:id="@+id/btn_cardModify"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginLeft="8dp" />
-            </RelativeLayout>
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </FrameLayout>

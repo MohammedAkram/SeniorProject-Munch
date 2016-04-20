@@ -133,17 +133,17 @@ namespace Munch
         void OnItemClick(object sender, int Position)
         {
            
-            Button editItem = FindViewById<Button>(Resource.Id.btn_cardModify);
+            //Button editItem = FindViewById<Button>(Resource.Id.btn_cardModify);
             dialog_AP_EM_Modify modifyMenu = new dialog_AP_EM_Modify();
             modifyMenu = new dialog_AP_EM_Modify();
 
-            editItem.Click += delegate
-            {
+            //editItem.Click += delegate
+         //   {
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
                 Console.WriteLine("modify clicked.");
                 modifyMenu.Show(transaction, "something");
                 Android.Widget.Toast.MakeText(this, "Modify Item Clicked.", Android.Widget.ToastLength.Short).Show();
-            };
+            //};
 
             Android.Widget.Toast.MakeText(this, "Card Clicked.", Android.Widget.ToastLength.Short).Show();
         }
