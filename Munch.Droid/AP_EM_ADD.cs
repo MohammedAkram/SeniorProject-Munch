@@ -108,11 +108,16 @@ namespace Munch
             String inventoryURL = "http://54.191.98.63/inventory.php";
             JsonValue json = await FetchInventoryAsync(inventoryURL);
             List<AP_MI_InventoryList> parsedData = ParseAndDisplay(json);
-            for (int i = 0; i < parsedData.Count(); i++)
+            if (ingredientsTransferList.Count() == 0)
             {
-                 ingredientsTransferList.Add(parsedData[i].Ingredients.ToString());
-             }
+                for (int i = 0; i < parsedData.Count(); i++)
+                {
+                    ingredientsTransferList.Add(parsedData[i].Ingredients.ToString());
+                }
+
+            }
             //Pull
+            
             String[] spinnerFeed = ingredientsTransferList.ToArray();
             var ingSpinner = FindViewById<Spinner>(Resource.Id.spnr_EMIngredientsAdd);
             var ingAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, spinnerFeed);
