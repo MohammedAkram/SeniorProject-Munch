@@ -82,7 +82,7 @@ namespace Munch
                 manageAccount.Show(transaction, "dialog fragment");
                 //Add button starts action
                 manageAccount.addItemComplete += manageAccountDialog_addItemComplete; 
-            };this.Finish();
+            };
 
         }
 

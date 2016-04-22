@@ -130,7 +130,6 @@ namespace Munch
             dAddDish.Click += dAddDish_Click;
             dAddIngredient = FindViewById<Button>(Resource.Id.btn_Addaddingredient);
             dAddIngredient.Click += dAddIngredient_Click;
-            this.Finish();
         }
 
         private void dAddDish_Click(object sender, EventArgs e)

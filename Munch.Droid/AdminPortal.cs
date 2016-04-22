@@ -143,7 +143,7 @@ namespace Munch
             popDish.Text = "McNuggets";
 
 
-            ContentView.ViewTreeObserver.AddOnGlobalLayoutListener(this);this.Finish();
+            ContentView.ViewTreeObserver.AddOnGlobalLayoutListener(this);
         }
 
         View ContentView
