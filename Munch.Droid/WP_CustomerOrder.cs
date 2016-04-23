@@ -49,7 +49,6 @@ namespace Munch
             var refresher = FindViewById<SwipeRefreshLayout>(Resource.Id.swipecontainerWPCO);
             refresher.SetColorScheme(Resource.Color.primary, Resource.Color.accent_pressed, Resource.Color.accent_material_dark);
             refresher.Refresh += HandleRefresh;
-            this.Finish();
         }
 
         //Swipe to Refresh Activity

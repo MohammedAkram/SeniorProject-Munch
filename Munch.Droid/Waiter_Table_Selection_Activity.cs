@@ -197,7 +197,6 @@ namespace Munch
                 StartActivity(typeof(WaiterPortal));
             };
 
-            this.Finish();
         }
         
     }
