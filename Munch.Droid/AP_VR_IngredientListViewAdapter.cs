@@ -54,7 +54,7 @@ namespace Munch
             txtQuantity.Text = mItems[position].MeasureUnit;
 
             TextView txtUsed = row.FindViewById<TextView>(Resource.Id.AP_VR_Ingredient_amtUsed);
-            txtQuantity.Text = mItems[position].used;
+            txtUsed.Text = mItems[position].used;
 
             TextView txtThreshold = row.FindViewById<TextView>(Resource.Id.AP_VR_Ingredient_Date);
             txtThreshold.Text = mItems[position].DATE;
