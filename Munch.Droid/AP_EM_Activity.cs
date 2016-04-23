@@ -86,7 +86,7 @@ namespace Munch
             {
                 StartActivity(typeof(AP_EM_Add));
                 OverridePendingTransition(Resource.Animation.right_in, Resource.Animation.right_out);
-            };
+            };this.Finish();
         }
 
         //Reveal Animation

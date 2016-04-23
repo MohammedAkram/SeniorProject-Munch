@@ -83,7 +83,8 @@ namespace Munch
                 manageinventoryDialog.Show(transaction, "dialog fragment");
                 manageinventoryDialog.addItemComplete += manageinventoryDialog_addItemComplete;
 
-            };
+            };this.Finish();
+
         }
         //Swipe to Refresh Activity
         void HandleRefresh(object sender, EventArgs e)
