@@ -21,8 +21,8 @@ using Android.Support.V7.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "CV2_Menu", Theme = "@android:style/Theme.Holo.Light.NoActionBar", 
-        ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    [Activity(Label = "CV2_Menu", Theme = "@android:style/Theme.Holo.Light.NoActionBar",
+        ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorPortrait)]
     public class CV2_Menu : Activity
     {
         //For the cards
@@ -31,7 +31,7 @@ namespace Munch
         public CVMItemListAdapter mAdapter;
         public AP_EM_ItemList mItemList;
         public string menuURL = "http://54.191.98.63/menu.php";
-        
+
         //Animation Views
         //Set up splash screen as a view
         View mView;
@@ -40,18 +40,7 @@ namespace Munch
         View headerView;
         View frameView;
 
-
-
-
-
-
-        /*
-       *************************************************************************
-       *************************************************************************
-       ********************************PUBNUB***********************************
-       *************************************************************************
-       *************************************************************************
-       */
+        #region "pubnub"
         Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
         void DisplaySubscribeReturnMessage(string result)
         {
@@ -111,75 +100,64 @@ namespace Munch
             Console.WriteLine("PUBLISH STATUS CALLBACK");
             Console.WriteLine(result);
         }
+        #endregion
 
-
-
-     /*
-     *************************************************************************
-     *************************************************************************
-     ****************************END OF PUBNUB********************************
-     *************************************************************************
-     *************************************************************************
-     */
-
-
-
-       
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.CV_Menu);
 
+            #region "logout"
             //logout button
             Button logout = FindViewById<Button>(Resource.Id.menuLogOut);
             logout.Click += (sender, e) => {
 
                 EditText input = new EditText(this);
                 RunOnUiThread(() =>
-                    {
-                        AlertDialog.Builder builder;
-                        builder = new AlertDialog.Builder(this);
-                        builder.SetTitle("Logout?");
-                        builder.SetMessage("Enter the password associated with "+ LoginScreen.loginUsername+ " to logout");
-                        builder.SetCancelable(false);
-                        builder.SetView(input);
-                        builder.SetPositiveButton("OK", delegate {
+                {
+                    AlertDialog.Builder builder;
+                    builder = new AlertDialog.Builder(this);
+                    builder.SetTitle("Logout?");
+                    builder.SetMessage("Enter the password associated with " + LoginScreen.loginUsername + " to logout");
+                    builder.SetCancelable(false);
+                    builder.SetView(input);
+                    builder.SetPositiveButton("OK", delegate {
 
-                            if (input.Text == ("lmo"))
-                            {
-                                var webClient = new WebClient();
-                                Console.WriteLine();
-                                webClient.DownloadString("http://54.191.98.63/logout.php?id=" + LoginScreen.loginUsername);
-                                this.Finish();
-                                SetContentView(Resource.Layout.LoginScreen);
-                                Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
-                                StartActivity(typeof(LoginScreen));
-                            }
-                            else
-                            {
-                                Android.Widget.Toast.MakeText(this, "Incorrect Password", Android.Widget.ToastLength.Short).Show();
-                            }
+                        if (input.Text == ("lmo"))
+                        {
+                            var webClient = new WebClient();
+                            Console.WriteLine();
+                            webClient.DownloadString("http://54.191.98.63/logout.php?id=" + LoginScreen.loginUsername);
+                            this.Finish();
+                            SetContentView(Resource.Layout.LoginScreen);
+                            Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                            StartActivity(typeof(LoginScreen));
+                        }
+                        else
+                        {
+                            Android.Widget.Toast.MakeText(this, "Incorrect Password", Android.Widget.ToastLength.Short).Show();
+                        }
 
 
-                             });
-                        builder.Show();
-                    }
+                    });
+                    builder.Show();
+                }
                 );
 
 
 
 
-                    /*
-                    var webClient = new WebClient();
-                    Console.WriteLine();
-                    webClient.DownloadString("http://54.191.98.63/logout.php?id=" + LoginScreen.loginUsername);
-                    this.Finish();
-                    SetContentView(Resource.Layout.LoginScreen);
-                    Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
-                    StartActivity(typeof(LoginScreen));
-                    */
-                };
-
+                /*
+                var webClient = new WebClient();
+                Console.WriteLine();
+                webClient.DownloadString("http://54.191.98.63/logout.php?id=" + LoginScreen.loginUsername);
+                this.Finish();
+                SetContentView(Resource.Layout.LoginScreen);
+                Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                StartActivity(typeof(LoginScreen));
+                */
+            };
+            #endregion
 
             JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(menuURL);
             List<EMItemList> parsedData = JsonParsing<EMItemList>.ParseAndDisplay(json);
@@ -220,15 +198,13 @@ namespace Munch
             pay.Click += (s, o) =>
             {
                 StartActivity(typeof(SplitPayment));
-                Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you are ready to pay!", Android.Widget.ToastLength.Short).Show();
+                Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you are ready to pay!", Android.Widget.ToastLength.Long).Show();
                 pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername + ": Requires Assistance, " + LoginScreen.loginUsername + " Ready To Pay", DisplayReturnMessage, DisplayErrorMessage);
-
             };
-
-                orderbtn.Click += (s, o) => StartActivity(typeof(CV2_YourOrder));
+            orderbtn.Click += (s, o) => StartActivity(typeof(CV2_YourOrder));
             callbtn.Click += (s, o) => {
                 //Sends a message to the table's channel with the help message. 
-                Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you need help!", Android.Widget.ToastLength.Short).Show();
+                Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you need help!", Android.Widget.ToastLength.Long).Show();
                 pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername + ": Requires Assistance, " + LoginScreen.loginUsername + " requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
             };
 

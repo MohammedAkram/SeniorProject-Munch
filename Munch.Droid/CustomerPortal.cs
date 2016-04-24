@@ -17,20 +17,11 @@ using System.Threading.Tasks;
 
 namespace Munch
 {
-    [Activity(Label = "CustomerPortal",  Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    [Activity(Label = "CustomerPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorPortrait)]
     public class CustomerPortal : FragmentActivity
     {
 
-
-
-
-        /*
-        *************************************************************************
-        *************************************************************************
-        *************************************************************************
-        *************************************************************************
-        *************************************************************************
-        */
+        #region "Pubnub"
         Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
         void DisplaySubscribeReturnMessage(string result)
         {
@@ -90,22 +81,11 @@ namespace Munch
             Console.WriteLine("PUBLISH STATUS CALLBACK");
             Console.WriteLine(result);
         }
-
-        /*
-        *************************************************************************
-        *************************************************************************
-        *************************************************************************
-        *************************************************************************
-        *************************************************************************
-        */
-
-
-
-
+        #endregion
 
         public static List<CustomerOrderItem> CustomerOrderList = new List<CustomerOrderItem>();
-       
-        public  ListView mListView;
+
+        public ListView mListView;
 
         //For the Sliding Tabs
         private ViewPager mViewPager;
@@ -130,9 +110,9 @@ namespace Munch
             JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(menuURL);
             List<EMItemList> parsedData = JsonParsing<EMItemList>.ParseAndDisplay(json);
             AP_EM_ItemList.mBuiltInCards = parsedData.ToArray();
-            
+
             //mListView = FindViewById<ListView>(Resource.Id.mngYour_Order_ListView);
-           
+
             //For Sliding Tabs
             mScrollView = FindViewById<CV_SlidingTabScrollView>(Resource.Id.CV_sliding_tab);
             mViewPager = FindViewById<ViewPager>(Resource.Id.CV_viewPager);
@@ -233,14 +213,14 @@ namespace Munch
         public Button helpButton;
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            
+
 
             var view = inflater.Inflate(Resource.Layout.CV_Welcome, container, false);
 
             helpButton = view.FindViewById<Button>(Resource.Id.Welcom_Call_Waiter);
             helpButton.Click += (sender, e) =>
             {
-                pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername +": Requires Assistance, " + LoginScreen.loginUsername+" requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
+                pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername + ": Requires Assistance, " + LoginScreen.loginUsername + " requires your assistance", DisplayReturnMessage, DisplayErrorMessage);
             };
 
             return view;
@@ -378,27 +358,27 @@ namespace Munch
     {
         public ListView mListView;
         private List<CustomerOrderItem> mItems;
-        
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.CV_Your_Order, container, false);
-           
+
             mListView = view.FindViewById<ListView>(Resource.Id.mngYour_Order_ListView);
 
-             //CustomerPortal.CustomerOrderList.Insert(0, (new CustomerOrderItem() { Dish = "dishname", Quantity = "test quant", Notes = "test note", OrderNumber = "" }));
+            //CustomerPortal.CustomerOrderList.Insert(0, (new CustomerOrderItem() { Dish = "dishname", Quantity = "test quant", Notes = "test note", OrderNumber = "" }));
             //  CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = Menu.dishName_to_order, Quantity = "testq", Notes = "testn", OrderNumber = "" });
             // CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = "huhui", Quantity = "testq", Notes = "testn", OrderNumber = "" });
-           // CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = "food", Quantity = "testq", Notes = "testn", OrderNumber = "" });
+            // CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = "food", Quantity = "testq", Notes = "testn", OrderNumber = "" });
 
 
-            CV_your_Order_ListViewAdapter adapter = new CV_your_Order_ListViewAdapter(this.Activity, (CustomerPortal.CustomerOrderList) );
+            CV_your_Order_ListViewAdapter adapter = new CV_your_Order_ListViewAdapter(this.Activity, (CustomerPortal.CustomerOrderList));
             Console.Out.WriteLine(CustomerPortal.CustomerOrderList + "******************************");
             mListView.Adapter = adapter;
-           // adapter.NotifyDataSetChanged();
-            
+            // adapter.NotifyDataSetChanged();
+
             return view;
-            
-            
+
+
         }
 
         public override string ToString() //Called on line 156 in SlidingTabScrollView

@@ -1,72 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/adminportalbg">
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp">
-        <ImageView
-            android:layout_width="171.0dp"
-            android:layout_height="52.0dp"
-            android:layout_gravity="left"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/logo" />
-        <Button
-            android:text="CONFIRM ORDER"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/ORderUP"
-            android:layout_marginRight="400.0dp"
-            android:layout_marginLeft="400.0dp" />
-    </FrameLayout>
-    <FrameLayout
-        android:layout_marginTop="70dp"
+    android:background="@drawable/tile_wood"
+    android:scaleType="centerCrop">
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#750a0a">
-        <TextView
-            android:text="Your Order"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:textSize="23sp"
-            android:paddingBottom="21dp" />
-        <TextView
-            android:text="How hungry are you? "
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:paddingTop="23dp" />
-    <!--  <Button
-            android:text="ORDERUP"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/ORderUP" />-->
-    </FrameLayout>
+        android:layout_height="108.2dp"
+        android:src="@drawable/brgryourorder"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="10dp" />
+    <TextView
+        android:text="See your current order."
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:paddingBottom="8dp" />
     <FrameLayout
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginLeft="42dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d3d3d3"
-        android:minWidth="25px"
-        android:minHeight="25px">
+        android:background="#d3d3d3">
         <ListView
-            android:minWidth="25px"
-            android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/mngYour_Order_ListView" />
+        <com.refractored.fab.FloatingActionButton
+            android:id="@+id/ORderUP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_shopping_cart_white_24dp"
+            fab:fab_colorNormal="@color/accent"
+            fab:fab_colorPressed="@color/accent_pressed"
+            fab:fab_colorRipple="@color/ripple" />
     </FrameLayout>
-</RelativeLayout>
+</LinearLayout>

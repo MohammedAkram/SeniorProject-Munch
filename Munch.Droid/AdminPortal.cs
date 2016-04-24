@@ -16,12 +16,14 @@ using Android.Graphics;
 using Android.Util;
 using Android.Views.Animations;
 using System.Net;
-
+using System.Threading.Tasks;
+using System.Json;
 namespace Munch
 {
-    [Activity( Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    [Activity(Label = "AdminPortal", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class AdminPortal : Activity, ViewTreeObserver.IOnGlobalLayoutListener
     {
+        #region "pubnub"
         //Pubnub
         Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
         void DisplaySubscribeReturnMessage(string result)
@@ -40,10 +42,10 @@ namespace Munch
                         //IF CUSTOM OBJECT IS EXCEPTED, YOU CAN CAST THIS OBJECT TO YOUR CUSTOM CLASS TYPE
                         string resultActualMessage = pubnub.JsonPluggableLibrary.SerializeToJsonString(subscribedObject);
                         string re = resultActualMessage.Replace('"', ' ');
-                        string s1 = re.Substring(1, re.IndexOf(',')-1);
+                        string s1 = re.Substring(1, re.IndexOf(',') - 1);
                         string s2 = re.Substring((re.IndexOf(',') + 1));
-                        
-                        
+
+
 
                         Notification.Builder builder = new Notification.Builder(this)
                         .SetContentTitle(s1)
@@ -82,14 +84,47 @@ namespace Munch
             Console.WriteLine("PUBLISH STATUS CALLBACK");
             Console.WriteLine(result);
         }
-        
+        #endregion
 
         Button[] btns;
+        private List<AdminPortal> mItems;
+        private List<getdish> mItemss;
+        public String threshold = "http://54.191.98.63/inventorythreshold.php";
+        public String populardish = "http://54.191.98.63/populardish.php";
+        class getdish
+        {
+            public string ItemName { get; set; }
+        }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AdminPortal2);
+            //parsing for low ingredients 
+            JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(threshold);
+            List<AdminPortal> parsedData = JsonParsing<AdminPortal>.ParseAndDisplay(json);
+            mItems = parsedData;
+
+            if (parsedData.Count > 0)
+            {
+                // Instantiate the builder and set notification elements:
+                Notification.Builder builder = new Notification.Builder(this)
+                    .SetContentTitle("Low ingredients")
+                    .SetContentText("buy ingredients!")
+                    .SetSmallIcon(Resource.Drawable.Icon);
+
+                // Build the notification:
+                Notification notification = builder.Build();
+
+                // Get the notification manager:
+                NotificationManager notificationManager =
+                    GetSystemService(Context.NotificationService) as NotificationManager;
+
+                // Publish the notification:
+                const int notificationId = 0;
+                notificationManager.Notify(notificationId, notification);
+            }
+
 
             //pubnub shit
             pubnub.Subscribe<string>(
@@ -98,7 +133,7 @@ namespace Munch
                 DisplaySubscribeConnectStatusMessage,
                 DisplayErrorMessage
                 );
-                
+
             //Button List
             this.btns = new int[]
             {
@@ -117,7 +152,7 @@ namespace Munch
             {
                 StartActivity(typeof(AP_EM_Activity));
                 OverridePendingTransition(Resource.Animation.right_in, Resource.Animation.right_out);
-                
+
             };
             btns[1].Click += (sender, e) => StartActivity(typeof(AP_MI_Activity));
             btns[2].Click += (sender, e) => StartActivity(typeof(AP_MA_Activity));
@@ -134,17 +169,24 @@ namespace Munch
             btns[4].Click += (sender, e) => StartActivity(typeof(AP_VR_ProfitActivity));
             btns[5].Click += (sender, e) => StartActivity(typeof(AP_VR_IngredientActivity));
 
+
+            //parsing for popular dish
+            JsonValue jsonn = await JsonParsing<Task<JsonValue>>.FetchDataAsync(populardish);
+            List<getdish> parsedDataa = JsonParsing<getdish>.ParseAndDisplay(jsonn);
+            mItemss = parsedDataa;
+
             //Set Profit Amount on Homepage
             TextView profitEarned = FindViewById<TextView>(Resource.Id.netProfitAmt);
             profitEarned.Text = "$5,328.16";
 
             //Set Popular Dish on Homepage
             TextView popDish = FindViewById<TextView>(Resource.Id.popularItemtext);
-            popDish.Text = "McNuggets";
+            popDish.Text = mItemss[0].ItemName;
 
 
             ContentView.ViewTreeObserver.AddOnGlobalLayoutListener(this);
         }
+
 
         View ContentView
         {

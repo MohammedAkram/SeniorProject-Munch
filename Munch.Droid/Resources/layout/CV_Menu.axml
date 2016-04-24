@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/brgrbg">
+    android:background="@drawable/tile_wood"
+    android:scaleType="centerCrop">
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -27,86 +28,82 @@
             fab:fab_colorRipple="@color/ripple" />
     </FrameLayout>
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cv_menuhead"
-        android:weightSum="100">
-        <TextView
-            android:layout_width="fill_parent"
+        android:id="@+id/cv_menuhead">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:src="@drawable/brgrheader"
+            android:scaleType="fitStart" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Menu"
-            android:layout_weight="80"
-            android:textColor="#000000"
-            android:textSize="42sp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp" />
-        <Button
-            android:text="Your Order"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:id="@+id/menuorderBtn"
-            android:layout_weight="20"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_variant1" />
-        <Button
-            android:text="Call Waiter"
-            android:layout_width="130dp"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:id="@+id/menuCallWaiter"
-            android:layout_weight="20"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_variant2" />
-        <Button
-            android:text="Ready To Pay"
-            android:layout_width="130dp"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:id="@+id/menupayButton"
-            android:layout_weight="20"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_variant2" />
-        <Button
-            android:text="Logout"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:id="@+id/menuLogOut"
-            android:layout_weight="20"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_variant2" />
+            android:id="@+id/cv_menuhead">
+            <Button
+                android:text="Your Order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#FFF"
+                android:id="@+id/menuorderBtn"
+                android:background="@drawable/btn_variant1"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp" />
+            <Button
+                android:text="Call Waiter"
+                android:layout_width="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#FFF"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/menuCallWaiter"
+                android:background="@drawable/btn_variant1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp" />
+            <Button
+                android:text="Ready To Pay"
+                android:layout_width="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#FFF"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/menupayButton"
+                android:background="@drawable/btn_variant1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp" />
+            <Button
+                android:text="Logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#FFF"
+                android:id="@+id/menuLogOut"
+                android:background="@drawable/btn_variant1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp" />
+        </LinearLayout>
     </LinearLayout>
     <FrameLayout
-        android:layout_marginTop="5dp"
         android:id="@+id/cv_framerv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#00d3d3d3">
+        android:layout_marginRight="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/tile_tilemenu">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cv_menurecyclerView"
             android:layout_width="match_parent"
