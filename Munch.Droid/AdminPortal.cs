@@ -100,6 +100,7 @@ namespace Munch
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AdminPortal2);
+            #region pubnub/parsing
             //parsing for low ingredients 
             JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(threshold);
             List<AdminPortal> parsedData = JsonParsing<AdminPortal>.ParseAndDisplay(json);
@@ -126,13 +127,14 @@ namespace Munch
             }
 
 
-            //pubnub shit
+            //pubnub
             pubnub.Subscribe<string>(
                 LoginScreen.loginUsername,
                 DisplaySubscribeReturnMessage,
                 DisplaySubscribeConnectStatusMessage,
                 DisplayErrorMessage
                 );
+            #endregion
 
             //Button List
             this.btns = new int[]
@@ -148,6 +150,7 @@ namespace Munch
             string strToDBAP = Waiter_Table_Selection_Activity.TableURL + "&&unassign=1";
 
             //Button Clicks on Page
+            #region buttons
             btns[0].Click += (sender, e) =>
             {
                 StartActivity(typeof(AP_EM_Activity));
@@ -168,7 +171,7 @@ namespace Munch
             };
             btns[4].Click += (sender, e) => StartActivity(typeof(AP_VR_ProfitActivity));
             btns[5].Click += (sender, e) => StartActivity(typeof(AP_VR_IngredientActivity));
-
+            #endregion
 
             //parsing for popular dish
             JsonValue jsonn = await JsonParsing<Task<JsonValue>>.FetchDataAsync(populardish);
@@ -179,11 +182,18 @@ namespace Munch
             TextView profitEarned = FindViewById<TextView>(Resource.Id.netProfitAmt);
             profitEarned.Text = "$5,328.16";
 
+
             //Set Popular Dish on Homepage
             TextView popDish = FindViewById<TextView>(Resource.Id.popularItemtext);
-            popDish.Text = mItemss[0].ItemName;
+            if (mItemss.Count > 0)
+            {
+                popDish.Text = mItemss[0].ItemName;
+            }
+            else {
+                popDish.Text = "No Sales";
+            } ;
 
-
+            //Reserve Admin Portal Activities and Hierarchies
             ContentView.ViewTreeObserver.AddOnGlobalLayoutListener(this);
         }
 

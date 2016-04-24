@@ -71,7 +71,7 @@
                 android:textColor="#ffffff"
                 android:textSize="38dp" />
             <TextView
-                android:text="(This Week)"
+                android:text="(Today)"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_gravity="center"
                 android:gravity="left"
@@ -96,7 +96,7 @@
                 android:textColor="#ffffff"
                 android:textSize="42dp" />
             <Button
-                android:text="VIEW DETAILS"
+                android:text="VIEW REPORTS"
                 android:id="@+id/netProfitButton"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
@@ -132,7 +132,7 @@
                 android:textColor="#ffffff"
                 android:textSize="38dp" />
             <TextView
-                android:text="(This Week)"
+                android:text="(Today)"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_gravity="center"
                 android:gravity="left"
@@ -157,7 +157,7 @@
                 android:textColor="#ffffff"
                 android:textSize="42dp" />
             <Button
-                android:text="VIEW DETAILS"
+                android:text="VIEW REPORTS"
                 android:id="@+id/inventorystateButton"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"

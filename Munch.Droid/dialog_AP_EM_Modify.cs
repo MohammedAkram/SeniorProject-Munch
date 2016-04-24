@@ -79,13 +79,10 @@ namespace Munch
         private EditText cost;
         private EditText price;
         private String selectedIngredient;
-        private List<String> dIngredientsList;
         private Button dAddIngredient;
         private Button dEditDish;
         private Button dDeleteDish;
         public Spinner ingspin;
-
-        public event EventHandler<OnSignEventArgs_ManageMenu> editItemComplete;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -93,21 +90,6 @@ namespace Munch
 
             //Load Up values from Dialog Box
             var view = inflater.Inflate(Resource.Layout.dialog_APEMEdit, container, false);
-            DishName = view.FindViewById<EditText>(Resource.Id.Edit_EditMenu_Dishname);
-            Description = view.FindViewById<EditText>(Resource.Id.Edit_EditMenu_description);
-            Ingredients = view.FindViewById<EditText>(Resource.Id.Add_EditMenu_ingredients);
-            dAddIngredient = view.FindViewById<Button>(Resource.Id.btn_addingredient_Edit);
-            Quantity = view.FindViewById<EditText>(Resource.Id.EMQuantity_Edit);
-            calories = view.FindViewById<EditText>(Resource.Id.Edit_EditMenu_calories);
-            cost = view.FindViewById<EditText>(Resource.Id.Edit_EditMenu_cost);
-            price = view.FindViewById<EditText>(Resource.Id.Edit_EditMenu_price);
-
-            //Spinner Pull
-            String[] spinnerFeed = AP_EM_Activity.ingredientsTransferList.ToArray();
-            var ingSpinner = view.FindViewById<Spinner>(Resource.Id.spnr_EMIngredientsEdit);
-            var ingAdapter = new ArrayAdapter<String>(this.Activity, Android.Resource.Layout.SimpleSpinnerItem, spinnerFeed);
-            ingSpinner.Adapter = ingAdapter;
-            ingspin = ingSpinner;
 
             //Edit and Delete Buttons
             dEditDish = view.FindViewById<Button>(Resource.Id.btn_Edit_dish);
@@ -117,26 +99,17 @@ namespace Munch
             return view;
           }
 
-        private void dAddIngredient_Click(object sender, EventArgs e)
-        {
-            selectedIngredient = ingspin.SelectedItem.ToString();
-            dIngredientsList.Add((Quantity.Text.ToString() + " " + selectedIngredient.ToString()));
-            Console.WriteLine(Quantity.Text.ToString() + " " + selectedIngredient.ToString());
-        }
-
         private void dEditDish_Click(object sender, EventArgs e)
         {
-            editItemComplete.Invoke(this, new OnSignEventArgs_ManageMenu(DishName.Text, Description.Text, Ingredients.Text, Quantity.Text, calories.Text, cost.Text, price.Text));
-            var webClient = new WebClient();
-            /*
-            webClient.DownloadString("http://54.191.98.63/editaccount.php?id=" + select + "&&newid=" + Username.Text + "&&level=" + level.Text + "&&delete=0&&password=" + Password.Text + "");
-            */
             this.Dismiss();
         }
 
         private void dDelete_Click(object sender, EventArgs e)
         {
-
+            var webClient = new WebClient();
+            webClient.DownloadString("http://54.191.98.63/deletemenu.php?DishName=" + AP_EM_Activity.dishName_to_order.iName);
+            this.Dismiss();
+            Android.Widget.Toast.MakeText(this.Context, "Logged Out Successfully", Android.Widget.ToastLength.Long).Show();
         }
     }
 }

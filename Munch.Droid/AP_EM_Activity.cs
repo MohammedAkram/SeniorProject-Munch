@@ -52,7 +52,6 @@ namespace Munch
             JsonValue json = await JsonParsing<Task<JsonValue>>.FetchDataAsync(menuURL);
             List<EMItemList> parsedData = JsonParsing<EMItemList>.ParseAndDisplay(json);
             AP_EM_ItemList.mBuiltInCards = parsedData.ToArray();
-            
 
             //Create Menu List
             mItemList = new AP_EM_ItemList();
@@ -129,23 +128,17 @@ namespace Munch
             anim.Start();
         }
 
+        public static EMItemList dishName_to_order;
 
-        void OnItemClick(object sender, int Position)
+        void OnItemClick(object sender, int position)
         {
-           
-            //Button editItem = FindViewById<Button>(Resource.Id.btn_cardModify);
+
             dialog_AP_EM_Modify modifyMenu = new dialog_AP_EM_Modify();
             modifyMenu = new dialog_AP_EM_Modify();
+            dishName_to_order = mItemList[position];
 
-            //editItem.Click += delegate
-         //   {
-                FragmentTransaction transaction = FragmentManager.BeginTransaction();
-                Console.WriteLine("modify clicked.");
-                modifyMenu.Show(transaction, "something");
-                Android.Widget.Toast.MakeText(this, "Modify Item Clicked.", Android.Widget.ToastLength.Short).Show();
-            //};
-
-            Android.Widget.Toast.MakeText(this, "Card Clicked.", Android.Widget.ToastLength.Short).Show();
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            modifyMenu.Show(transaction, "something");
         }
     }
 

@@ -192,6 +192,8 @@ namespace Munch
             //Item Click
             mAdapter.ItemClick += OnItemClick;
 
+            mAdapter.NotifyDataSetChanged();
+
             Button orderbtn = FindViewById<Button>(Resource.Id.menuorderBtn);
             Button callbtn = FindViewById<Button>(Resource.Id.menuCallWaiter);
             Button pay = FindViewById<Button>(Resource.Id.menupayButton);
@@ -233,6 +235,7 @@ namespace Munch
         }
 
         public static EMItemList dishName_to_order;
+
         void OnItemClick(object sender, int position)
         {
             dishName_to_order = mItemList[position];
