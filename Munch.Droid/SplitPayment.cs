@@ -2,20 +2,31 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-
+using Android.Support.V7.App;
+using Android.Support.V4.Widget;
 
 namespace Munch
 {
-    [Activity(Label = "SplitPayment", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
-    public class SplitPayment : Activity
+    [Activity(Label = "SplitPayment", Theme = "@style/MyTheme", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    public class SplitPayment : ActionBarActivity
     {
+
+
+        private SupportToolbar mToolbar;
+        private MyActionBarDrawerToggle mDrawerToggle;
+        private DrawerLayout mDrawerLayout;
+        private ListView mLeftDrawer;
+        private ArrayAdapter mLeftAdapter;
+        private List<string> mLeftDataSet;
+
+
 
         // current customer that is dragging orders
         int currentCustomer = 1;
@@ -25,10 +36,74 @@ namespace Munch
         // center text view that holds what customer is currently active
         TextView result;
         Dictionary<int, Android.Graphics.Color> colorDictionary = new Dictionary<int, Android.Graphics.Color>();
+
+
         protected override void OnCreate(Bundle bundle)
         {
+            base.OnCreate(bundle);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.SplitPaymentScreen);
+
+            //drawer stuff 
+            mToolbar = FindViewById<SupportToolbar>(Resource.Id.DToolbar);
+            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+            mLeftDrawer.Tag = 0;
+            SetSupportActionBar(mToolbar);
+
+
+
+            mLeftDataSet = new List<string>();
+            mLeftDataSet.Add("Things in Drawer1");
+            mLeftDataSet.Add("Things in Drawer2");
+            mLeftDataSet.Add("Things in Drawer3");
+            mLeftDataSet.Add("Things in Drawer4");
+            mLeftDataSet.Add("Things in Drawer5");
+            mLeftDataSet.Add("Things in Drawer6");
+            mLeftDataSet.Add("Things in Drawer7");
+            mLeftDataSet.Add("Things in Drawer8");
+            mLeftDataSet.Add("Things in Drawer9");
+            mLeftDataSet.Add("Things in Drawer10");
+            mLeftDataSet.Add("Even More stuff");
+            mLeftDataSet.Add("Even More stuff");
+            mLeftDataSet.Add("Even More stuff");
+            mLeftDataSet.Add("Even More stuff");
+
+            mLeftAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, mLeftDataSet);
+            mLeftDrawer.Adapter = mLeftAdapter;
+
+            mDrawerToggle = new MyActionBarDrawerToggle(
+                this,                           //Host Activity
+                mDrawerLayout,                  //DrawerLayout
+                Resource.String.openDrawer,     //Opened Message
+                Resource.String.closeDrawer     //Closed Message
+            );
+
+            mDrawerLayout.SetDrawerListener(mDrawerToggle);
+            SupportActionBar.SetHomeButtonEnabled(true);
+            SupportActionBar.SetDisplayShowTitleEnabled(true);
+            mDrawerToggle.SyncState();
+
+            if (bundle != null)
+            {
+                if (bundle.GetString("DrawerState") == "Opened")
+                {
+                    SupportActionBar.SetTitle(Resource.String.openDrawer);
+                }
+
+                else
+                {
+                    SupportActionBar.SetTitle(Resource.String.closeDrawer);
+                }
+            }
+
+            else
+            {
+
+                SupportActionBar.SetTitle(Resource.String.closeDrawer);
+            }
+
+
             var dropZone = FindViewById<FrameLayout>(Resource.Id.dropzone);
             
             Random randomGen = new Random();
@@ -152,7 +227,7 @@ namespace Munch
             // Attach event to drop zone
             dropZone.Drag += DropZone_Drag;
             
-            base.OnCreate(bundle);
+          
         }
 
         void Button_LongClickEvent(object sender, View.LongClickEventArgs e)
@@ -205,6 +280,12 @@ namespace Munch
     
         }
 
-               
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+           mDrawerToggle.OnOptionsItemSelected(item);
+            return base.OnOptionsItemSelected(item);
+        }
+
+        
     }
 }

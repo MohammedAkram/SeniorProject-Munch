@@ -2,4 +2,6 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">test.Droid</string>
+  <string name="openDrawer">How You Split</string>
+  <string name="closeDrawer">Split the Check</string>
 </resources>
