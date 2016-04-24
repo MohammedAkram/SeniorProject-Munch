@@ -359,6 +359,12 @@
     <AndroidResource Include="Resources\drawable\brgrmenubg.png" />
     <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\drawable\brgrheader.png" />
+    <AndroidResource Include="Resources\drawable\brgryourorder.png" />
+    <AndroidResource Include="Resources\drawable\tile_tilemenu.xml" />
+    <AndroidResource Include="Resources\drawable\tile_wood.xml" />
+    <AndroidResource Include="Resources\drawable\tilemenu.png" />
+    <AndroidResource Include="Resources\drawable\wood.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

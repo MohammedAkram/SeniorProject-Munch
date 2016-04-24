@@ -1912,85 +1912,103 @@ namespace Munch
 			public const int brgrbg = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int brgrmenubg = 2130837577;
+			public const int brgrheader = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int btn_mtrl_alpha = 2130837578;
+			public const int brgrmenubg = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int btn_variant1 = 2130837579;
+			public const int brgryourorder = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int btn_variant2 = 2130837580;
+			public const int btn_mtrl_alpha = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int chickparm = 2130837581;
+			public const int btn_variant1 = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int customerbreakfast = 2130837582;
+			public const int btn_variant2 = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int customersplash = 2130837583;
+			public const int chickparm = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int customerwelcome = 2130837584;
+			public const int customerbreakfast = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int design_fab_background = 2130837585;
+			public const int customersplash = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int design_snackbar_background = 2130837586;
+			public const int customerwelcome = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int fab_shadow = 2130837587;
+			public const int design_fab_background = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int fab_shadow_mini = 2130837588;
+			public const int design_snackbar_background = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int grassbg = 2130837589;
+			public const int fab_shadow = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int ic_add_white_24dp = 2130837590;
+			public const int fab_shadow_mini = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int ic_go_white_24dp = 2130837591;
+			public const int grassbg = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int ic_launcher = 2130837592;
+			public const int ic_add_white_24dp = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int ic_shopping_cart_white_24dp = 2130837593;
+			public const int ic_go_white_24dp = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int Icon = 2130837594;
+			public const int ic_launcher = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int loginbg = 2130837595;
+			public const int ic_shopping_cart_white_24dp = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int logo = 2130837596;
-			
-			// aapt resource value: 0x7f020063
-			public const int notification_template_icon_bg = 2130837603;
+			public const int Icon = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int overallbg = 2130837597;
+			public const int loginbg = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int payConfirmation = 2130837598;
+			public const int logo = 2130837598;
+			
+			// aapt resource value: 0x7f020069
+			public const int notification_template_icon_bg = 2130837609;
 			
 			// aapt resource value: 0x7f02005f
-			public const int round_button = 2130837599;
+			public const int overallbg = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int RoundedButton = 2130837600;
+			public const int payConfirmation = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int selector = 2130837601;
+			public const int round_button = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int WPCustomerOrder = 2130837602;
+			public const int RoundedButton = 2130837602;
+			
+			// aapt resource value: 0x7f020063
+			public const int selector = 2130837603;
+			
+			// aapt resource value: 0x7f020064
+			public const int tile_tilemenu = 2130837604;
+			
+			// aapt resource value: 0x7f020065
+			public const int tile_wood = 2130837605;
+			
+			// aapt resource value: 0x7f020066
+			public const int tilemenu = 2130837606;
+			
+			// aapt resource value: 0x7f020067
+			public const int wood = 2130837607;
+			
+			// aapt resource value: 0x7f020068
+			public const int WPCustomerOrder = 2130837608;
 			
 			static Drawable()
 			{
@@ -2206,8 +2224,8 @@ namespace Munch
 			// aapt resource value: 0x7f060088
 			public const int Menu_Item_Title = 2131099784;
 			
-			// aapt resource value: 0x7f0600b5
-			public const int ORderUP = 2131099829;
+			// aapt resource value: 0x7f0600b6
+			public const int ORderUP = 2131099830;
 			
 			// aapt resource value: 0x7f0600a0
 			public const int ProfitReportListView = 2131099808;
@@ -2338,8 +2356,8 @@ namespace Munch
 			// aapt resource value: 0x7f0600e1
 			public const int btn_Delete_Inventory = 2131099873;
 			
-			// aapt resource value: 0x7f0600d0
-			public const int btn_Delete_dish = 2131099856;
+			// aapt resource value: 0x7f0600cf
+			public const int btn_Delete_dish = 2131099855;
 			
 			// aapt resource value: 0x7f0600d5
 			public const int btn_Edit_Account = 2131099861;
@@ -2347,8 +2365,8 @@ namespace Munch
 			// aapt resource value: 0x7f0600e0
 			public const int btn_Edit_Inventory = 2131099872;
 			
-			// aapt resource value: 0x7f0600cf
-			public const int btn_Edit_dish = 2131099855;
+			// aapt resource value: 0x7f0600d0
+			public const int btn_Edit_dish = 2131099856;
 			
 			// aapt resource value: 0x7f0600c9
 			public const int btn_addingredient_Edit = 2131099849;
@@ -2581,8 +2599,8 @@ namespace Munch
 			// aapt resource value: 0x7f06008f
 			public const int mngInventoryListView = 2131099791;
 			
-			// aapt resource value: 0x7f0600b6
-			public const int mngYour_Order_ListView = 2131099830;
+			// aapt resource value: 0x7f0600b5
+			public const int mngYour_Order_ListView = 2131099829;
 			
 			// aapt resource value: 0x7f060015
 			public const int multiply = 2131099669;
