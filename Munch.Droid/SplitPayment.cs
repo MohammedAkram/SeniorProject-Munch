@@ -14,17 +14,29 @@ using Android.Support.V4.Widget;
 
 namespace Munch
 {
+
     [Activity(Label = "SplitPayment", Theme = "@style/MyTheme", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+
+   
+
     public class SplitPayment : ActionBarActivity
     {
 
+        class Customer
+        {
+            public int custNum { get; set; }
+            public List<EMItemList> order { get; set; }
+            public double subtotal { get; set; }
 
+        }
+
+        //drawer stuff
         private SupportToolbar mToolbar;
         private MyActionBarDrawerToggle mDrawerToggle;
         private DrawerLayout mDrawerLayout;
         private ListView mLeftDrawer;
         private ArrayAdapter mLeftAdapter;
-        private List<string> mLeftDataSet;
+        private List<String> mLeftDataSet;
 
 
 
@@ -35,8 +47,10 @@ namespace Munch
 
         // center text view that holds what customer is currently active
         TextView result;
-        Dictionary<int, Android.Graphics.Color> colorDictionary = new Dictionary<int, Android.Graphics.Color>();
 
+        Dictionary<string, EMItemList> itemsOnMenu = new Dictionary<string, EMItemList>();
+        Dictionary<int, Android.Graphics.Color> colorDictionary = new Dictionary<int, Android.Graphics.Color>();
+        List<Customer> customerList = new List<Customer>();
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -53,24 +67,7 @@ namespace Munch
 
 
 
-            mLeftDataSet = new List<string>();
-            mLeftDataSet.Add("Things in Drawer1");
-            mLeftDataSet.Add("Things in Drawer2");
-            mLeftDataSet.Add("Things in Drawer3");
-            mLeftDataSet.Add("Things in Drawer4");
-            mLeftDataSet.Add("Things in Drawer5");
-            mLeftDataSet.Add("Things in Drawer6");
-            mLeftDataSet.Add("Things in Drawer7");
-            mLeftDataSet.Add("Things in Drawer8");
-            mLeftDataSet.Add("Things in Drawer9");
-            mLeftDataSet.Add("Things in Drawer10");
-            mLeftDataSet.Add("Even More stuff");
-            mLeftDataSet.Add("Even More stuff");
-            mLeftDataSet.Add("Even More stuff");
-            mLeftDataSet.Add("Even More stuff");
-
-            mLeftAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, mLeftDataSet);
-            mLeftDrawer.Adapter = mLeftAdapter;
+            
 
             mDrawerToggle = new MyActionBarDrawerToggle(
                 this,                           //Host Activity
@@ -114,26 +111,33 @@ namespace Munch
             //adds an empty list so the next indexes correspond with the customer number
             splits.Add(new List<String>());
             splits.Add(new List<String>());
+
             // first button on the list
             var button1 = FindViewById<Button>(Resource.Id.button1);
+
             //give it a unique ID
             button1.Id = 123455;
+
             //the layout that holds all the buttons
             RelativeLayout rl = FindViewById<RelativeLayout>(Resource.Id.buttonholder);
 
             //holds all of the ordered dishes
             List<CustomerOrderItem> orderList = CustomerPortal.CustomerOrderList;
+
             //holds all of the generated buttons 
             List<Button> btnList = new List<Button>();
+
             //holds the IDs of each button that was generated
             List<int> idList = new List<int>();
+
             //adds the ID of the first button
             idList.Add(button1.Id);
+
             //creates a new layout parameter for the buttons
             List<RelativeLayout.LayoutParams> layoutHolder = new List<RelativeLayout.LayoutParams>();
-
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WrapContent, RelativeLayout.LayoutParams.WrapContent);
             lp.AddRule(LayoutRules.CenterHorizontal);
+
             //used to create a unique ID for each genereated button
             int idGen = 123456;
 
@@ -147,13 +151,18 @@ namespace Munch
                 int numQty = Int32.Parse(x.Quantity);
                 while (numQty > 0)
                 {
+                    if (!itemsOnMenu.ContainsKey(x.Dish.iName))
+                    {
+                        itemsOnMenu.Add(x.Dish.iName, x.Dish);
+                    }
+                    
                     splits[0].Add(x.Dish.ToString());
                     btnList.Add(new Button(this));
                     layoutHolder.Add(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WrapContent, RelativeLayout.LayoutParams.WrapContent));
                     RelativeLayout.LayoutParams lastLayout = layoutHolder.Last();
                     lastLayout.AddRule(LayoutRules.CenterHorizontal);
                     Button lastButton = btnList.Last();
-                    lastButton.Tag = x.Dish.iName + numQty;
+                    lastButton.Tag =  + numQty;
                     lastLayout.AddRule(LayoutRules.Below, idList.Last());
                     lastButton.LayoutParameters = lastLayout;
                     lastButton.Text = x.Dish.iName;
@@ -167,16 +176,14 @@ namespace Munch
             }
 
 
-
-
-
-
             /*
              * 
              * Stuff for the previous and next buttons 
              * 
              */
 
+            customerList.Insert(0, (new Customer() { custNum = currentCustomer, order = new List<EMItemList>(), subtotal = 0.0 }));
+            customerList.Insert(1, (new Customer() { custNum = currentCustomer, order = new List<EMItemList>(), subtotal = 0.0 }));
             Android.Graphics.Color value;
             Button prev = FindViewById<Button>(Resource.Id.prevButton);
             Button next = FindViewById<Button>(Resource.Id.nextButton);
@@ -200,6 +207,7 @@ namespace Munch
                     splits.Add(new List<string>());
                     currentCustomer++;
                     topCustomer = currentCustomer;
+                    customerList.Insert(currentCustomer, (new Customer() { custNum = currentCustomer, order = new List<EMItemList>(), subtotal = 0.0 }));
                     colorDictionary.Add(currentCustomer, color);
                     result.Text = "Customer " + currentCustomer;
                     dropZone.SetBackgroundColor(color);
@@ -226,8 +234,43 @@ namespace Munch
 
             // Attach event to drop zone
             dropZone.Drag += DropZone_Drag;
+
+
+
+            mLeftDataSet = new List<String>();
+
             
-          
+
+
+            mLeftAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, mLeftDataSet);
+            mLeftDrawer.Adapter = mLeftAdapter;
+            
+
+        }
+
+
+        public void refreshNav()
+        {
+            mLeftAdapter.Clear();
+
+            for(int i = 1; i < customerList.Count(); i++) 
+            {
+                Customer cus = customerList[i];
+                mLeftAdapter.Add("Customer " + cus.custNum);
+                foreach(EMItemList em in cus.order)
+                {
+                    mLeftAdapter.Add("   "+ em.iName.ToString() + ": $" + em.ItemPrice);
+                }
+                mLeftAdapter.Add("Subtotal: $" + cus.subtotal);
+            }
+
+            double totalCost = 0;
+            foreach(Customer cust in customerList)
+            {
+                totalCost += cust.subtotal;
+            }
+            mLeftAdapter.Add("Total Cost: $" + totalCost);
+
         }
 
         void Button_LongClickEvent(object sender, View.LongClickEventArgs e)
@@ -269,11 +312,17 @@ namespace Munch
                         result.Text = data.GetItemAt(0).Text + " has been dropped.";
                     Button btn = (Button)e.Event.LocalState;
                     Android.Graphics.Color value;
+                    EMItemList item;
+                    itemsOnMenu.TryGetValue(data.GetItemAt(0).Text, out item);
+                    customerList[currentCustomer].order.Add(item);
+                    double price = Convert.ToDouble(item.iPrice);
+                    customerList[currentCustomer].subtotal += price;
                     colorDictionary.TryGetValue(currentCustomer, out value);
                     btn.SetBackgroundColor(value);
                     splits[currentCustomer].Add(data.GetItemAt(0).Text);
                     int num = splits[currentCustomer].Count();
                     Console.WriteLine(num);
+                    refreshNav();
                     break;
             }
 
