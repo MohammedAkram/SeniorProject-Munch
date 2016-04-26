@@ -15,7 +15,7 @@ using Android.Support.V4.Widget;
 namespace Munch
 {
 
-    [Activity(Label = "SplitPayment", Theme = "@style/MyTheme", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
+    [Activity(Label = "SplitPayment", Theme = "@style/MyTheme", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorPortrait)]
 
    
 
@@ -259,7 +259,7 @@ namespace Munch
                 mLeftAdapter.Add("Customer " + cus.custNum);
                 foreach(EMItemList em in cus.order)
                 {
-                    mLeftAdapter.Add("   "+ em.iName.ToString() + ": $" + em.ItemPrice);
+                    mLeftAdapter.Add(" • " + em.iName.ToString() + ": $" + em.ItemPrice);
                 }
                 mLeftAdapter.Add("Subtotal: $" + cus.subtotal);
             }
