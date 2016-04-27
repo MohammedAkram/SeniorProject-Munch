@@ -2080,23 +2080,23 @@ namespace Munch
 			// aapt resource value: 0x7f06007b
 			public const int AddLogOut_Edit_Menu_Button = 2131099771;
 			
-			// aapt resource value: 0x7f0600c9
-			public const int Add_Account_Level = 2131099849;
-			
-			// aapt resource value: 0x7f0600cb
-			public const int Add_Account_Password = 2131099851;
+			// aapt resource value: 0x7f0600c8
+			public const int Add_Account_Level = 2131099848;
 			
 			// aapt resource value: 0x7f0600ca
-			public const int Add_Account_Username = 2131099850;
+			public const int Add_Account_Password = 2131099850;
 			
-			// aapt resource value: 0x7f0600c3
-			public const int Add_Dish_to_Order_DishName = 2131099843;
+			// aapt resource value: 0x7f0600c9
+			public const int Add_Account_Username = 2131099849;
 			
-			// aapt resource value: 0x7f0600c5
-			public const int Add_Dish_to_Order_Note = 2131099845;
+			// aapt resource value: 0x7f0600c2
+			public const int Add_Dish_to_Order_DishName = 2131099842;
 			
 			// aapt resource value: 0x7f0600c4
-			public const int Add_Dish_to_Order_Quantity = 2131099844;
+			public const int Add_Dish_to_Order_Note = 2131099844;
+			
+			// aapt resource value: 0x7f0600c3
+			public const int Add_Dish_to_Order_Quantity = 2131099843;
 			
 			// aapt resource value: 0x7f06007d
 			public const int Add_EditMenu_Dishname = 2131099773;
@@ -2125,8 +2125,8 @@ namespace Munch
 			// aapt resource value: 0x7f0600aa
 			public const int CV_viewPager = 2131099818;
 			
-			// aapt resource value: 0x7f0600eb
-			public const int DToolbar = 2131099883;
+			// aapt resource value: 0x7f0600ea
+			public const int DToolbar = 2131099882;
 			
 			// aapt resource value: 0x7f060080
 			public const int EMQuantity = 2131099776;
@@ -2155,8 +2155,8 @@ namespace Munch
 			// aapt resource value: 0x7f060077
 			public const int LogOut_Edit_Menu_Button = 2131099767;
 			
-			// aapt resource value: 0x7f060101
-			public const int LogOut_Waiter_Table_Selection = 2131099905;
+			// aapt resource value: 0x7f060100
+			public const int LogOut_Waiter_Table_Selection = 2131099904;
 			
 			// aapt resource value: 0x7f06006f
 			public const int ManageInventoryButton = 2131099759;
@@ -2173,8 +2173,8 @@ namespace Munch
 			// aapt resource value: 0x7f060094
 			public const int Manage_Inventory_Txt_Units = 2131099796;
 			
-			// aapt resource value: 0x7f060107
-			public const int Manage_Selecteedtable_Name = 2131099911;
+			// aapt resource value: 0x7f060106
+			public const int Manage_Selecteedtable_Name = 2131099910;
 			
 			// aapt resource value: 0x7f0600b7
 			public const int Manage_Your_Order_Txt_Name = 2131099831;
@@ -2221,35 +2221,35 @@ namespace Munch
 			// aapt resource value: 0x7f0600a6
 			public const int View_Report_Profit_Profit = 2131099814;
 			
-			// aapt resource value: 0x7f060108
-			public const int WPCODishName = 2131099912;
-			
-			// aapt resource value: 0x7f06010a
-			public const int WPCOPrice = 2131099914;
+			// aapt resource value: 0x7f060107
+			public const int WPCODishName = 2131099911;
 			
 			// aapt resource value: 0x7f060109
-			public const int WPCOQuantity = 2131099913;
+			public const int WPCOPrice = 2131099913;
 			
-			// aapt resource value: 0x7f06010d
-			public const int WPCOfab = 2131099917;
+			// aapt resource value: 0x7f060108
+			public const int WPCOQuantity = 2131099912;
 			
 			// aapt resource value: 0x7f06010c
-			public const int WP_customerorderListView = 2131099916;
+			public const int WPCOfab = 2131099916;
 			
-			// aapt resource value: 0x7f060102
-			public const int Waiter_Table_Selection_ListView = 2131099906;
+			// aapt resource value: 0x7f06010b
+			public const int WP_customerorderListView = 2131099915;
 			
-			// aapt resource value: 0x7f060104
-			public const int Waiter_Table_Selection_Txt_Table = 2131099908;
-			
-			// aapt resource value: 0x7f060105
-			public const int Waiter_Table_Selection_checkBox = 2131099909;
+			// aapt resource value: 0x7f060101
+			public const int Waiter_Table_Selection_ListView = 2131099905;
 			
 			// aapt resource value: 0x7f060103
-			public const int Waiter_Table_Selection_fab = 2131099907;
+			public const int Waiter_Table_Selection_Txt_Table = 2131099907;
 			
-			// aapt resource value: 0x7f060106
-			public const int Waiter_portal_ListView = 2131099910;
+			// aapt resource value: 0x7f060104
+			public const int Waiter_Table_Selection_checkBox = 2131099908;
+			
+			// aapt resource value: 0x7f060102
+			public const int Waiter_Table_Selection_fab = 2131099906;
+			
+			// aapt resource value: 0x7f060105
+			public const int Waiter_portal_ListView = 2131099909;
 			
 			// aapt resource value: 0x7f0600b4
 			public const int Welcom_Call_Waiter = 2131099828;
@@ -2257,8 +2257,8 @@ namespace Munch
 			// aapt resource value: 0x7f060073
 			public const int accntMgmtListView = 2131099763;
 			
-			// aapt resource value: 0x7f0600ee
-			public const int action0 = 2131099886;
+			// aapt resource value: 0x7f0600ed
+			public const int action0 = 2131099885;
 			
 			// aapt resource value: 0x7f06005a
 			public const int action_bar = 2131099738;
@@ -2284,8 +2284,8 @@ namespace Munch
 			// aapt resource value: 0x7f06005b
 			public const int action_context_bar = 2131099739;
 			
-			// aapt resource value: 0x7f0600f2
-			public const int action_divider = 2131099890;
+			// aapt resource value: 0x7f0600f1
+			public const int action_divider = 2131099889;
 			
 			// aapt resource value: 0x7f060003
 			public const int action_menu_divider = 2131099651;
@@ -2317,14 +2317,14 @@ namespace Munch
 			// aapt resource value: 0x7f06002a
 			public const int bottom = 2131099690;
 			
-			// aapt resource value: 0x7f0600d3
-			public const int btnAPMIAddItem1 = 2131099859;
+			// aapt resource value: 0x7f0600d2
+			public const int btnAPMIAddItem1 = 2131099858;
 			
-			// aapt resource value: 0x7f0600cc
-			public const int btn_Add_Account = 2131099852;
+			// aapt resource value: 0x7f0600cb
+			public const int btn_Add_Account = 2131099851;
 			
-			// aapt resource value: 0x7f0600c6
-			public const int btn_Add_Dish_to_Order = 2131099846;
+			// aapt resource value: 0x7f0600c5
+			public const int btn_Add_Dish_to_Order = 2131099845;
 			
 			// aapt resource value: 0x7f060087
 			public const int btn_Add_dish = 2131099783;
@@ -2332,38 +2332,38 @@ namespace Munch
 			// aapt resource value: 0x7f06007f
 			public const int btn_Addaddingredient = 2131099775;
 			
-			// aapt resource value: 0x7f0600ce
-			public const int btn_Delete_Account = 2131099854;
-			
-			// aapt resource value: 0x7f0600d9
-			public const int btn_Delete_Inventory = 2131099865;
-			
-			// aapt resource value: 0x7f0600c7
-			public const int btn_Delete_dish = 2131099847;
-			
 			// aapt resource value: 0x7f0600cd
-			public const int btn_Edit_Account = 2131099853;
+			public const int btn_Delete_Account = 2131099853;
 			
 			// aapt resource value: 0x7f0600d8
-			public const int btn_Edit_Inventory = 2131099864;
+			public const int btn_Delete_Inventory = 2131099864;
 			
-			// aapt resource value: 0x7f0600c8
-			public const int btn_Edit_dish = 2131099848;
+			// aapt resource value: 0x7f0600c6
+			public const int btn_Delete_dish = 2131099846;
+			
+			// aapt resource value: 0x7f0600cc
+			public const int btn_Edit_Account = 2131099852;
+			
+			// aapt resource value: 0x7f0600d7
+			public const int btn_Edit_Inventory = 2131099863;
+			
+			// aapt resource value: 0x7f0600c7
+			public const int btn_Edit_dish = 2131099847;
+			
+			// aapt resource value: 0x7f0600dc
+			public const int button1 = 2131099868;
 			
 			// aapt resource value: 0x7f0600dd
-			public const int button1 = 2131099869;
-			
-			// aapt resource value: 0x7f0600de
-			public const int button2 = 2131099870;
+			public const int button2 = 2131099869;
 			
 			// aapt resource value: 0x7f060044
 			public const int buttonPanel = 2131099716;
 			
-			// aapt resource value: 0x7f0600fe
-			public const int buttonholder = 2131099902;
+			// aapt resource value: 0x7f0600fd
+			public const int buttonholder = 2131099901;
 			
-			// aapt resource value: 0x7f0600ef
-			public const int cancel_action = 2131099887;
+			// aapt resource value: 0x7f0600ee
+			public const int cancel_action = 2131099886;
 			
 			// aapt resource value: 0x7f06002b
 			public const int center = 2131099691;
@@ -2377,8 +2377,8 @@ namespace Munch
 			// aapt resource value: 0x7f060052
 			public const int checkbox = 2131099730;
 			
-			// aapt resource value: 0x7f0600f5
-			public const int chronometer = 2131099893;
+			// aapt resource value: 0x7f0600f4
+			public const int chronometer = 2131099892;
 			
 			// aapt resource value: 0x7f060033
 			public const int clip_horizontal = 2131099699;
@@ -2401,8 +2401,8 @@ namespace Munch
 			// aapt resource value: 0x7f06004f
 			public const int customPanel = 2131099727;
 			
-			// aapt resource value: 0x7f0600fd
-			public const int customerTotal = 2131099901;
+			// aapt resource value: 0x7f0600fc
+			public const int customerTotal = 2131099900;
 			
 			// aapt resource value: 0x7f0600ab
 			public const int customerspalsh = 2131099819;
@@ -2422,26 +2422,26 @@ namespace Munch
 			// aapt resource value: 0x7f060040
 			public const int default_activity_button = 2131099712;
 			
-			// aapt resource value: 0x7f0600c2
-			public const int design_menu_item_action_area = 2131099842;
-			
 			// aapt resource value: 0x7f0600c1
-			public const int design_menu_item_action_area_stub = 2131099841;
+			public const int design_menu_item_action_area = 2131099841;
 			
 			// aapt resource value: 0x7f0600c0
-			public const int design_menu_item_text = 2131099840;
+			public const int design_menu_item_action_area_stub = 2131099840;
 			
 			// aapt resource value: 0x7f0600bf
-			public const int design_navigation_view = 2131099839;
+			public const int design_menu_item_text = 2131099839;
+			
+			// aapt resource value: 0x7f0600be
+			public const int design_navigation_view = 2131099838;
 			
 			// aapt resource value: 0x7f06000e
 			public const int disableHome = 2131099662;
 			
-			// aapt resource value: 0x7f0600ec
-			public const int drawer_layout = 2131099884;
+			// aapt resource value: 0x7f0600eb
+			public const int drawer_layout = 2131099883;
 			
-			// aapt resource value: 0x7f0600fb
-			public const int dropzone = 2131099899;
+			// aapt resource value: 0x7f0600fa
+			public const int dropzone = 2131099898;
 			
 			// aapt resource value: 0x7f06005c
 			public const int edit_query = 2131099740;
@@ -2449,8 +2449,8 @@ namespace Munch
 			// aapt resource value: 0x7f06001b
 			public const int end = 2131099675;
 			
-			// aapt resource value: 0x7f0600fa
-			public const int end_padder = 2131099898;
+			// aapt resource value: 0x7f0600f9
+			public const int end_padder = 2131099897;
 			
 			// aapt resource value: 0x7f060023
 			public const int enterAlways = 2131099683;
@@ -2497,23 +2497,20 @@ namespace Munch
 			// aapt resource value: 0x7f06003f
 			public const int image = 2131099711;
 			
-			// aapt resource value: 0x7f0600bb
-			public const int imageView = 2131099835;
+			// aapt resource value: 0x7f0600df
+			public const int imageView1 = 2131099871;
 			
-			// aapt resource value: 0x7f0600e0
-			public const int imageView1 = 2131099872;
+			// aapt resource value: 0x7f0600e2
+			public const int imageView2 = 2131099874;
 			
-			// aapt resource value: 0x7f0600e3
-			public const int imageView2 = 2131099875;
+			// aapt resource value: 0x7f0600e5
+			public const int imageView3 = 2131099877;
 			
-			// aapt resource value: 0x7f0600e6
-			public const int imageView3 = 2131099878;
+			// aapt resource value: 0x7f0600e8
+			public const int imageView4 = 2131099880;
 			
-			// aapt resource value: 0x7f0600e9
-			public const int imageView4 = 2131099881;
-			
-			// aapt resource value: 0x7f0600f9
-			public const int info = 2131099897;
+			// aapt resource value: 0x7f0600f8
+			public const int info = 2131099896;
 			
 			// aapt resource value: 0x7f06006d
 			public const int inventorystateButton = 2131099757;
@@ -2524,26 +2521,26 @@ namespace Munch
 			// aapt resource value: 0x7f06002f
 			public const int left = 2131099695;
 			
-			// aapt resource value: 0x7f0600ed
-			public const int left_drawer = 2131099885;
+			// aapt resource value: 0x7f0600ec
+			public const int left_drawer = 2131099884;
 			
-			// aapt resource value: 0x7f0600f3
-			public const int line1 = 2131099891;
+			// aapt resource value: 0x7f0600f2
+			public const int line1 = 2131099890;
 			
-			// aapt resource value: 0x7f0600f7
-			public const int line3 = 2131099895;
+			// aapt resource value: 0x7f0600f6
+			public const int line3 = 2131099894;
 			
-			// aapt resource value: 0x7f0600df
-			public const int linearLayout1 = 2131099871;
+			// aapt resource value: 0x7f0600de
+			public const int linearLayout1 = 2131099870;
 			
-			// aapt resource value: 0x7f0600e2
-			public const int linearLayout2 = 2131099874;
+			// aapt resource value: 0x7f0600e1
+			public const int linearLayout2 = 2131099873;
 			
-			// aapt resource value: 0x7f0600e5
-			public const int linearLayout3 = 2131099877;
+			// aapt resource value: 0x7f0600e4
+			public const int linearLayout3 = 2131099876;
 			
-			// aapt resource value: 0x7f0600e8
-			public const int linearLayout4 = 2131099880;
+			// aapt resource value: 0x7f0600e7
+			public const int linearLayout4 = 2131099879;
 			
 			// aapt resource value: 0x7f06000b
 			public const int listMode = 2131099659;
@@ -2551,11 +2548,11 @@ namespace Munch
 			// aapt resource value: 0x7f060041
 			public const int list_item = 2131099713;
 			
-			// aapt resource value: 0x7f0600dc
-			public const int login = 2131099868;
+			// aapt resource value: 0x7f0600db
+			public const int login = 2131099867;
 			
-			// aapt resource value: 0x7f0600f1
-			public const int media_actions = 2131099889;
+			// aapt resource value: 0x7f0600f0
+			public const int media_actions = 2131099888;
 			
 			// aapt resource value: 0x7f0600af
 			public const int menuCallWaiter = 2131099823;
@@ -2584,8 +2581,8 @@ namespace Munch
 			// aapt resource value: 0x7f060015
 			public const int multiply = 2131099669;
 			
-			// aapt resource value: 0x7f0600be
-			public const int navigation_header_container = 2131099838;
+			// aapt resource value: 0x7f0600bd
+			public const int navigation_header_container = 2131099837;
 			
 			// aapt resource value: 0x7f06006a
 			public const int netProfitAmt = 2131099754;
@@ -2596,8 +2593,8 @@ namespace Munch
 			// aapt resource value: 0x7f060020
 			public const int never = 2131099680;
 			
-			// aapt resource value: 0x7f060100
-			public const int nextButton = 2131099904;
+			// aapt resource value: 0x7f0600ff
+			public const int nextButton = 2131099903;
 			
 			// aapt resource value: 0x7f060010
 			public const int none = 2131099664;
@@ -2611,8 +2608,8 @@ namespace Munch
 			// aapt resource value: 0x7f060046
 			public const int parentPanel = 2131099718;
 			
-			// aapt resource value: 0x7f0600db
-			public const int password = 2131099867;
+			// aapt resource value: 0x7f0600da
+			public const int password = 2131099866;
 			
 			// aapt resource value: 0x7f060029
 			public const int pin = 2131099689;
@@ -2620,8 +2617,8 @@ namespace Munch
 			// aapt resource value: 0x7f06006c
 			public const int popularItemtext = 2131099756;
 			
-			// aapt resource value: 0x7f0600ff
-			public const int prevButton = 2131099903;
+			// aapt resource value: 0x7f0600fe
+			public const int prevButton = 2131099902;
 			
 			// aapt resource value: 0x7f060006
 			public const int progress_circular = 2131099654;
@@ -2635,8 +2632,8 @@ namespace Munch
 			// aapt resource value: 0x7f060078
 			public const int recyclerView = 2131099768;
 			
-			// aapt resource value: 0x7f0600fc
-			public const int result = 2131099900;
+			// aapt resource value: 0x7f0600fb
+			public const int result = 2131099899;
 			
 			// aapt resource value: 0x7f060030
 			public const int right = 2131099696;
@@ -2710,11 +2707,11 @@ namespace Munch
 			// aapt resource value: 0x7f060013
 			public const int showTitle = 2131099667;
 			
-			// aapt resource value: 0x7f0600bd
-			public const int snackbar_action = 2131099837;
-			
 			// aapt resource value: 0x7f0600bc
-			public const int snackbar_text = 2131099836;
+			public const int snackbar_action = 2131099836;
+			
+			// aapt resource value: 0x7f0600bb
+			public const int snackbar_text = 2131099835;
 			
 			// aapt resource value: 0x7f060027
 			public const int snap = 2131099687;
@@ -2740,8 +2737,8 @@ namespace Munch
 			// aapt resource value: 0x7f060031
 			public const int start = 2131099697;
 			
-			// aapt resource value: 0x7f0600f0
-			public const int status_bar_latest_event_content = 2131099888;
+			// aapt resource value: 0x7f0600ef
+			public const int status_bar_latest_event_content = 2131099887;
 			
 			// aapt resource value: 0x7f060065
 			public const int submit_area = 2131099749;
@@ -2749,35 +2746,35 @@ namespace Munch
 			// aapt resource value: 0x7f060072
 			public const int swipecontainerAPAM = 2131099762;
 			
-			// aapt resource value: 0x7f06010b
-			public const int swipecontainerWPCO = 2131099915;
+			// aapt resource value: 0x7f06010a
+			public const int swipecontainerWPCO = 2131099914;
 			
 			// aapt resource value: 0x7f06000d
 			public const int tabMode = 2131099661;
 			
-			// aapt resource value: 0x7f0600f8
-			public const int text = 2131099896;
+			// aapt resource value: 0x7f0600f7
+			public const int text = 2131099895;
 			
-			// aapt resource value: 0x7f0600f6
-			public const int text2 = 2131099894;
+			// aapt resource value: 0x7f0600f5
+			public const int text2 = 2131099893;
 			
 			// aapt resource value: 0x7f06004d
 			public const int textSpacerNoButtons = 2131099725;
 			
-			// aapt resource value: 0x7f0600e1
-			public const int textView1 = 2131099873;
+			// aapt resource value: 0x7f0600e0
+			public const int textView1 = 2131099872;
 			
-			// aapt resource value: 0x7f0600e4
-			public const int textView2 = 2131099876;
+			// aapt resource value: 0x7f0600e3
+			public const int textView2 = 2131099875;
 			
-			// aapt resource value: 0x7f0600e7
-			public const int textView3 = 2131099879;
+			// aapt resource value: 0x7f0600e6
+			public const int textView3 = 2131099878;
 			
-			// aapt resource value: 0x7f0600ea
-			public const int textView4 = 2131099882;
+			// aapt resource value: 0x7f0600e9
+			public const int textView4 = 2131099881;
 			
-			// aapt resource value: 0x7f0600f4
-			public const int time = 2131099892;
+			// aapt resource value: 0x7f0600f3
+			public const int time = 2131099891;
 			
 			// aapt resource value: 0x7f060043
 			public const int title = 2131099715;
@@ -2791,29 +2788,29 @@ namespace Munch
 			// aapt resource value: 0x7f060047
 			public const int topPanel = 2131099719;
 			
-			// aapt resource value: 0x7f0600d2
-			public const int txtMinThreshold = 2131099858;
-			
-			// aapt resource value: 0x7f0600cf
-			public const int txtName1 = 2131099855;
-			
 			// aapt resource value: 0x7f0600d1
-			public const int txtQuantity1 = 2131099857;
+			public const int txtMinThreshold = 2131099857;
+			
+			// aapt resource value: 0x7f0600ce
+			public const int txtName1 = 2131099854;
 			
 			// aapt resource value: 0x7f0600d0
-			public const int txtUnit1 = 2131099856;
+			public const int txtQuantity1 = 2131099856;
 			
-			// aapt resource value: 0x7f0600d4
-			public const int txt_Edit_Ingredient = 2131099860;
+			// aapt resource value: 0x7f0600cf
+			public const int txtUnit1 = 2131099855;
 			
-			// aapt resource value: 0x7f0600d6
-			public const int txt_Edit_MinThreshold = 2131099862;
+			// aapt resource value: 0x7f0600d3
+			public const int txt_Edit_Ingredient = 2131099859;
 			
 			// aapt resource value: 0x7f0600d5
-			public const int txt_Edit_Quantity1 = 2131099861;
+			public const int txt_Edit_MinThreshold = 2131099861;
 			
-			// aapt resource value: 0x7f0600d7
-			public const int txt_Edit_Unit1 = 2131099863;
+			// aapt resource value: 0x7f0600d4
+			public const int txt_Edit_Quantity1 = 2131099860;
+			
+			// aapt resource value: 0x7f0600d6
+			public const int txt_Edit_Unit1 = 2131099862;
 			
 			// aapt resource value: 0x7f060009
 			public const int up = 2131099657;
@@ -2821,8 +2818,8 @@ namespace Munch
 			// aapt resource value: 0x7f060014
 			public const int useLogo = 2131099668;
 			
-			// aapt resource value: 0x7f0600da
-			public const int userName = 2131099866;
+			// aapt resource value: 0x7f0600d9
+			public const int userName = 2131099865;
 			
 			// aapt resource value: 0x7f06000a
 			public const int view_offset_helper = 2131099658;
