@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
 using Android.Support.V4.Widget;
+using Android.Graphics.Drawables;
 
 namespace Munch
 {
@@ -37,7 +38,7 @@ namespace Munch
         private ListView mLeftDrawer;
         private ArrayAdapter mLeftAdapter;
         private List<String> mLeftDataSet;
-
+        private Button anchorButton;
 
 
         // current customer that is dragging orders
@@ -51,6 +52,17 @@ namespace Munch
         Dictionary<string, EMItemList> itemsOnMenu = new Dictionary<string, EMItemList>();
         Dictionary<int, Android.Graphics.Color> colorDictionary = new Dictionary<int, Android.Graphics.Color>();
         List<Customer> customerList = new List<Customer>();
+
+
+        //holds all of the ordered dishes
+        List<CustomerOrderItem> orderList = CustomerPortal.CustomerOrderList;
+
+        //holds all of the generated buttons 
+        List<Button> btnList = new List<Button>();
+
+        //holds the IDs of each button that was generated
+        List<int> idList = new List<int>();
+
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -79,6 +91,8 @@ namespace Munch
             mDrawerLayout.SetDrawerListener(mDrawerToggle);
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            
             mDrawerToggle.SyncState();
 
             if (bundle != null)
@@ -113,25 +127,18 @@ namespace Munch
             splits.Add(new List<String>());
 
             // first button on the list
-            var button1 = FindViewById<Button>(Resource.Id.button1);
+            anchorButton = FindViewById<Button>(Resource.Id.anchorButton);
 
             //give it a unique ID
-            button1.Id = 123455;
+            anchorButton.Id = 123455;
 
             //the layout that holds all the buttons
             RelativeLayout rl = FindViewById<RelativeLayout>(Resource.Id.buttonholder);
 
-            //holds all of the ordered dishes
-            List<CustomerOrderItem> orderList = CustomerPortal.CustomerOrderList;
-
-            //holds all of the generated buttons 
-            List<Button> btnList = new List<Button>();
-
-            //holds the IDs of each button that was generated
-            List<int> idList = new List<int>();
+            
 
             //adds the ID of the first button
-            idList.Add(button1.Id);
+            idList.Add(anchorButton.Id);
 
             //creates a new layout parameter for the buttons
             List<RelativeLayout.LayoutParams> layoutHolder = new List<RelativeLayout.LayoutParams>();
@@ -238,14 +245,54 @@ namespace Munch
 
 
             mLeftDataSet = new List<String>();
-
-            
-
-
             mLeftAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, mLeftDataSet);
             mLeftDrawer.Adapter = mLeftAdapter;
-            
 
+
+            anchorButton.Click += (s, o) =>
+            {
+                checkIfEvrythingIsAssigned();
+            };
+
+
+        }//end of onCreate
+
+        public void checkIfEvrythingIsAssigned()
+        {
+            int itemCount = splits[0].Count();
+            int assignedCount = 0;
+
+            foreach (Button btn in btnList)
+            {
+                var buttonBackground = btn.Background;
+                if (buttonBackground is ColorDrawable)
+                {
+                    assignedCount++;
+                }
+            }
+
+            if(assignedCount != itemCount)
+            {
+                RunOnUiThread(() =>
+                {
+                    Android.Support.V7.App.AlertDialog.Builder builder;
+                    builder = new Android.Support.V7.App.AlertDialog.Builder(this);
+                    builder.SetTitle("Assign all the food!");
+                    builder.SetMessage("Sorry, you must assign all the dishes to a customer before you can proceed!");
+                    builder.SetCancelable(true);                    
+                    builder.SetPositiveButton("OK", delegate {
+                    });
+                    builder.Show();
+                }
+               );
+            }
+
+            else
+            {
+                //This is where you need to start the next activity
+                Android.Widget.Toast.MakeText(this, "ya did good fam", Android.Widget.ToastLength.Short).Show();
+            }
+            
         }
 
 
@@ -262,6 +309,7 @@ namespace Munch
                     mLeftAdapter.Add(" • " + em.iName.ToString() + ": $" + em.ItemPrice);
                 }
                 mLeftAdapter.Add("Subtotal: $" + cus.subtotal);
+                mLeftAdapter.Add("Total: $" + (Math.Round(((cus.subtotal *.08875) + cus.subtotal), 2)));
             }
 
             double totalCost = 0;
@@ -269,7 +317,7 @@ namespace Munch
             {
                 totalCost += cust.subtotal;
             }
-            mLeftAdapter.Add("Total Cost: $" + totalCost);
+            mLeftAdapter.Add("Combined Total: $" + (Math.Round(((totalCost * .08875) + totalCost), 2)));
 
         }
 
@@ -310,16 +358,34 @@ namespace Munch
                     var data = e.Event.ClipData;
                     if (data != null)
                         result.Text = data.GetItemAt(0).Text + " has been dropped.";
+                    
                     Button btn = (Button)e.Event.LocalState;
-                    Android.Graphics.Color value;
                     EMItemList item;
-                    itemsOnMenu.TryGetValue(data.GetItemAt(0).Text, out item);
+                    string dishName = data.GetItemAt(0).Text;
+                    var buttonBackground = btn.Background;
+                    if (buttonBackground is ColorDrawable)
+                    {
+                        
+                        var backgroundColor = (buttonBackground as ColorDrawable).Color;
+                        var myValue = colorDictionary.FirstOrDefault(x => x.Value == backgroundColor).Key;
+                        Console.WriteLine("PRE-REMOVE: " + customerList[myValue].order.Count());
+                        customerList[myValue].order.RemoveAt(customerList[myValue].order.IndexOf(customerList[myValue].order.Where(x => x.iName == dishName).FirstOrDefault()));
+                        itemsOnMenu.TryGetValue(dishName, out item);
+                        customerList[myValue].subtotal = customerList[myValue].subtotal - Convert.ToDouble(item.iPrice);
+                        Console.WriteLine("REMOVED: " + dishName + " FROM CUSTOMER " + myValue);
+                        Console.WriteLine("POST-REMOVE: " + customerList[myValue].order.Count());
+                        refreshNav();
+                    }
+                   
+                    Android.Graphics.Color value;
+                   
+                    itemsOnMenu.TryGetValue(dishName, out item);
                     customerList[currentCustomer].order.Add(item);
                     double price = Convert.ToDouble(item.iPrice);
                     customerList[currentCustomer].subtotal += price;
                     colorDictionary.TryGetValue(currentCustomer, out value);
                     btn.SetBackgroundColor(value);
-                    splits[currentCustomer].Add(data.GetItemAt(0).Text);
+                    splits[currentCustomer].Add(dishName);
                     int num = splits[currentCustomer].Count();
                     Console.WriteLine(num);
                     refreshNav();
@@ -334,6 +400,10 @@ namespace Munch
            mDrawerToggle.OnOptionsItemSelected(item);
             return base.OnOptionsItemSelected(item);
         }
+
+
+
+
 
         
     }

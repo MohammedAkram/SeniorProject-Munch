@@ -36,12 +36,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center" />
-                <TextView
-                    android:text="Text"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/customerTotal" />
             </FrameLayout>
         <!-- Dropable elements -->
             <ScrollView
@@ -60,9 +54,9 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1">
                     <Button
-                        android:id="@+id/button1"
+                        android:id="@+id/anchorButton"
                         android:layout_marginTop="60dip"
-                        android:text="Sample Element 1"
+                        android:text="Temp Checkout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true" />

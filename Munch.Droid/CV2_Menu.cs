@@ -199,9 +199,37 @@ namespace Munch
             Button pay = FindViewById<Button>(Resource.Id.menupayButton);
             pay.Click += (s, o) =>
             {
-                StartActivity(typeof(SplitPayment));
-                Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you are ready to pay!", Android.Widget.ToastLength.Long).Show();
-                pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername + ": Requires Assistance, " + LoginScreen.loginUsername + " Ready To Pay", DisplayReturnMessage, DisplayErrorMessage);
+                RunOnUiThread(() =>
+                {
+                    AlertDialog.Builder builder;
+                    builder = new AlertDialog.Builder(this);
+                    builder.SetTitle("How would you like to pay?");
+                    builder.SetMessage("Choose from the 3 options below:\n• Single Check: One check with everything ordered.\n• Split Evenly: Splits the check evenly.\n• Split by Dish: Pick who pays for what dish.");
+                    builder.SetCancelable(true);
+                    
+                    builder.SetPositiveButton("Split by Dish", delegate {
+                        StartActivity(typeof(SplitPayment));
+                    });
+                    builder.SetNeutralButton("Split Evenly", delegate
+                    {
+                        Android.Widget.Toast.MakeText(this, "Picked Evenly", Android.Widget.ToastLength.Long).Show();
+                    });
+                    builder.SetNegativeButton("Single Check", delegate
+                    {
+                        Android.Widget.Toast.MakeText(this, "Picked Single", Android.Widget.ToastLength.Long).Show();
+                    });
+                    builder.Show();
+                }
+               );
+
+
+
+
+
+
+                
+                //Android.Widget.Toast.MakeText(this, "Your waiter has been notified that you are ready to pay!", Android.Widget.ToastLength.Long).Show();
+                //pubnub.Publish<string>(LoginScreen.loginUsername, LoginScreen.loginUsername + ": Requires Assistance, " + LoginScreen.loginUsername + " Ready To Pay", DisplayReturnMessage, DisplayErrorMessage);
             };
             orderbtn.Click += (s, o) => StartActivity(typeof(CV2_YourOrder));
             callbtn.Click += (s, o) => {
