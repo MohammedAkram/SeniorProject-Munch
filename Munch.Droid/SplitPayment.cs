@@ -300,27 +300,31 @@ namespace Munch
         {
             mLeftAdapter.Clear();
 
-            for(int i = 1; i < customerList.Count(); i++) 
+            for (int i = 1; i < customerList.Count(); i++)
             {
                 Customer cus = customerList[i];
-                mLeftAdapter.Add("Customer " + cus.custNum);
-                foreach(EMItemList em in cus.order)
+                if (cus.order.Count() != 0)
                 {
-                    mLeftAdapter.Add(" • " + em.iName.ToString() + ": $" + em.ItemPrice);
+
+                    mLeftAdapter.Add("Customer " + cus.custNum);
+                    foreach (EMItemList em in cus.order)
+                    {
+                        mLeftAdapter.Add(" • " + em.iName.ToString() + ": $" + em.ItemPrice);
+                    }
+                    mLeftAdapter.Add("Subtotal: $" + cus.subtotal);
+                    mLeftAdapter.Add("Total: $" + (Math.Round(((cus.subtotal * .08875) + cus.subtotal), 2)));
                 }
-                mLeftAdapter.Add("Subtotal: $" + cus.subtotal);
-                mLeftAdapter.Add("Total: $" + (Math.Round(((cus.subtotal *.08875) + cus.subtotal), 2)));
             }
 
-            double totalCost = 0;
-            foreach(Customer cust in customerList)
-            {
-                totalCost += cust.subtotal;
-            }
-            mLeftAdapter.Add("Combined Total: $" + (Math.Round(((totalCost * .08875) + totalCost), 2)));
+                double totalCost = 0;
+                foreach (Customer cust in customerList)
+                {
+                    totalCost += cust.subtotal;
+                }
+                mLeftAdapter.Add("Combined Total: $" + (Math.Round(((totalCost * .08875) + totalCost), 2)));
+            
 
         }
-
         void Button_LongClickEvent(object sender, View.LongClickEventArgs e)
         {
             Button b = (Button) sender;
