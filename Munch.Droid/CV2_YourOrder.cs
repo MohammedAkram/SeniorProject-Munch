@@ -33,14 +33,16 @@ namespace Munch
             CV_your_Order_ListViewAdapter adapter = new CV_your_Order_ListViewAdapter(this, (CustomerPortal.CustomerOrderList));
             mListView.Adapter = adapter;
             orderUP.AttachToListView(mListView);
-            mListView.ItemClick += MListView_ItemClick;
+             mListView.ItemLongClick += MListView_ItemClick;
             orderUP.Click += OrderUP_Click;
 
         }
 
-        private void MListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void MListView_ItemClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-
+            int pos = e.Position;
+            CustomerPortal.CustomerOrderList.RemoveAt(pos);
+            this.Recreate();
             //  mListView.RemoveViewAt(e.Position);
             //  mListView.DeferNotifyDataSetChanged();
         }
