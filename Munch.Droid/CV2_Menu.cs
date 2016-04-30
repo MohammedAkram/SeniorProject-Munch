@@ -30,7 +30,7 @@ namespace Munch
         public RecyclerView.LayoutManager mLayoutManager;
         public CVMItemListAdapter mAdapter;
         public AP_EM_ItemList mItemList;
-        public string menuURL = "http://54.191.98.63/menu.php";
+        public string menuURL = "http://54.191.98.63/customermenu.php";
 
         //Animation Views
         //Set up splash screen as a view
