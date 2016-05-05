@@ -1,0 +1,22 @@
+﻿ui changes to payment
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   Munch.Droid/Munch.Droid.csproj
+#	modified:   Munch.Droid/Resources/Resource.designer.cs
+#	modified:   Munch.Droid/Resources/layout/SplitPaymentScreen.axml
+#	modified:   Munch.Droid/SplitPayment.cs
+#
+# Untracked files:
+#	Munch.Droid/Resources/Menu/
+#	Munch.Droid/Resources/drawable-hdpi/ic_payment_black_24dp.png
+#	Munch.Droid/Resources/drawable-mdpi/ic_payment_black_24dp.png
+#	Munch.Droid/Resources/drawable-xhdpi/ic_payment_black_24dp.png
+#	Munch.Droid/Resources/drawable-xxhdpi/ic_payment_black_24dp.png
+#	Munch.Droid/Resources/drawable-xxxhdpi/ic_payment_black_24dp.png
+#	Munch.Droid/Resources/drawable/ic_payment_black_24dp.png
+#
+
