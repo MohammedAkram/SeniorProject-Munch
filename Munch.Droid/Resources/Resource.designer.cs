@@ -2032,49 +2032,52 @@ namespace Munch
 			public const int ic_launcher = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ic_shopping_cart_white_24dp = 2130837601;
+			public const int ic_payment_black_24dp = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int Icon = 2130837602;
+			public const int ic_shopping_cart_white_24dp = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int loginbg = 2130837603;
+			public const int Icon = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int logo = 2130837604;
-			
-			// aapt resource value: 0x7f02006f
-			public const int notification_template_icon_bg = 2130837615;
+			public const int loginbg = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int overallbg = 2130837605;
+			public const int logo = 2130837605;
+			
+			// aapt resource value: 0x7f020070
+			public const int notification_template_icon_bg = 2130837616;
 			
 			// aapt resource value: 0x7f020066
-			public const int payConfirmation = 2130837606;
+			public const int overallbg = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int round_button = 2130837607;
+			public const int payConfirmation = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int RoundedButton = 2130837608;
+			public const int round_button = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int selector = 2130837609;
+			public const int RoundedButton = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int tile_tilemenu = 2130837610;
+			public const int selector = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int tile_wood = 2130837611;
+			public const int tile_tilemenu = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int tilemenu = 2130837612;
+			public const int tile_wood = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int wood = 2130837613;
+			public const int tilemenu = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int WPCustomerOrder = 2130837614;
+			public const int wood = 2130837614;
+			
+			// aapt resource value: 0x7f02006f
+			public const int WPCustomerOrder = 2130837615;
 			
 			static Drawable()
 			{
@@ -2368,6 +2371,9 @@ namespace Munch
 			// aapt resource value: 0x7f06003c
 			public const int action_mode_close_button = 2131099708;
 			
+			// aapt resource value: 0x7f06010f
+			public const int action_pay = 2131099919;
+			
 			// aapt resource value: 0x7f06003d
 			public const int activity_chooser_view_content = 2131099709;
 			
@@ -2377,8 +2383,8 @@ namespace Munch
 			// aapt resource value: 0x7f06001e
 			public const int always = 2131099678;
 			
-			// aapt resource value: 0x7f0600ff
-			public const int anchorButton = 2131099903;
+			// aapt resource value: 0x7f060101
+			public const int anchorButton = 2131099905;
 			
 			// aapt resource value: 0x7f06001b
 			public const int beginning = 2131099675;
@@ -2428,8 +2434,8 @@ namespace Munch
 			// aapt resource value: 0x7f060044
 			public const int buttonPanel = 2131099716;
 			
-			// aapt resource value: 0x7f0600fe
-			public const int buttonholder = 2131099902;
+			// aapt resource value: 0x7f060100
+			public const int buttonholder = 2131099904;
 			
 			// aapt resource value: 0x7f0600f0
 			public const int cancel_action = 2131099888;
@@ -2662,8 +2668,8 @@ namespace Munch
 			// aapt resource value: 0x7f060021
 			public const int never = 2131099681;
 			
-			// aapt resource value: 0x7f060101
-			public const int nextButton = 2131099905;
+			// aapt resource value: 0x7f0600ff
+			public const int nextButton = 2131099903;
 			
 			// aapt resource value: 0x7f060010
 			public const int none = 2131099664;
@@ -2686,8 +2692,8 @@ namespace Munch
 			// aapt resource value: 0x7f06006c
 			public const int popularItemtext = 2131099756;
 			
-			// aapt resource value: 0x7f060100
-			public const int prevButton = 2131099904;
+			// aapt resource value: 0x7f0600fe
+			public const int prevButton = 2131099902;
 			
 			// aapt resource value: 0x7f060006
 			public const int progress_circular = 2131099654;
@@ -3225,6 +3231,22 @@ namespace Munch
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0d0000
+			public const int action_menu = 2131558400;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

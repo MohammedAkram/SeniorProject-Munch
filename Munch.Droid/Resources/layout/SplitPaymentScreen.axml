@@ -36,13 +36,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center" />
+                <Button
+                    android:id="@+id/prevButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="prev"
+                    android:layout_gravity="bottom|left" />
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="next"
+                    android:layout_gravity="bottom|right" />
             </FrameLayout>
         <!-- Dropable elements -->
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="700dp"
                 android:minWidth="25px"
-                android:minHeight="200dp"
+                android:minHeight="50dp"
                 android:id="@+id/scrollView1"
                 android:layout_alignParentTop="true">
                 <RelativeLayout
@@ -59,26 +71,15 @@
                         android:text="Temp Checkout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_centerHorizontal="true" />
-                    <Button
-                        android:id="@+id/prevButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="prev"
-                        android:layout_alignParentLeft="true" />
-                    <Button
-                        android:id="@+id/nextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="next"
-                        android:layout_alignParentRight="true" />
                 </RelativeLayout>
             </ScrollView>
         </LinearLayout>
     <!--The drawer Content-->
         <ListView
             android:id="@+id/left_drawer"
-            android:layout_width="240dp"
+            android:layout_width="350dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:choiceMode="singleChoice"

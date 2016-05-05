@@ -375,6 +375,13 @@
     <AndroidResource Include="Resources\drawable\tile_wood.xml" />
     <AndroidResource Include="Resources\drawable\tilemenu.png" />
     <AndroidResource Include="Resources\drawable\wood.png" />
+    <AndroidResource Include="Resources\Menu\action_menu.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_payment_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_payment_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_payment_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_payment_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_payment_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_payment_black_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

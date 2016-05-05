@@ -76,10 +76,12 @@ namespace Munch
             mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
             mLeftDrawer.Tag = 0;
             SetSupportActionBar(mToolbar);
-
-
-
             
+
+
+
+
+
 
             mDrawerToggle = new MyActionBarDrawerToggle(
                 this,                           //Host Activity
@@ -399,16 +401,45 @@ namespace Munch
     
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        /*public override bool OnOptionsItemSelected(IMenuItem item)
         {
            mDrawerToggle.OnOptionsItemSelected(item);
             return base.OnOptionsItemSelected(item);
+        }
+        */
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+
+                case Android.Resource.Id.Home:
+                    //The hamburger icon was clicked which means the drawer toggle will handle the event
+                    //all we need to do is ensure the right drawer is closed so the don't overlap
+                    
+                    mDrawerToggle.OnOptionsItemSelected(item);
+                    return true;
+
+                case Resource.Id.action_pay:
+                    //Refresh
+                    //This is where you need to start the next activity
+                    checkIfEvrythingIsAssigned();
+                    return true;
+
+                
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.action_menu, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
 
 
 
-
-        
     }
 }
