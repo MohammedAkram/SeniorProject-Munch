@@ -88,12 +88,19 @@ namespace Munch
 
         Button[] btns;
         private List<AdminPortal> mItems;
-        private List<getdish> mItemss;
+        private List<getdish> popdish;
+        private List<getprofit> dishprofit;
         public String threshold = "http://54.191.98.63/inventorythreshold.php";
         public String populardish = "http://54.191.98.63/populardish.php";
+        public String todayprofit = "http://54.191.98.63/report.php?type=TodaysProfit";
+
         class getdish
         {
             public string ItemName { get; set; }
+        }
+        class getprofit
+        {
+            public string Profit { get; set; }
         }
 
         protected override async void OnCreate(Bundle savedInstanceState)
@@ -174,20 +181,31 @@ namespace Munch
             #endregion
 
             //parsing for popular dish
-            JsonValue jsonn = await JsonParsing<Task<JsonValue>>.FetchDataAsync(populardish);
-            List<getdish> parsedDataa = JsonParsing<getdish>.ParseAndDisplay(jsonn);
-            mItemss = parsedDataa;
+            JsonValue jsondish = await JsonParsing<Task<JsonValue>>.FetchDataAsync(populardish);
+            List<getdish> parsedDataadish = JsonParsing<getdish>.ParseAndDisplay(jsondish);
+            popdish = parsedDataadish;
+
+            //parsing for today profit
+            JsonValue jsonprofit = await JsonParsing<Task<JsonValue>>.FetchDataAsync(todayprofit);
+            List<getprofit> parsedDataaprofit = JsonParsing<getprofit>.ParseAndDisplay(jsonprofit);
+            dishprofit = parsedDataaprofit;
 
             //Set Profit Amount on Homepage
             TextView profitEarned = FindViewById<TextView>(Resource.Id.netProfitAmt);
-            profitEarned.Text = "$5,328.16";
-
+            if (dishprofit.Count > 0)
+            {
+                profitEarned.Text = dishprofit[0].Profit;
+            }
+            else
+            {
+                profitEarned.Text = "No Profit";
+            };
 
             //Set Popular Dish on Homepage
             TextView popDish = FindViewById<TextView>(Resource.Id.popularItemtext);
-            if (mItemss.Count > 0)
+            if (popdish.Count > 0)
             {
-                popDish.Text = mItemss[0].ItemName;
+                popDish.Text = popdish[0].ItemName;
             }
             else {
                 popDish.Text = "No Sales";
