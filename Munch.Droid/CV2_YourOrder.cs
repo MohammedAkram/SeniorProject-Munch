@@ -18,7 +18,9 @@ namespace Munch
     public class CV2_YourOrder : Activity
     {
         public ListView mListView;
-        private List<CustomerOrderItem> mItems;
+        public static List<CustomerOrderItem> mItems = new List<CustomerOrderItem>();
+        
+
         public static int count = 0;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -30,7 +32,7 @@ namespace Munch
             mListView = FindViewById<ListView>(Resource.Id.mngYour_Order_ListView);
             var orderUP = FindViewById<FloatingActionButton>(Resource.Id.ORderUP);
 
-            CV_your_Order_ListViewAdapter adapter = new CV_your_Order_ListViewAdapter(this, (CustomerPortal.CustomerOrderList));
+            CV_your_Order_ListViewAdapter adapter = new CV_your_Order_ListViewAdapter(this, (mItems));
             mListView.Adapter = adapter;
             orderUP.AttachToListView(mListView);
              mListView.ItemLongClick += MListView_ItemClick;
@@ -42,6 +44,7 @@ namespace Munch
         {
             int pos = e.Position;
             CustomerPortal.CustomerOrderList.RemoveAt(pos);
+            mItems.RemoveAt(pos);
             this.Recreate();
             //  mListView.RemoveViewAt(e.Position);
             //  mListView.DeferNotifyDataSetChanged();
@@ -74,7 +77,7 @@ namespace Munch
             }
             for (int i = 0; i < mListView.Count; i++)
             {
-                CustomerPortal.CustomerOrderList.RemoveAt(count);
+                mItems.RemoveAt(count);
                 
             }this.Recreate();
 
