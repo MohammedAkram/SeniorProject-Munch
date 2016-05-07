@@ -72,8 +72,13 @@ namespace Munch
                 var webClient = new WebClient();
                 webClient.DownloadString("http://54.191.98.63/orders.php?idAccounts=" + loginname + "&&name=" + dishname.Text + "&&Quantity=" + quantity.Text + "&&Note=" + notes.Text + "&&count=" + count + "&&price=" + price.Text);
             }
+            for (int i = 0; i < mListView.Count; i++)
+            {
+                CustomerPortal.CustomerOrderList.RemoveAt(count);
+                
+            }this.Recreate();
 
-            Android.Widget.Toast.MakeText(this, "The kitchen has been notified, hang tight. Grab some refreshments while you wait.", Android.Widget.ToastLength.Long).Show();
+                Android.Widget.Toast.MakeText(this, "The kitchen has been notified, hang tight. Grab some refreshments while you wait.", Android.Widget.ToastLength.Long).Show();
         }
     }
 }
