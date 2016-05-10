@@ -249,6 +249,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\NavDrawer.axml" />
+    <AndroidResource Include="Resources\layout\afterPaymentScreen.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
@@ -375,7 +378,9 @@
     <AndroidResource Include="Resources\drawable\tile_wood.xml" />
     <AndroidResource Include="Resources\drawable\tilemenu.png" />
     <AndroidResource Include="Resources\drawable\wood.png" />
-    <AndroidResource Include="Resources\Menu\action_menu.xml" />
+    <AndroidResource Include="Resources\Menu\action_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable-hdpi\ic_payment_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_payment_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_payment_black_24dp.png" />

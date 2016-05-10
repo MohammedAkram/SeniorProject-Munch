@@ -251,12 +251,6 @@ namespace Munch
             mLeftDrawer.Adapter = mLeftAdapter;
 
 
-            anchorButton.Click += (s, o) =>
-            {
-                checkIfEvrythingIsAssigned();
-            };
-
-
         }//end of onCreate
 
         public void checkIfEvrythingIsAssigned()
@@ -291,8 +285,42 @@ namespace Munch
 
             else
             {
-                //This is where you need to start the next activity
-                Android.Widget.Toast.MakeText(this, "ya did good fam", Android.Widget.ToastLength.Short).Show();
+              
+                //confirmation screen that shows totals for each check.                
+                String confirmationDialogString = "These are the totals per customer! Please make sure that this  is correct. \n";
+
+                
+                for (int i = 1; i < customerList.Count(); i++)
+                {
+                    Customer cus = customerList[i];
+                    if (cus.order.Count() != 0)
+                    {
+                        confirmationDialogString = confirmationDialogString + "Customer " + cus.custNum + ": $" + (Math.Round(((cus.subtotal * .08875) + cus.subtotal), 2)) + "\n";
+                    }
+                }
+
+                double totalCost = 0;
+                foreach (Customer cust in customerList)
+                {
+                    totalCost += cust.subtotal;
+                }
+                confirmationDialogString = confirmationDialogString + "Combined Total: $" + (Math.Round(((totalCost * .08875) + totalCost), 2));
+
+                RunOnUiThread(() =>
+                {
+                    Android.Support.V7.App.AlertDialog.Builder builder;
+                    builder = new Android.Support.V7.App.AlertDialog.Builder(this);
+                    builder.SetTitle("Confirm split!");
+                    builder.SetMessage(confirmationDialogString);
+                    builder.SetCancelable(true);
+                    builder.SetNegativeButton("We Messed Up", delegate {
+                    });
+                    builder.SetPositiveButton("All Good!", delegate {
+                        SetContentView(Resource.Layout.afterPaymentScreen);
+                    });
+                    builder.Show();
+                });
+
             }
             
         }
@@ -423,6 +451,9 @@ namespace Munch
                     //Refresh
                     //This is where you need to start the next activity
                     checkIfEvrythingIsAssigned();
+
+
+
                     return true;
 
                 
