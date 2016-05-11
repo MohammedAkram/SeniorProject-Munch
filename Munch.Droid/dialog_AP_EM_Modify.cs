@@ -109,7 +109,6 @@ namespace Munch
             var webClient = new WebClient();
             webClient.DownloadString("http://54.191.98.63/deletemenu.php?DishName=" + AP_EM_Activity.dishName_to_order.iName);
             this.Dismiss();
-            Android.Widget.Toast.MakeText(this.Context, "Logged Out Successfully", Android.Widget.ToastLength.Long).Show();
         }
     }
 }

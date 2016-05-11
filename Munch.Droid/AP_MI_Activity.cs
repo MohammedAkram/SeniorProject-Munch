@@ -69,8 +69,12 @@ namespace Munch
 
             AP_MI_ListViewAdapter adapter = new AP_MI_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
-            
             mListView.ItemLongClick += mListView_ItemLongClick;
+
+            //Swipe to refresh
+            var refresher = FindViewById<SwipeRefreshLayout>(Resource.Id.swipecontainerAPMI);
+            refresher.SetColorScheme(Resource.Color.primary, Resource.Color.accent_pressed, Resource.Color.ripple, Resource.Color.primary_pressed);
+            refresher.Refresh += HandleRefresh;
 
             //FAB
             var fab = FindViewById<FloatingActionButton>(Resource.Id.APMIfab);
@@ -90,6 +94,7 @@ namespace Munch
         {
             StartActivity(typeof(AP_MI_Activity));
         }
+
         public static String xcc;
         void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
