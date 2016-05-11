@@ -56,13 +56,47 @@ namespace Munch
                 WP_CO_ListViewAdapter payadapter = new WP_CO_ListViewAdapter(this, payy);
                 mListView.Adapter = payadapter;
                 Console.WriteLine(payy.Count() + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+
             };
+
+
+            mListView.ItemLongClick += MListView_ItemLongClick;
+
+
         }
 
+
+        private void MListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            RunOnUiThread(() =>
+            {
+                AlertDialog.Builder builder;
+                builder = new AlertDialog.Builder(this);
+                builder.SetTitle("Have you recieved payment?");
+                builder.SetMessage("Confirm the payment for the selected table.");
+                builder.SetCancelable(true);
+
+                builder.SetPositiveButton("Yes", delegate
+                {
+                    var webClient = new WebClient();
+                    webClient.DownloadString("http://54.191.98.63/donepayment.php?idAccounts=" + WaiterPortal.IDACCOUNT);
+                });
+                builder.SetNegativeButton("No", delegate
+                {
+                    
+                });
+                builder.Show();
+
+            });
+
+        }
         //Swipe to Refresh Activity
-        void HandleRefresh(object sender, EventArgs e)
+            void HandleRefresh(object sender, EventArgs e)
         {
             StartActivity(typeof(WP_CustomerOrder));
         }
+
+
     }
 }

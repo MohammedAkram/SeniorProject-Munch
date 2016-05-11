@@ -119,6 +119,7 @@
     <Compile Include="dialog_APAccountManagementEdit.cs" />
     <Compile Include="dialog_APManageInventory.cs" />
     <Compile Include="dialog_Cusomer_Add_Item_Order.cs" />
+    <Compile Include="EvenPayment.cs" />
     <Compile Include="JsonParsing.cs" />
     <Compile Include="LoggingMethod.cs" />
     <Compile Include="LoginScreen.cs" />
@@ -252,6 +253,7 @@
     <AndroidResource Include="Resources\layout\afterPaymentScreen.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\EvenPayment.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml">
