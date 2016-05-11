@@ -21,7 +21,7 @@ namespace Munch
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.EvenPayment);
 
-            EditText SplitAmount = FindViewById<EditText>(Resource.Id.splitamount);
+            TextView SplitAmount = FindViewById<TextView>(Resource.Id.splitamount);
             TextView SplitAmountOwe = FindViewById<TextView>(Resource.Id.EvenSplitid);
             TextView Total = FindViewById<TextView>(Resource.Id.EvenSplitTotal);
             Button Decrease = FindViewById<Button>(Resource.Id.decrease);
