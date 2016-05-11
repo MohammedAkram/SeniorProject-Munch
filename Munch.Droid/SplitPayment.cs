@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
 using Android.Support.V4.Widget;
+using Newtonsoft.Json;
 using Android.Graphics.Drawables;
 
 namespace Munch
@@ -251,6 +252,12 @@ namespace Munch
             mLeftDrawer.Adapter = mLeftAdapter;
 
 
+            
+
+
+
+
+
         }//end of onCreate
 
         public void checkIfEvrythingIsAssigned()
@@ -316,6 +323,11 @@ namespace Munch
                     builder.SetNegativeButton("We Messed Up", delegate {
                     });
                     builder.SetPositiveButton("All Good!", delegate {
+                        string json = JsonConvert.SerializeObject(customerList);
+                        Console.WriteLine("WEEEEEWOOOOOOOOOOOOOOOOOOWWWWWWEEEEEEEEEEEEEWWWWWWWWWWOOOOOOOOOOOOOOOOOO");
+                        Console.WriteLine(json);
+
+
                         SetContentView(Resource.Layout.afterPaymentScreen);
                     });
                     builder.Show();
