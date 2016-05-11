@@ -388,9 +388,11 @@ namespace Munch
                     builder.SetNegativeButton("We Messed Up", delegate {
                     });
                     builder.SetPositiveButton("All Good!", delegate {
-                        string json = JsonConvert.SerializeObject(customerList);
+                        //string json = JsonConvert.SerializeObject(customerList);
+                        pubnub.Publish<string>(LoginScreen.loginUsername, confirmationDialogString, DisplayReturnMessage, DisplayErrorMessage);
                         Console.WriteLine("WEEEEEWOOOOOOOOOOOOOOOOOOWWWWWWEEEEEEEEEEEEEWWWWWWWWWWOOOOOOOOOOOOOOOOOO");
-                        Console.WriteLine(json);
+                        
+                        //Console.WriteLine(json);
 
 
                         SetContentView(Resource.Layout.afterPaymentScreen);

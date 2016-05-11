@@ -58,12 +58,12 @@ namespace Munch
 
         //pubnub
         /*
-*************************************************************************
-*************************************************************************
-********************************PUBNUB***********************************
-*************************************************************************
-*************************************************************************
-*/
+        *************************************************************************
+        *************************************************************************
+        ********************************PUBNUB***********************************
+        *************************************************************************
+        *************************************************************************
+        */
         Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
         void DisplaySubscribeReturnMessage(string result)
         {
@@ -80,30 +80,40 @@ namespace Munch
                     {
                         //IF CUSTOM OBJECT IS EXCEPTED, YOU CAN CAST THIS OBJECT TO YOUR CUSTOM CLASS TYPE
                         string resultActualMessage = pubnub.JsonPluggableLibrary.SerializeToJsonString(subscribedObject);
-                        string re = resultActualMessage.Replace('"', ' ');
-                        string s1 = re.Substring(1, re.IndexOf(',') - 1);
-                        string s2 = re.Substring((re.IndexOf(',') + 1));
+                        Console.WriteLine(resultActualMessage);
+                        if (resultActualMessage[1] == 'T')
+                        {
+                            string paymentString = resultActualMessage;
+                        }
+                        else
+                        {
+
+                            string re = resultActualMessage.Replace('"', ' ');
+                            string s1 = re.Substring(1, re.IndexOf(',') - 1);
+                            string s2 = re.Substring((re.IndexOf(',') + 1));
 
 
 
-                        Notification.Builder builder = new Notification.Builder(this)
-                        .SetContentTitle(s1)
-                        .SetContentText(s2)
-                        .SetPriority(2)
-                        .SetColor(2)
-                        .SetVibrate(new long[1])
-                        .SetSmallIcon(Resource.Drawable.Icon);
+                            Notification.Builder builder = new Notification.Builder(this)
+                            .SetContentTitle(s1)
+                            .SetContentText(s2)
+                            .SetPriority(2)
+                            .SetColor(2)
+                            .SetVibrate(new long[1])
+                            .SetSmallIcon(Resource.Drawable.Icon);
 
-                        // Build the notification:
-                        Notification notification = builder.Build();
+                            // Build the notification:
+                            Notification notification = builder.Build();
 
-                        // Get the notification manager:
-                        NotificationManager notificationManager =
-                            GetSystemService(Context.NotificationService) as NotificationManager;
+                            // Get the notification manager:
+                            NotificationManager notificationManager =
+                                GetSystemService(Context.NotificationService) as NotificationManager;
 
-                        // Publish the notification:
-                        const int notificationId = 0;
-                        notificationManager.Notify(notificationId, notification);
+                            // Publish the notification:
+                            const int notificationId = 0;
+                            notificationManager.Notify(notificationId, notification);
+                        }
+                       
 
 
                     }
