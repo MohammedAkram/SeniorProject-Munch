@@ -81,7 +81,7 @@ namespace Munch
                         //IF CUSTOM OBJECT IS EXCEPTED, YOU CAN CAST THIS OBJECT TO YOUR CUSTOM CLASS TYPE
                         string resultActualMessage = pubnub.JsonPluggableLibrary.SerializeToJsonString(subscribedObject);
                         Console.WriteLine(resultActualMessage);
-                        if (resultActualMessage[1] == 'T')
+                        if (resultActualMessage[1] == 'H')
                         {
                             string paymentString = resultActualMessage;
                         }

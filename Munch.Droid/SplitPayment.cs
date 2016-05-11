@@ -359,7 +359,7 @@ namespace Munch
             {
               
                 //confirmation screen that shows totals for each check.                
-                String confirmationDialogString = "These are the totals per customer! Please make sure that this  is correct. \n";
+                String confirmationDialogString = "Here are the totals per customer! Please make sure that this  is correct. \n";
 
                 
                 for (int i = 1; i < customerList.Count(); i++)
@@ -390,7 +390,6 @@ namespace Munch
                     builder.SetPositiveButton("All Good!", delegate {
                         //string json = JsonConvert.SerializeObject(customerList);
                         pubnub.Publish<string>(LoginScreen.loginUsername, confirmationDialogString, DisplayReturnMessage, DisplayErrorMessage);
-                        Console.WriteLine("WEEEEEWOOOOOOOOOOOOOOOOOOWWWWWWEEEEEEEEEEEEEWWWWWWWWWWOOOOOOOOOOOOOOOOOO");
                         
                         //Console.WriteLine(json);
 
