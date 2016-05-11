@@ -40,10 +40,9 @@ namespace Munch
             
             mListView = FindViewById<ListView>(Resource.Id.WP_customerorderListView);
             
-            parsedData.Insert(0, (new WP_CO_OrderList() { DishQuanitity= "test2",ItemName = "test1", ItemPrice="test3"}));
+            parsedData.Insert(0, (new WP_CO_OrderList() { DishQuanitity= "Quantity",ItemName = "Dish Name", ItemPrice="Order Total"}));
             WP_CO_ListViewAdapter adapter = new WP_CO_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
-            Console.WriteLine(parsedData+"############################################");
 
             //Swipe to Refresh
             var refresher = FindViewById<SwipeRefreshLayout>(Resource.Id.swipecontainerWPCO);

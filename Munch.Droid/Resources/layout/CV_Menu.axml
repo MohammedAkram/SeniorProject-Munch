@@ -7,6 +7,7 @@
     android:background="@drawable/tile_wood"
     android:scaleType="centerCrop">
     <FrameLayout
+        android:visibility="gone"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/customerspalsh">
@@ -103,7 +104,7 @@
         android:layout_marginRight="42dp"
         android:layout_marginLeft="42dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/tile_tilemenu">
+        android:background="@drawable/tile_wood">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cv_menurecyclerView"
             android:layout_width="match_parent"
