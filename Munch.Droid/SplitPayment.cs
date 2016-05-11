@@ -13,6 +13,7 @@ using Android.Support.V7.App;
 using Android.Support.V4.Widget;
 using Newtonsoft.Json;
 using Android.Graphics.Drawables;
+using PubNubMessaging.Core;
 
 namespace Munch
 {
@@ -31,6 +32,70 @@ namespace Munch
             public double subtotal { get; set; }
 
         }
+
+
+        #region "Pubnub"
+        Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
+        void DisplaySubscribeReturnMessage(string result)
+        {
+            Console.WriteLine("SUBSCRIBE REGULAR CALLBACK: ");
+            Console.WriteLine(result);
+
+            if (!string.IsNullOrEmpty(result) && !string.IsNullOrEmpty(result.Trim()))
+            {
+                List<object> deserializedMessage = pubnub.JsonPluggableLibrary.DeserializeToListOfObject(result);
+                if (deserializedMessage != null && deserializedMessage.Count > 0)
+                {
+                    object subscribedObject = (object)deserializedMessage[0];
+                    if (subscribedObject != null)
+                    {
+                        //IF CUSTOM OBJECT IS EXCEPTED, YOU CAN CAST THIS OBJECT TO YOUR CUSTOM CLASS TYPE
+                        string resultActualMessage = pubnub.JsonPluggableLibrary.SerializeToJsonString(subscribedObject);
+                        string re = resultActualMessage.Replace('"', ' ');
+                        string s1 = re.Substring(1, re.IndexOf(',') - 1);
+                        string s2 = re.Substring((re.IndexOf(',') + 1));
+
+
+
+                        Notification.Builder builder = new Notification.Builder(this)
+                        .SetContentTitle(s1)
+                        .SetContentText(s2)
+                        .SetPriority(2)
+                        .SetColor(2)
+                        .SetVibrate(new long[1])
+                        .SetSmallIcon(Resource.Drawable.Icon);
+
+                        // Build the notification:
+                        Notification notification = builder.Build();
+
+                        // Get the notification manager:
+                        NotificationManager notificationManager =
+                            GetSystemService(Context.NotificationService) as NotificationManager;
+
+                        // Publish the notification:
+                        const int notificationId = 0;
+                        notificationManager.Notify(notificationId, notification);
+
+
+                    }
+                }
+            }
+        }
+        void DisplaySubscribeConnectStatusMessage(string result)
+        {
+            Console.WriteLine("SUBSCRIBE CONNECT CALLBACK");
+        }
+        void DisplayErrorMessage(PubnubClientError pubnubError)
+        {
+            Console.WriteLine(pubnubError.StatusCode);
+        }
+        void DisplayReturnMessage(string result)
+        {
+            Console.WriteLine("PUBLISH STATUS CALLBACK");
+            Console.WriteLine(result);
+        }
+        #endregion
+
 
         //drawer stuff
         private SupportToolbar mToolbar;
@@ -77,9 +142,9 @@ namespace Munch
             mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
             mLeftDrawer.Tag = 0;
             SetSupportActionBar(mToolbar);
-            
 
 
+           
 
 
 
