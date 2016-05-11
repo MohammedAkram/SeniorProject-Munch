@@ -212,12 +212,31 @@ namespace Munch
                     });
                     builder.SetNeutralButton("Split Evenly", delegate
                     {
-                        Android.Widget.Toast.MakeText(this, "Picked Evenly", Android.Widget.ToastLength.Long).Show();
+                        
                         StartActivity(typeof(EvenPayment));
+
                     });
                     builder.SetNegativeButton("Single Check", delegate
                     {
-                        Android.Widget.Toast.MakeText(this, "Picked Single", Android.Widget.ToastLength.Long).Show();
+                        double subtotal = 0;
+
+                        //Getting subtotal of items ordered
+                        foreach (CustomerOrderItem x in CustomerPortal.CustomerOrderList)
+                        {
+                            int numQty = Int32.Parse(x.Quantity);
+                            while (numQty > 0)
+                            {
+                                double price = Convert.ToDouble(x.Dish.iPrice);
+                                subtotal += price;
+                                numQty--;
+                            }
+                        }
+                        //Adding tax to subtotal
+                        Double TotalCost = Math.Round(((subtotal * .08875) + subtotal), 2);
+                        String TotalCostString = Convert.ToString(TotalCost);
+
+                        pubnub.Publish<string>(LoginScreen.loginUsername, "Here's their single check total: $" + TotalCostString, DisplayReturnMessage, DisplayErrorMessage);
+
                     });
                     builder.Show();
                 }

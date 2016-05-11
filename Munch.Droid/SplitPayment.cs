@@ -390,7 +390,7 @@ namespace Munch
                     builder.SetPositiveButton("All Good!", delegate {
                         //string json = JsonConvert.SerializeObject(customerList);
                         pubnub.Publish<string>(LoginScreen.loginUsername, confirmationDialogString, DisplayReturnMessage, DisplayErrorMessage);
-                        
+                        //pubnub.Publish<string>(LoginScreen.loginUsername, json, DisplayReturnMessage, DisplayErrorMessage);
                         //Console.WriteLine(json);
 
 
@@ -503,7 +503,6 @@ namespace Munch
                     refreshNav();
                     break;
             }
-
     
         }
 

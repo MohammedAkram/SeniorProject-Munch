@@ -68,13 +68,14 @@ namespace Munch
                         Console.WriteLine(resultActualMessage);
                         if (resultActualMessage[1] == 'H')
                         {
-                            string paymentString = resultActualMessage;
-                            WP_CustomerOrder.payy.Add(new WP_CO_OrderList() {ItemName= paymentString, DishQuanitity="",ItemPrice="" });
+                            string paymentString = resultActualMessage.Replace("\"", "");
+                            Console.WriteLine(paymentString + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            WP_CustomerOrder.payy.Add(new WP_CO_OrderList() {ItemName= paymentString.ToString(), DishQuanitity="",ItemPrice="" });
                         }
                         else
                         {
 
-                            string re = resultActualMessage.Replace('"', ' ');
+                            string re = resultActualMessage.Replace("\"", "");
                             string s1 = re.Substring(1, re.IndexOf(',') - 1);
                             string s2 = re.Substring((re.IndexOf(',') + 1));
 
