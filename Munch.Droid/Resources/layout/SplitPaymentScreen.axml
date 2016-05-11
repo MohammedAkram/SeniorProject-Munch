@@ -32,6 +32,8 @@
                 <TextView
                     android:id="@+id/result"
                     android:text="Customer 1"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -41,12 +43,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="prev"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/btn_variant1"
                     android:layout_gravity="bottom|left" />
                 <Button
                     android:id="@+id/nextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="next"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/btn_variant1"
                     android:layout_gravity="bottom|right" />
             </FrameLayout>
         <!-- Dropable elements -->
@@ -59,7 +65,7 @@
                 android:layout_alignParentTop="true">
                 <RelativeLayout
                     android:layout_below="@+id/scrollView1"
-                    android:background="#ff949494"
+                    android:background="@drawable/tile_wood"
                     android:id="@+id/buttonholder"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

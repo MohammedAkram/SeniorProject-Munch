@@ -4,7 +4,7 @@
       xmlns:myapp="http://schemas.android.com/apk/res-auto">
 
 	<item android:id="@+id/action_pay"
-		android:icon="@drawable/ic_payment_black_24dp"
+		android:icon="@drawable/ic_credit_card_white_48dp"
 		android:title="Payment"
 		myapp:showAsAction="always"/>
 
