@@ -154,7 +154,14 @@ namespace Munch
             Waiter_Table_Selection_ListViewAdapter adapter = new Waiter_Table_Selection_ListViewAdapter(this, parsedData);
             mListView.Adapter = adapter;
 
-            
+            var logout = FindViewById<Button>(Resource.Id.LogOut_Waiter_Table_Selection);
+            logout.Click += (sender, e) =>
+            {
+                SetContentView(Resource.Layout.LoginScreen);
+                Android.Widget.Toast.MakeText(this, "Logged Out Successfully", Android.Widget.ToastLength.Short).Show();
+                StartActivity(typeof(LoginScreen));
+            };
+
             var fab = FindViewById<FloatingActionButton>(Resource.Id.Waiter_Table_Selection_fab);
             fab.AttachToListView(mListView);
             fab.Click += (object sender, EventArgs args) =>

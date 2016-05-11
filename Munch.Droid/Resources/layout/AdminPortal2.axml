@@ -83,7 +83,7 @@
                 android:textSize="18dp" />
             <TextView
                 android:id="@+id/netProfitAmt"
-                android:text="$17,658.28"
+                android:text=""
                 android:editable="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
@@ -144,7 +144,7 @@
                 android:textSize="18dp" />
             <TextView
                 android:id="@+id/popularItemtext"
-                android:text="Cheeseburger"
+                android:text=""
                 android:editable="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
