@@ -213,6 +213,7 @@ namespace Munch
                     builder.SetNeutralButton("Split Evenly", delegate
                     {
                         Android.Widget.Toast.MakeText(this, "Picked Evenly", Android.Widget.ToastLength.Long).Show();
+                        StartActivity(typeof(EvenPayment));
                     });
                     builder.SetNegativeButton("Single Check", delegate
                     {
