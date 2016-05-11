@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Munch
 {
-    class WP_CO_OrderList
+    public class WP_CO_OrderList
     {
         public string ItemName { get; set; }
         public string DishQuanitity { get; set; }

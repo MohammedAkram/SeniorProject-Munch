@@ -69,6 +69,7 @@ namespace Munch
                         if (resultActualMessage[1] == 'H')
                         {
                             string paymentString = resultActualMessage;
+                            WP_CustomerOrder.payy.Add(new WP_CO_OrderList() {ItemName= paymentString, DishQuanitity="",ItemPrice="" });
                         }
                         else
                         {

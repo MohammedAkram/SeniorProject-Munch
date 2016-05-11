@@ -22,6 +22,7 @@ namespace Munch
     [Activity(Label = "WP_CustomerOrder", Theme = "@android:style/Theme.Holo.Light.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.SensorLandscape)]
     public class WP_CustomerOrder : Activity
     {
+        public static List<WP_CO_OrderList> payy = new List<WP_CO_OrderList>();
         private List<WP_CO_OrderList> mItems;
         public ListView mListView;
         public SwipeRefreshLayout refresher;
@@ -48,6 +49,14 @@ namespace Munch
             var refresher = FindViewById<SwipeRefreshLayout>(Resource.Id.swipecontainerWPCO);
             refresher.SetColorScheme(Resource.Color.primary, Resource.Color.accent_pressed, Resource.Color.accent_material_dark);
             refresher.Refresh += HandleRefresh;
+            var fab = FindViewById<FloatingActionButton>(Resource.Id.WPCOfab);
+            fab.AttachToListView(mListView);
+            fab.Click += (object sender, EventArgs args) =>
+            {
+                WP_CO_ListViewAdapter payadapter = new WP_CO_ListViewAdapter(this, payy);
+                mListView.Adapter = payadapter;
+                Console.WriteLine(payy.Count() + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            };
         }
 
         //Swipe to Refresh Activity
