@@ -50,11 +50,10 @@ namespace Munch
         {
              CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = CV2_Menu.dishName_to_order, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = CV2_Menu.dishName_to_order.iPrice });
             CV2_YourOrder.mItems.Add(new CustomerOrderItem() { Dish = CV2_Menu.dishName_to_order, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = CV2_Menu.dishName_to_order.iPrice });
-
-            // CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish = DishName.Text, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = "" });
             Console.WriteLine(CustomerPortal.CustomerOrderList.Count());
-            //CustomerPortal.CustomerOrderList.Add(new CustomerOrderItem() { Dish=DishName.Text, Quantity = Quant.Text, Notes = Notes.Text, OrderNumber = "" });
             this.Dismiss();
+            Android.Widget.Toast.MakeText(this.Activity, "Your item has been added to your order. Please check your full order by clicking on the Your Order button.", Android.Widget.ToastLength.Long).Show();
+
         }
     }
 }

@@ -74,6 +74,8 @@ namespace Munch
                 //NEED URL FOR ADDING TO MYSQL
                 var webClient = new WebClient();
                 webClient.DownloadString("http://54.191.98.63/orders.php?idAccounts=" + loginname + "&&name=" + dishname.Text + "&&Quantity=" + quantity.Text + "&&Note=" + notes.Text + "&&count=" + count + "&&price=" + price.Text);
+
+
             }
             for (int i = 0; i < mListView.Count; i++)
             {
