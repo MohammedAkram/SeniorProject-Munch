@@ -26,10 +26,7 @@ namespace Munch
 
     public class Waiter_Table_Selection_Activity : Activity
     {
-
-
         private List<Waiter_Table_Selection_List> mItems;
-
         private async Task<JsonValue> FetchTablesAsync(string url)
         {
             // Create an HTTP web request using the URL:
@@ -50,20 +47,8 @@ namespace Munch
                 }
             }
         }
-
         public static string TableURL = "http://54.191.98.63/managetables.php?waiter=" + LoginScreen.loginUsername + "&&tables=";
         public ListView mListView;
-
-
-
-        //pubnub
-        /*
-        *************************************************************************
-        *************************************************************************
-        ********************************PUBNUB***********************************
-        *************************************************************************
-        *************************************************************************
-        */
         Pubnub pubnub = new Pubnub("pub-c-ddf91c9e-baf7-47af-8ca8-276337355d46", "sub-c-d70d769c-ebda-11e5-8112-02ee2ddab7fe");
         void DisplaySubscribeReturnMessage(string result)
         {
@@ -134,22 +119,8 @@ namespace Munch
             Console.WriteLine(result);
         }
 
-
-
-        /*
-        *************************************************************************
-        *************************************************************************
-        ****************************END OF PUBNUB********************************
-        *************************************************************************
-        *************************************************************************
-        */
-
-
         protected override async void OnCreate(Bundle bundle)
         {
-
-            
-
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Waiter_Table_Selection);
             string tableURL = "http://54.191.98.63/tables.php";
@@ -215,6 +186,10 @@ namespace Munch
             };
 
         }
-        
+
+        public override void OnBackPressed()
+        {
+        }
+
     }
 }

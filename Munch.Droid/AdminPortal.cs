@@ -215,6 +215,9 @@ namespace Munch
             ContentView.ViewTreeObserver.AddOnGlobalLayoutListener(this);
         }
 
+        public override void OnBackPressed()
+        {
+        }
 
         View ContentView
         {

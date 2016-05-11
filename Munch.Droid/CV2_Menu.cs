@@ -264,6 +264,11 @@ namespace Munch
 
         public static EMItemList dishName_to_order;
 
+        public override void OnBackPressed()
+        {
+
+        }
+
         void OnItemClick(object sender, int position)
         {
             dishName_to_order = mItemList[position];
