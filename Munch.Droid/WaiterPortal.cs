@@ -23,24 +23,19 @@ namespace Munch
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.WaiterPortal);
-            // Create your application here
 
             mListView = FindViewById<ListView>(Resource.Id.Waiter_portal_ListView);
             WaiterPortal_ListViewAdapter adapter = new WaiterPortal_ListViewAdapter(this, Selecttable);
             mListView.Adapter = adapter;
-            mListView.ItemLongClick += mListView_ItemLongClick;
+            mListView.ItemClick += mListView_itemClick;
         }
 
-            private void mListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
-            {
+        private void mListView_itemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
             var v = mListView.Adapter.GetView(e.Position, null, null);
             var idaccount = (TextView)v.FindViewById(Resource.Id.Manage_Selecteedtable_Name);
             IDACCOUNT = idaccount.Text;
-            Console.WriteLine(IDACCOUNT + "############");
-
             StartActivity(typeof(WP_CustomerOrder));
-            }
-
-
+        }
     }
 }

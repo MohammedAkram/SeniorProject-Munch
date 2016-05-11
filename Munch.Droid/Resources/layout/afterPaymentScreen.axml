@@ -3,19 +3,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
-        android:background="#ff505050"
+    <ImageView
+        android:src="@drawable/paymentcomplete"
+        android:background="#c91e1e"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/afterPaymentRelative"
-        android:minWidth="25px"
-        android:minHeight="25px">
-        <TextView
-            android:text="Thanks for eating at burgr!"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/afterPaymentText" />
-    </RelativeLayout>
+        android:scaleType="centerInside" />
 </LinearLayout>

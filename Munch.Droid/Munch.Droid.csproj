@@ -362,7 +362,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\btn_mtrl_alpha.9.png" />
     <AndroidResource Include="Resources\drawable\btn_variant1.xml" />
     <AndroidResource Include="Resources\drawable\btn_variant2.xml" />
-    <AndroidResource Include="Resources\drawable\chickparm.png" />
     <AndroidResource Include="Resources\drawable\brgrbg.xml" />
     <AndroidResource Include="Resources\drawable\payConfirmation.png" />
     <AndroidResource Include="Resources\drawable\WPCustomerOrder.png" />
@@ -387,6 +386,7 @@
     <AndroidResource Include="Resources\drawable\ic_payment_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_payment_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_payment_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\paymentcomplete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
